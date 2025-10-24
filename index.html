@@ -228,9 +228,14 @@
 .register-wa{background:#25d366;color:#fff;margin-bottom:8px}
 .register-done{background:#f6b042;color:#222}
 .small-link{display:block;text-align:center;margin-top:8px;font-size:13px;color:#666}
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#f6b042">
+
   </style>
 </head>
 <body>
+	<section id="home"><h2>home</h2>
   <!-- ================= HEADER ================= -->
   <header>
     <div class="header-left">
@@ -347,9 +352,11 @@ Gg.Subur Blok.Wanakaya RT01/RW02 No.26</p>
  {name:'Minyak Goreng Bimoli 2L',price:38000,img:'images/bimoli-2l.jpg',category:'sembako'},
  {name:'Tepung Terigu Segitiga Biru 1kg',price:15500,img:'images/terigu-1kg.jpg',category:'sembako'},
  {name:'Kecap Bango 520ml',price:30000,img:'images/bango-refill.jpg',category:'sembako'},
+ {name:'Indomie Special Chicken Rasa Ayam Special 75g',price:3500,img:'images/IND-SPECIAL-75.jpg',category:'mie'},
  {name:'Indomie Goreng Original 85g',price:3500,img:'images/IND-GOR-OR-85.jpg',category:'mie'},
  {name:'Indomie Goreng Pedas 85g',price:3500,img:'images/IND-GOR-PDS-85.jpg',category:'mie'},
  {name:'Mie Sedaap Rasa Soto',price:3500,img:'images/sedap-soto.jpg',category:'mie'},
+ {name:'Indomie Jumbo Goreng Rasa Barbaque Chicken 128g',price:6000,img:'images/IND-GOR-BARBQ-128.jpg',category:'mie'},
  {name:'Chitato 68g',price:9000,img:'images/chitato-68g.jpg',category:'snack'},
  {name:'Roma Sari Gandum 240g',price:12000,img:'images/roma-marie-240g.jpg',category:'snack'},
  {name:'Mie Sedap Goreng Korea Spicy Chicken',price:3500,img:'images/sedap-goreng-korea.jpg',category:'mie'},
@@ -650,11 +657,36 @@ searchBtn.addEventListener('click', ()=>{
   <a href="#cart"><span>🛒</span><br>Keranjang</a>
 </div>
 <script>
-// Klik tombol Cart di bottom-nav  klik tombol Cart asli (#open-cart)
+// Klik tombol Cart di bottom-nav → klik tombol Cart asli (#open-cart)
 document.querySelector('.bottom-nav a[href="#cart"]').addEventListener('click', function(e) {
   e.preventDefault();
   document.getElementById('open-cart').click();
 });
+</script> <!-- ✅ TUTUP DULU SCRIPT YG INI-->
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js');
+}
+</script>
+
+<button id="installBtn" style="position:fixed;bottom:140px;right:12px;z-index:9999;display:none;border-radius:10px;padding:8px 12px;background:#f6b042;color:#fff">
+  ➕ Pasang di Layar Utama
+</button>
+
+<script>
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  document.getElementById('installBtn').style.display = 'block';
+});
+document.getElementById('installBtn').addEventListener('click', async () => {
+  document.getElementById('installBtn').style.display = 'none';
+  deferredPrompt.prompt();
+  deferredPrompt = null;
+});
+
 </script>
 </body>
 </html>
