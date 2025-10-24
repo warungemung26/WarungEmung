@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warung Emung Praktis, Hemat, Dekat</title>
+  <style>
+
+    /* ================= VARIABEL WARNA & BODY ================= */
+    :root{--bg:#fff8e7;--accent:#f6b042;--green:#25d366;--card:#fff}
+    body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:16px;background:#fff}
+
+    /* ================= HEADER ================= */
+    header{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;background:var(--accent);color:#222;border-bottom:1px solid #ddd;border-radius:8px}
+    .header-left{display:flex;align-items:center}
+    header img{height:60px;margin-right:15px;border-radius:8px}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:2px 0 0;font-size:13px}
+
+    /* ================= SEARCH & HERO ================= */
+    #search{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;margin:16px 0}
+    .hero{padding:24px;text-align:center;background:var(--bg);border-radius:12px}
+    .hero a{display:inline-block;padding:12px 22px;background:var(--green);color:white;border-radius:10px;text-decoration:none;font-weight:600}
+    .hero {
+  padding: 24px;
+  text-align: center;
+  border-radius: 12px;
+
+  /* Background image */
+  background-image: url('images/hero-bg.jpg'); /* ganti sesuai nama file */
+  background-size: cover;        /* supaya menutupi area hero */
+  background-position: center;   /* posisikan di tengah */
+  background-repeat: no-repeat;  /* jangan diulang */
+  color: #fff;                   /* teks putih supaya kontras */
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* biar teks terlihat jelas */
+}
+
+    /* ================= GRID PRODUK ================= */
+    #produk-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:16px}
+    .card{background:var(--card);padding:10px;border-radius:10px;border:1px solid #eee;box-shadow:0 1px 3px rgba(0,0,0,0.03)}
+    .card img{
+  width:100%;
+  height:90px;       /* ubah dari 120px  90px agar proporsional */
+  object-fit:cover;
+  border-radius:8px;
+  margin-bottom:4px; /* sedikit dikurangi agar teks tidak terlalu jauh */
+  padding-bottom:0 !important; /* override aturan mobile yang bikin loncat */
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+    .card .title{font-weight:600;font-size:14px}
+    .card .price{color:#111;font-size:13px;margin-top:6px}
+
+    /* ================= KATEGORI ================= */
+    .categories{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-top:22px}
+    .cat{background:#fff3cc;padding:14px;border-radius:10px;text-align:center;cursor:pointer}
+    footer{margin-top:30px;text-align:center;font-size:12px;color:#666}
+
+    /* ================= QTY & BUTTON ================= */
+    .qty-controls{display:flex;align-items:center;gap:6px;margin-top:8px}
+    .qty-controls button{padding:4px 8px;border:1px solid #ccc;border-radius:4px;background:#f0f0f0;cursor:pointer}
+    .qty-controls span{min-width:22px;text-align:center;display:inline-block}
+    .wa-btn{margin-top:8px;display:inline-block;padding:6px 10px;background:var(--green);color:#fff;border-radius:6px;font-size:12px;text-decoration:none}
+    .add-btn{margin-top:8px;padding:6px 10px;border-radius:6px;border:1px solid #ccc;background:#fff;cursor:pointer}
+
+    /* ================= KERANJANG ================= */
+    .cart-btn{position:relative;padding:8px 10px;border-radius:800px;background:#fff;color:#222;text-decoration:none;border:1px solid rgba(0,0,0,0.06);display:inline-flex;align-items:center;gap:8px}
+    .cart-count{position:absolute;top:-6px;right:-6px;background:#ff4b4b;color:#fff;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:12px}
+    /* modal */
+    .modal{position:fixed;right:12px;bottom:12px;width:320px;background:#fff;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.15);padding:12px;display:none;z-index:999}
+    .modal.open{display:block}
+    .modal h4{margin:0 0 8px;font-size:16px}
+    .modal .item{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed #eee}
+    .modal .total{font-weight:700;margin-top:8px}
+    
+/* modal */
+   #cart-notif {position:absolute;top:2px;right:28%;background:red;color:#fff;font-size:12px;font-weight:bold;width:18px;height:18px;text-align:center;line-height:18px;border-radius:50%;display:none;}
+  .modal {display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);justify-content:center;align-items:center;z-index:2000;}
+  .modal-content {background:#fff;padding:20px;border-radius:10px;max-width:90%;max-height:80%;overflow-y:auto;}
+    /* ================= TOAST ================= */
+    #toast {
+  position: fixed;
+  left: 50%;
+  bottom: 80px; /* lebih tinggi dari tombol floating (20px) */
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  opacity: 0;
+  transition: opacity .3s, bottom .3s;
+  z-index: 2001; /* lebih tinggi dari floating button (1000) dan modal kategori (2000) */
+  pointer-events: none;
+}
+    /* ================= FLOATING BUTTONS ================= */
+ #open-cart{position:fixed;bottom:20px;right:20px;z-index:100000}
+    #cat-float{position:fixed;bottom:20px;right:225px;z-index:100000}
+    
+    /* Tombol Keranjang Floating */
+.cart-btn {
+  position: fixed;
+  right: 12px;
+  bottom: 80px;
+  padding: 8px 10px;
+  border-radius: 800px;
+  background: #fff;
+  color: #222;
+  border: 1px solid rgba(0,0,0,0.06);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 9999;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #ff4b4b; /* merah */
+  color: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 10000;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  width: 320px;
+  max-height: 70vh;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 10001;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity:0; }
+  to { transform: translateY(0); opacity:1; }
+}
+
+/* Konten scrollable */
+.modal-body {
+  padding: 12px;
+  overflow-y: auto;
+}
+
+/* Footer tetap terlihat */
+.modal-footer {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid #eee;
+  flex-shrink: 0;
+  background: #fff;
+}
+
+.modal-footer button {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.wa-btn { background: #25d366; color: #fff; }
+.add-btn { background: #ff4b4b; color: #fff; }
+
+
+    /* ================= CATEGORY MODAL ================= */
+    #cat-modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.35);display:none;align-items:center;justify-content:center;z-index:2000}
+    #cat-modal{background:#fff;padding:16px;border-radius:12px;width:320px;max-width:95%;box-shadow:0 8px 24px rgba(0,0,0,0.25);opacity:0;transform:translateY(-12px) scale(.98);transition:opacity .25s ease, transform .25s ease}
+    #cat-modal.open{opacity:1;transform:translateY(0) scale(1)}
+    #cat-modal .close-btn{position:absolute;top:8px;right:8px;background:none;border:none;font-size:18px;cursor:pointer}
+    #cat-options .cat{cursor:pointer}
+
+    /* ================= RESPONSIVE MOBILE ================= */
+    @media(max-width:480px){
+      .card img{padding-bottom:100%}
+      #produk-list{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
+      .modal{width:95%;left:2.5%;right:2.5%}
+    }
+
+    /* ================= FOOTER ================= */
+    footer{margin-top:30px;text-align:center;font-size:12px;color:#666}
+    /* ==== POPUP DAFTAR VIA WHATSAPP (MODAL, B) ==== */
+#register-backdrop{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.45); /* semi transparent */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:3000;
+  backdrop-filter: blur(2px);
+}
+#register-modal{
+  width:92%;
+  max-width:420px;
+  background:#fff;
+  border-radius:12px;
+  padding:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.25);
+  text-align:left;
+}
+#register-modal h3{margin:0 0 8px;font-size:18px}
+#register-modal p{margin:6px 0 12px;color:#444;font-size:14px}
+.register-btn{display:inline-block;width:100%;padding:10px 12px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
+.register-wa{background:#25d366;color:#fff;margin-bottom:8px}
+.register-done{background:#f6b042;color:#222}
+.small-link{display:block;text-align:center;margin-top:8px;font-size:13px;color:#666}
+  </style>
+</head>
+<body>
+  <!-- ================= HEADER ================= -->
+  <header>
+    <div class="header-left">
+      <img src="images/logo-warung.png" alt="Logo Warung Emung">
+      <div>
+        <h1>Warung Emung</h1>
+        <p class="lead">Praktis, Hemat, Dekat
+Gg.Subur Blok.Wanakaya RT01/RW02 No.26</p>
+      </div>
+    </div>
+    <div>
+    </div>
+<link rel="stylesheet" href="css/floating.css">
+  </header>
+
+  <!-- ================= SEARCH ================= -->
+<div style="display:flex;gap:6px;margin:16px 0">
+  <input id="search" placeholder="🔎Cari produk... (misal ketik merk: indomie)" style="flex:1;padding:10px;border-radius:8px;border:1px solid #ddd" />
+  <button id="search-btn" style="padding:10px 16px;border:none;border-radius:8px;background:var(--accent);color:#fff;cursor:pointer">🔍</button>
+</div>
+
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <h2 style="margin:0 0 8px">Belanja Harian Lebih Mudah</h2>
+    <p style="margin:0 0 12px; color:#fff">Belanja harian gampang, tinggal klik - langsung kami antar! Buka setiap hari 06.00-22.00</p>
+    <a id="wa-cta" href="https://wa.me/6285322882512?text=" target="_blank">Pesan via WhatsApp</a>
+  </section>
+  <!-- REGISTER POPUP (semi-transparent modal, B) -->
+<div id="register-backdrop" aria-hidden="false" style="display:none;">
+  <div id="register-modal" role="dialog" aria-modal="true">
+    <h3>Daftar Pelanggan Warung Emung</h3>
+    <p>Untuk mengakses layanan & memesan online, silakan daftar terlebih dahulu via WhatsApp. Klik tombol di bawah, kirim data pendaftaran (Nama & Alamat/RT-RW), lalu kembali ke situs dan tekan "Saya sudah  daftar".</p>
+
+    <!-- WA button: ganti nomor di href jika perlu -->
+    <button id="btn-register-wa" class="register-btn register-wa">Daftar via WhatsApp</button>
+
+    <!-- Setelah mendaftar, pengguna klik ini untuk membuka toko -->
+    <button id="btn-registered" class="register-btn register-done">Saya sudah daftar✅, lanjut belanja</button>
+
+    <a class="small-link" href="#" id="register-hint">Saya belum sempat kirim pesan apa perlu?</a>
+  </div>
+</div>
+<button id="open-cart" class="cart-btn" title="Keranjang">🛒<span id="cart-count" class="cart-count" style="display:none">0</span></button>
+      <button id="cat-float" title="Pilih Kategori" style="width:50px;height:50px;border-radius:50%;background:#f6b042;border:none;box-shadow:0 2px 6px rgba(0,0,0,.2);font-size:22px;cursor:pointer">🗂</button>
+
+  <!-- ================= KATEGORI ================= -->
+  <h3 style="margin-top:22px">Pilih Kategori</h3>
+  <div class="categories">
+    <div class="cat" onclick="setCategory('')">🛒 Semua</div>
+    <div class="cat" onclick="setCategory('sembako')">🌾Sembako</div>
+    <div class="cat" onclick="setCategory('makanan')">🍢 Makanan Cepat Saji</div>
+    <div class="cat" onclick="setCategory('mie')">🍜 Mie Instan</div>
+    <div class="cat" onclick="setCategory('snack')">🍿Makanan Ringan</div>
+    <div class="cat" onclick="setCategory('minuman')">🥤 Minuman Dingin</div>
+    <div class="cat" onclick="setCategory('minumansachet')">🥤 Minuman Sachet 🍬</div>
+    <div class="cat" onclick="setCategory('rumah')">🧴 Kebutuhan Rumah</div>
+  </div>
+
+  <!-- ================= PRODUK ================= -->
+  <h3 style="margin-top:22px">Daftar Produk</h3>
+  <div id="produk-list"></div>
+
+  <!-- ================= KERANJANG MODAL ================= -->
+  <div id="cart-modal" class="modal" role="dialog" aria-hidden="true">
+    <h4>Keranjang Anda</h4>
+    <div id="cart-items"></div>
+    <div class="total" id="cart-total"></div>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button id="wa-cart" class="wa-btn">Pesan Semua via WA</button>
+      <button id="clear-cart" class="add-btn" style="background:#ff4b4b;color:#fff;">Kosongkan</button>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>Warung Emung — Praktis, Hemat, Dekat • Hubungi via WhatsApp untuk pesanan</footer>
+
+  <!-- ================= TOAST NOTIF ================= -->
+  <div id="toast">Berhasil</div>
+
+  <!-- ================= CATEGORY MODAL ================= -->
+  <div id="cat-modal-backdrop">
+    <div id="cat-modal" role="dialog" aria-hidden="true">
+      <button id="close-cat" class="close-btn">❎</button>
+      <h4 style="margin-top:4px">Pilih Kategori</h4>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px;" id="cat-options">
+        <div class="cat" data-cat="">🛒Semua</div>
+        <div class="cat" data-cat="sembako">Sembako</div>
+        <div class="cat" data-cat="makanan">🍢 Makanan Cepat Saji</div>
+        <div class="cat" data-cat="mie">🍜 Mie Instan</div>
+        <div class="cat" data-cat="snack">🍿Makanan Ringan</div>
+        <div class="cat" data-cat="minuman">🥤 Minuman Dingin</div>
+        <div class="cat" data-cat="minumansachet">🥤 Minuman Sachet 🍬</div>
+        <div class="cat" data-cat="rumah">🧴 Kebutuhan Rumah</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SCRIPT PRODUK & KERANJANG ================= -->
+  <script>
+    // Data produk
+    const products = [
+ {name:'Sosis Bakar mba Atin',price:5000,img:'images/sosisbakar.jpg',category:'makanan'},
+{name:'Bakso Bakar mba Atin',price:5000,img:'images/baksobakar.jpg',category:'makanan'},
+{name:'Seblak Anissa',price:5000,img:'images/seblak.jpg',category:'makanan'},
+{name:'Es Minuman Dingin',price:2000,img:'images/es.jpg',category:'minuman'},
+{name:'Beras Rojolele 5kg',price:65000,img:'images/rojolele-5kg.jpg',category:'sembako'},
+ {name:'Beras Rojolele Eceran 1kg',price:14000,img:'images/rojolele-1kg.jpg',category:'sembako'},
+ {name:'Gula Pasir 1kg',price:16000,img:'images/gula-pas-1kg.jpg',category:'sembako'},
+ {name:'Minyak Goreng 1L',price:18000,img:'images/bimoli-1l.jpg',category:'sembako'},
+ {name:'Telur Ayam 1kg',price:28000,img:'images/telur-1kg.jpg',category:'sembako'},
+ {name:'Telur Ayam 1/4kg',price:8000,img:'images/telur-1per4.jpg',category:'sembako'},
+ {name:'Bimoli 2L',price:38000,img:'images/bimoli-2l.jpg',category:'sembako'},
+ {name:'Tepung Terigu 1kg',price:14000,img:'images/terigu-1kg.jpg',category:'sembako'},
+ {name:'Kecap Bango Refill',price:15000,img:'images/bango-refill.jpg',category:'sembako'},
+ {name:'Indomie Goreng Original 85g',price:3500,img:'images/IND-GOR-OR-85.jpg',category:'mie'},
+ {name:'Indomie Goreng Pedas 85g',price:3500,img:'images/IND-GOR-PDS-85.jpg',category:'mie'},
+ {name:'Chitato 68g',price:9000,img:'images/chitato-68g.jpg',category:'snack'},
+ {name:'Roma Marie 240g',price:12000,img:'images/roma-marie-240g.jpg',category:'snack'},
+ {name:'Mie Sedap Goreng',price:3500,img:'images/sedap-goreng.jpg',category:'mie'},
+ {name:'Silverqueen 65g',price:18000,img:'images/silverqueen-65g.jpg',category:'snack'},
+ {name:'Aqua Botol 600ml',price:4000,img:'images/aqua-600ml.jpg',category:'minuman'},
+ {name:'Teh Pucuk 350ml',price:5000,img:'images/tehpucuk-350ml.jpg',category:'minuman'},
+ {name:'Coca Cola 1L',price:15000,img:'images/cocacola-1l.jpg',category:'minuman'},
+ {name:'Ultra Milk 250ml',price:6000,img:'images/ultramilk-250ml.jpg',category:'minuman'},
+ {name:'Kopi Kapal Api',price:3000,img:'images/minumansachet.jpg',category:'minumansachet'},
+ {name:'Good Day Sachet',price:2000,img:'images/minumansachet.jpg',category:'minumansachet'},
+ {name:'ABC Susu Sachet',price:2000,img:'images/minumansachet.jpg',category:'minumansachet'},
+ {name:'Susu Dancow Sachet',price:4000,img:'images/minuman.jpg',category:'minumansachet'},
+ {name:'Nutrisari Jeruk',price:2000,img:'images/nutrisari-jeruk.jpg',category:'minumansachet'},
+ {name:'Sabun Lifebuoy 60g',price:5000,img:'images/lifebuoy-60g.jpg',category:'rumah'},
+ {name:'Shampo Sunsilk Sachet',price:2000,img:'images/sunsilk-sachet.jpg',category:'rumah'},
+ {name:'Pasta Gigi Pepsodent',price:6000,img:'images/pepsodent.jpg',category:'rumah'},
+ {name:'Gas LPG 3kg',price:22000,img:'images/gas.jpg',category:'rumah'}
+];
+
+    // --- ELEMENTS ---
+    const listEl = document.getElementById('produk-list');
+    const searchEl = document.getElementById('search');
+    const cartCountEl = document.getElementById('cart-count');
+    const openCartBtn = document.getElementById('open-cart');
+    const cartModal = document.getElementById('cart-modal');
+    const cartItemsEl = document.getElementById('cart-items');
+    const cartTotalEl = document.getElementById('cart-total');
+    const waCartBtn = document.getElementById('wa-cart');
+    const clearCartBtn = document.getElementById('clear-cart');
+    const catFloat = document.getElementById('cat-float');
+    const catBackdrop = document.getElementById('cat-modal-backdrop');
+    const catModal = document.getElementById('cat-modal');
+    const closeCatBtn = document.getElementById('close-cat');
+    const catOptions = document.getElementById('cat-options');
+    const toastEl = document.getElementById('toast');
+    /* ===== Register via WhatsApp modal logic (B) ===== */
+const registerBackdrop = document.getElementById('register-backdrop');
+const btnRegisterWA = document.getElementById('btn-register-wa');
+const btnRegistered = document.getElementById('btn-registered');
+const registerHint = document.getElementById('register-hint');
+
+/* WA number dan pesan otomatis (formal) */
+const WA_NUMBER = '6285322882512'; // ganti kalau perlu
+const WA_MESSAGE = encodeURIComponent(
+  'Halo Warung Emung, saya ingin mendaftar sebagai pelanggan RT untuk belanja. Nama: Alamat / RT-RW:'
+);
+
+/* Tampilkan modal jika belum menekan \"Saya sudah daftar\" di session */
+function isRegisteredThisSession(){
+  try{
+    return sessionStorage.getItem('warung_registered') === '1';
+  }catch(e){
+    return false;
+  }
+}
+function setRegisteredThisSession(){
+  try{ sessionStorage.setItem('warung_registered','1'); }catch(e){}
+}
+
+/* tampilkan modal bila perlu (pop-up B � produk terlihat di belakang tapi tidak bisa diklik) */
+function showRegisterModal(){
+  registerBackdrop.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function hideRegisterModal(){
+  registerBackdrop.style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+/* inisialisasi saat load: jika belum terdaftar session, tampilkan popup */
+if(!isRegisteredThisSession()){
+  // tunggu DOM siap (script dipanggil di bawah elemen, tapi safe)
+  showRegisterModal();
+}
+
+/* klik Daftar via WA -> buka WA dengan pesan terisi */
+btnRegisterWA.addEventListener('click', (e)=>{
+  e.preventDefault();
+  // Buka WA di tab baru
+  const url = 'https://wa.me/' + WA_NUMBER + '?text=' + WA_MESSAGE;
+  window.open(url, '_blank');
+
+  // opsional: beri hint kecil
+  registerHint.textContent = 'Setelah mengirim pesan, kembali ke halaman ini lalu tekan "Saya sudah daftar".';
+});
+
+/* klik Saya sudah daftar -> tutup modal dan set session flag */
+btnRegistered.addEventListener('click', (e)=>{
+  e.preventDefault();
+  setRegisteredThisSession();
+  hideRegisterModal();
+});
+
+/* jika user klik hint, beri instruksi singkat */
+registerHint.addEventListener('click', (e)=>{
+  e.preventDefault();
+  alert('Klik "Daftar via WhatsApp" untuk membuka chat. Kirim data: Nama dan Alamat/RT-RW. Setelah dikirim, kembali ke sini dan klik "Saya sudah daftar".');
+});
+
+    let currentCategory = '';
+    let cart = [];
+
+    // helpers
+    function formatRupiah(n){return 'Rp ' + Number(n).toLocaleString('id-ID');}
+    function updateCartCount(){
+      const totalQty = cart.reduce((s,i)=>s+i.qty,0);
+      cartCountEl.textContent = totalQty;
+      cartCountEl.style.display = totalQty>0? 'flex' : 'none';
+    }
+
+    function showToast(msg){
+  const toastEl = document.getElementById('toast');
+  toastEl.textContent = msg;
+  toastEl.style.opacity = '1';
+  toastEl.style.bottom = '80px'; // di atas floating
+  setTimeout(()=>{ 
+    toastEl.style.opacity = '0'; 
+    toastEl.style.bottom = '20px'; 
+  }, 1800);
+}
+
+    // render products
+    function render(data){
+      listEl.innerHTML = '';
+      if(!data || data.length===0){
+        listEl.innerHTML = '<div style="padding:12px;background:#fff;border:1px dashed #eee;border-radius:8px">Tidak ada produk</div>';
+        return;
+      }
+      data.forEach(p=>{
+        const card = document.createElement('div'); card.className='card';
+        const img = document.createElement('img'); img.src = p.img || 'images/placeholder.png'; img.alt = p.name; card.appendChild(img);
+        const title = document.createElement('div'); title.className='title'; title.textContent = p.name; card.appendChild(title);
+        const price = document.createElement('div'); price.className='price'; price.textContent = formatRupiah(p.price); card.appendChild(price);
+
+        // qty controls
+        const controls = document.createElement('div'); controls.className='qty-controls';
+        const minus = document.createElement('button'); minus.type='button'; minus.textContent='-';
+        const qty = document.createElement('span'); let q = 1; qty.textContent = q;
+        const plus = document.createElement('button'); plus.type='button'; plus.textContent='+';
+        minus.addEventListener('click', (e)=>{ e.stopPropagation(); if(q>1){ q--; qty.textContent = q; } });
+        plus.addEventListener('click', (e)=>{ e.stopPropagation(); q++; qty.textContent = q; });
+        controls.appendChild(minus); controls.appendChild(qty); controls.appendChild(plus); card.appendChild(controls);
+
+        // add to cart
+        const add = document.createElement('button'); add.type='button'; add.className='add-btn'; add.textContent='+ ke Keranjang 🛒';
+        add.addEventListener('click', (e)=>{
+          e.stopPropagation();
+          const existing = cart.find(it=>it.name===p.name);
+          if(existing){ existing.qty += q; }
+          else { cart.push({name:p.name,qty:q,price:p.price}); }
+          updateCartCount();
+          showToast(`Ditambahkan: ${p.name} x ${q}`);
+          q = 1;
+qty.textContent = '1';
+        });
+        card.appendChild(add);
+
+        // wa per product
+        const wa = document.createElement('a'); wa.className='wa-btn'; wa.textContent='Pesan Sekarang'; wa.href = '#';
+        wa.addEventListener('click', (e)=>{ e.stopPropagation(); showToast('Membuka WhatsApp...'); const message = `Halo Warung Emung, saya pesan ${q} ${p.name} (estimasi ${formatRupiah(p.price * q)})`; window.open('https://wa.me/6285322882512?text='+encodeURIComponent(message),'_blank'); });
+        card.appendChild(wa);
+
+        listEl.appendChild(card);
+      });
+    }
+
+    // filters
+    function applyFilters(){
+  const q = (searchEl.value||'').trim().toLowerCase();
+  let filtered = products;
+
+  if(q){ 
+    // jika ada kata ketik di search, cari semua produk, abaikan kategori
+    filtered = products.filter(p=> p.name.toLowerCase().includes(q));
+  } else if(currentCategory){
+    // jika search kosong, filter berdasarkan kategori
+    filtered = products.filter(p=> p.category===currentCategory);
+  }
+  
+  render(filtered);
+}
+
+    searchEl.addEventListener('input', applyFilters);
+
+    function setCategory(cat){
+  currentCategory = cat;
+
+  // reset teks search
+  searchEl.value = '';
+
+  applyFilters();
+  cartBackdropClose();
+
+  // scroll otomatis ke daftar produk
+  const produkSection = document.getElementById('produk-list');
+  produkSection.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+searchEl.addEventListener('keydown', (e)=>{
+  if(e.key === 'Enter'){          // saat tekan Enter / Masukan
+    e.preventDefault();            // cegah submit form atau behavior default
+    applyFilters();                // terapkan filter
+    // scroll ke daftar produk
+    const produkSection = document.getElementById('produk-list');
+    produkSection.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+});
+
+const searchBtn = document.getElementById('search-btn');
+
+searchBtn.addEventListener('click', ()=>{
+  // hapus highlight kategori
+  document.querySelectorAll('.categories .cat, #cat-options .cat').forEach(el=>{
+    el.classList.remove('active');
+  });
+  // terapkan filter
+  applyFilters();
+  // scroll ke daftar produk
+  document.getElementById('produk-list').scrollIntoView({behavior:'smooth', block:'start'});
+});
+
+    // cart modal handlers
+    openCartBtn.addEventListener('click', ()=>{
+      if(cart.length===0){ alert('Keranjang kosong'); return; }
+      renderCartModal();
+      cartModal.classList.toggle('open');
+      cartModal.setAttribute('aria-hidden', cartModal.classList.contains('open') ? 'false' : 'true');
+    });
+
+    function renderCartModal(){
+      cartItemsEl.innerHTML = '';
+      let total = 0;
+      cart.forEach((it,idx)=>{
+        const row = document.createElement('div'); row.className='item';
+        row.innerHTML = `<div>${it.name} x ${it.qty}</div><div>${formatRupiah(it.price*it.qty)}</div>`;
+        cartItemsEl.appendChild(row);
+        total += it.price * it.qty;
+      });
+      cartTotalEl.textContent = 'Total: ' + formatRupiah(total);
+    }
+
+    waCartBtn.addEventListener('click', ()=>{
+      if(cart.length===0){ alert('Keranjang kosong'); return; }
+      showToast('Membuka WhatsApp...');
+      let lines = cart.map(it=>`${it.qty} x ${it.name} = ${formatRupiah(it.price*it.qty)}`);
+      const total = cart.reduce((s,i)=>s + i.qty * i.price, 0);
+      lines.push('\nTotal: ' + formatRupiah(total));
+      const message = `Halo Warung Emung, saya pesan:\n` + lines.join('\n');
+      window.open('https://wa.me/6285322882512?text='+encodeURIComponent(message),'_blank');
+    });
+
+    clearCartBtn.addEventListener('click', ()=>{
+      if(!confirm('Kosongkan keranjang?')) return;
+      cart = [];
+      updateCartCount();
+      renderCartModal();
+      // close cart modal automatically
+      cartModal.classList.remove('open');
+      cartModal.setAttribute('aria-hidden', 'true');
+    });
+
+    // category modal handlers (backdrop + animation)
+    function cartBackdropClose(){
+      catBackdrop.style.display = 'none';
+      catModal.classList.remove('open');
+      catModal.setAttribute('aria-hidden','true');
+    }
+    function cartBackdropOpen(){
+      catBackdrop.style.display = 'flex';
+      // allow next frame then add open class for transition
+      requestAnimationFrame(()=>{ catModal.classList.add('open'); catModal.setAttribute('aria-hidden','false'); });
+    }
+
+    catFloat.addEventListener('click', (e)=>{ e.stopPropagation(); cartBackdropOpen(); });
+    closeCatBtn.addEventListener('click', (e)=>{ e.stopPropagation(); cartBackdropClose(); });
+    // close when clicking backdrop (outside modal)
+    catBackdrop.addEventListener('click', (e)=>{ if(e.target === catBackdrop) cartBackdropClose(); });
+
+    // category option clicks
+    catOptions.querySelectorAll('.cat').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        const cat = el.getAttribute('data-cat');
+        setCategory(cat);
+        cartBackdropClose();
+      });
+    });
+
+    // init
+    cartBackdropClose();
+    updateCartCount();
+    render(products);
+  </script>
+<div class="bottom-nav">
+  <a href="#home"><span>🏠</span><br>Home</a>
+  <a href="#kategori"><span>🗂</span><br>Kategori</a>
+  <a href="#search"><span>🔍</span><br>Search</a>
+  <a href="https://wa.me/6285322882512" target="_blank"><span>💬</span><br>Chat</a>
+  <a href="#cart"><span>🛒</span><br>Keranjang</a>
+</div>
+<script>
+// Klik tombol Cart di bottom-nav  klik tombol Cart asli (#open-cart)
+document.querySelector('.bottom-nav a[href="#cart"]').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.getElementById('open-cart').click();
+});
+</script>
+</body>
+</html>
