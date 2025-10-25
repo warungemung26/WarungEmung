@@ -205,7 +205,17 @@
 	
 #cat-float {
   display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  background: none !important;
 }
+
   </style>
   <link rel="stylesheet" href="css/floating.css">
   <link rel="stylesheet" href="css/navigasi.css">
@@ -229,8 +239,8 @@ Gg.Subur Blok.Wanakaya RT01/RW02 No.26</p>
 
   <!-- ================= SEARCH ================= -->
 <div style="display:flex;gap:6px;margin:16px 0">
-  <input id="search" placeholder="ðŸ”ŽCari produk... (misal ketik merk: indomie)" style="flex:1;padding:10px;border-radius:8px;border:1px solid #ddd" />
-  <button id="search-btn" style="padding:10px 16px;border:none;border-radius:8px;background:var(--accent);color:#fff;cursor:pointer">ðŸ”</button>
+  <input id="search" placeholder="🔎Cari produk... (misal ketik merk: indomie)" style="flex:1;padding:10px;border-radius:8px;border:1px solid #ddd" />
+  <button id="search-btn" style="padding:10px 16px;border:none;border-radius:8px;background:var(--accent);color:#fff;cursor:pointer">🔍</button>
 </div>
 
   <!-- ================= HERO ================= -->
@@ -249,24 +259,24 @@ Gg.Subur Blok.Wanakaya RT01/RW02 No.26</p>
     <button id="btn-register-wa" class="register-btn register-wa">Daftar via WhatsApp</button>
 
     <!-- Setelah mendaftar, pengguna klik ini untuk membuka toko -->
-    <button id="btn-registered" class="register-btn register-done">Saya sudah daftarâœ…, lanjut belanja</button>
+    <button id="btn-registered" class="register-btn register-done">Saya sudah daftar✅, lanjut belanja</button>
 
     <a class="small-link" href="#" id="register-hint">Saya belum sempat kirim pesan apa perlu?</a>
   </div>
 </div>
-<button id="open-cart" class="cart-btn" title="Keranjang">ðŸ›’<span id="cart-count" class="cart-count" style="display:none">0</span></button>
+<button id="open-cart" class="cart-btn" title="Keranjang">🛒<span id="cart-count" class="cart-count" style="display:none">0</span></button>
       
   <!-- =================MENU KATEGORI ================= -->
   <h3 style="margin-top:22px">Pilih Kategori</h3>
 <div class="kategori-grid">
-  <div class="cat" onclick="setCategory('')">🛒<span>Semua</span></div>
-  <div class="cat" onclick="setCategory('sembako')">🌾<span>Sembako</span></div>
-  <div class="cat" onclick="setCategory('makanan')">🍔<span>Makanan Cepat Saji</span></div>
-  <div class="cat" onclick="setCategory('mie')">🍜<span>Mie Instan</span></div>
-  <div class="cat" onclick="setCategory('snack')">🍿<span>Makanan Ringan</span></div>
-  <div class="cat" onclick="setCategory('minuman')">🥤<span>Minuman Dingin</span></div>
-  <div class="cat" onclick="setCategory('minumansachet')">☕<span>Minuman Sachet</span></div>
-  <div class="cat" onclick="setCategory('rumah')">🧴<span>Kebutuhan Rumah</span></div>
+  <div class="cat" onclick="setCategory('')"><span>Semua</span></div>
+  <div class="cat" onclick="setCategory('sembako')"><span>Sembako</span></div>
+  <div class="cat" onclick="setCategory('makanan')"><span>Makanan Cepat Saji</span></div>
+  <div class="cat" onclick="setCategory('mie')"><span>Mie Instan</span></div>
+  <div class="cat" onclick="setCategory('snack')"><span>Makanan Ringan</span></div>
+  <div class="cat" onclick="setCategory('minuman')"><span>Minuman Dingin</span></div>
+  <div class="cat" onclick="setCategory('minumansachet')"><span>Minuman Sachet</span></div>
+  <div class="cat" onclick="setCategory('rumah')"><span>Kebutuhan Rumah</span></div>
 </div>
   <!-- ================= TEMPAT PRODUK DITAMPILKAN================= -->
   <h3 style="margin-top:22px">Daftar Produk</h3>
@@ -284,7 +294,7 @@ Gg.Subur Blok.Wanakaya RT01/RW02 No.26</p>
   </div>
 
   <!-- ================= FOOTER ================= -->
-  <footer>Warung Emung â€” Praktis, Hemat, Dekat â€¢ Hubungi via WhatsApp untuk pesanan</footer>
+  <footer>Warung Emung — Praktis, Hemat, Dekat • Hubungi via WhatsApp untuk pesanan</footer>
 
   <!-- ================= TOAST NOTIF ================= -->
   <div id="toast">Berhasil</div>
@@ -292,17 +302,17 @@ Gg.Subur Blok.Wanakaya RT01/RW02 No.26</p>
   <!-- ================= TAMPILAN TOMBOL CATEGORY MODAL ================= -->
   <div id="cat-modal-backdrop">
     <div id="cat-modal" role="dialog" aria-hidden="true">
-      <button id="close-cat" class="close-btn">âŽ</button>
+      <button id="close-cat" class="close-btn">❎</button>
       <h4 style="margin-top:4px">Pilih Kategori</h4>
       <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px;" id="cat-options">
-        <div class="cat" data-cat="">ðŸ›’Semua</div>
+        <div class="cat" data-cat="">🛒Semua</div>
         <div class="cat" data-cat="sembako">Sembako</div>
-        <div class="cat" data-cat="makanan">ðŸ¢ Makanan Cepat Saji</div>
-        <div class="cat" data-cat="mie">ðŸœ Mie Instan</div>
-        <div class="cat" data-cat="snack">ðŸ¿Makanan Ringan</div>
-        <div class="cat" data-cat="minuman">ðŸ¥¤ Minuman Dingin</div>
-        <div class="cat" data-cat="minumansachet">ðŸ¥¤ Minuman Sachet ðŸ¬</div>
-        <div class="cat" data-cat="rumah">ðŸ§´ Kebutuhan Rumah</div>
+        <div class="cat" data-cat="makanan">🍢 Makanan Cepat Saji</div>
+        <div class="cat" data-cat="mie">🍜 Mie Instan</div>
+        <div class="cat" data-cat="snack">🍿Makanan Ringan</div>
+        <div class="cat" data-cat="minuman">🥤 Minuman Dingin</div>
+        <div class="cat" data-cat="minumansachet">🥤 Minuman Sachet 🍬</div>
+        <div class="cat" data-cat="rumah">🧴 Kebutuhan Rumah</div>
       </div>
     </div>
   </div>
@@ -389,7 +399,7 @@ function setRegisteredThisSession(){
   try{ sessionStorage.setItem('warung_registered','1'); }catch(e){}
 }
 
-/* tampilkan modal bila perlu (pop-up B ï¿½ produk terlihat di belakang tapi tidak bisa diklik) */
+/* tampilkan modal bila perlu (pop-up B � produk terlihat di belakang tapi tidak bisa diklik) */
 function showRegisterModal(){
   registerBackdrop.style.display = 'flex';
   document.body.style.overflow = 'hidden';
@@ -474,7 +484,7 @@ registerHint.addEventListener('click', (e)=>{
         controls.appendChild(minus); controls.appendChild(qty); controls.appendChild(plus); card.appendChild(controls);
 
         // add to cart
-        const add = document.createElement('button'); add.type='button'; add.className='add-btn'; add.textContent='+ ke Keranjang ðŸ›’';
+        const add = document.createElement('button'); add.type='button'; add.className='add-btn'; add.textContent='+ ke Keranjang 🛒';
         add.addEventListener('click', (e)=>{
           e.stopPropagation();
           const existing = cart.find(it=>it.name===p.name);
@@ -623,27 +633,27 @@ searchBtn.addEventListener('click', ()=>{
     render(products);
   </script>
 <div class="bottom-nav">
-  <a href="#home"><span>ðŸ </span><br></a>
-  <a href="#cat"><span>ðŸ—‚</span><br></a>
-  <a href="#search"><span>ðŸ”</span><br></a>
-  <a href="https://wa.me/6285322882512" target="_blank"><span>ðŸ’¬</span><br></a>
-  <a href="#cart" id="nav-cart"><span>ðŸ›’</span><br><span id="cart-count"></span></a>
+  <a href="#home"><span>🏠</span><br></a>
+  <a href="#cat"><span>🗂</span><br></a>
+  <a href="#search"><span>🔍</span><br></a>
+  <a href="https://wa.me/6285322882512" target="_blank"><span>💬</span><br></a>
+  <a href="#cart" id="nav-cart"><span>🛒</span><br><span id="cart-count"></span></a>
 </div>
 <script>
 	
-// Klik tombol Cart di bottom-nav â†’ klik floating asli (#open-cart)
+// Klik tombol Cart di bottom-nav → klik floating asli (#open-cart)
 document.querySelector('.bottom-nav a[href="#cart"]').addEventListener('click', function(e) {
   e.preventDefault();
   document.getElementById('open-cart').click();
 });
 
-// âœ… Klik tombol Kategori di bottom-nav â†’ klik tombol kategori floating
+// ✅ Klik tombol Kategori di bottom-nav → klik tombol kategori floating
 document.querySelector('.bottom-nav a[href="#cat"]').addEventListener('click', function(e) {
   e.preventDefault();
   document.getElementById('cat-float').click();
 });
 
-// âœ… setiap update cart â†’ tampilkan juga jumlah di bottom-nav
+// ✅ setiap update cart → tampilkan juga jumlah di bottom-nav
 function updateCartCountUI(qty) {
 
   // bottom-nav
@@ -654,7 +664,7 @@ function updateCartCountUI(qty) {
 </script>
 
 <button id="installBtn" style="position:fixed;bottom:110px;right:12px;z-index:9999;display:none;border-radius:10px;padding:8px 12px;background:#f6b042;color:#fff">
-  âž• Pasang di Layar Utama
+  ➕ Pasang di Layar Utama
 </button>
 
 <script>
