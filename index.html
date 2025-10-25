@@ -55,7 +55,7 @@
     .card .title{font-weight:600;font-size:14px}
     .card .price{color:#111;font-size:13px;margin-top:6px}
 
-    /* ================= KATEGORI ================= */
+    /* ================= CSS KATEGORI MODA================= */
     .categories{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-top:22px}
     .cat{background:#fff3cc;padding:14px;border-radius:10px;text-align:center;cursor:pointer}
     footer{margin-top:30px;text-align:center;font-size:12px;color:#666}
@@ -67,7 +67,7 @@
     .wa-btn{margin-top:8px;display:inline-block;padding:6px 10px;background:var(--green);color:#fff;border-radius:6px;font-size:12px;text-decoration:none}
     .add-btn{margin-top:8px;padding:6px 10px;border-radius:6px;border:1px solid #ccc;background:#fff;cursor:pointer}
 
-    /* ================= KERANJANG ================= */
+    /* ================= CSS KERANJANG ================= */
     .cart-btn{position:relative;padding:8px 10px;border-radius:800px;background:#fff;color:#222;text-decoration:none;border:1px solid rgba(0,0,0,0.06);display:inline-flex;align-items:center;gap:8px}
     .cart-count{position:absolute;top:-6px;right:-6px;background:#ff4b4b;color:#fff;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:12px}
     /* modal */
@@ -98,100 +98,71 @@
   pointer-events: none;
 }
     /* ================= FLOATING BUTTONS ================= */
- #open-cart{position:fixed;bottom:20px;right:20px;z-index:100000}
-    #cat-float{position:fixed;bottom:20px;right:225px;z-index:100000}
+
     
     /* Tombol Keranjang Floating */
-.cart-btn {
-  position: fixed;
-  right: 12px;
-  bottom: 80px;
-  padding: 8px 10px;
-  border-radius: 800px;
-  background: #fff;
-  color: #222;
-  border: 1px solid rgba(0,0,0,0.06);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  z-index: 9999;
-}
 
-.cart-count {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  background: #ff4b4b; /* merah */
-  color: #fff;
+#open-cart {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 3000;
+
+  width: 35px;        
+  height: 35px;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  padding: 0;
+  font-size: 18px;   /* ikonnya ikut lebih besar */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
-  font-weight: bold;
-  z-index: 10000;
 }
 
-/* Modal */
-.modal {
-  display: none;
-  position: fixed;
-  bottom: 12px;
-  right: 12px;
-  width: 320px;
-  max-height: 70vh;
+    /* ================= CATEGORY MODAL ================= */
+    .kategori-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  padding: 16px;
+  text-align: center;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.cat {
+  background: linear-gradient(145deg, #fceabb, #f8b500);
+  border-radius: 20px;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 5px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  z-index: 10001;
-  animation: slideUp 0.3s ease;
-}
-
-@keyframes slideUp {
-  from { transform: translateY(100%); opacity:0; }
-  to { transform: translateY(0); opacity:1; }
-}
-
-/* Konten scrollable */
-.modal-body {
-  padding: 12px;
-  overflow-y: auto;
-}
-
-/* Footer tetap terlihat */
-.modal-footer {
-  display: flex;
-  gap: 8px;
-  padding: 12px;
-  border-top: 1px solid #eee;
-  flex-shrink: 0;
-  background: #fff;
-}
-
-.modal-footer button {
-  flex: 1;
-  padding: 8px;
-  border-radius: 6px;
-  border: none;
-  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
-.wa-btn { background: #25d366; color: #fff; }
-.add-btn { background: #ff4b4b; color: #fff; }
+.cat:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
 
+.cat span {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: #222;
+}
 
-    /* ================= CATEGORY MODAL ================= */
-    #cat-modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.35);display:none;align-items:center;justify-content:center;z-index:2000}
-    #cat-modal{background:#fff;padding:16px;border-radius:12px;width:320px;max-width:95%;box-shadow:0 8px 24px rgba(0,0,0,0.25);opacity:0;transform:translateY(-12px) scale(.98);transition:opacity .25s ease, transform .25s ease}
-    #cat-modal.open{opacity:1;transform:translateY(0) scale(1)}
-    #cat-modal .close-btn{position:absolute;top:8px;right:8px;background:none;border:none;font-size:18px;cursor:pointer}
-    #cat-options .cat{cursor:pointer}
+.cat:nth-child(2) { background: linear-gradient(145deg, #d4fc79, #96e6a1); }
+.cat:nth-child(3) { background: linear-gradient(145deg, #ffecd2, #fcb69f); }
+.cat:nth-child(4) { background: linear-gradient(145deg, #a1c4fd, #c2e9fb); }
+.cat:nth-child(5) { background: linear-gradient(145deg, #f6d365, #fda085); }
+.cat:nth-child(6) { background: linear-gradient(145deg, #89f7fe, #66a6ff); }
+.cat:nth-child(7) { background: linear-gradient(145deg, #fbc2eb, #a6c1ee); }
+.cat:nth-child(8) { background: linear-gradient(145deg, #84fab0, #8fd3f4); }
 
     /* ================= RESPONSIVE MOBILE ================= */
     @media(max-width:480px){
@@ -231,11 +202,17 @@
 
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#f6b042">
-
+	
+#cat-float {
+  display: none !important;
+}
   </style>
+  <link rel="stylesheet" href="css/floating.css">
+  <link rel="stylesheet" href="css/navigasi.css">
 </head>
 <body>
-	<section id="home"><h2>home</h2>
+	<button id="cat-float" title="Pilih Kategori"></button>
+	<section id="home"><h2></h2>
   <!-- ================= HEADER ================= -->
   <header>
     <div class="header-left">
@@ -248,15 +225,13 @@ Gg.Subur Blok.Wanakaya RT01/RW02 No.26</p>
     </div>
     <div>
     </div>
-<link rel="stylesheet" href="css/floating.css">
   </header>
 
   <!-- ================= SEARCH ================= -->
 <div style="display:flex;gap:6px;margin:16px 0">
-  <input id="search" placeholder="🔎Cari produk... (misal ketik merk: indomie)" style="flex:1;padding:10px;border-radius:8px;border:1px solid #ddd" />
-  <button id="search-btn" style="padding:10px 16px;border:none;border-radius:8px;background:var(--accent);color:#fff;cursor:pointer">🔍</button>
+  <input id="search" placeholder="ðŸ”ŽCari produk... (misal ketik merk: indomie)" style="flex:1;padding:10px;border-radius:8px;border:1px solid #ddd" />
+  <button id="search-btn" style="padding:10px 16px;border:none;border-radius:8px;background:var(--accent);color:#fff;cursor:pointer">ðŸ”</button>
 </div>
-
 
   <!-- ================= HERO ================= -->
   <section class="hero">
@@ -274,32 +249,30 @@ Gg.Subur Blok.Wanakaya RT01/RW02 No.26</p>
     <button id="btn-register-wa" class="register-btn register-wa">Daftar via WhatsApp</button>
 
     <!-- Setelah mendaftar, pengguna klik ini untuk membuka toko -->
-    <button id="btn-registered" class="register-btn register-done">Saya sudah daftar✅, lanjut belanja</button>
+    <button id="btn-registered" class="register-btn register-done">Saya sudah daftarâœ…, lanjut belanja</button>
 
     <a class="small-link" href="#" id="register-hint">Saya belum sempat kirim pesan apa perlu?</a>
   </div>
 </div>
-<button id="open-cart" class="cart-btn" title="Keranjang">🛒<span id="cart-count" class="cart-count" style="display:none">0</span></button>
-      <button id="cat-float" title="Pilih Kategori" style="width:50px;height:50px;border-radius:50%;background:#f6b042;border:none;box-shadow:0 2px 6px rgba(0,0,0,.2);font-size:22px;cursor:pointer">🗂</button>
-
-  <!-- ================= KATEGORI ================= -->
+<button id="open-cart" class="cart-btn" title="Keranjang">ðŸ›’<span id="cart-count" class="cart-count" style="display:none">0</span></button>
+      
+  <!-- =================MENU KATEGORI ================= -->
   <h3 style="margin-top:22px">Pilih Kategori</h3>
-  <div class="categories">
-    <div class="cat" onclick="setCategory('')">🛒 Semua</div>
-    <div class="cat" onclick="setCategory('sembako')">🌾Sembako</div>
-    <div class="cat" onclick="setCategory('makanan')">🍢 Makanan Cepat Saji</div>
-    <div class="cat" onclick="setCategory('mie')">🍜 Mie Instan</div>
-    <div class="cat" onclick="setCategory('snack')">🍿Makanan Ringan</div>
-    <div class="cat" onclick="setCategory('minuman')">🥤 Minuman Dingin</div>
-    <div class="cat" onclick="setCategory('minumansachet')">🥤 Minuman Sachet 🍬</div>
-    <div class="cat" onclick="setCategory('rumah')">🧴 Kebutuhan Rumah</div>
-  </div>
-
-  <!-- ================= PRODUK ================= -->
+<div class="kategori-grid">
+  <div class="cat" onclick="setCategory('')">🛒<span>Semua</span></div>
+  <div class="cat" onclick="setCategory('sembako')">🌾<span>Sembako</span></div>
+  <div class="cat" onclick="setCategory('makanan')">🍔<span>Makanan Cepat Saji</span></div>
+  <div class="cat" onclick="setCategory('mie')">🍜<span>Mie Instan</span></div>
+  <div class="cat" onclick="setCategory('snack')">🍿<span>Makanan Ringan</span></div>
+  <div class="cat" onclick="setCategory('minuman')">🥤<span>Minuman Dingin</span></div>
+  <div class="cat" onclick="setCategory('minumansachet')">☕<span>Minuman Sachet</span></div>
+  <div class="cat" onclick="setCategory('rumah')">🧴<span>Kebutuhan Rumah</span></div>
+</div>
+  <!-- ================= TEMPAT PRODUK DITAMPILKAN================= -->
   <h3 style="margin-top:22px">Daftar Produk</h3>
   <div id="produk-list"></div>
 
-  <!-- ================= KERANJANG MODAL ================= -->
+  <!-- ================= TAMPILAN MENU KERANJANG MODAL ================= -->
   <div id="cart-modal" class="modal" role="dialog" aria-hidden="true">
     <h4>Keranjang Anda</h4>
     <div id="cart-items"></div>
@@ -311,25 +284,25 @@ Gg.Subur Blok.Wanakaya RT01/RW02 No.26</p>
   </div>
 
   <!-- ================= FOOTER ================= -->
-  <footer>Warung Emung — Praktis, Hemat, Dekat • Hubungi via WhatsApp untuk pesanan</footer>
+  <footer>Warung Emung â€” Praktis, Hemat, Dekat â€¢ Hubungi via WhatsApp untuk pesanan</footer>
 
   <!-- ================= TOAST NOTIF ================= -->
   <div id="toast">Berhasil</div>
 
-  <!-- ================= CATEGORY MODAL ================= -->
+  <!-- ================= TAMPILAN TOMBOL CATEGORY MODAL ================= -->
   <div id="cat-modal-backdrop">
     <div id="cat-modal" role="dialog" aria-hidden="true">
-      <button id="close-cat" class="close-btn">❎</button>
+      <button id="close-cat" class="close-btn">âŽ</button>
       <h4 style="margin-top:4px">Pilih Kategori</h4>
       <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px;" id="cat-options">
-        <div class="cat" data-cat="">🛒Semua</div>
+        <div class="cat" data-cat="">ðŸ›’Semua</div>
         <div class="cat" data-cat="sembako">Sembako</div>
-        <div class="cat" data-cat="makanan">🍢 Makanan Cepat Saji</div>
-        <div class="cat" data-cat="mie">🍜 Mie Instan</div>
-        <div class="cat" data-cat="snack">🍿Makanan Ringan</div>
-        <div class="cat" data-cat="minuman">🥤 Minuman Dingin</div>
-        <div class="cat" data-cat="minumansachet">🥤 Minuman Sachet 🍬</div>
-        <div class="cat" data-cat="rumah">🧴 Kebutuhan Rumah</div>
+        <div class="cat" data-cat="makanan">ðŸ¢ Makanan Cepat Saji</div>
+        <div class="cat" data-cat="mie">ðŸœ Mie Instan</div>
+        <div class="cat" data-cat="snack">ðŸ¿Makanan Ringan</div>
+        <div class="cat" data-cat="minuman">ðŸ¥¤ Minuman Dingin</div>
+        <div class="cat" data-cat="minumansachet">ðŸ¥¤ Minuman Sachet ðŸ¬</div>
+        <div class="cat" data-cat="rumah">ðŸ§´ Kebutuhan Rumah</div>
       </div>
     </div>
   </div>
@@ -416,7 +389,7 @@ function setRegisteredThisSession(){
   try{ sessionStorage.setItem('warung_registered','1'); }catch(e){}
 }
 
-/* tampilkan modal bila perlu (pop-up B � produk terlihat di belakang tapi tidak bisa diklik) */
+/* tampilkan modal bila perlu (pop-up B ï¿½ produk terlihat di belakang tapi tidak bisa diklik) */
 function showRegisterModal(){
   registerBackdrop.style.display = 'flex';
   document.body.style.overflow = 'hidden';
@@ -501,7 +474,7 @@ registerHint.addEventListener('click', (e)=>{
         controls.appendChild(minus); controls.appendChild(qty); controls.appendChild(plus); card.appendChild(controls);
 
         // add to cart
-        const add = document.createElement('button'); add.type='button'; add.className='add-btn'; add.textContent='+ ke Keranjang 🛒';
+        const add = document.createElement('button'); add.type='button'; add.className='add-btn'; add.textContent='+ ke Keranjang ðŸ›’';
         add.addEventListener('click', (e)=>{
           e.stopPropagation();
           const existing = cart.find(it=>it.name===p.name);
@@ -650,30 +623,38 @@ searchBtn.addEventListener('click', ()=>{
     render(products);
   </script>
 <div class="bottom-nav">
-  <a href="#home"><span>🏠</span><br>Home</a>
-  <a href="#kategori"><span>🗂</span><br>Kategori</a>
-  <a href="#search"><span>🔍</span><br>Search</a>
-  <a href="https://wa.me/6285322882512" target="_blank"><span>💬</span><br>Chat</a>
-  <a href="#cart"><span>🛒</span><br>Keranjang</a>
+  <a href="#home"><span>ðŸ </span><br></a>
+  <a href="#cat"><span>ðŸ—‚</span><br></a>
+  <a href="#search"><span>ðŸ”</span><br></a>
+  <a href="https://wa.me/6285322882512" target="_blank"><span>ðŸ’¬</span><br></a>
+  <a href="#cart" id="nav-cart"><span>ðŸ›’</span><br><span id="cart-count"></span></a>
 </div>
 <script>
-// Klik tombol Cart di bottom-nav → klik tombol Cart asli (#open-cart)
+	
+// Klik tombol Cart di bottom-nav â†’ klik floating asli (#open-cart)
 document.querySelector('.bottom-nav a[href="#cart"]').addEventListener('click', function(e) {
   e.preventDefault();
   document.getElementById('open-cart').click();
 });
-</script> <!-- ✅ TUTUP DULU SCRIPT YG INI-->
 
-<script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js')
-    .then(() => console.log('Service Worker aktif ✅'))
-    .catch(err => console.log('SW gagal:', err));
+// âœ… Klik tombol Kategori di bottom-nav â†’ klik tombol kategori floating
+document.querySelector('.bottom-nav a[href="#cat"]').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.getElementById('cat-float').click();
+});
+
+// âœ… setiap update cart â†’ tampilkan juga jumlah di bottom-nav
+function updateCartCountUI(qty) {
+
+  // bottom-nav
+  document.querySelector('#nav-cart #cart-count').textContent = qty;
+  document.querySelector('#nav-cart #cart-count').style.display = qty > 0 ? 'inline-block' : 'none';
 }
+
 </script>
 
 <button id="installBtn" style="position:fixed;bottom:110px;right:12px;z-index:9999;display:none;border-radius:10px;padding:8px 12px;background:#f6b042;color:#fff">
-  ➕ Pasang di Layar Utama
+  âž• Pasang di Layar Utama
 </button>
 
 <script>
