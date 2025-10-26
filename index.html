@@ -259,14 +259,14 @@ Gg.Subur Blok.Wanakaya RT01/RW02 No.26</p>
   <!-- =================MENU KATEGORI ================= -->
   <h3 style="margin-top:22px">Pilih Kategori</h3>
 <div class="kategori-grid">
-  <div class="cat" onclick="setCategory('')"><span>Semua</span></div>
-  <div class="cat" onclick="setCategory('sembako')"><span>Sembako</span></div>
-  <div class="cat" onclick="setCategory('makanan')"><span>Makanan Cepat Saji</span></div>
-  <div class="cat" onclick="setCategory('mie')"><span>Mie Instan</span></div>
-  <div class="cat" onclick="setCategory('snack')"><span>Makanan Ringan</span></div>
-  <div class="cat" onclick="setCategory('minuman')"><span>Minuman Dingin</span></div>
-  <div class="cat" onclick="setCategory('minumansachet')"><span>Minuman Sachet</span></div>
-  <div class="cat" onclick="setCategory('rumah')"><span>Kebutuhan Rumah</span></div>
+  <div class="cat" onclick="setCategory('')"><span>🛒Semua</span></div>
+  <div class="cat" onclick="setCategory('sembako')"><span>🍚🥕Sembako🥚🍉</span></div>
+  <div class="cat" onclick="setCategory('makanan')"><span>🌯🍢Makanan Cepat Saji🌮🍲</span></div>
+  <div class="cat" onclick="setCategory('mie')"><span>🍜 Mie Instan🍝</span></div>
+  <div class="cat" onclick="setCategory('snack')"><span>🍿🍟Makanan Ringan🍪🍭</span></div>
+  <div class="cat" onclick="setCategory('minuman')"><span>🥤 Minuman Dingin🍹</span></div>
+  <div class="cat" onclick="setCategory('minumansachet')"><span>🥛Minuman Sachet☕ & Obat-obatan💊</span></div>
+  <div class="cat" onclick="setCategory('rumah')"><span>🧴 🛀🚽Kebutuhan Rumah🕯🚬🔋💡</span></div>
 </div>
   <!-- ================= TEMPAT PRODUK DITAMPILKAN================= -->
   <h3 style="margin-top:22px">Etalase Warung</h3>
@@ -296,13 +296,13 @@ Gg.Subur Blok.Wanakaya RT01/RW02 No.26</p>
       <h4 style="margin-top:4px">Pilih Kategori</h4>
       <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px;" id="cat-options">
         <div class="cat" data-cat="">🛒Semua</div>
-        <div class="cat" data-cat="sembako">Sembako</div>
-        <div class="cat" data-cat="makanan">🍢 Makanan Cepat Saji</div>
-        <div class="cat" data-cat="mie">🍜 Mie Instan</div>
-        <div class="cat" data-cat="snack">🍿Makanan Ringan</div>
-        <div class="cat" data-cat="minuman">🥤 Minuman Dingin</div>
-        <div class="cat" data-cat="minumansachet">🥤 Minuman Sachet 🍬</div>
-        <div class="cat" data-cat="rumah">🧴 Kebutuhan Rumah</div>
+        <div class="cat" data-cat="sembako">🍚🥕Sembako🥚🍉</div>
+        <div class="cat" data-cat="makanan">🌯🍢Makanan Cepat Saji🌮🍲</div>
+        <div class="cat" data-cat="mie">🍜 Mie Instan🍝</div>
+        <div class="cat" data-cat="snack">🍿🍟Makanan Ringan🍪🍭</div>
+        <div class="cat" data-cat="minuman">🥤 Minuman Dingin🍹</div>
+        <div class="cat" data-cat="minumansachet">🥛Minuman Sachet☕ & Obat-obatan💊</div>
+        <div class="cat" data-cat="rumah">🧴 🛀🚽Kebutuhan Rumah🕯🚬🔋💡</div>
       </div>
     </div>
   </div>
@@ -312,6 +312,9 @@ Gg.Subur Blok.Wanakaya RT01/RW02 No.26</p>
     // Data produk
     const products = [
  {name:'Sosis Bakar mba Atin',price:5000,img:'images/sosisbakar.jpg',category:'makanan'},
+ {name:'Kebab Lezat Mbak Atin 1pcs',price:4000,img:'images/kebab-atin1.jpg',category:'makanan'},
+ {name:'Pastel Box Annisa',price:25000,img:'images/pastel-annisa.jpg',category:'makanan'},
+ {name:'Kebab Lezat Mbak Atin 3pcs',price:10000,img:'images/kebab-atin3.jpg',category:'makanan'},
 {name:'Bakso Bakar mba Atin',price:5000,img:'images/baksobakar.jpg',category:'makanan'},
 {name:'Seblak Anissa',price:5000,img:'images/seblak.jpg',category:'makanan'},
 {name:'Es Good Day',price:3000,img:'images/esgoodday.jpg',category:'minuman'},
@@ -523,7 +526,7 @@ qty.textContent = '1';
   applyFilters();
   cartBackdropClose();
 
-  // scroll otomatis ke daftar produk
+  // scroll otomatis ke Etalase Warung
   const produkSection = document.getElementById('produk-list');
   produkSection.scrollIntoView({behavior:'smooth', block:'start'});
 }
@@ -532,7 +535,7 @@ searchEl.addEventListener('keydown', (e)=>{
   if(e.key === 'Enter'){          // saat tekan Enter / Masukan
     e.preventDefault();            // cegah submit form atau behavior default
     applyFilters();                // terapkan filter
-    // scroll ke daftar produk
+    // scroll ke Etalase Warung
     const produkSection = document.getElementById('produk-list');
     produkSection.scrollIntoView({behavior:'smooth', block:'start'});
   }
@@ -547,7 +550,7 @@ searchBtn.addEventListener('click', ()=>{
   });
   // terapkan filter
   applyFilters();
-  // scroll ke daftar produk
+  // scroll ke Etalase Warung
   document.getElementById('produk-list').scrollIntoView({behavior:'smooth', block:'start'});
 });
 
