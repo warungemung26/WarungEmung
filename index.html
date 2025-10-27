@@ -203,9 +203,6 @@
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#f6b042">
 	
-#cat-float {
-  display: none !important;
-}
   </style>
   <link rel="stylesheet" href="css/floating.css">
   <link rel="stylesheet" href="css/navigasi.css">
@@ -683,5 +680,29 @@ document.getElementById('installBtn').addEventListener('click', async () => {
 });
 
 </script>
+<script>
+// Ketika tombol WA di modal cart ditekan
+document.getElementById('wa-cart').addEventListener('click', function() {
+
+    // 1. Reset semua qty kembali ke 0
+    document.querySelectorAll('.qty-input').forEach(function(input) {
+        input.value = 0;
+    });
+
+    // 2. Reset isi keranjang (jika logikamu butuh clear data juga, biarkan)
+    // Kalau kamu TIDAK ingin cart terhapus otomatis, hapus 2 baris ini.
+    cart = [];
+    updateCartCount(); // ini otomatis reset notif merah
+
+    // 3. Render ulang modal & tutup modal dengan cara RESMI
+    renderCartModal(); // biar UI ikut clean
+    const cartModal = document.getElementById('cart-modal');
+    cartModal.classList.remove('open');
+    cartModal.setAttribute('aria-hidden', 'true');
+
+    // WA tetap lanjut, tidak dihalangi
+});
+</script>
+
 </body>
 </html>
