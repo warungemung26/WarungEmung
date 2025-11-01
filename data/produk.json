@@ -1,0 +1,368 @@
+[
+  {
+    "name": "Sosis Bakar mba Atin",
+    "price": 5000,
+    "img": "images/sosisbakar.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Kebab Lezat Mbak Atin 1pcs",
+    "price": 4000,
+    "img": "images/kebab-atin1.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Pastel Box Annisa",
+    "price": 25000,
+    "img": "images/pastel-annisa.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Kebab Lezat Mbak Atin 3pcs",
+    "price": 10000,
+    "img": "images/kebab-atin3.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Bakso Bakar mba Atin",
+    "price": 5000,
+    "img": "images/baksobakar.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Seblak Anissa",
+    "price": 5000,
+    "img": "images/seblak.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Es Good Day",
+    "price": 3000,
+    "img": "images/esgoodday.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Es Tea Jus",
+    "price": 2000,
+    "img": "images/esteajus.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Beras Rojolele 5kg",
+    "price": 95000,
+    "img": "images/rojolele-5kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Beras Rojolele Eceran 1kg",
+    "price": 19500,
+    "img": "images/rojolele-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Gula Pasir Gulaku 1kg",
+    "price": 18500,
+    "img": "images/gula-pas-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Minyak Goreng Curah 1L",
+    "price": 18000,
+    "img": "images/bimoli-1l.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Telur Ayam 1kg",
+    "price": 28000,
+    "img": "images/telur-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Telur Ayam 1/4kg",
+    "price": 8000,
+    "img": "images/telur-1per4.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Minyak Goreng Bimoli 2L",
+    "price": 38000,
+    "img": "images/bimoli-2l.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Tepung Terigu Segitiga Biru 1kg",
+    "price": 15500,
+    "img": "images/terigu-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Kecap Bango 520ml",
+    "price": 30000,
+    "img": "images/bango-refill.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Garam Dapur 500g (Cap Dolphin / Cap Kapal)",
+    "price": 5000,
+    "img": "images/garam-500g.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Masako Ayam / Sapi Sachet",
+    "price": 1000,
+    "img": "images/masako.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Kaldu Bubuk Sasa 100g",
+    "price": 7000,
+    "img": "images/sasa-kaldububuk-100g.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Penyedap Sasa Micin 250g",
+    "price": 6000,
+    "img": "images/sasa-micin-250g.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Saori Saus Tiram 135ml — Rp10.000",
+    "price": 10000,
+    "img": "images/saori-saustiram-135g.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Saos Sambal ABC Sachet",
+    "price": 1000,
+    "img": "images/abc-saussambal.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Saos Sambal ABC Botol 335ml",
+    "price": 21000,
+    "img": "images/abc-saussambal-335g.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Kecap ABC 520ml",
+    "price": 14000,
+    "img": "images/abc-kecap-520g.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Blue Band Mini Sachet",
+    "price": 1000,
+    "img": "images/blueband-mini.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Minyak Goreng Filma / Tropical 1L refill",
+    "price": 20000,
+    "img": "images/filma-minyakgoreng-1l.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Telur Asin",
+    "price": 6000,
+    "img": "images/telurasin.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Gula Merah 250g",
+    "price": 6000,
+    "img": "images/gulamerah-250.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Gula Merah Batok 250g",
+    "price": 6000,
+    "img": "images/gulamerah-batok-250.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Bawang Merah 1/4 kg",
+    "price": 10000,
+    "img": "images/bawangmerah-250g.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Bawang Putih 1/4 kg",
+    "price": 9000,
+    "img": "images/bawangputih-250g.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Cabe Rawit 1/4 kg",
+    "price": 12000,
+    "img": "images/caberawit-250g.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Royco Ayam / Sapi Sachet",
+    "price": 1000,
+    "img": "images/royco.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Indomie Special Chicken Rasa Ayam Special 75g",
+    "price": 3500,
+    "img": "images/IND-SPECIAL-75.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Indomie Goreng Original 85g",
+    "price": 3500,
+    "img": "images/IND-GOR-OR-85.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Indomie Goreng Pedas 85g",
+    "price": 3500,
+    "img": "images/IND-GOR-PDS-85.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Mie Sedaap Rasa Soto",
+    "price": 3500,
+    "img": "images/sedap-soto.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Indomie Jumbo Goreng Rasa Barbaque Chicken 128g",
+    "price": 6000,
+    "img": "images/IND-GOR-BARBQ-128.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Chitato 68g",
+    "price": 9000,
+    "img": "images/chitato-68g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Roma Sari Gandum 240g",
+    "price": 12000,
+    "img": "images/roma-marie-240g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Mie Sedap Goreng Korea Spicy Chicken",
+    "price": 3500,
+    "img": "images/sedap-goreng-korea.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Silverqueen 65g",
+    "price": 18000,
+    "img": "images/silverqueen-65g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Aqua Botol 600ml",
+    "price": 4000,
+    "img": "images/aqua-600ml.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Teh Pucuk 350ml",
+    "price": 5000,
+    "img": "images/tehpucuk-350ml.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Coca Cola 1L",
+    "price": 15000,
+    "img": "images/cocacola-1l.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Susu Ultra Milk 250ml",
+    "price": 6000,
+    "img": "images/ultramilk-250ml.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Kopi Kapal Api Sachet",
+    "price": 3000,
+    "img": "images/kapalapi.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Kopi Good Day Sachet",
+    "price": 2000,
+    "img": "images/goodday.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Kopi ABC Susu Sachet",
+    "price": 2000,
+    "img": "images/abc-susu.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Susu Dancow Sachet",
+    "price": 4000,
+    "img": "images/dancow.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Pop Ice (all variant)",
+    "price": 2500,
+    "img": "images/popice.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Milo Sachet",
+    "price": 3000,
+    "img": "images/milo-sachet.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Teh Celup Sari Wangi 25pcs",
+    "price": 5500,
+    "img": "images/sariwangi-tehcelup.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Good Day Cappuccino Botol 250ml",
+    "price": 6500,
+    "img": "images/goodday-capucino-250ml.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Beng Beng / Tango Wafer Bar",
+    "price": 2500,
+    "img": "images/bengbeng-tangowafer.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Nutrisari Jeruk",
+    "price": 2000,
+    "img": "images/nutrisari-jeruk.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Sabun Lifebuoy 60g",
+    "price": 5000,
+    "img": "images/lifebuoy-60g.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Shampo Sunsilk Sachet",
+    "price": 2000,
+    "img": "images/sunsilk-sachet.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Pasta Gigi Pepsodent Herbal",
+    "price": 6000,
+    "img": "images/pepsodent.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Gas LPG 3kg",
+    "price": 22000,
+    "img": "images/gas.jpg",
+    "category": "rumah"
+  }
+]
