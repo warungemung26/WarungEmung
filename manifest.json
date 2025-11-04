@@ -1,7 +1,8 @@
 {
   "name": "Warung Emung",
-  "short_name": "Warung Emung",
-  "start_url": "/index.html",
+  "short_name": "Emung",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#fff8e7",
   "theme_color": "#f6b042",
