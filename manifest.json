@@ -1,8 +1,8 @@
 {
   "name": "Warung Emung",
   "short_name": "Emung",
-  "start_url": "./index.html",
-  "scope": "./",
+  "start_url": "https://warungemung26.github.io/WarungEmung/index.html",
+  "scope": "https://warungemung26.github.io/WarungEmung/"
   "display": "standalone",
   "background_color": "#fff8e7",
   "theme_color": "#f6b042",
