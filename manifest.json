@@ -1,11 +1,29 @@
 {
   "name": "Warung Emung",
-  "short_name": "Warung Emung",
-  "start_url": "/index.html",
+  "short_name": "WarungEmung",
+  "description": "Warung Emung — Praktis, Hemat, Dekat. Belanja harian online lewat WhatsApp.",
+  "start_url": "/WarungEmung/index.html",
+  "scope": "/WarungEmung/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#fff8e7",
   "theme_color": "#f6b042",
   "icons": [
+    {
+      "src": "images/logo-warung.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo-warung.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo-warung.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
     {
       "src": "images/logo-warung.png",
       "sizes": "192x192",
