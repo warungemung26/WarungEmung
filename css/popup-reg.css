@@ -1,0 +1,26 @@
+    /* ==== POPUP DAFTAR VIA WHATSAPP (MODAL, B) ==== */
+#register-backdrop{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.45); /* semi transparent */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:3000;
+  backdrop-filter: blur(2px);
+}
+#register-modal{
+  width:92%;
+  max-width:420px;
+  background:#fff;
+  border-radius:12px;
+  padding:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.25);
+  text-align:left;
+}
+#register-modal h3{margin:0 0 8px;font-size:18px}
+#register-modal p{margin:6px 0 12px;color:#444;font-size:14px}
+.register-btn{display:inline-block;width:100%;padding:10px 12px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
+.register-wa{background:#25d366;color:#fff;margin-bottom:8px}
+.register-done{background:#f6b042;color:#222}
+.small-link{display:block;text-align:center;margin-top:8px;font-size:13px;color:#666}
