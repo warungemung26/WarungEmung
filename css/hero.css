@@ -1,0 +1,30 @@
+/* Hero section */
+.hero {
+  padding: 24px;
+  text-align: center;
+  border-radius: 12px;
+  background-image: url('../images/hero-bg.jpg'); /* pastikan path sesuai */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Teks */
+  color: #fff;                   
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Tombol hero */
+.hero a {
+  display: inline-block;
+  padding: 12px 22px;
+  background-color: #28a745;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.hero a:hover {
+  background-color: #218838;
+}
