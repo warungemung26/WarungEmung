@@ -1,0 +1,13 @@
+/*CSS PENGUMUMAN*/
+.pengumuman {
+  width: 100%;
+  background: #222; /* hitam elegan */
+  padding: 6px 0;
+  font-weight: bold;
+  font-size: 14px;
+  color: yellow;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* biar ada kesan premium */
+}
