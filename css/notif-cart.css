@@ -1,0 +1,17 @@
+/* Notifikasi kecil */
+#cart-notif {
+  position: absolute;
+  top: 2px;
+  right: 28%;
+  background: #ff4b4b;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  line-height: 18px;
+  border-radius: 50%;
+  display: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
