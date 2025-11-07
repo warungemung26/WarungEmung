@@ -1,0 +1,36 @@
+/* ================= SEARCH ================= */
+
+.search-container {
+  display: flex;       /* agar input dan tombol sejajar */
+  gap: 8px;            /* jarak antar elemen */
+}
+
+#search {
+  flex: 1;             /* input mengambil sisa lebar container */
+  padding: 10px 16px;
+  border-radius: 25px;
+  border: 2px solid #ff6600;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#search:focus {
+  border-color: #ff9933;
+  box-shadow: 0 0 8px rgba(255, 153, 51, 0.5);
+}
+
+#search-btn {
+  padding: 10px 20px;   /* tinggi sama dengan input */
+  border-radius: 25px;
+  border: none;
+  background: #ff6600;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#search-btn:hover {
+  background: #ff9933;
+}
