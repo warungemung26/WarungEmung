@@ -5,20 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Warung Emung Praktis, Hemat, Dekat</title>
 
-  <link rel="stylesheet" href="css/floating.css">
+    <!-- ================== CSS ================== -->
+  <!-- 1️⃣ Urutan: paling umum → spesifik -->
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/search.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/hero.css">
-  <link rel="stylesheet" href="css/popup-reg.css">
-  <link rel="stylesheet" href="css/text-scrol.css">
-  <link rel="stylesheet" href="css/qty-wa.css">
-  <link rel="stylesheet" href="css/cat-modal.css">
+  <link rel="stylesheet" href="css/search.css">
   <link rel="stylesheet" href="css/grid-produk.css">
+  <link rel="stylesheet" href="css/navigasi.css">
+  <link rel="stylesheet" href="css/popup-reg.css">
   <link rel="stylesheet" href="css/modal-cart.css">
+  <link rel="stylesheet" href="css/cat-modal.css">
+  <link rel="stylesheet" href="css/floating.css">
+  <link rel="stylesheet" href="css/qty-wa.css">
   <link rel="stylesheet" href="css/notif-cart.css">
   <link rel="stylesheet" href="css/toast.css">
-  <link rel="stylesheet" href="css/navigasi.css">
+  <link rel="stylesheet" href="css/text-scrol.css">f6b042">
+
+   <!-- ================== PWA META ================== -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#f6b042">
 
@@ -167,25 +171,16 @@
   ➕ Pasang di Layar Utama
 </button>
 
-<!-- ================= SCRIPT FILES ================= -->
-<script src="js/main.js"></script>
-<script src="js/search.js"></script>
-<script src="js/data-loader.js"></script>
-<script src="js/toast-audio.js"></script>
-<script src="js/cart.js"></script>
-<script src="js/pwa.js"></script>
-<script src="service-worker.js"></script>
-<script src="js/register.js"></script>
-
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js')
-      .then(reg => console.log('✅ Service Worker terdaftar:', reg.scope))
-      .catch(err => console.log('❌ SW error:', err));
-  });
-}
-</script>
+  <!-- ================== JAVASCRIPT ================== -->
+  <!-- Urutan stabil: fitur utama → tambahan → PWA/Service Worker -->
+  <script src="js/data-loader.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/toast-audio.js"></script>
+  <script src="js/register.js"></script>
+  <script src="js/pwa.js"></script>
 
 <!-- ================= AUTO VERSION SCRIPT ================= -->
 <script>
@@ -200,6 +195,16 @@ if ('serviceWorker' in navigator) {
     if(src&&!src.includes('?v=')&&!src.includes('gtag')){script.setAttribute('src',src+'?v='+version);}
   });
 })();
+</script>
+
+    <script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => console.log('✅ Service Worker terdaftar:', reg.scope))
+      .catch(err => console.log('❌ SW error:', err));
+  });
+}
 </script>
 
 </body>
