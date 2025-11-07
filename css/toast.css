@@ -1,0 +1,68 @@
+/* ================= TOAST MODERN DENGAN PROGRESS BAR ================= */
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: 120px; /* dinaikkan agar di atas bottom-nav */
+  transform: translateX(-50%) translateY(30px);
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: #fff;
+  padding: 12px 20px 18px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transition: all .4s ease;
+  z-index: 99999; /* pastikan di atas semua elemen */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Ikon otomatis di depan */
+#toast::before {
+  content: "✅";
+  font-size: 16px;
+}
+
+/* Progress bar di bawah */
+#toast::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px; /* lebih tebal agar terlihat jelas */
+  width: 100%;
+  background: rgba(255,255,255,0.9);
+  transform-origin: left;
+  transform: scaleX(1);
+  transition: transform 2.5s linear; /* waktu habis toast */
+}
+
+/* Saat muncul */
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  bottom: 140px; /* sedikit naik agar animasi halus */
+}
+
+/* Jalankan progress bar */
+#toast.show::after {
+  transform: scaleX(0);
+}
+
+/* Warna tema toast */
+#toast.success {
+  background: linear-gradient(135deg, #28a745, #20c997);
+}
+#toast.error {
+  background: linear-gradient(135deg, #dc3545, #ff6b6b);
+}
+#toast.info {
+  background: linear-gradient(135deg, #007bff, #00b4d8);
+}
+#toast.warning {
+  background: linear-gradient(135deg, #ffc107, #ff8c00);
+}
