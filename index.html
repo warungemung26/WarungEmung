@@ -4,6 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Warung Emung Praktis, Hemat, Dekat</title>
+
+  <!-- ================= AUTO VERSION SCRIPT ================= -->
+  <script>
+    // Supaya query string versi dijalankan sebelum load CSS/JS utama
+    (function(){
+      const version = new Date().toISOString().slice(0,10).replace(/-/g,'');
+      document.querySelectorAll('link[rel="stylesheet"]').forEach(link=>{
+        const href=link.getAttribute('href');
+        if(href && !href.includes('?v=')){ link.setAttribute('href', href+'?v='+version); }
+      });
+      document.querySelectorAll('script[src]').forEach(script=>{
+        const src=script.getAttribute('src');
+        if(src && !src.includes('?v=') && !src.includes('gtag')){ script.setAttribute('src', src+'?v='+version); }
+      });
+    })();
+  </script>
+
   <!-- ================== CSS ================== -->
   <!-- 1️⃣ Urutan: paling umum → spesifik -->
   <link rel="stylesheet" href="css/main.css">
@@ -15,151 +32,107 @@
   <link rel="stylesheet" href="css/popup-reg.css">
   <link rel="stylesheet" href="css/modal-cart.css">
   <link rel="stylesheet" href="css/cat-modal.css">
-  <link rel="stylesheet" href="css/floating.css">
   <link rel="stylesheet" href="css/qty-addcart.css">
   <link rel="stylesheet" href="css/notif-cart.css">
   <link rel="stylesheet" href="css/toast.css">
   <link rel="stylesheet" href="css/text-scrol.css">
-<link rel="stylesheet" href="css/all.min.css">
-
+  <link rel="stylesheet" href="css/all.min.css">
 
   <!-- ================== PWA META ================== -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#f6b042">
 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PYZMBZNKER"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-PYZMBZNKER');
-</script>
-
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYZMBZNKER"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PYZMBZNKER');
+  </script>
 </head>
 <body>
-	<button id="cat-float" title="Pilih Kategori"></button>
-	<section id="home"><h2></h2>
-<!-- ================= HEADER ================= -->
-<header class="header">
-  <div class="header-left">
-    <img src="images/logo-warung.png" alt="Logo Warung Emung" class="logo">
-    <div class="header-text">
-      <h1>Warung Emung</h1>
-      <p class="lead">Praktis, Hemat, Dekat<br>Gg. Subur Blok. Wanakaya RT01/RW02 No.26</p>
+  <section id="home"><h2></h2>
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+    <div class="header-left">
+      <img src="images/logo-warung.png" alt="Logo Warung Emung" class="logo">
+      <div class="header-text">
+        <h1>Warung Emung</h1>
+        <p class="lead">Praktis, Hemat, Dekat<br>Gg. Subur Blok. Wanakaya RT01/RW02 No.26</p>
+      </div>
     </div>
-  </div>
-  <div class="header-right">
-    <!-- Bisa ditambahkan ikon menu atau tombol -->
-  </div>
-</header>
+    <div class="header-right">
+      <!-- Bisa ditambahkan ikon menu atau tombol -->
+      <a href="pages/help-center.html" class="help-btn">📩 Help Center</a>
+    </div>
+  </header>
 
   <!-- ================= SEARCH ================= -->
-<div style="display:flex;gap:6px;margin:16px 0">
-  <input id="search" placeholder="🔎Cari produk... (misal ketik merk: indomie)" style="flex:1;padding:10px;border-radius:8px;border:1px solid #ddd" />
-  <button id="search-btn" style="padding:10px 16px;border:none;border-radius:8px;background:var(--accent);color:#fff;cursor:pointer">🔍</button>
-</div>
+  <div style="display:flex;gap:6px;margin:16px 0">
+    <input id="search" placeholder="🔎Cari produk... (misal: indomie)" style="flex:1;padding:10px;border-radius:8px;border:1px solid #ddd" />
+    <button id="search-btn" style="padding:10px 16px;border:none;border-radius:8px;background:var(--accent);color:#fff;cursor:pointer">🔍</button>
+  </div>
 
-<!-- Insert Help Center button in header-right -->
-<div class="header-right">
-<a href="pages/help-center.html" class="help-btn">📩 Help Center</a>
-</div>
-</div>
+  <!-- PENGUMUMAN BERJALAN -->
+  <div class="pengumuman">
+    <marquee behavior="scroll" direction="left">
+      ⚠️ PERHATIAN: Saat ini semua stok belum tersedia — website masih dalam pengembangan ⚠️
+    </marquee>
+  </div>
 
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <h2 style="margin:0 0 8px">Belanja Harian Lebih Mudah</h2>
+    <p style="margin:0 0 12px; color:#fff">
+      Belanja harian gampang, tinggal klik — langsung kami antar! Buka setiap hari 06.00-22.00
+    </p>
 
+    <!-- Tombol Request Stok Modern -->
+    <a id="wa-cta" 
+       href="https://wa.me/6285322882512?text=Halo%20Warung%20Emung,%20saya%20ingin%20request%20produk:%20[NAMA%20PRODUK]%20dengan%20jumlah:%20[JUMLAH]%20Mohon%20informasinya."
+       target="_blank"
+       style="display:inline-flex;align-items:center;gap:10px;padding:12px 22px;background:#25d366;color:white;font-weight:600;border-radius:50px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.15);transition:all 0.3s ease;">
+      <i class="fa-brands fa-whatsapp"></i>
+      Request Stok
+    </a>
 
-<!-- PENGUMUMAN BERJALAN -->
-<div class="pengumuman">
-  <marquee behavior="scroll" direction="left">
-    ⚠️ PERHATIAN: Saat ini semua stok belum tersedia — website masih dalam pengembangan ⚠️
-  </marquee>
-</div>
-
-<!-- ================= HERO ================= -->
-<section class="hero">
-  <h2 style="margin:0 0 8px">Belanja Harian Lebih Mudah</h2>
-  <p style="margin:0 0 12px; color:#fff">
-    Belanja harian gampang, tinggal klik — langsung kami antar! Buka setiap hari 06.00-22.00
-  </p>
-
-  <!-- Tombol Request Stok Modern -->
-  <a id="wa-cta" 
-     href="https://wa.me/6285322882512?text=Halo%20Warung%20Emung,%20saya%20ingin%20request%20produk:%20[NAMA%20PRODUK]%20dengan%20jumlah:%20[JUMLAH]%20Mohon%20informasinya."
-     target="_blank"
-     style="display:inline-flex;align-items:center;gap:10px;padding:12px 22px;background:#25d366;color:white;font-weight:600;border-radius:50px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.15);transition:all 0.3s ease;">
-     
-     <!-- Icon WA -->
-     <i class="fa-brands fa-whatsapp"></i>
-
-     Request Stok
-  </a>
-
-  <!-- Petunjuk singkat -->
-  <p style="margin-top:8px;font-size:12px;color:#fff;">
-    Cara pakai: ganti <strong>[NAMA PRODUK]</strong> & <strong>[JUMLAH]</strong> sesuai keinginan Anda sebelum mengirim.
-</p>
-</section>
+    <p style="margin-top:8px;font-size:12px;color:#fff;">
+      Cara pakai: ganti <strong>[NAMA PRODUK]</strong> & <strong>[JUMLAH]</strong> sesuai keinginan Anda sebelum mengirim.
+    </p>
+  </section>
 
   <!-- REGISTER POPUP (semi-transparent modal, B) -->
-<div id="register-backdrop" aria-hidden="false" style="display:none;">
-  <div id="register-modal" role="dialog" aria-modal="true">
-    <h3>Daftar Pelanggan Warung Emung</h3>
-    <p>Untuk mengakses layanan & memesan online, silakan daftar terlebih dahulu via WhatsApp. Klik tombol di bawah, kirim data pendaftaran (Nama & Alamat/RT-RW), lalu kembali ke situs dan tekan "Saya sudah  daftar".</p>
+  <div id="register-backdrop" aria-hidden="false" style="display:none;">
+    <div id="register-modal" role="dialog" aria-modal="true">
+      <h3>Daftar Pelanggan Warung Emung</h3>
+      <p>Untuk mengakses layanan & memesan online, silakan daftar terlebih dahulu via WhatsApp. Klik tombol di bawah, kirim data pendaftaran (Nama & Alamat/RT-RW), lalu kembali ke situs dan tekan "Saya sudah  daftar".</p>
 
-    <!-- WA button: ganti nomor di href jika perlu -->
-    <button id="btn-register-wa" class="register-btn register-wa">Daftar via WhatsApp</button>
-
-    <!-- Setelah mendaftar, pengguna klik ini untuk membuka toko -->
-    <button id="btn-registered" class="register-btn register-done">Saya sudah daftar✅, lanjut belanja</button>
-
-    <a class="small-link" href="#" id="register-hint">Saya belum sempat kirim pesan apa perlu?</a>
-  </div>
-</div>
-<button id="open-cart" class="cart-btn" title="Keranjang">🛒<span id="cart-count" class="cart-count" style="display:none">0</span></button>
-      
-<!-- ================= MENU KATEGORI ================= -->
-<h3 style="margin-top:22px">Pilih Kategori</h3>
-<div class="kategori-grid">
-
-  <div class="cat" onclick="setCategory('')">
-    <span>🛒 Semua</span>
+      <button id="btn-register-wa" class="register-btn register-wa">Daftar via WhatsApp</button>
+      <button id="btn-registered" class="register-btn register-done">Saya sudah daftar ✅, lanjut belanja</button>
+      <a class="small-link" href="#" id="register-hint">Saya belum sempat kirim pesan apa perlu?</a>
+    </div>
   </div>
 
-  <div class="cat" onclick="setCategory('sembako')">
-    <span>🍚🥕 Sembako</span>
+  <button id="open-cart" class="cart-btn" title="Keranjang">🛒<span id="cart-count" class="cart-count" style="display:none">0</span></button>
+
+  <!-- ================= MENU KATEGORI ================= -->
+  <h3 style="margin:10px 0;">Pilih Kategori</h3>
+  <div class="kategori-grid">
+    <div class="cat active" onclick="setCategory('')"><i class="fas fa-store"></i><span>Semua</span></div>
+    <div class="cat" onclick="setCategory('sembako')"><i class="fas fa-seedling"></i><span>Sembako</span></div>
+    <div class="cat" onclick="setCategory('makanan')"><i class="fas fa-utensils"></i><span>Makanan</span></div>
+    <div class="cat" onclick="setCategory('mie')"><i class="fas fa-bowl-food"></i><span>Mie Instan</span></div>
+    <div class="cat" onclick="setCategory('snack')"><i class="fas fa-cookie-bite"></i><span>Snack</span></div>
+    <div class="cat" onclick="setCategory('minuman')"><i class="fas fa-coffee"></i><span>Minuman</span></div>
+    <div class="cat" onclick="setCategory('minumansachet')"><i class="fas fa-mug-hot"></i><span>Sachet</span></div>
+    <div class="cat" onclick="setCategory('rumah')"><i class="fas fa-broom"></i><span>Rumah</span></div>
   </div>
 
-  <div class="cat" onclick="setCategory('makanan')">
-    <span>🌯🍢 Makanan Cepat Saji</span>
-  </div>
-
-  <div class="cat" onclick="setCategory('mie')">
-    <span>🍜 Mie Instan</span>
-  </div>
-
-  <div class="cat" onclick="setCategory('snack')">
-    <span>🍿🍭 Snack & Ringan</span>
-  </div>
-
-  <div class="cat" onclick="setCategory('minuman')">
-    <span>🥤 Minuman Dingin</span>
-  </div>
-
-  <div class="cat" onclick="setCategory('minumansachet')">
-    <span>🥛 Minuman Sachet & 💊 Obat-obatan</span>
-  </div>
-
-  <div class="cat" onclick="setCategory('rumah')">
-    <span>🧴🛀 Kebutuhan Rumah</span>
-  </div>
-
-</div>
-
-  <!-- ================= PRODUK LIST================= -->
+  <!-- ================= PRODUK LIST ================= -->
   <h3 style="margin-top:22px">Etalase Warung</h3>
   <div id="produk-list"></div>
-  
+
   <!-- ================= TAMPILAN CART MODAL ================= -->
   <div id="cart-modal" class="modal" role="dialog" aria-hidden="true">
     <h4>Keranjang Anda</h4>
@@ -171,105 +144,58 @@
     </div>
   </div>
 
-  <!-- ================= FOOTER ================= -->
-  <footer>Warung Emung — Praktis, Hemat, Dekat • Hubungi via WhatsApp untuk pesanan</footer>
-
   <!-- ================= TOAST NOTIF ================= -->
   <div id="toast">Berhasil</div>
 
-<!-- ================= TAMPILAN CATEGORI MODAL ================= -->
-<div id="cat-modal-backdrop">
-  <div id="cat-modal" role="dialog" aria-hidden="true">
-    
-    <!-- Tombol tutup -->
-    <button id="close-cat" class="close-btn">❎</button>
-
-    <!-- Judul modal -->
-    <h4 style="margin-top:4px">Pilih Kategori</h4>
-
-    <!-- Grid kategori -->
-    <div id="cat-options" style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:10px;">
-      
-      <div class="cat" data-cat="">🛒 Semua</div>
-      <div class="cat" data-cat="sembako">🍚🥕 Sembako</div>
-      <div class="cat" data-cat="makanan">🌯🍢 Makanan Cepat Saji</div>
-      <div class="cat" data-cat="mie">🍜 Mie Instan</div>
-      <div class="cat" data-cat="snack">🍿🍭 Snack & Ringan</div>
-      <div class="cat" data-cat="minuman">🥤 Minuman Dingin</div>
-      <div class="cat" data-cat="minumansachet">🥛 Minuman Sachet & 💊 Obat-obatan</div>
-      <div class="cat" data-cat="rumah">🧴🛀 Kebutuhan Rumah</div>
-      
+  <!-- ================= TAMPILAN KATEGORI MODAL ================= -->
+  <div id="cat-modal-backdrop">
+    <div id="cat-modal" role="dialog" aria-hidden="true">
+      <button id="close-cat" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+      <h4 style="margin-top:4px; text-align:center;"><i class="fa-solid fa-list"></i> Pilih Kategori</h4>
+      <div id="cat-options" style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:10px;">
+        <div class="cat" data-cat=""><i class="fa-solid fa-cart-shopping"></i> Semua Produk</div>
+        <div class="cat" data-cat="sembako"><i class="fa-solid fa-bowl-rice"></i> Sembako</div>
+        <div class="cat" data-cat="makanan"><i class="fa-solid fa-burger"></i> Makanan Cepat Saji</div>
+        <div class="cat" data-cat="mie"><i class="fa-solid fa-bowl-food"></i> Mie Instan</div>
+        <div class="cat" data-cat="snack"><i class="fa-solid fa-cookie-bite"></i> Snack & Ringan</div>
+        <div class="cat" data-cat="minuman"><i class="fa-solid fa-bottle-water"></i> Minuman Dingin</div>
+        <div class="cat" data-cat="minumansachet"><i class="fa-solid fa-mug-hot"></i> Minuman Sachet & Obat</div>
+        <div class="cat" data-cat="rumah"><i class="fa-solid fa-soap"></i> Kebutuhan Rumah</div>
+      </div>
     </div>
   </div>
-</div>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<div class="bottom-nav">
-  <a href="#home" class="active">
-    <i class="fa-solid fa-house"></i>
-    <span>Beranda</span>
-  </a>
-  <a href="#cat">
-    <i class="fa-solid fa-book"></i>
-    <span>Kategori</span>
-  </a>
-  <a href="#search">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span>Cari</span>
-  </a>
-  <a href="https://wa.me/6285322882512?text=Halo%20Warung%20Emung,%20saya%20ingin%20cek%20pesanan" 
-     target="_blank" id="wa-nav-btn">
-    <i class="fa-brands fa-whatsapp"></i>
-    <span>Cek</span>
-  </a>
-  <a href="#cart" id="cart-btn">
-    <i class="fa-solid fa-cart-shopping"></i>
-    <span>Troli</span>
-    <div class="badge" id="cart-badge">0</div>
-  </a>
-</div>
+  <div class="bottom-nav">
+    <a href="#home" id="nav-home" class="active"><i class="fa-solid fa-house"></i><span>Beranda</span></a>
+    <a href="#cat" id="nav-cat"><i class="fa-solid fa-book"></i><span>Kategori</span></a>
+    <a href="#search" id="nav-search"><i class="fa-solid fa-magnifying-glass"></i><span>Cari</span></a>
+    <a href="https://wa.me/6285322882512?text=Halo%20Warung%20Emung,%20saya%20ingin%20cek%20pesanan" target="_blank" id="wa-nav-btn"><i class="fa-brands fa-whatsapp"></i><span>Cek</span></a>
+    <a href="#cart" id="nav-cart"><i class="fa-solid fa-cart-shopping"></i><span>Troli</span><div class="badge" id="cart-badge">0</div></a>
+  </div>
 
-
-
-<button id="installBtn" style="position:fixed;bottom:110px;right:12px;z-index:9999;display:none;border-radius:10px;padding:8px 12px;background:#f6b042;color:#fff">
-  ➕ Pasang di Layar Utama
-</button>
+  <button id="installBtn" style="position:fixed;bottom:110px;right:12px;z-index:9999;display:none;border-radius:10px;padding:8px 12px;background:#f6b042;color:#fff">➕ Instal Warung Emung</button>
 
   <!-- ================== JAVASCRIPT ================== -->
   <!-- Urutan stabil: fitur utama → tambahan → PWA/Service Worker -->
   <script src="js/data-loader.js"></script>
   <script src="js/main.js"></script>
   <script src="js/search.js"></script>
+  <script src="js/cat-modal.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/toast-audio.js"></script>
   <script src="js/register.js"></script>
   <script src="js/pwa.js"></script>
-  
-  <!-- ================= AUTO VERSION SCRIPT ================= -->
-<script>
-(function(){
-  const version = new Date().toISOString().slice(0,10).replace(/-/g,'');
-  document.querySelectorAll('link[rel="stylesheet"]').forEach(link=>{
-    const href=link.getAttribute('href');
-    if(href&&!href.includes('?v=')){link.setAttribute('href',href+'?v='+version);}
-  });
-  document.querySelectorAll('script[src]').forEach(script=>{
-    const src=script.getAttribute('src');
-    if(src&&!src.includes('?v=')&&!src.includes('gtag')){script.setAttribute('src',src+'?v='+version);}
-  });
-})();
-</script>
 
- <!-- Service worker harus paling akhir -->
-    <script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js')
-      .then(reg => console.log('✅ Service Worker terdaftar:', reg.scope))
-      .catch(err => console.log('❌ SW error:', err));
-  });
-}
-</script>
+  <!-- Service worker harus paling akhir -->
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log('✅ Service Worker terdaftar:', reg.scope))
+        .catch(err => console.log('❌ SW error:', err));
+    });
+  }
+  </script>
 
 </body>
 </html>
