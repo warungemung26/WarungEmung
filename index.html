@@ -26,6 +26,19 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#f6b042">
 
+<script>
+// ================= UNREGISTER LAMA SW =================
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(regs => {
+    regs.forEach(reg => {
+      reg.unregister().then(() => {
+        console.log('✅ SW lama dihapus:', reg.scope);
+      });
+    });
+  });
+}
+</script>
+	
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYZMBZNKER"></script>
 <script>
