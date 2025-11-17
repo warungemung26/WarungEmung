@@ -4,7 +4,6 @@
 const listEl = document.getElementById('produk-list');
 const searchEl = document.getElementById('search');
 const cartCountEl = document.getElementById('cart-count');
-const openCartBtn = document.getElementById('open-cart');
 const cartModal = document.getElementById('cart-modal');
 const cartItemsEl = document.getElementById('cart-items');
 const cartTotalEl = document.getElementById('cart-total');
@@ -169,13 +168,75 @@ clearCartBtn.addEventListener('click', () => {
 
 // Pesan via WA
 waCartBtn.addEventListener('click', () => {
-  if (cart.length === 0) { showToast('Keranjang kosong 🛒'); return; }
-  const lines = cart.map(it => `${it.qty} x ${it.name} = ${formatRupiah(it.price * it.qty)}`);
+
+  if (cart.length === 0) {
+    showToast('Keranjang kosong');
+    return;
+  }
+
+  const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+
+  const nama = userData.nama || 'Pelanggan';
+  const alamat = userData.alamat || '';
+  const noRumah = userData.noRumah || '';
+  const rtrw = userData.rtrw || '';
+  const hp = userData.hp || '';
+
+  const fullAlamat =
+    `${alamat}${noRumah ? ' No. ' + noRumah : ''}` +
+    `${rtrw ? ', RT/RW ' + rtrw : ''}`;
+
+  const orderId = 'EM-' + Date.now().toString().slice(-6);
+
+  const lines = cart.map(it =>
+    `- ${it.qty} x ${it.name} - Rp ${formatRupiah(it.price * it.qty)}`
+  );
+
   const total = cart.reduce((s, i) => s + i.qty * i.price, 0);
-  lines.push('\nTotal: ' + formatRupiah(total));
-  const message = `Halo Warung Emung, saya pesan:\n` + lines.join('\n');
-  window.open('https://wa.me/6285322882512?text=' + encodeURIComponent(message), '_blank');
+
+  const message =
+`PESANAN BARU - WARUNG EMUNG
+ID Pesanan: ${orderId}
+
+Nama: ${nama}
+Alamat: ${fullAlamat}
+HP: ${hp || '-'}
+
+Detail Pesanan:
+${lines.join('\n')}
+
+Total: Rp ${formatRupiah(total)}
+
+Mohon diproses.`;
+
+
+  // ==== SIMPAN RIWAYAT ====
+  simpanRiwayat({
+    id: orderId,
+    items: cart.map(it => ({
+      name: it.name,
+      qty: it.qty,
+      harga: it.price,
+      subtotal: it.price * it.qty
+    })),
+    total: total
+  });
+  // ========================
+
+
+  // Buka WA
+  window.open(
+    'https://wa.me/6285322882512?text=' + encodeURIComponent(message),
+    '_blank'
+  );
+
+  // Tutup modal
   cartModal.style.display = 'none';
+
+  // Reset keranjang
+  cart = [];
+  updateCartCount();
+  renderCartModal();
 });
 
 
