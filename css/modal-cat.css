@@ -1,0 +1,44 @@
+/* ====== KATEGORI GRID 2 BARIS ====== */
+.kategori-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 10px;
+  background: #fff;
+}
+
+.cat {
+  background: #fff8e1;
+  border: 1px solid #fdd835;
+  border-radius: 12px;
+  text-align: center;
+  padding: 8px 4px;
+  font-size: 12px;
+  color: #444;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.cat:hover {
+  background: #fff3cd;
+  transform: translateY(-2px);
+}
+
+.cat i {
+  display: block;
+  font-size: 18px;
+  color: #fbc02d;
+  margin-bottom: 4px;
+}
+
+.cat span {
+  display: block;
+  font-size: 12px;
+}
+
+.cat.active {
+  background: #ffe082;
+  border-color: #fbc02d;
+  box-shadow: 0 0 4px rgba(255,193,7,0.3);
+}
