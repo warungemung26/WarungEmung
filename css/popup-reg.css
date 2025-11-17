@@ -1,26 +1,129 @@
-    /* ==== POPUP DAFTAR VIA WHATSAPP (MODAL, B) ==== */
-#register-backdrop{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.45); /* semi transparent */
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:3000;
-  backdrop-filter: blur(2px);
+/* === BACKDROP === */
+#register-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
 }
-#register-modal{
-  width:92%;
-  max-width:420px;
-  background:#fff;
-  border-radius:12px;
-  padding:18px;
-  box-shadow:0 12px 30px rgba(0,0,0,0.25);
-  text-align:left;
+
+/* === MODAL DEFAULT (FULLSCREEN UNTUK FORM) === */
+.reg-modal-box {
+  width: 100%;
+  height: 100vh;
+  max-width: 430px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  transition: all .25s ease;
 }
-#register-modal h3{margin:0 0 8px;font-size:18px}
-#register-modal p{margin:6px 0 12px;color:#444;font-size:14px}
-.register-btn{display:inline-block;width:100%;padding:10px 12px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
-.register-wa{background:#25d366;color:#fff;margin-bottom:8px}
-.register-done{background:#f6b042;color:#222}
-.small-link{display:block;text-align:center;margin-top:8px;font-size:13px;color:#666}
+
+/* === MODE POPUP AWAL (STEP 1) === */
+.reg-step.active#reg-step1 ~ .reg-actions-bottom,
+.reg-step.active#reg-step1 {
+  /* biarkan normal */
+}
+
+.reg-step.active#reg-step1 {
+  height: auto !important;
+}
+
+/* ubah modal jika step 1 aktif */
+.reg-step.active#reg-step1 .reg-modal-box,
+#reg-step1.active .reg-modal-box {
+  width: 90%;
+  max-width: 360px;
+  height: auto;
+  border-radius: 16px;
+  padding-bottom: 10px;
+  overflow: hidden;
+}
+
+/* Header */
+.reg-modal-box h3 {
+  margin: 0;
+  padding: 16px 20px;
+  font-size: 1.3em;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  flex-shrink: 0;
+}
+
+/* Step aktif */
+.reg-step { display: none; }
+.reg-step.active { display: flex; flex-direction: column; height: 100%; }
+
+/* === STEP 1 TAMPILAN AWAL === */
+#reg-step1 p {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.1em;
+}
+
+.big-btn {
+  padding: 14px 0 !important;
+  font-size: 1.1em;
+  font-weight: 700;
+  border-radius: 10px;
+}
+
+/* === SCROLL AREA === */
+.reg-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 20px 80px;
+}
+
+/* FORM */
+.reg-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reg-form input,
+.reg-form select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+/* === TOMBOL BAWAH FIX === */
+.reg-actions-bottom {
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding: 14px 16px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  gap: 12px;
+  z-index: 20;
+}
+
+.reg-actions-bottom button {
+  flex: 1;
+  padding: 12px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* warna tombol */
+.primary { background: #4CAF50; }
+.secondary { background: #FF5252; }
+
+/* === POPUP KECIL (STEP 1) === */
+.popup-small {
+  width: 90% !important;
+  max-width: 360px !important;
+  height: auto !important;
+  max-height: 75vh !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+}
