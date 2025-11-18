@@ -514,5 +514,65 @@
     "price": 1500,
     "img": "images/neozep.jpg",
     "category": "minumansachet"
+  },
+  {
+    "name": "Qtela Keripik Singkong Balado 55g",
+    "price": 7000,
+    "img": "images/qtela-balado-55g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Taro Net Seaweed 70g",
+    "price": 8000,
+    "img": "images/taro-seaweed-70g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Cheetos Rasa Keju 48g",
+    "price": 7000,
+    "img": "images/cheetos-keju-48g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Chiki Balls Keju 75g",
+    "price": 8000,
+    "img": "images/chikiballs-keju-75g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Pilus Garuda Pedas 15g",
+    "price": 1000,
+    "img": "images/pilus-garuda-pedas-15g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Tango Wafer Vanilla 130g",
+    "price": 8000,
+    "img": "images/tango-vanilla-130g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Oreo Vanilla 137g",
+    "price": 13000,
+    "img": "images/oreo-vanilla-137g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Malkist Roma Abon 135g",
+    "price": 8000,
+    "img": "images/malkist-abon-135g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Potabee Beef BBQ 60g",
+    "price": 8000,
+    "img": "images/potabee-bbq-60g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Kusuka Keripik Singkong Original 60g",
+    "price": 7000,
+    "img": "images/kusuka-original-60g.jpg",
+    "category": "snack"
   }
 ]
