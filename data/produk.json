@@ -126,7 +126,7 @@
     "category": "sembako"
   },
   {
-    "name": "Saori Saus Tiram 135ml â Rp10.000",
+    "name": "Saori Saus Tiram 135ml Ã¢ÂÂ Rp10.000",
     "price": 10000,
     "img": "images/saori-saustiram-135g.jpg",
     "category": "sembako"
@@ -442,5 +442,95 @@
     "price": 5000,
     "img": "images/daia-lemon.jpg",
     "category": "rumah"
+  },
+  {
+    "name": "Energen Cereal Sachet",
+    "price": 2500,
+    "img": "images/energen.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Torabika Cappuccino Sachet",
+    "price": 2000,
+    "img": "images/torabika-cappuccino.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Indocafe Coffeemix 3in1 Sachet",
+    "price": 2000,
+    "img": "images/indocafe-3in1.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Jahe Merah Sachet",
+    "price": 1500,
+    "img": "images/jahe-merah.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Nutrisari Anggur Merah",
+    "price": 2000,
+    "img": "images/nutrisari-anggur.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Teh Tarik Golda Sachet",
+    "price": 2000,
+    "img": "images/golda-tehtarik.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Kopi ABC Susu Moka Sachet",
+    "price": 2000,
+    "img": "images/abc-moka.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Good Day Mocacino Sachet",
+    "price": 2000,
+    "img": "images/goodday-mocacino.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Es Kopi Kapal Api Easy Drip",
+    "price": 3000,
+    "img": "images/kapalapi-easydrip.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Wedang Uwuh Sachet",
+    "price": 2000,
+    "img": "images/wedang-uwuh.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Oralit Sachet",
+    "price": 2000,
+    "img": "images/oralit.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Promag Sachet",
+    "price": 2000,
+    "img": "images/promag.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Tolak Angin Cair Sachet",
+    "price": 3000,
+    "img": "images/tolak-angin.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Antangin JRG Sachet",
+    "price": 2500,
+    "img": "images/antangin.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Neozep Forte Sachet",
+    "price": 1500,
+    "img": "images/neozep.jpg",
+    "category": "minumansachet"
   }
 ]
