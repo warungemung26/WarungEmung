@@ -408,24 +408,6 @@
     "category": "rumah"
   },
   {
-    "name": "Sunlight Jeruk Nipis Sachet",
-    "price": 500,
-    "img": "images/sunlight-jeruk.jpg",
-    "category": "rumah"
-  },
-  {
-    "name": "Daia Detergent Pink Sachet",
-    "price": 500,
-    "img": "images/daia-pink.jpg",
-    "category": "rumah"
-  },
-  {
-    "name": "Daia Detergent Lemon Sachet",
-    "price": 500,
-    "img": "images/daia-lemon.jpg",
-    "category": "rumah"
-  },
-  {
     "name": "Sunlight Jeruk Nipis",
     "price": 2000,
     "img": "images/sunlight-jeruk.jpg",
