@@ -374,23 +374,17 @@ if ('serviceWorker' in navigator) {
 </a>
 
    <a href="https://wa.me/6285322882512?text=Halo%20Warung%20Emung,%20saya%20ingin%20cek%20pesanan"
-   target="_blank" id="wa-nav-btn">
-  <i class="fa-brands fa-whatsapp"></i>
-  <span>Cek</span>
-</a>
+     <!-- Form input WA (hanya muncul jika WA) -->
+    <div id="modal-wa-inputs" style="display:none; margin-top:10px;">
+      <input type="text" id="modal-produk" placeholder="Nama Produk" />
+      <input type="number" id="modal-jumlah" placeholder="Jumlah" />
+    </div>
 
-<script>
-document.getElementById('wa-nav-btn').addEventListener('click', function(e) {
-    e.preventDefault(); // mencegah langsung buka link
-    const proceed = confirm("Apakah kamu ingin cek pesanan kamu via WhatsApp?");
-    if (proceed) {
-        window.open(this.href, '_blank'); // buka link kalau Yes
-    } else {
-        alert("Batal membuka WhatsApp."); // opsional, bisa dihapus
-    }
-});
-</script>
-
+    <div class="modal-buttons">
+      <button id="modal-cancel" class="btn-secondary">Batal</button>
+      <button id="modal-ok" class="btn-primary">Ya</button>
+    </div>
+	   
   <a href="#cart" id="nav-cart">
     <i class="fa-solid fa-cart-shopping"></i>
     <span>Troli</span>
