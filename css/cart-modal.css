@@ -1,0 +1,210 @@
+/* === Modal Keranjang Fix Style === */
+#cart-modal {
+  position: fixed;
+  bottom: 70px;
+  right: 10px;
+  width: 320px;
+  max-height: 70vh;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+  padding: 14px;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 99999;
+  transition: all 0.25s ease;
+  font-size: 14px;
+}
+
+#cart-modal.open {
+  display: flex;
+  animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#cart-modal h4 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 6px;
+  text-align: center;
+}
+
+#cart-items {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 8px;
+  max-height: 40vh;
+}
+
+#cart-items .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px dashed #ddd;
+}
+
+#cart-items .name {
+  flex: 1;
+  font-size: 14px;
+}
+
+#cart-items .qty {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+#cart-items .qty button {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+  cursor: pointer;
+  line-height: 18px;
+}
+
+#cart-items .qty span {
+  min-width: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#cart-total {
+  text-align: right;
+  font-weight: bold;
+  padding: 8px 0;
+  border-top: 1px solid #eee;
+}
+
+#wa-cart,
+#clear-cart,
+#close-cart {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#wa-cart {
+  background: #25D366;
+  color: #fff;
+}
+#wa-cart:hover { background: #1ebe5d; }
+
+#clear-cart {
+  background: #ffebee;
+  color: #e53935;
+}
+#clear-cart:hover { background: #ffcdd2; }
+
+#close-cart {
+  background: #eee;
+  color: #333;
+}
+#close-cart:hover { background: #ddd; }
+
+/* Modal keranjang */
+#cart-modal {
+  position: fixed;
+  right: 12px;
+  bottom: 72px;
+  width: 320px;
+  max-height: 60vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  padding: 12px 14px;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2000;
+}
+
+#cart-modal.open {
+  display: flex;
+}
+
+#cart-modal h4 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 4px;
+}
+
+#cart-items {
+  flex: 1;
+  margin-top: 6px;
+}
+
+#cart-items .item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dashed #e3e3e3;
+  font-size: 14px;
+}
+
+#cart-items .item:last-child {
+  border-bottom: none;
+}
+
+#cart-items .item span:first-child {
+  color: #333;
+}
+
+#cart-items .item span:last-child {
+  color: #008000;
+  font-weight: 600;
+}
+
+#cart-total {
+  margin-top: 8px;
+  font-weight: 700;
+  color: #333;
+}
+
+#wa-cart, #clear-cart, #close-cart {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#wa-cart {
+  background: #25D366;
+  color: white;
+}
+
+#clear-cart {
+  background: #f44336;
+  color: white;
+}
+
+#close-cart {
+  background: #555;
+  color: white;
+}
+
+/* Animasi buka */
+#cart-modal.open {
+  animation: popCart 0.25s ease;
+}
+@keyframes popCart {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
