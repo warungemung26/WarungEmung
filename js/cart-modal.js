@@ -1,3 +1,19 @@
+// ================= FORMAT WAKTU =================
+function waktuPesan() {
+  const d = new Date();
+  const tgl = d.toLocaleDateString('id-ID', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+  const jam = d.toLocaleTimeString('id-ID', {
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+  return `${tgl}, ${jam}`;
+}
+
 // ================= CART MODAL =================
 function renderCartModal() {
   cartItemsEl.innerHTML = '';
@@ -16,7 +32,7 @@ function renderCartModal() {
 navCartBtn.addEventListener('click', (e) => {
   e.preventDefault();
   if (cart.length === 0) {
-    showToast('Keranjang masih kosong ');
+    showToast('Keranjang masih kosong 😅');
     return;
   }
   renderCartModal();
@@ -33,7 +49,7 @@ clearCartBtn.addEventListener('click', () => {
   cartModal.style.display = 'none';
 });
 
-// Pesan via WA
+// ================= PESAN VIA WA =================
 waCartBtn.addEventListener('click', () => {
   if (cart.length === 0) {
     showToast('Keranjang kosong');
@@ -52,6 +68,7 @@ waCartBtn.addEventListener('click', () => {
     `${rtrw ? ', RT/RW ' + rtrw : ''}`;
 
   const orderId = 'EM-' + Date.now().toString().slice(-6);
+  const waktu = waktuPesan(); // ← ICON WAKTU PAKAI INI
 
   const lines = cart.map(it =>
     `- ${it.qty} x ${it.name} - Rp ${formatRupiah(it.price * it.qty)}`
@@ -59,22 +76,25 @@ waCartBtn.addEventListener('click', () => {
 
   const total = cart.reduce((s, i) => s + i.qty * i.price, 0);
 
+  // ================= TEMPLATE WA BARU DENGAN IKON =================
   const message =
-`PESANAN BARU - WARUNG EMUNG
-ID Pesanan: ${orderId}
+`🛍️ *PESANAN BARU - WARUNG EMUNG*
+🆔 *ID Pesanan:* ${orderId}
+📅 *Waktu:* ${waktu}
 
-Nama: ${nama}
-Alamat: ${fullAlamat}
-HP: ${hp || '-'}
+👤 *Nama:* ${nama}
+📍 *Alamat:* ${fullAlamat}
+📱 *HP:* ${hp || '-'}
 
-Detail Pesanan:
+🛒 *Detail Pesanan:*
 ${lines.join('\n')}
 
-Total: Rp ${formatRupiah(total)}
+💰 *Total:* Rp ${formatRupiah(total)}
 
 Mohon diproses.`;
+  // ===============================================================
 
-  // ==== SIMPAN RIWAYAT DENGAN DETAIL 100% ====
+  // ==== SIMPAN RIWAYAT LENGKAP ====
   simpanRiwayat({
     id: orderId,
     items: cart.map(it => ({
@@ -85,9 +105,10 @@ Mohon diproses.`;
       subtotal: it.price * it.qty
     })),
     total: total,
+    waktu: waktu,
     date: new Date().toISOString()
   });
-  // ==========================================
+  // ==================================
 
   // Buka WA
   window.open(
@@ -95,7 +116,7 @@ Mohon diproses.`;
     '_blank'
   );
 
-  // Tutup modal dan reset keranjang
+  // Reset keranjang
   cartModal.style.display = 'none';
   cart = [];
   updateCartCount();
