@@ -6,12 +6,13 @@
   <title>Warung Emung Praktis, Hemat, Dekat</title>
   <!-- ================== CSS ================== -->
   <!-- 1️⃣ Urutan: paling umum → spesifik -->
+  <!-- ================== CSS ================== -->
   <link rel="stylesheet" href="css/ui.css">
 <link rel="stylesheet" href="css/popup-reg.css">
 <link rel="stylesheet" href="css/qty-addcart.css">
-<link rel="stylesheet" href="css/modal-cart.css">
-<link rel="stylesheet" href="css/modal-cat.css">
-<link rel="stylesheet" href="css/modal-akun.css">
+<link rel="stylesheet" href="css/cart-modal.css">
+<link rel="stylesheet" href="css/cat-modal.css">
+<link rel="stylesheet" href="css/akun-modal.css">
 <link rel="stylesheet" href="css/nama-alamat.css">
 <link rel="stylesheet" href="css/toast.css">
 <link rel="stylesheet" href="css/text-scrol.css">
@@ -69,7 +70,7 @@ if ('serviceWorker' in navigator) {
 
   <!-- ================= SEARCH ================= -->
 <div style="display:flex;gap:6px;margin:16px 0">
-  <input id="search" placeholder="🔎Cari produk... (misal: indomie)" style="flex:1;padding:10px;border-radius:8px;border:1px solid #ddd" />
+  <input id="search" placeholder="🔎Cari produk... (misal: mie)" style="flex:1;padding:10px;border-radius:8px;border:1px solid #ddd" />
   <button id="search-btn" style="padding:10px 16px;border:none;border-radius:8px;background:var(--accent);color:#fff;cursor:pointer">🔍</button>
 </div>
 
@@ -88,7 +89,7 @@ if ('serviceWorker' in navigator) {
     Belanja harian gampang, tinggal klik — langsung kami antar! Buka setiap hari 06.00-22.00
   </p>
 
- <!-- Tombol Request Stok Modern -->
+  <!-- Tombol Request Stok Modern -->
 <div class="hero-cta">
   <a class="cta-link wa-hero" 
      href="https://wa.me/6285322882512?text=Halo%20Warung%20Emung,%20saya%20ingin%20request%20produk:%20[NAMA%20PRODUK]%20dengan%20jumlah:%20[JUMLAH]%20Mohon%20informasinya."
@@ -98,8 +99,9 @@ if ('serviceWorker' in navigator) {
   </a>
 
   <p class="wa-cta-instructions">
-    Ketik <strong>[NAMA PRODUK]</strong> &amp; <strong>[JUMLAH]</strong> di form setelah tekan.
+    Ganti <strong>[NAMA PRODUK]</strong> &amp; <strong>[JUMLAH]</strong> di form setelah tekan.
   </p>
+</div>
 </section>
 
 <!-- REGISTER POPUP -->
@@ -166,9 +168,8 @@ if ('serviceWorker' in navigator) {
 
 
 <!-- ACCOUNT MODAL -->
-<div id="account-backdrop" class="modal-backdrop" style="display:none;">
-  <div id="account-modal" class="modal-box modal-animate">
-
+<div id="account-backdrop" class="modal-backdrop">
+  <div id="account-modal" class="modal-box">
     <h3>Akun Saya</h3>
 
     <!-- TAB -->
@@ -177,13 +178,11 @@ if ('serviceWorker' in navigator) {
       <button class="tab-btn" data-tab="tab-riwayat">Riwayat</button>
     </div>
 
-    <!-- === AREA SCROLL (HANYA INI YANG SCROLL) === -->
+    <!-- AREA SCROLL -->
     <div class="acc-scroll-area">
 
       <!-- === TAB PROFIL === -->
       <div class="tab-content active" id="tab-profil">
-
-        <!-- FOTO PROFIL -->
         <div class="pp-box">
           <img id="pp-preview" src="img/default-pp.png" alt="Foto Profil">
           <button id="btn-ubah-pp">Ubah Foto</button>
@@ -193,20 +192,15 @@ if ('serviceWorker' in navigator) {
         <div class="acc-form">
           <label>Nama:</label>
           <input type="text" id="acc-nama">
-
           <label>Alamat:</label>
           <input type="text" id="acc-alamat">
-
           <label>Nomor Rumah:</label>
           <input type="text" id="acc-no">
-
           <label>RT / RW:</label>
           <input type="text" id="acc-rt">
-
           <label>Nomor HP (opsional):</label>
           <input type="text" id="acc-hp">
         </div>
-
       </div>
 
       <!-- === TAB RIWAYAT === -->
@@ -214,9 +208,9 @@ if ('serviceWorker' in navigator) {
         <div id="riwayat-list"></div>
       </div>
 
-    </div><!-- END scroll area -->
+    </div>
 
-    <!-- === FIXED ACTION BUTTONS === -->
+    <!-- TOMBOL BAWAH FIX -->
     <div class="acc-actions acc-actions-bottom">
       <button id="acc-close-btn" class="secondary">Tutup</button>
       <button id="acc-save-btn" class="primary">Simpan Perubahan</button>
@@ -224,9 +218,6 @@ if ('serviceWorker' in navigator) {
 
   </div>
 </div>
-
-
-
 
 
 <button onclick="localStorage.clear(); alert('CLEARED');">
@@ -373,18 +364,14 @@ if ('serviceWorker' in navigator) {
   <span>Akun</span>
 </a>
 
-   <a href="https://wa.me/6285322882512?text=Halo%20Warung%20Emung,%20saya%20ingin%20cek%20pesanan"
-     <!-- Form input WA (hanya muncul jika WA) -->
-    <div id="modal-wa-inputs" style="display:none; margin-top:10px;">
-      <input type="text" id="modal-produk" placeholder="Nama Produk" />
-      <input type="number" id="modal-jumlah" placeholder="Jumlah" />
-    </div>
+   <!-- NAVBAR: Tombol WA (icon kecil) -->
+<a class="cta-link wa-nav"
+   href="https://wa.me/6285322882512?text=Halo%20Warung%20Emung,%20saya%20ingin%20cek%20pesanan%20saya."
+   aria-label="Hubungi via WhatsApp"
+   title="Hubungi via WhatsApp">
+   <i class="fa-brands fa-whatsapp"></i>
+</a>
 
-    <div class="modal-buttons">
-      <button id="modal-cancel" class="btn-secondary">Batal</button>
-      <button id="modal-ok" class="btn-primary">Ya</button>
-    </div>
-	   
   <a href="#cart" id="nav-cart">
     <i class="fa-solid fa-cart-shopping"></i>
     <span>Troli</span>
@@ -413,15 +400,18 @@ if ('serviceWorker' in navigator) {
       <button id="modal-cancel" class="btn-secondary">Batal</button>
       <button id="modal-ok" class="btn-primary">Ya</button>
     </div>
+  </div>
+</div>
+
 
   <!-- ================== JAVASCRIPT ================== -->
   <!-- Urutan stabil: fitur utama → tambahan → PWA/Service Worker -->
   <script src="js/data-loader.js"></script>
   <script src="js/main.js"></script>
   <script src="js/search.js"></script>
-  <script src="js/cta-links.js"></script>
-  <script src="js/cat-modal.js"></script>
-  <script src="js/cart-modal.js"></script>
+    <script src="js/cta-links.js"></script>
+   <script src="js/cat-modal.js"></script>
+   <script src="js/cart-modal.js"></script>
   <script src="js/toast-audio.js"></script>
   <script src="js/register.js"></script>
   <script src="js/akun-logic.js"></script>
