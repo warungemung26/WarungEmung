@@ -1,3 +1,12 @@
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+
 // ================= RENDER PRODUK =================
 function render(data) {
   listEl.innerHTML = '';
@@ -89,36 +98,11 @@ function render(data) {
 
 let produkData = [];
 
-fetch('data/produk.json')
-  .then(response => {
-    if (!response.ok) throw new Error('Gagal memuat produk');
-    return response.json();
-  })
-  .then(data => {
-    produkData = data;
-    console.log('Produk berhasil dimuat:', produkData);
 
-    // misalnya ada fungsi untuk tampilkan produk
-    if (typeof tampilkanProduk === 'function') {
-      tampilkanProduk(produkData);
-    }
-  })
-  .catch(error => console.error('Error load JSON:', error));
 
    
-let products = [];  // array kosong dulu
 
-// load produk dari file eksternal
-fetch('data/produk.json')
-  .then(response => {
-    if (!response.ok) throw new Error('Gagal load produk.json');
-    return response.json();
-  })
-  .then(data => {
-    products = data;
-    renderProducts(products); // panggil fungsi render produk
-  })
-  .catch(err => console.error(err));    
+
 
 // fungsi untuk render produk ke #produk-list
 function renderProducts(list) {
@@ -136,11 +120,26 @@ function renderProducts(list) {
   });
 }
 
+// ================== SHUFFLE ==================
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// ================== FETCH TUNGGAL ==================
+let products = [];   // dipakai untuk kategori, scroll, filter
+
 fetch('data/produk.json')
-  .then(res => res.json())
+  .then(res => {
+    if (!res.ok) throw new Error('Gagal memuat produk.json');
+    return res.json();
+  })
   .then(data => {
-    window.products = data;
-    render(data);
-  });
-
-
+    products = data;                    // penting untuk kategori & scroll
+    const acak = shuffle([...data]);    // buat versi acak
+    render(acak);                       // tampilkan produk sekali, langsung acak
+  })
+  .catch(err => console.error(err));
