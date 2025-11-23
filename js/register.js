@@ -244,18 +244,38 @@ tabButtons.forEach(btn => {
 function loadRiwayat() {
   const wrap = document.getElementById("riwayat-list");
   const r = JSON.parse(localStorage.getItem("riwayat") || "[]");
-  if(r.length === 0){
+
+  if (r.length === 0) {
     wrap.innerHTML = "<p style='opacity:0.6'>Belum ada riwayat belanja.</p>";
     return;
   }
+
   wrap.innerHTML = r.map(order => `
     <div class="riwayat-item">
-      <strong>ID Pesanan: ${order.id}</strong><br>
+
+      <div class="riwayat-header">
+        <span>📦</span>
+        <strong>ID Pesanan: ${order.id}</strong>
+      </div>
+
       <ul>
-        ${order.items.map(it => `<li>${it.qty} x ${it.name} - Rp ${it.subtotal}</li>`).join("")}
+        ${order.items.map(it => `
+          <li>🛒 ${it.qty} x ${it.name} — Rp ${formatRupiah(it.subtotal)}</li>
+        `).join("")}
       </ul>
-      <strong>Total: Rp ${order.total}</strong><br>
-      Waktu: ${order.waktu || order.date || '-'}
+
+      <div class="riwayat-ongkir">
+        🚚 Ongkir: <strong>${formatRupiah(order.ongkir || 0)}</strong>
+      </div>
+
+      <div class="riwayat-total">
+        💰 Total: <strong>${formatRupiah(order.total)}</strong>
+      </div>
+
+      <div class="riwayat-waktu">
+        🕒 ${order.waktu || order.date || '-'}
+      </div>
+
     </div>
   `).join("");
 }
