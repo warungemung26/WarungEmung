@@ -17,15 +17,24 @@ function waktuPesan() {
 // ================= CART MODAL =================
 function renderCartModal() {
   cartItemsEl.innerHTML = '';
-  let total = 0;
+  let subtotal = 0;
+  const ONGKIR = 2000;
+
   cart.forEach(it => {
     const row = document.createElement('div');
     row.className = 'item';
     row.innerHTML = `<div>${it.name} x ${it.qty}</div><div>${formatRupiah(it.price * it.qty)}</div>`;
     cartItemsEl.appendChild(row);
-    total += it.price * it.qty;
+    subtotal += it.price * it.qty;
   });
-  cartTotalEl.textContent = 'Total: ' + formatRupiah(total);
+
+  const total = subtotal + ONGKIR;
+
+  // Tambahkan ongkir & total akhir
+  cartTotalEl.innerHTML =
+    `Subtotal: ${formatRupiah(subtotal)}<br>` +
+    `Ongkir: ${formatRupiah(ONGKIR)}<br>` +
+    `<strong>Total: ${formatRupiah(total)}</strong>`;
 }
 
 // Klik icon keranjang di bottom nav
@@ -68,15 +77,17 @@ waCartBtn.addEventListener('click', () => {
     `${rtrw ? ', RT/RW ' + rtrw : ''}`;
 
   const orderId = 'EM-' + Date.now().toString().slice(-6);
-  const waktu = waktuPesan(); // ← ICON WAKTU PAKAI INI
+  const waktu = waktuPesan();
 
   const lines = cart.map(it =>
     `- ${it.qty} x ${it.name} - Rp ${formatRupiah(it.price * it.qty)}`
   );
 
-  const total = cart.reduce((s, i) => s + i.qty * i.price, 0);
+  const subtotal = cart.reduce((s, i) => s + i.qty * i.price, 0);
+  const ONGKIR = 2000;
+  const total = subtotal + ONGKIR;
 
-  // ================= TEMPLATE WA BARU DENGAN IKON =================
+  // ===== TEMPLATE WA BARU =====
   const message =
 `🛍️ *PESANAN BARU - WARUNG EMUNG*
 🆔 *ID Pesanan:* ${orderId}
@@ -89,12 +100,12 @@ waCartBtn.addEventListener('click', () => {
 🛒 *Detail Pesanan:*
 ${lines.join('\n')}
 
+🚚 *Ongkir:* Rp ${formatRupiah(ONGKIR)}
 💰 *Total:* Rp ${formatRupiah(total)}
 
 Mohon diproses.`;
-  // ===============================================================
 
-  // ==== SIMPAN RIWAYAT LENGKAP ====
+  // ==== SIMPAN RIWAYAT ====
   simpanRiwayat({
     id: orderId,
     items: cart.map(it => ({
@@ -104,11 +115,12 @@ Mohon diproses.`;
       harga: it.price,
       subtotal: it.price * it.qty
     })),
+    subtotal: subtotal,
+    ongkir: ONGKIR,
     total: total,
     waktu: waktu,
     date: new Date().toISOString()
   });
-  // ==================================
 
   // Buka WA
   window.open(
