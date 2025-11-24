@@ -233,47 +233,151 @@ tabButtons.forEach(btn => {
   btn.addEventListener("click", () => {
     tabButtons.forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
+
     tabContents.forEach(c => c.classList.remove("active"));
     const target = btn.getAttribute("data-tab");
     const targetContent = document.getElementById(target);
-    if(targetContent) targetContent.classList.add("active");
-    if(target === "tab-riwayat") loadRiwayat();
+
+    if (targetContent) {
+      targetContent.classList.add("active");
+    }
+
+    if (target === "tab-riwayat") loadRiwayat();
   });
 });
 
+
+// ============================
+// FUNGSI TAMBAHAN RIWAYAT
+// ============================
+
+// Hapus satu riwayat
+function hapusRiwayat(id) {
+  const r = JSON.parse(localStorage.getItem("riwayat") || "[]");
+  const baru = r.filter(o => o.id !== id);
+  localStorage.setItem("riwayat", JSON.stringify(baru));
+  loadRiwayat();
+}
+
+// Hapus semua riwayat
+function hapusSemuaRiwayat() {
+  if (!confirm("Yakin ingin menghapus semua riwayat?")) return;
+  localStorage.removeItem("riwayat");
+  loadRiwayat();
+}
+
+// WA — batalkan pesanan
+function waBatalkan(order) {
+  const text =
+`Halo Warung Emung, saya ingin membatalkan pesanan berikut:
+
+🆔 ID: ${order.id}
+👤 Nama: ${order.nama}
+📍 Alamat: ${order.alamat}
+📱 HP: ${order.hp}
+
+Mohon dibatalkan.`;
+
+  const url = "https://wa.me/6285322882512?text=" + encodeURIComponent(text);
+  window.open(url, "_blank");
+}
+
+// WA — cek status pesanan
+function waCekStatus(order) {
+  const list = order.items.map(it => `${it.qty} x ${it.name}`).join(", ");
+
+  const text =
+`Halo Warung Emung, saya ingin menanyakan status pesanan:
+
+🆔 ID: ${order.id}
+👤 Nama: ${order.nama}
+📍 Alamat: ${order.alamat}
+📱 HP: ${order.hp}
+🛒 Produk: ${list}
+💰 Total: Rp ${formatRupiah(order.total)}
+
+Mohon informasinya.`;
+
+  const url = "https://wa.me/6285322882512?text=" + encodeURIComponent(text);
+  window.open(url, "_blank");
+}
+
+
+// ============================
+// LOAD RIWAYAT
+// ============================
 function loadRiwayat() {
   const wrap = document.getElementById("riwayat-list");
   const r = JSON.parse(localStorage.getItem("riwayat") || "[]");
+
+  if (!wrap) return;
 
   if (r.length === 0) {
     wrap.innerHTML = "<p style='opacity:0.6'>Belum ada riwayat belanja.</p>";
     return;
   }
 
-  wrap.innerHTML = r.map(order => `
-    <div class="riwayat-item">
+  // Tombol hapus semua
+  wrap.innerHTML = `
+    <button class="cta-link riwayat-clear-all"
+      style="margin-bottom:10px;border:1px solid #d00;padding:6px;border-radius:6px;background:#ffe5e5">
+      Hapus Semua Riwayat
+    </button>
+  `;
 
-      <div class="riwayat-header">
-        <span>📦</span>
-        <strong>ID Pesanan: ${order.id}</strong>
-      </div>
+  wrap.innerHTML += r.map(order => `
+    <div class="riwayat-item"
+      style="margin-bottom:12px;padding:10px;border:1px solid #ddd;border-radius:6px">
 
-      <ul>
+      <table>
+        <tr><td>🆔</td><td><strong>ID Pesanan: ${order.id}</strong></td></tr>
+        <tr><td>👤</td><td><strong>${order.nama || '-'}</strong></td></tr>
+        <tr><td>📍</td><td><strong>${order.alamat || '-'}</strong></td></tr>
+        <tr><td>📱</td><td><strong>${order.hp || '-'}</strong></td></tr>
+      </table>
+
+      <br>
+
+      <table>
+        <tr><td>🛒</td><td><strong>Detail Pesanan:</strong></td></tr>
+      </table>
+
+      <ul style="margin:4px 0 8px 22px;padding:0;">
         ${order.items.map(it => `
-          <li>🛒 ${it.qty} x ${it.name} — Rp ${formatRupiah(it.subtotal)}</li>
+          <li>${it.qty} x ${it.name} — Rp ${formatRupiah(it.subtotal)}</li>
         `).join("")}
       </ul>
 
-      <div class="riwayat-ongkir">
-        🚚 Ongkir: <strong>${formatRupiah(order.ongkir || 0)}</strong>
-      </div>
+      <table>
+        <tr><td>🚚</td><td><strong>Ongkir: Rp ${formatRupiah(order.ongkir || 0)}</strong></td></tr>
+        <tr><td>💰</td><td><strong>Total: Rp ${formatRupiah(order.total)}</strong></td></tr>
+        <tr><td>📅</td><td><strong>${order.waktu || order.date || '-'}</strong></td></tr>
+      </table>
 
-      <div class="riwayat-total">
-        💰 Total: <strong>${formatRupiah(order.total)}</strong>
-      </div>
+      <!-- Tombol fitur -->
+      <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
 
-      <div class="riwayat-waktu">
-        🕒 ${order.waktu || order.date || '-'}
+        <!-- Cek status -->
+        <button class="cta-link riwayat-status"
+          data-id="${order.id}"
+          style="padding:6px 10px;border:1px solid #4caf50;border-radius:4px;background:#eaffea;">
+          Cek Status
+        </button>
+
+        <!-- Ulangi pesanan -->
+        <button class="cta-link riwayat-repeat"
+          data-id="${order.id}"
+          style="padding:6px 10px;border:1px solid #2196f3;border-radius:4px;background:#e7f3ff;">
+          Ulangi
+        </button>
+
+        <!-- Hapus satu riwayat -->
+        <button class="cta-link riwayat-delete"
+          data-id="${order.id}"
+          style="padding:6px 10px;border:1px solid #aaa;border-radius:4px;background:#f7f7f7;">
+          Hapus
+        </button>
+
       </div>
 
     </div>
