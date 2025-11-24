@@ -105,22 +105,32 @@ ${lines.join('\n')}
 
 Mohon diproses.`;
 
-  // ==== SIMPAN RIWAYAT ====
-  simpanRiwayat({
-    id: orderId,
-    items: cart.map(it => ({
-      id: it.id || null,
-      name: it.name,
-      qty: it.qty,
-      harga: it.price,
-      subtotal: it.price * it.qty
-    })),
-    subtotal: subtotal,
-    ongkir: ONGKIR,
-    total: total,
-    waktu: waktu,
-    date: new Date().toISOString()
-  });
+// ==== SIMPAN RIWAYAT ====
+simpanRiwayat({
+  id: orderId,
+
+  items: cart.map(it => ({
+    id: it.id || null,
+    name: it.name,
+    qty: it.qty,
+    harga: it.price,
+    subtotal: it.price * it.qty
+  })),
+
+  subtotal: subtotal,
+  ongkir: ONGKIR,
+  total: total,
+
+  waktu: waktu,
+  date: new Date().toISOString(),
+
+  // ==== PERBAIKAN DI SINI ====
+  nama: nama,
+  alamat: fullAlamat,
+  hp: hp
+});
+
+
 
   // Buka WA
   window.open(
