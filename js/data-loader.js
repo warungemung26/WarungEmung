@@ -11,7 +11,7 @@ function shuffle(arr) {
 function render(data) {
   listEl.innerHTML = '';
   if (!data || data.length === 0) {
-    listEl.innerHTML = '<div style="padding:12px;background:#fff;border:1px dashed #eee;border-radius:8px">Tidak ada produk</div>';
+    listEl.innerHTML = '<div style="padding:12px;background:#fff;border:1px dashed #eee;border-radius:8px">Memuat Produk</div>';
     return;
   }
 
