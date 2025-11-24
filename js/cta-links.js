@@ -92,6 +92,109 @@
     e.preventDefault();
 
     const href = anchor.getAttribute('href') || '';
+    
+    // ======================================================
+// RIWAYAT — HANDLER GLOBAL CTA
+// ======================================================
+
+// Hapus satu riwayat
+if (anchor.classList.contains("riwayat-delete")) {
+  const id = anchor.dataset.id;
+
+  openModal({
+    title: "Hapus Riwayat?",
+    message: "Yakin ingin menghapus riwayat pesanan ini?",
+    action: function () {
+      let r = JSON.parse(localStorage.getItem("riwayat") || "[]");
+      r = r.filter(x => x.id != id);
+      localStorage.setItem("riwayat", JSON.stringify(r));
+      location.reload();
+    }
+  });
+
+  return;
+}
+
+// Hapus semua riwayat
+if (anchor.classList.contains("riwayat-clear-all")) {
+  openModal({
+    title: "Hapus Semua Riwayat?",
+    message: "Semua riwayat akan terhapus permanen.",
+    action: function () {
+      localStorage.removeItem("riwayat");
+      location.reload();
+    }
+  });
+
+  return;
+}
+
+// Ulangi pesanan dari riwayat
+if (anchor.classList.contains("riwayat-repeat")) {
+  const id = anchor.dataset.id;
+  const r = JSON.parse(localStorage.getItem("riwayat") || "[]");
+  const item = r.find(x => x.id == id);
+
+  if (!item) {
+    openModal({
+      title: "Tidak Ditemukan",
+      message: "Data pesanan tidak tersedia.",
+      action: function(){}
+    });
+    return;
+  }
+
+  openModal({
+    title: "Ulangi Pesanan?",
+    message: "Semua produk dari pesanan ini akan dimasukkan ke keranjang.",
+    action: function () {
+      localStorage.setItem("cart", JSON.stringify(item.items));
+      location.href = "#keranjang";
+    }
+  });
+
+  return;
+}
+
+// Cek Status dari Riwayat
+if (anchor.classList.contains("riwayat-status")) {
+  const id = anchor.dataset.id;
+
+  const r = JSON.parse(localStorage.getItem("riwayat") || "[]");
+  const item = r.find(x => x.id == id);
+
+  if (!item) {
+    openModal({
+      title: "Tidak Ditemukan",
+      message: "Data riwayat tidak tersedia.",
+      action: function(){}
+    });
+    return;
+  }
+
+  const list = item.items.map(it => `${it.qty} x ${it.name}`).join(", ");
+  const text = 
+`Halo Warung Emung, ingin menanyakan status pesanan saya.
+
+🆔 *ID:* ${item.id}
+🛒 *Produk:* ${list}
+💰 *Total:* Rp ${item.total}
+📅 *Waktu:* ${item.waktu || '-'}
+
+Mohon informasinya.`;
+
+  openModal({
+    title: "Cek Status Pesanan?",
+    message: "Ingin menanyakan status pesanan ini via WhatsApp?",
+    action: function () {
+      const wa = "https://wa.me/6285322882512?text=" + encodeURIComponent(text);
+      window.open(wa, '_blank');
+    }
+  });
+
+  return;
+}
+
 
     // ======================================================
     // 1. WA STATUS — CEK PESANAN TERAKHIR
@@ -136,7 +239,7 @@
       return;
     }
 
- // ======================================================
+// ======================================================
 // 2. WA NAVBAR — CEK ORDER TERAKHIR (MEMAKAI RIWAYAT)
 // ======================================================
 if(anchor.classList.contains("wa-nav")){
@@ -154,10 +257,13 @@ if(anchor.classList.contains("wa-nav")){
     return;
   }
 
+  // ========== FIX: fallback data jika riwayat lama belum lengkap ==========
   const id = last.id || "Tanpa ID";
   const waktu = last.waktu || "-";
-  const nama = last.nama || "Pelanggan";
-  const alamat = last.alamat || "-";
+  const nama = last.nama || localStorage.getItem("reg_nama") || "Pelanggan";
+  const alamat = last.alamat || localStorage.getItem("reg_alamat") || "-";
+  const hp = last.hp || localStorage.getItem("reg_hp") || "-";
+
   const list = last.items.map(it => `${it.qty} x ${it.name}`).join(", ");
   const total = last.total || 0;
 
@@ -173,6 +279,7 @@ if(anchor.classList.contains("wa-nav")){
 🆔 *ID Pesanan:* ${id}
 👤 *Nama:* ${nama}
 📍 *Alamat:* ${alamat}
+📱 *HP:* ${hp}
 🛒 *Produk:* ${list}
 💰 *Total:* Rp ${total}
 📅 *Waktu:* ${waktu}
