@@ -23,9 +23,11 @@ Seluruh fitur berjalan **tanpa backend**, cukup dijalankan melalui GitHub Pages 
 
 ---
 
-## **🟦 3. Navigasi Kategori**
+## **🟦 3. Navigasi Kategori & Randomisasi Produk**
 
 * Memilih kategori otomatis **scroll ke etalase kategori**.
+* **Urutan produk diacak setiap kali kategori dipilih** → tampilan selalu berbeda, tidak membosankan.
+* Saat halaman pertama dibuka → **urutan semua produk juga acak**.
 * Modal kategori tertutup otomatis setelah pilihan.
 * Modal dapat ditutup dengan:
 
@@ -58,11 +60,19 @@ Seluruh fitur berjalan **tanpa backend**, cukup dijalankan melalui GitHub Pages 
 * Form alamat dapat discroll.
 * Tombol statis **Tutup** & **Simpan Perubahan** selalu tersedia di bawah.
 
-### **e. Cek Pesanan (Order Check)**
+### **e. Cek Pesanan & Tombol WA**
 
-* Membuka modal review pesanan.
-* Pilihan: **Lanjutkan** atau **Batalkan**.
-* Tidak otomatis diarahkan ke WhatsApp.
+* Tombol **Cek Pesanan** di navbar & tombol **WA di Hero** sekarang **menggunakan satu modal/template**.
+* Mengambil data **riwayat pesanan terakhir** sebagai template WA.
+* Template WA lengkap berisi:
+
+  * 🆔 **ID Pesanan**
+  * 📅 **Waktu Pemesanan**
+  * 🛒 **Detail Item** (nama, qty, harga)
+  * 💰 **Total Belanja**
+  * Ikon untuk visualisasi (misal 🛒, 🆔)
+* Tombol WA Hero dapat digunakan untuk **request produk yang belum ada**; jika pesanan statis, tetap menampilkan template riwayat terakhir.
+* Modal tunggal ini digunakan untuk **kedua tombol**, sehingga konsisten.
 
 ### **f. Troli (Cart)**
 
@@ -110,6 +120,7 @@ Seluruh fitur berjalan **tanpa backend**, cukup dijalankan melalui GitHub Pages 
 
 * Semua data produk berada di `produk.json`.
 * Memudahkan update produk tanpa menyentuh file HTML.
+* **Urutan produk diacak** setiap kali halaman dibuka dan setiap kali kategori dipilih, agar tampilan selalu segar.
 
 ---
 
@@ -140,8 +151,8 @@ WarungEmung/
 │   ├── ui.css
 │   ├── popup-reg.css
 │   ├── qty-addcart.css
-│   ├── modal-cart.css
-│   ├── modal-cat.css
+│   ├── cart-modal.css
+│   ├── cat-modal.css
 │   ├── modal-akun.css
 │   ├── nama-alamat.css
 │   ├── toast.css
@@ -149,16 +160,16 @@ WarungEmung/
 │   └── search.css
 │
 ├── js/
-│   ├── data-loader.js
-│   ├── main.js
-│   ├── search.js
-│   ├── modal-cat.js
-│   ├── toast-audio.js
-│   ├── modal-cart.js
-│   ├── register.js
-│   ├── modal-akun-logic.js
-│   ├── modal-akun.js
-│   └── pwa.js
+│   ├── data-loader.js      <-- randomisasi produk terintegrasi
+│   ├── main.js         <-- 
+│   ├── search.js         <-- cari dan randomisasi
+│   ├── modal-cat.js         <-- 
+│   ├── toast-audio.js         <-- 
+│   ├── modal-cart.js         <-- 
+│   ├── register.js         <-- popup registrasi
+│   ├── 
+│   ├── 
+│   └── cta-link.js         <-- update tombol WA & cek pesanan
 │
 ├── fontawesome/
 │   └── (file ikon offline)
@@ -223,3 +234,5 @@ closeCartModal();
 * Mode gelap / terang
 * Validasi alamat lebih baik
 * Optimasi gambar produk
+* Integrasi tombol WA & cek pesanan menggunakan **satu modal/template** untuk konsistensi
+* **Randomisasi urutan produk** agar tampilan selalu segar dan tidak monoton
