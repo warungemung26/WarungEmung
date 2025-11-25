@@ -33,90 +33,352 @@ body {
   line-height: 1.6;
 }
 
-/* ================= HEADER ================= */
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 18px;
-  background: linear-gradient(90deg, var(--accent), #f7c15e);
-  color: #222;
-  border-radius: 14px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+/* ===== THEME VARIABLES ===== */
+:root {
+  /* Header */
+  --header-bg: #28a745;
+  --header-text: #fff;
+  --search-bg: #fff;
+  --search-text: #28a745;
+
+  /* Sidebar */
+  --sidebar-bg: #fff;
+  --sidebar-text: #000;
+  --sidebar-border: #ddd;
+  --sidebar-backdrop: rgba(0,0,0,0.4);
+
+  /* Dropdown prediksi */
+  --suggestion-bg: #fff;
+  --suggestion-hover-bg: #f0f0f0;
+  --highlight-color: #2196f3;
+  --price-color: #555;
 }
 
-/* kiri header */
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
+[data-theme="dark"] {
+  /* Header Dark */
+  --header-bg: #1e1e1e;
+  --header-text: #fff;
+  --search-bg: #2a2a2a;
+  --search-text: #4CAF50;
+
+  /* Sidebar Dark */
+  --sidebar-bg: #1a1a1a;
+  --sidebar-text: #f1f1f1;
+  --sidebar-border: #333;
+  --sidebar-backdrop: rgba(0,0,0,0.6);
+
+  /* Dropdown prediksi Dark */
+  --suggestion-bg: #2a2a2a;
+  --suggestion-hover-bg: #333;
+  --highlight-color: #4CAF50;
+  --price-color: #ccc;
 }
 
-/* logo lebih besar & lembut */
-.logo {
-  height: 64px;
-  width: 64px;
-  border-radius: 12px;
-  object-fit: cover;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  background: #fff;
-  padding: 4px;
-}
-
-/* teks judul */
-.header-text h1 {
-  margin: 0;
-  font-size: 24px;
-  font-weight: 800;
-  color: #2b1c05;
-  letter-spacing: 0.5px;
-  text-shadow: 0 1px 2px rgba(255,255,255,0.5);
-}
-
-/* subteks */
-.header-text .lead {
-  margin: 4px 0 0;
-  font-size: 14px;
-  font-weight: 500;
-  color: #fffefc;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-}
-
-/* kanan header (opsional) */
-.header-right {
+/* ===== HEADER, SEARCH, SIDEBAR RAMPING ===== */
+.header-mini {
   display: flex;
   align-items: center;
   gap: 10px;
+  padding: 10px;
+  background: var(--header-bg);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-/* Responsive HP */
-@media (max-width: 480px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 12px;
+.logo-mini {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+}
+
+.search-wrap {
+  flex: 1;
+}
+
+.search-mini {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background: var(--search-bg);
+  color: var(--search-text);
+}
+
+.menu-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--header-text);
+  font-weight: bold;
+}
+
+.search-btn {
+  font-size: 18px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  background: var(--search-bg);
+  cursor: pointer;
+  color: var(--search-text);
+  font-weight: bold;
+}
+
+/* Dropdown prediksi */
+.search-suggestions {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  max-height: 260px;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 6px 16px rgba(0,0,0,0.15);
+  padding: 6px 0;
+  display: none;
+  z-index: 50;
+}
+
+.search-suggestions li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.search-suggestions li:last-child {
+  border-bottom: none;
+}
+
+.search-suggestions li:hover,
+.search-suggestions li.active {
+  background: #f5f5f5;
+}
+
+.sugg-thumb {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.sugg-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.sugg-name {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.sugg-price {
+  font-size: 12px;
+  color: #777;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #d9534f;
+}
+
+.search-suggestions .price {
+  font-size: 0.9em;
+  color: var(--price-color);
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 280px;
+  max-width: 90%;
+  height: 100%;
+  background: var(--sidebar-bg, #fff);
+  color: var(--sidebar-text, #333);
+  z-index: 10000;
+  box-shadow: -3px 0 10px rgba(0,0,0,.2);
+  transition: right 0.3s ease;
+  padding: 16px;
+  overflow-y: auto;
+  font-family: sans-serif;
+}
+
+.sidebar.show {
+  right: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.close-btn {
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--sidebar-text, #333);
+}
+
+/* BACKDROP */
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 9000;
+  display: none;
+}
+
+.sidebar-backdrop.show {
+  display: block;
+}
+
+/* CART BUTTON */
+.cart-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 18px;
+  padding: 8px 12px;
+  background: var(--accent, #4caf50);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #ff4b4b;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* MENU LIST */
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.sidebar-menu li i {
+  margin-right: 8px;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* LINK INSIDE MENU */
+.sidebar-menu li a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* SWITCH (Dark Mode / Toast) */
+.switch {
+  position: relative;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: .3s;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  top: 2px;
+  background: white;
+  border-radius: 50%;
+  transition: .3s;
+}
+
+input:checked + .slider {
+  background-color: var(--accent, #4caf50);
+}
+
+input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
+/* THEME SELECT */
+.theme-select select {
+  margin-left: 8px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 240px;
   }
-  .header-left {
-    gap: 10px;
-  }
-  .logo {
-    height: 52px;
-    width: 52px;
-  }
-  .header-text h1 {
-    font-size: 20px;
-  }
-  .header-text .lead {
-    font-size: 12.5px;
+  .cart-btn {
+    font-size: 16px;
   }
 }
 
-.header h1, .header p {
-  font-family: Arial, Helvetica, sans-serif;
+/* Badge cart di sidebar */
+.sidebar .cart-btn .cart-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #ff3b30;
+  padding: 2px 6px;
+  font-size: 12px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: bold;
+  min-width: 18px;
+  text-align: center;
+  pointer-events: none;
 }
 
 
-/* ===== NAVIGASI ===== */
 /* ======= NAVIGASI BAWAH (WARUNG TEMA) ======= */
 .bottom-nav {
   position: fixed;
@@ -216,37 +478,70 @@ body {
   box-shadow: 0 0 4px rgba(0,0,0,0.25);
 }
 
-/* ====== KATEGORI GRID 2 BARIS ====== */
+/* ===== THEME VARIABLES ===== */
+:root {
+  /* Kategori Grid */
+  --cat-grid-bg: #fff;
+  --cat-bg: #fff8e1;
+  --cat-border: #fdd835;
+  --cat-text: #444;
+  --cat-hover-bg: #fff3cd;
+  --cat-active-bg: #ffe082;
+  --cat-active-border: #fbc02d;
+  --cat-active-shadow: rgba(255,193,7,0.3);
+  --cat-icon-color: #fbc02d;
+
+  /* Footer */
+  --footer-text: #666;
+}
+
+[data-theme="dark"] {
+  /* Kategori Grid Dark */
+  --cat-grid-bg: #1e1e1e;
+  --cat-bg: #2a2a2a;
+  --cat-border: #555;
+  --cat-text: #fff;
+  --cat-hover-bg: #333;
+  --cat-active-bg: #444;
+  --cat-active-border: #4CAF50;
+  --cat-active-shadow: rgba(76,175,80,0.3);
+  --cat-icon-color: #ffcc00;
+
+  /* Footer Dark */
+  --footer-text: #ccc;
+}
+
+/* ===== Kategori Grid ===== */
 .kategori-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   padding: 10px;
-  background: #fff;
+  background: var(--cat-grid-bg);
 }
 
 .cat {
-  background: #fff8e1;
-  border: 1px solid #fdd835;
+  background: var(--cat-bg);
+  border: 1px solid var(--cat-border);
   border-radius: 12px;
   text-align: center;
   padding: 8px 4px;
   font-size: 12px;
-  color: #444;
+  color: var(--cat-text);
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .cat:hover {
-  background: #fff3cd;
+  background: var(--cat-hover-bg);
   transform: translateY(-2px);
 }
 
 .cat i {
   display: block;
   font-size: 18px;
-  color: #fbc02d;
+  color: var(--cat-icon-color);
   margin-bottom: 4px;
 }
 
@@ -256,9 +551,9 @@ body {
 }
 
 .cat.active {
-  background: #ffe082;
-  border-color: #fbc02d;
-  box-shadow: 0 0 4px rgba(255,193,7,0.3);
+  background: var(--cat-active-bg);
+  border-color: var(--cat-active-border);
+  box-shadow: 0 0 4px var(--cat-active-shadow);
 }
 
 .cat img.cat-icon {
@@ -269,8 +564,14 @@ body {
   display: block;
 }
 
-   /* ================= FOOTER ================= */
-    footer{margin-top:30px;text-align:center;font-size:12px;color:#666}
+/* ===== Footer ===== */
+footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--footer-text);
+}
+
 
 /* ===== HERO / BANNER HALAMAN DEPAN ===== */
 /* Hero section */
@@ -338,7 +639,6 @@ body {
     color: #fff;
 }
 
-/* ===== GRID PRODUK ===== */
 /* ================= GRID PRODUK ================= */
 #produk-list {
   display: grid;
@@ -445,7 +745,22 @@ body {
 }
 
 
-/* Modal Konfirmasi Global */
+/* ===== THEME VARIABLES ===== */
+:root {
+  --modal-bg: #fff;
+  --modal-text: #000;
+  --modal-secondary-bg: #ddd;
+  --modal-secondary-text: #000;
+}
+
+[data-theme="dark"] {
+  --modal-bg: #fff; /* modal tetap putih */
+  --modal-text: #000; /* teks tetap hitam */
+  --modal-secondary-bg: #ccc;
+  --modal-secondary-text: #000;
+}
+
+/* ===== MODAL GLOBAL===== */
 .modal-confirm {
     position: fixed;
     inset: 0;
@@ -457,7 +772,8 @@ body {
 }
 
 .modal-content {
-    background: #fff;
+    background: var(--modal-bg);
+    color: var(--modal-text);
     padding: 24px;
     border-radius: 12px;
     max-width: 400px;
@@ -502,7 +818,8 @@ body {
 }
 
 .btn-secondary {
-    background-color: #ddd;
+    background-color: var(--modal-secondary-bg);
+    color: var(--modal-secondary-text);
 }
 
 .btn-secondary:hover {
@@ -516,6 +833,8 @@ body {
     padding: 8px 12px;
     border-radius: 6px;
     border: 1px solid #ccc;
+    color: var(--modal-text);
+    background-color: #fff;
 }
 
 
