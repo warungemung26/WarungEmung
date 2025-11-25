@@ -46,9 +46,3 @@ function updateCartCount() {
 
 
 
-
-
-
-// ================= HAPUS FLOATING LAMA =================
-const oldFloat = document.querySelector('.floating-cart');
-if (oldFloat) oldFloat.remove();
