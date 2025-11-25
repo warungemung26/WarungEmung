@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Warung Emung Praktis, Hemat, Dekat</title>
-  <!-- ================== CSS ================== -->
+  
+<!-- ================== CSS ================== -->
   <!-- Base / umum -->
 <link rel="stylesheet" href="css/ui.css">           
 
@@ -28,6 +29,8 @@
   <!-- ================== PWA META ================== -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#f6b042">
+
+
 
 <script>
 // ================= UNREGISTER LAMA SW =================
@@ -55,39 +58,173 @@ if ('serviceWorker' in navigator) {
 </head>
 <body>
 
-<!-- ================= HEADER ================= -->
-<header class="header">
-  <div class="header-left">
-    <img src="images/logo-warung.png" alt="Logo Warung Emung" class="logo">
-    <div class="header-text">
-      <h1>Warung Emung</h1>
-      <p class="lead">Praktis, Hemat, Dekat<br>Gg. Subur Blok. Wanakaya RT01/RW02 No.26</p>
-    </div>
-  </div>
-  <div class="header-right">
-    <!-- Tombol Help -->
-  <a href="pages/help-center.html" 
-     style="display:inline-flex;align-items:center;gap:6px;padding:8px 12px;background:#f6b042;color:#fff;border-radius:12px;text-decoration:none;font-weight:600;box-shadow:0 2px 6px rgba(0,0,0,0.1);transition:0.2s;">
-    <i class="fa fa-circle-question"></i> Bantuan
-  </a>
-</div
-  </div>
-</header>
 
-  <!-- ================= SEARCH ================= -->
-<div style="display:flex;gap:6px;margin:16px 0">
-  <input id="search" placeholder="🔎Cari produk... (misal: indomie)" style="flex:1;padding:10px;border-radius:8px;border:1px solid #ddd" />
-  <button id="search-btn" style="padding:10px 16px;border:none;border-radius:8px;background:var(--accent);color:#fff;cursor:pointer">🔍</button>
+<!-- ===== HEADER RAMPING ===== -->
+<header class="header-mini">
+  <img src="images/logo-warung.png" class="logo-mini" alt="Logo">
+
+<div class="search-wrap" style="position: relative;">
+  <input id="search" type="text" placeholder="Cari produk..." class="search-mini" autocomplete="off">
+  <button id="search-clear" style="
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    display: none;
+  ">❌</button>
+  <ul id="search-suggestions" class="search-suggestions"></ul>
 </div>
 
+
+  <button id="search-btn" class="search-btn">🔍</button>
+  <button id="menu-btn" class="menu-btn">☰</button>
+</header>
+
+<!-- ===== SIDEBAR RIGHT ===== -->
+<div id="sidebar" class="sidebar">
+  <div class="sidebar-header">
+    <h3>Pengaturan</h3>
+    <button id="close-sidebar" class="close-btn">✖</button>
+  </div>
+
+  <!-- Tombol Keranjang -->
+  <button id="open-cart" class="cart-btn" title="Keranjang">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span id="cart-count" class="cart-count">0</span>
+  </button>
+
+  <ul class="sidebar-menu">
+    <!-- Akun -->
+    <li id="nav-accountk">
+      <i class="fa-solid fa-user"></i>
+      <span>Profil Saya</span>
+    </li>
+
+    <!-- Mode Gelap -->
+    <li class="dark-mode-toggle">
+      <i class="fa-solid fa-moon"></i>
+      <span>Mode Gelap</span>
+      <label class="switch">
+        <input type="checkbox" id="dark-toggle">
+        <span class="slider"></span>
+      </label>
+    </li>
+
+    <!-- Notifikasi Suara -->
+    <li class="toggle-toast">
+      <i class="fa-solid fa-bell"></i>
+      <span>Notifikasi Suara</span>
+      <label class="switch">
+        <input type="checkbox" id="toast-toggle">
+        <span class="slider"></span>
+      </label>
+    </li>
+
+    <!-- Tema Warna -->
+    <li class="theme-select">
+      <i class="fa-solid fa-palette"></i>
+      <span>Tema Warna</span>
+      <select id="theme-select">
+        <option value="default">Default</option>
+        <option value="red">Merah</option>
+        <option value="blue">Biru</option>
+        <option value="green">Hijau</option>
+      </select>
+    </li>
+
+<li id="edit-alamat">
+  <i class="fa-solid fa-location-dot"></i>
+  <span>Ubah Alamat Pengiriman</span>
+</li>
+
+    <li>
+      <i class="fa-solid fa-box"></i>
+      <span>Status Pesanan</span>
+    </li>
+
+    <!-- Bantuan -->
+    <li class="help-btn">
+      <a href="pages/help-center.html">
+        <i class="fa-solid fa-circle-question"></i>
+        <span>Bantuan</span>
+      </a>
+    </li>
+
+ <li id="reset-data" class="cta-link">
+  <i class="fa-solid fa-broom"></i>
+  <span>Reset Data Lokal</span>
+</li>
+
+    <!-- Tentang -->
+    <li>
+      <i class="fa-solid fa-info-circle"></i>
+      <span>Tentang Warung Emung</span>
+    </li>
+  </ul>
+</div>
+
+<!-- BACKDROP -->
+<div id="sidebar-backdrop" class="sidebar-backdrop"></div>
+
+
+<section id="home"><h2></h2></section>
+
+<!-- ================= MENU KATEGORI ================= -->
+<h3 style="margin:10px 0;">Pilih Kategori</h3>
+<div class="kategori-grid">
+
+  <div class="cat active" onclick="setCategory('')">
+    <img src="icons/all.png" class="cat-icon">
+    <span>Semua</span>
+  </div>
+
+  <div class="cat" onclick="setCategory('sembako')">
+    <img src="icons/sembako.png" class="cat-icon">
+    <span>Sembako</span>
+  </div>
+
+  <div class="cat" onclick="setCategory('makanan')">
+    <img src="icons/makanan.png" class="cat-icon">
+    <span>Makanan</span>
+  </div>
+
+  <div class="cat" onclick="setCategory('mie')">
+    <img src="icons/mie.png" class="cat-icon">
+    <span>Mie Instan</span>
+  </div>
+
+  <div class="cat" onclick="setCategory('snack')">
+    <img src="icons/snack.png" class="cat-icon">
+    <span>Snack</span>
+  </div>
+
+  <div class="cat" onclick="setCategory('minuman')">
+    <img src="icons/minuman.png" class="cat-icon">
+    <span>Minuman</span>
+  </div>
+
+  <div class="cat" onclick="setCategory('minumansachet')">
+    <img src="icons/sachet.png" class="cat-icon">
+    <span>Sachet 💊</span>
+  </div>
+
+  <div class="cat" onclick="setCategory('rumah')">
+    <img src="icons/rumah.png" class="cat-icon">
+    <span>Sabun+</span>
+  </div>
+
+</div>
 
 <!-- PENGUMUMAN BERJALAN -->
 <div class="pengumuman">
   <marquee behavior="scroll" direction="left">
-    ⚠️ PERHATIAN: Saat ini semua stok belum tersedia — jangan ragu untuk uji coba sistem pemesanan — website masih dalam pengembangan ⚠️
+    ⚠️ PEMBERITAHUAN: Seluruh data produk dan stok masih bersifat simulasi. Silakan lakukan uji coba pemesanan dan laporkan jika menemukan error atau kendala. Terima kasih. ⚠️
   </marquee>
 </div>
-
 <!-- ================= HERO ================= -->
 <section class="hero">
   <h2 style="margin:0 0 8px">Belanja Harian Lebih Mudah</h2>
@@ -95,7 +232,7 @@ if ('serviceWorker' in navigator) {
     Belanja harian gampang, tinggal klik — langsung kami antar! Buka setiap hari 06.00-22.00
   </p>
 
- <!-- Tombol Request Stok Modern -->
+<!-- Tombol Request Stok Modern -->
 <div class="hero-cta">
   <a class="cta-link wa-hero" 
      href="https://wa.me/6285322882512?text=Halo%20Warung%20Emung,%20saya%20ingin%20request%20produk:%20[NAMA%20PRODUK]%20dengan%20jumlah:%20[JUMLAH]%20Mohon%20informasinya."
@@ -105,8 +242,9 @@ if ('serviceWorker' in navigator) {
   </a>
 
   <p class="wa-cta-instructions">
-    Ketik <strong>[NAMA PRODUK]</strong> &amp; <strong>[JUMLAH]</strong> di form setelah tekan.
+    Produk tidak ada? Tekan tombol <strong>Request Stok Sekarang</strong> &amp; tulis <strong>nama produk</strong> + <strong>jumlah</strong>.
   </p>
+</div>
 </section>
 
 <!-- REGISTER POPUP -->
@@ -223,64 +361,6 @@ if ('serviceWorker' in navigator) {
 
   </div>
 </div>
-
-
-
-
-
-<button onclick="localStorage.clear(); alert('CLEARED');">
-  Hapus Riwayat Akun
-</button>
-
-
-<button id="open-cart" class="cart-btn" title="Keranjang"><span id="cart-count" class="cart-count" style="display:none">0</span></button>
-   	<section id="home"><h2></h2>
-<!-- ================= MENU KATEGORI ================= -->
-<h3 style="margin:10px 0;">Pilih Kategori</h3>
-<div class="kategori-grid">
-
-  <div class="cat active" onclick="setCategory('')">
-    <img src="icons/all.png" class="cat-icon">
-    <span>Semua</span>
-  </div>
-
-  <div class="cat" onclick="setCategory('sembako')">
-    <img src="icons/sembako.png" class="cat-icon">
-    <span>Sembako</span>
-  </div>
-
-  <div class="cat" onclick="setCategory('makanan')">
-    <img src="icons/makanan.png" class="cat-icon">
-    <span>Makanan</span>
-  </div>
-
-  <div class="cat" onclick="setCategory('mie')">
-    <img src="icons/mie.png" class="cat-icon">
-    <span>Mie Instan</span>
-  </div>
-
-  <div class="cat" onclick="setCategory('snack')">
-    <img src="icons/snack.png" class="cat-icon">
-    <span>Snack</span>
-  </div>
-
-  <div class="cat" onclick="setCategory('minuman')">
-    <img src="icons/minuman.png" class="cat-icon">
-    <span>Minuman</span>
-  </div>
-
-  <div class="cat" onclick="setCategory('minumansachet')">
-    <img src="icons/sachet.png" class="cat-icon">
-    <span>Sachet 💊</span>
-  </div>
-
-  <div class="cat" onclick="setCategory('rumah')">
-    <img src="icons/rumah.png" class="cat-icon">
-    <span>Sabun+</span>
-  </div>
-
-</div>
-
 
   <!-- ================= PRODUK LIST================= -->
   <h3 style="margin-top:22px">Etalase Warung</h3>
@@ -428,6 +508,22 @@ if ('serviceWorker' in navigator) {
       <button id="modal-ok" class="btn-primary">Ya</button>
     </div>
 
+<!-- Modal Global -->
+<div id="modal-confirm" class="modal-confirm">
+  <div class="modal-content">
+    <h3 id="modal-title">Konfirmasi</h3>
+    <div id="modal-body" style="margin-top:10px;">
+     
+ <!-- Konten dinamis masuk sini -->
+    </div>
+    <div class="modal-buttons">
+      <button id="modal-cancel" class="btn-secondary">Batal</button>
+      <button id="modal-ok" class="btn-primary">Simpan</button>
+    </div>
+  </div>
+</div>
+
+
   <!-- ================== JAVASCRIPT ================== -->
   <!-- Core / data -->
   <script src="js/elementtt.js"></script>
@@ -435,10 +531,13 @@ if ('serviceWorker' in navigator) {
 <script src="js/main.js"></script>
 
 <!-- Fitur utama -->
+<script src="js/sidebar.js"></script>
 <script src="js/search.js"></script>
+<script src="js/search-autocomplete.js"></script>
 <script src="js/cta-links.js"></script>
 <script src="js/cat-modal.js"></script>
 <script src="js/cart-modal.js"></script>
+<script src="js/akun-modal.js"></script>
 <script src="js/toast-audio.js"></script>
 <script src="js/register.js"></script>
 
@@ -471,6 +570,9 @@ if ('serviceWorker' in navigator) {
   });
 }
 </script>
+
+
+
 
 </body>
 
