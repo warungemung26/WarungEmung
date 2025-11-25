@@ -1,45 +1,43 @@
-// ================= AUDIO & SUARA =================
-const audioDing = new Audio('sounds/ding.mp3');
-audioDing.preload = 'auto';
+window.showToast = function(msg, options = {askFollowUp:false, playDing:false}){
+  // Cek toggle suara
+  if(!toastEnabled){
+    // Hanya tampilkan toast visual, tanpa audio / TTS
+    if(toastEl){
+      toastEl.textContent = msg;
+      toastEl.style.opacity = '1';
+      toastEl.style.bottom = '80px';
+      setTimeout(()=>{
+        toastEl.style.opacity='0';
+        toastEl.style.bottom='20px';
+      }, 2500);
+    }
+    return;
+  }
 
-const fallbackSounds = {
-  success: 'sounds/pelayan_default.mp3'
-};
-
-function pickIndoVoice(){
-  const voices = speechSynthesis.getVoices();
-  return voices.find(v=>v.lang==='id-ID'||v.lang.startsWith('id')) || voices.find(v=>v.lang.startsWith('en')) || null;
-}
-
-function stopSpeaking(){
-  try { speechSynthesis.cancel(); } catch(e){}
-}
-
-// ================= TOAST DENGAN SUARA =================
-function showToast(msg, options = {askFollowUp:false, playDing:false}){
+  // =====================================================
+  // Jalankan showToast asli (TTS + ding) jika suara aktif
+  // =====================================================
   const {askFollowUp, playDing} = options;
-  toastEl.textContent = msg;
-  toastEl.style.opacity = '1';
-  toastEl.style.bottom = '80px';
+  if(toastEl){
+    toastEl.textContent = msg;
+    toastEl.style.opacity = '1';
+    toastEl.style.bottom = '80px';
+  }
 
-  // efek ding
   if(playDing) audioDing.play().catch(()=>{});
 
-  // TTS
   if('speechSynthesis' in window){
-    stopSpeaking();
+    try { speechSynthesis.cancel(); } catch(e){}
     let voices = speechSynthesis.getVoices();
     if(!voices.length){
       speechSynthesis.getVoices();
       setTimeout(()=>voices = speechSynthesis.getVoices(),100);
     }
-
-    const voice = pickIndoVoice();
+    const voice = voices.find(v=>v.lang==='id-ID'||v.lang.startsWith('id')) || voices.find(v=>v.lang.startsWith('en')) || null;
     const utter1 = new SpeechSynthesisUtterance(msg);
     utter1.lang = 'id-ID';
     utter1.rate = 1.0; utter1.pitch = 1.0; utter1.volume = 1.0;
     if(voice) utter1.voice = voice;
-
     speechSynthesis.speak(utter1);
 
     if(askFollowUp){
@@ -54,9 +52,10 @@ function showToast(msg, options = {askFollowUp:false, playDing:false}){
     a.play().catch(()=>{});
   }
 
-  // auto hide
-  setTimeout(()=>{
-    toastEl.style.opacity='0';
-    toastEl.style.bottom='20px';
-  }, 2500);
+  if(toastEl){
+    setTimeout(()=>{
+      toastEl.style.opacity='0';
+      toastEl.style.bottom='20px';
+    }, 2500);
+  }
 }
