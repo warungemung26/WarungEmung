@@ -1,0 +1,148 @@
+.flash-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.flash-card {
+  display: flex;
+  background: #fff5e8;
+  border: 1px solid #ffd7a3;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.flash-img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 12px;
+  border: 1px solid #ffe1bc;
+}
+
+.flash-info {
+  flex: 1;
+}
+
+.flash-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+.flash-label {
+  font-size: 13px;
+  color: #777;
+  margin-top: 4px;
+}
+
+.flash-price {
+  margin-top: 6px;
+}
+
+.flash-new {
+  font-size: 17px;
+  font-weight: bold;
+  color: #e65100;
+}
+
+.flash-old {
+  font-size: 13px;
+  text-decoration: line-through;
+  color: #999;
+  margin-left: 6px;
+}
+
+.flash-stock {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #333;
+  font-weight: 600;
+}
+
+.flash-title-section {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.flash-control-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.flash-info .btn-minus,
+.flash-info .btn-plus {
+  width: 30px;
+  height: 30px;
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.flash-info .btn-minus { background: #e57373; }
+.flash-info .btn-plus { background: #81c784; }
+
+.flash-info .qty-number {
+  min-width: 26px;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+.flash-info .add-btn {
+  width: 40px;
+  height: 40px;
+  background: #f9a825;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* TOMBOL FLASH MELAYANG PRO */
+#flash-btn {
+  position: fixed;
+  bottom: 85px;
+  right: 15px;
+  width: 52px;
+  height: 52px;
+  background: #ff3b30;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Shadow dan animasi */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.28);
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+/* Saat visible */
+#flash-btn.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/* Icon PNG di dalam tombol */
+#flash-btn img {
+  width: 26px;
+  height: 26px;
+  pointer-events: none;
+}
+
