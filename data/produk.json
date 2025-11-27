@@ -99,55 +99,55 @@
     "name": "Kecap Bango 520ml",
     "price": 30000,
     "img": "images/bango-refill.jpg",
-    "category": "sembako"
+    "category": "bumbu"
   },
   {
     "name": "Garam Dapur 500g (Cap Dolphin / Cap Kapal)",
     "price": 5000,
     "img": "images/garam-500g.jpg",
-    "category": "sembako"
+    "category": "bumbu"
   },
   {
     "name": "Masako Ayam / Sapi Sachet",
     "price": 1000,
     "img": "images/masako.jpg",
-    "category": "sembako"
+    "category": "bumbu"
   },
   {
     "name": "Kaldu Bubuk Sasa 100g",
     "price": 7000,
     "img": "images/sasa-kaldububuk-100g.jpg",
-    "category": "sembako"
+    "category": "bumbu"
   },
   {
     "name": "Penyedap Sasa Micin 250g",
     "price": 6000,
     "img": "images/sasa-micin-250g.jpg",
-    "category": "sembako"
+    "category": "bumbu"
   },
   {
-    "name": "Saori Saus Tiram 135ml Ã¢ÂÂ Rp10.000",
+    "name": "Saori Saus Tiram 135ml",
     "price": 10000,
     "img": "images/saori-saustiram-135g.jpg",
-    "category": "sembako"
+    "category": "bumbu"
   },
   {
     "name": "Saos Sambal ABC Sachet",
     "price": 1000,
     "img": "images/abc-saussambal.jpg",
-    "category": "sembako"
+    "category": "bumbu"
   },
   {
     "name": "Saos Sambal ABC Botol 335ml",
     "price": 21000,
     "img": "images/abc-saussambal-335g.jpg",
-    "category": "sembako"
+    "category": "bumbu"
   },
   {
     "name": "Kecap ABC 520ml",
     "price": 14000,
     "img": "images/abc-kecap-520g.jpg",
-    "category": "sembako"
+    "category": "bumbu"
   },
   {
     "name": "Blue Band Mini Sachet",
@@ -183,13 +183,13 @@
     "name": "Bawang Merah 1/4 kg",
     "price": 10000,
     "img": "images/bawangmerah-250g.jpg",
-    "category": "sembako"
+    "category": "bumbu"
   },
   {
     "name": "Bawang Putih 1/4 kg",
     "price": 9000,
     "img": "images/bawangputih-250g.jpg",
-    "category": "sembako"
+    "category": "bumbu"
   },
   {
     "name": "Cabe Rawit 1/4 kg",
@@ -201,7 +201,7 @@
     "name": "Royco Ayam / Sapi Sachet",
     "price": 1000,
     "img": "images/royco.jpg",
-    "category": "sembako"
+    "category": "bumbu"
   },
   {
     "name": "Indomie Special Chicken Rasa Ayam Special 75g",
@@ -363,7 +363,7 @@
     "name": "Gas LPG 3kg",
     "price": 22000,
     "img": "images/gas.jpg",
-    "category": "rumah"
+    "category": "lainnya"
   },
   {
     "name": "Soklin Liquid Freshness Sachet",
@@ -495,25 +495,25 @@
     "name": "Promag Sachet",
     "price": 2000,
     "img": "images/promag.jpg",
-    "category": "minumansachet"
+    "category": "obat"
   },
   {
     "name": "Tolak Angin Cair Sachet",
     "price": 3000,
     "img": "images/tolak-angin.jpg",
-    "category": "minumansachet"
+    "category": "obat"
   },
   {
     "name": "Antangin JRG Sachet",
     "price": 2500,
     "img": "images/antangin.jpg",
-    "category": "minumansachet"
+    "category": "obat"
   },
   {
     "name": "Neozep Forte Sachet",
     "price": 1500,
     "img": "images/neozep.jpg",
-    "category": "minumansachet"
+    "category": "obat"
   },
   {
     "name": "Qtela Keripik Singkong Balado 55g",
