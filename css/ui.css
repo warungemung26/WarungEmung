@@ -74,56 +74,91 @@ body {
   --price-color: #ccc;
 }
 
-/* ===== HEADER, SEARCH, SIDEBAR RAMPING ===== */
+/* HEADER */
 .header-mini {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px;
-  background: var(--header-bg);
+  padding: 10px 12px;
+  background: #28a745;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 999;
 }
 
+/* LOGO */
 .logo-mini {
   width: 38px;
-  height: 38px;
-  border-radius: 8px;
+  height: auto;
 }
 
+/* SEARCH WRAPPER */
 .search-wrap {
   flex: 1;
+  position: relative;
 }
 
 .search-mini {
   width: 100%;
-  padding: 8px 12px;
-  border-radius: 8px;
+  padding: 8px 34px 8px 12px;
   border: none;
-  background: var(--search-bg);
-  color: var(--search-text);
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
 }
 
-.menu-btn {
-  font-size: 24px;
-  background: none;
+/* CLEAR BUTTON */
+.search-icon-clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
   border: none;
+  font-size: 17px;
+  color: #555;
   cursor: pointer;
-  color: var(--header-text);
-  font-weight: bold;
+  display: none;
 }
 
-.search-btn {
+/* SUGGESTION BOX */
+.search-suggestions {
+  position: absolute;
+  top: 105%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  list-style: none;
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 6px 0;
+  display: none;
+  z-index: 9999;
+}
+
+/* ICON BUTTONS (SEARCH & MENU) */
+.icon-btn {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 18px;
-  padding: 6px 10px;
-  border-radius: 8px;
-  border: none;
-  background: var(--search-bg);
   cursor: pointer;
-  color: var(--search-text);
-  font-weight: bold;
+  color: #28a745;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
+
+.icon-btn:active {
+  transform: scale(.94);
+}
+
 
 /* Dropdown prediksi */
 .search-suggestions {
@@ -459,110 +494,8 @@ body {
 }
 
 
-.badge {
-  pointer-events: none; /* ✅ biar ga nutup tombol */
-  position: absolute;
-  top: -8px;
-  right: 10px;
-  background: #f57f17;
-  color: #fff;
-  font-size: 11px;
-  font-weight: bold;
-  padding: 3px 5px;
-  border-radius: 50%;
-  min-width: 16px;
-  height: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 4px rgba(0,0,0,0.25);
-}
 
-/* ===== THEME VARIABLES ===== */
-:root {
-  /* Kategori Grid */
-  --cat-grid-bg: #fff;
-  --cat-bg: #fff8e1;
-  --cat-border: #fdd835;
-  --cat-text: #444;
-  --cat-hover-bg: #fff3cd;
-  --cat-active-bg: #ffe082;
-  --cat-active-border: #fbc02d;
-  --cat-active-shadow: rgba(255,193,7,0.3);
-  --cat-icon-color: #fbc02d;
 
-  /* Footer */
-  --footer-text: #666;
-}
-
-[data-theme="dark"] {
-  /* Kategori Grid Dark */
-  --cat-grid-bg: #1e1e1e;
-  --cat-bg: #2a2a2a;
-  --cat-border: #555;
-  --cat-text: #fff;
-  --cat-hover-bg: #333;
-  --cat-active-bg: #444;
-  --cat-active-border: #4CAF50;
-  --cat-active-shadow: rgba(76,175,80,0.3);
-  --cat-icon-color: #ffcc00;
-
-  /* Footer Dark */
-  --footer-text: #ccc;
-}
-
-/* ===== Kategori Grid ===== */
-.kategori-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  padding: 10px;
-  background: var(--cat-grid-bg);
-}
-
-.cat {
-  background: var(--cat-bg);
-  border: 1px solid var(--cat-border);
-  border-radius: 12px;
-  text-align: center;
-  padding: 8px 4px;
-  font-size: 12px;
-  color: var(--cat-text);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.cat:hover {
-  background: var(--cat-hover-bg);
-  transform: translateY(-2px);
-}
-
-.cat i {
-  display: block;
-  font-size: 18px;
-  color: var(--cat-icon-color);
-  margin-bottom: 4px;
-}
-
-.cat span {
-  display: block;
-  font-size: 12px;
-}
-
-.cat.active {
-  background: var(--cat-active-bg);
-  border-color: var(--cat-active-border);
-  box-shadow: 0 0 4px var(--cat-active-shadow);
-}
-
-.cat img.cat-icon {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  margin-bottom: 5px;
-  display: block;
-}
 
 /* ===== Footer ===== */
 footer {
@@ -835,6 +768,52 @@ footer {
     border: 1px solid #ccc;
     color: var(--modal-text);
     background-color: #fff;
+}
+
+/* === PWA INSTALL BUTTON PROFESSIONAL === */
+.pwa-install-btn {
+  position: fixed;
+  bottom: 110px;
+  right: 12px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: #f6b042;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+
+  box-shadow: 0 4px 14px rgba(0,0,0,0.22);
+  cursor: pointer;
+
+  transition: all .25s ease;
+}
+
+.pwa-install-btn:hover {
+  background: #ffb84d;
+  transform: translateY(-2px);
+}
+
+.pwa-install-btn:active {
+  transform: scale(0.96);
+}
+
+/* LOGO */
+.pwa-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* ICON */
+.pwa-install-btn i {
+  font-size: 18px;
 }
 
 
