@@ -145,7 +145,21 @@ body {
   z-index: 4;
 }
 
-
+/* MENU BUTTON */
+#menu-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  color: #28a745;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  z-index: 4; /* sama seperti search */
+}
 
 /* Dropdown prediksi */
 .search-suggestions {
@@ -212,6 +226,8 @@ body {
   font-size: 0.9em;
   color: var(--price-color);
 }
+
+
 
 /* ===== SIDEBAR ===== */
 .sidebar {
