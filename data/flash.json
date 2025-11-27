@@ -1,0 +1,24 @@
+[
+  {
+    "id": "flash-bandeng",
+    "name": "Bandeng Segar (1 Kg)",
+    "price_normal": 32000,
+    "price_flash": 28000,
+    "stock": 12,
+    "img": "images/bandeng.jpg",
+    "label": "Bandeng segar baru dipanen — 1 kg, daging tebal dan bersih.",
+    "category": "flash",
+    "flash_until": "2025-11-27T23:00:00"
+  },
+  {
+    "id": "flash-vaname",
+    "name": "Udang Vaname Segar (1 Kg)",
+    "price_normal": 55000,
+    "price_flash": 45000,
+    "stock": 9,
+    "img": "images/vaname.jpg",
+    "label": "Udang vaname baru dipanen — 1 kg premium, manis & segar.",
+    "category": "flash",
+    "flash_until": "2025-11-27T23:00:00"
+  }
+]
