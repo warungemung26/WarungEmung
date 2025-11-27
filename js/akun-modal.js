@@ -151,34 +151,49 @@ document.addEventListener("DOMContentLoaded", () => {
     </button>
   `;
 
-  // Loop tiap order
-  wrap.innerHTML += r.map(order => `
-    <div class="riwayat-item" style="margin-bottom:12px;padding:10px;border:1px solid #ddd;border-radius:6px">
-      <table>
-        <tr><td>🆔</td><td><strong>ID Pesanan: ${order.id}</strong></td></tr>
-        <tr><td>👤</td><td><strong>${order.nama || '-'}</strong></td></tr>
-        <tr><td>📍</td><td><strong>${order.alamat || '-'}</strong></td></tr>
-        <tr><td>📱</td><td><strong>${order.hp || '-'}</strong></td></tr>
-      </table>
+// Loop tiap order
+wrap.innerHTML += r.map(order => `
+  <div class="riwayat-item" style="margin-bottom:12px;padding:10px;border:1px solid #ddd;border-radius:6px">
 
-      <br>
+    <table>
+      <tr><td><i class="fa-solid fa-receipt"></i></td><td><strong>ID Pesanan: ${order.id}</strong></td></tr>
+      <tr><td><i class="fa-solid fa-user"></i></td><td><strong>${order.nama || '-'}</strong></td></tr>
+      <tr><td><i class="fa-solid fa-location-dot"></i></td><td><strong>${order.alamat || '-'}</strong></td></tr>
+      <tr><td><i class="fa-solid fa-phone"></i></td><td><strong>${order.hp || '-'}</strong></td></tr>
+    </table>
 
-      <table>
-        <tr><td>🛒</td><td><strong>Detail Pesanan:</strong></td></tr>
-      </table>
+    <br>
 
-      <ul style="margin:4px 0 8px 22px;padding:0;">
-        ${order.items.map(it => {
-          const subtotal = (it.price || it.harga || 0) * (it.qty || 1);
-          return `<li>${it.qty} x ${it.name} — Subtotal: Rp ${formatRupiah(subtotal)}</li>`;
-        }).join("")}
-      </ul>
+    <table>
+      <tr><td><i class="fa-solid fa-cart-shopping"></i></td><td><strong>Detail Pesanan:</strong></td></tr>
+    </table>
 
-      <table>
-        <tr><td>🚚</td><td><strong>Ongkir: Rp ${formatRupiah(order.ongkir || 0)}</strong></td></tr>
-        <tr><td>💰</td><td><strong>Total: Rp ${formatRupiah(order.total)}</strong></td></tr>
-        <tr><td>📅</td><td><strong>${order.waktu || order.date || '-'}</strong></td></tr>
-      </table>
+    <!-- Bagian yang error & tidak memakai icon -->
+    <ul style="margin:4px 0 8px 22px;padding:0;">
+      ${order.items.map(it => {
+        const harga = it.price || it.harga || 0;
+        return `
+          <li>
+            ${it.qty} � ${it.name} � Rp ${formatRupiah(harga)}
+          </li>
+        `;
+      }).join("")}
+    </ul>
+
+    <table>
+      <tr>
+        <td><i class="fa-solid fa-calculator"></i></td>
+        <td><strong>Subtotal: Rp ${
+          formatRupiah(
+            order.items.reduce((t, it) => t + (it.price || it.harga || 0) * (it.qty || 1), 0)
+          )
+        }</strong></td>
+      </tr>
+      <tr><td><i class="fa-solid fa-truck"></i></td><td><strong>Ongkir: Rp ${formatRupiah(order.ongkir || 0)}</strong></td></tr>
+      <tr><td><i class="fa-solid fa-wallet"></i></td><td><strong>Total: Rp ${formatRupiah(order.total)}</strong></td></tr>
+      <tr><td><i class="fa-solid fa-calendar-day"></i></td><td><strong>${order.waktu || order.date || '-'}</strong></td></tr>
+    </table>
+
 
       <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
         <button 
