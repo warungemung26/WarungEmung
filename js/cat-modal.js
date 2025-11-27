@@ -1,3 +1,56 @@
+// ================= SLIDE MENU CATEGORY
+
+function slideCat(direction) {
+  const container = document.getElementById("cat-scroll");
+  const amount = 150; // jarak geser
+
+  container.scrollBy({
+    left: direction * amount,
+    behavior: "smooth"
+  });
+}
+
+const catScroll = document.getElementById("cat-scroll");
+const leftArrow  = document.querySelector(".cat-arrow.left");
+const rightArrow = document.querySelector(".cat-arrow.right");
+
+// Cek posisi scroll
+function updateCatArrows() {
+  const maxScroll = catScroll.scrollWidth - catScroll.clientWidth;
+
+  // Sembunyikan panah kiri jika posisi sudah di paling kiri
+  if (catScroll.scrollLeft <= 5) {
+    leftArrow.style.opacity = "0";
+    leftArrow.style.pointerEvents = "none";
+  } else {
+    leftArrow.style.opacity = "1";
+    leftArrow.style.pointerEvents = "auto";
+  }
+
+  // Sembunyikan panah kanan jika posisi sudah di paling kanan
+  if (catScroll.scrollLeft >= maxScroll - 5) {
+    rightArrow.style.opacity = "0";
+    rightArrow.style.pointerEvents = "none";
+  } else {
+    rightArrow.style.opacity = "1";
+    rightArrow.style.pointerEvents = "auto";
+  }
+}
+
+// Jalankan saat scroll
+catScroll.addEventListener("scroll", updateCatArrows);
+
+// Jalankan sekali setelah load
+window.addEventListener("load", updateCatArrows);
+
+// Tombol klik geser
+function slideCat(dir) {
+  const step = 150; // jarak geser
+  catScroll.scrollBy({ left: dir * step, behavior: "smooth" });
+  setTimeout(updateCatArrows, 300);
+}
+
+
 // ================= CATEGORY MODAL =================
 function closeCatModal() {
   catBackdrop.style.display = 'none';
