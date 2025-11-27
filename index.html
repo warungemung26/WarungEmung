@@ -8,6 +8,7 @@
 <!-- ================== CSS ================== -->
   <!-- Base / umum -->
 <link rel="stylesheet" href="css/ui.css">           
+<link rel="stylesheet" href="css/flash.css">
 
 <!-- Modals & komponen spesifik -->
 <link rel="stylesheet" href="css/popup-reg.css">   
@@ -59,30 +60,35 @@ if ('serviceWorker' in navigator) {
 <body>
 
 
-<!-- ===== HEADER RAMPING ===== -->
+<!-- ===== HEADER MINI PROFESIONAL ===== -->
 <header class="header-mini">
+
   <img src="images/logo-warung.png" class="logo-mini" alt="Logo">
 
-<div class="search-wrap" style="position: relative;">
-  <input id="search" type="text" placeholder="Cari produk..." class="search-mini" autocomplete="off">
-  <button id="search-clear" style="
-    position: absolute;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    display: none;
-  ">❌</button>
-  <ul id="search-suggestions" class="search-suggestions"></ul>
-</div>
+  <!-- SEARCH WRAPPER -->
+  <div class="search-wrap">
+    <input id="search" type="text" placeholder="Cari produk..." class="search-mini" autocomplete="off">
 
+    <!-- CLEAR SEARCH -->
+    <button id="search-clear" class="search-icon-clear">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
 
-  <button id="search-btn" class="search-btn">🔍</button>
-  <button id="menu-btn" class="menu-btn">☰</button>
+    <ul id="search-suggestions" class="search-suggestions"></ul>
+  </div>
+
+  <!-- SEARCH BTN -->
+  <button id="search-btn" class="search-btn icon-btn">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+
+  <!-- MENU BTN -->
+  <button id="menu-btn" class="menu-btn icon-btn">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
 </header>
+
 
 <!-- ===== SIDEBAR RIGHT ===== -->
 <div id="sidebar" class="sidebar">
@@ -173,50 +179,112 @@ if ('serviceWorker' in navigator) {
 
 <section id="home"><h2></h2></section>
 
-<!-- ================= MENU KATEGORI ================= -->
+<!-- ================= MENU KATEGORI BARU ================= -->
 <h3 style="margin:10px 0;">Pilih Kategori</h3>
-<div class="kategori-grid">
 
-  <div class="cat active" onclick="setCategory('')">
-    <img src="icons/all.png" class="cat-icon">
-    <span>Semua</span>
+<div class="cat-wrapper">
+  <button class="cat-arrow left" onclick="slideCat(-1)">❮</button>
+
+  <div class="kategori-grid" id="cat-scroll">
+
+    <div class="cat active" onclick="setCategory('')">
+      <img src="icons/all.png" class="cat-icon">
+      <span>Semua</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('sembako')">
+      <img src="icons/sembako.png" class="cat-icon">
+      <span>Sembako</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('bumbu')">
+      <img src="icons/bumbu.png" class="cat-icon">
+      <span>Bumbu</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('mie')">
+      <img src="icons/mie.png" class="cat-icon">
+      <span>Mie Instan</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('snack')">
+      <img src="icons/snack.png" class="cat-icon">
+      <span>Snack</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('roti')">
+      <img src="icons/roti.png" class="cat-icon">
+      <span>Roti</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('makanan')">
+      <img src="icons/makanan.png" class="cat-icon">
+      <span>Makanan</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('minuman')">
+      <img src="icons/minuman.png" class="cat-icon">
+      <span>Minuman</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('minumansachet')">
+      <img src="icons/sachet.png" class="cat-icon">
+      <span>Kopi </span>
+    </div>
+
+    <div class="cat" onclick="setCategory('frozen')">
+      <img src="icons/frozen.png" class="cat-icon">
+      <span>Frozen</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('rokok')">
+      <img src="icons/rokok.png" class="cat-icon">
+      <span>Rokok</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('obat')">
+      <img src="icons/obat.png" class="cat-icon">
+      <span>Obat</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('rumah')">
+      <img src="icons/rumah.png" class="cat-icon">
+      <span>Sabun</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('peralatandapur')">
+      <img src="icons/peralatandapur.png" class="cat-icon">
+      <span>Peralatan</span>
+    </div>
+    
+    <div class="cat" onclick="setCategory('peralatansekolah')">
+      <img src="icons/peralatansekolah.png" class="cat-icon">
+      <span>Alat Sekolah</span>
+    </div>
+    
+    <div class="cat" onclick="setCategory('peralatansekolah')">
+      <img src="icons/toy.png" class="cat-icon">
+      <span>Mainan</span>
+    </div>
+
+<div class="cat" onclick="setCategory('outfit')">
+      <img src="icons/outfit.png" class="cat-icon">
+      <span>Pakaian</span>
+    </div>
+    
+    <div class="cat" onclick="setCategory('sandal')">
+      <img src="icons/sandal.png" class="cat-icon">
+      <span>Pakaian</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('lainnya')">
+      <img src="icons/other.png" class="cat-icon">
+      <span>Lainnya</span>
+    </div>
+
   </div>
 
-  <div class="cat" onclick="setCategory('sembako')">
-    <img src="icons/sembako.png" class="cat-icon">
-    <span>Sembako</span>
-  </div>
-
-  <div class="cat" onclick="setCategory('makanan')">
-    <img src="icons/makanan.png" class="cat-icon">
-    <span>Makanan</span>
-  </div>
-
-  <div class="cat" onclick="setCategory('mie')">
-    <img src="icons/mie.png" class="cat-icon">
-    <span>Mie Instan</span>
-  </div>
-
-  <div class="cat" onclick="setCategory('snack')">
-    <img src="icons/snack.png" class="cat-icon">
-    <span>Snack</span>
-  </div>
-
-  <div class="cat" onclick="setCategory('minuman')">
-    <img src="icons/minuman.png" class="cat-icon">
-    <span>Minuman</span>
-  </div>
-
-  <div class="cat" onclick="setCategory('minumansachet')">
-    <img src="icons/sachet.png" class="cat-icon">
-    <span>Sachet 💊</span>
-  </div>
-
-  <div class="cat" onclick="setCategory('rumah')">
-    <img src="icons/rumah.png" class="cat-icon">
-    <span>Sabun+</span>
-  </div>
-
+  <button class="cat-arrow right" onclick="slideCat(1)">❯</button>
 </div>
 
 <!-- PENGUMUMAN BERJALAN -->
@@ -363,8 +431,24 @@ if ('serviceWorker' in navigator) {
 </div>
 
   <!-- ================= PRODUK LIST================= -->
-  <h3 style="margin-top:22px">Etalase Warung</h3>
-  <div id="produk-list"></div>
+  <!-- ================= FLASH SALE ================= -->
+<div id="flash-section">
+  <h3 class="flash-title-section">⚡ Flash Sale Hari Ini</h3>
+  <div id="flash-list" class="flash-wrapper"></div>
+</div>
+
+<h3 style="margin-top:22px">Etalase Warung</h3>
+<div id="produk-list"></div>
+
+<button id="flash-btn">
+  <img src="images/flash.png">
+</button>
+
+
+
+<h3 style="margin-top:22px">Etalase Warung</h3>
+<div id="produk-list"></div>
+
   
   <!-- ================= CART MODAL ================= -->
   <!-- BACKDROP -->
@@ -398,52 +482,95 @@ if ('serviceWorker' in navigator) {
 <div id="cat-modal-backdrop">
   <div id="cat-modal" role="dialog" aria-hidden="true">
 
-    <!-- Tombol tutup -->
+    <!-- HEADER (TIDAK SCROLL) -->
     <button id="close-cat" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
 
-    <!-- Judul modal -->
-    <h4 style="margin-top:4px; text-align:center;">
+    <h4 class="cat-title">
       <i class="fa-solid fa-list"></i> Pilih Kategori
     </h4>
 
-    <!-- Grid kategori -->
-    <div id="cat-options" style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:10px;">
+    <!-- BODY (YANG SCROLL) -->
+    <div class="cat-body">
+      <div id="cat-options">
 
-      <div class="cat" data-cat="">
-        <i class="fa-solid fa-cart-shopping"></i> Semua Produk
+        <div class="cat" data-cat="">
+          <i class="fa-solid fa-cart-shopping"></i> Semua Produk
+        </div>
+
+        <div class="cat" data-cat="sembako">
+          <i class="fa-solid fa-bowl-rice"></i> Sembako, Beras, Telur, Daging, Ikan, dll
+        </div>
+
+        <div class="cat" data-cat="bumbu">
+          <i class="fa-solid fa-pepper-hot"></i> Bumbu Dapur
+        </div>
+
+        <div class="cat" data-cat="mie">
+          <i class="fa-solid fa-bowl-food"></i> Mie Instan
+        </div>
+
+        <div class="cat" data-cat="snack">
+          <i class="fa-solid fa-cookie-bite"></i> Snack, Jajanan Anak, dll
+        </div>
+
+        <div class="cat" data-cat="toy">
+          <i class="fa-solid fa-puzzle-piece"></i> Mainan Anak
+        </div>
+
+        <div class="cat" data-cat="roti">
+          <i class="fa-solid fa-bread-slice"></i> Roti & Kue
+        </div>
+
+        <div class="cat" data-cat="makanan">
+          <i class="fa-solid fa-burger"></i> Makanan Siap Saji
+        </div>
+
+        <div class="cat" data-cat="minuman">
+          <i class="fa-solid fa-bottle-water"></i> Minuman Botol/Cup/Kotak
+        </div>
+
+        <div class="cat" data-cat="minumansachet">
+          <i class="fa-solid fa-mug-hot"></i> Minuman Sachet
+        </div>
+
+        <div class="cat" data-cat="frozen">
+          <i class="fa-solid fa-snowflake"></i> Ice Cream & Frozen Food
+        </div>
+
+        <div class="cat" data-cat="rokok">
+          <i class="fa-solid fa-fire-flame-simple"></i> Rokok
+        </div>
+
+        <div class="cat" data-cat="obat">
+          <i class="fa-solid fa-capsules"></i> Obat Harian
+        </div>
+
+        <div class="cat" data-cat="rumah">
+          <i class="fa-solid fa-pump-soap"></i> Sabun & Perlengkapan Toilet
+        </div>
+
+        <div class="cat" data-cat="peralatan">
+          <i class="fa-solid fa-screwdriver-wrench"></i> Peralatan Rumah Tangga
+        </div>
+
+        <div class="cat" data-cat="peralatansekolah">
+          <i class="fa-solid fa-pen-ruler"></i> Peralatan Sekolah
+        </div>
+
+        <div class="cat" data-cat="outfit">
+          <i class="fa-solid fa-shirt"></i> Pakaian
+        </div>
+        
+        <div class="cat" data-cat="sandal">
+          <i class="fa-solid fa-shirt"></i> Aneka Sandal
+        </div>
+
+        <div class="cat" data-cat="lainnya">
+          <i class="fa-solid fa-ellipsis"></i> Lainnya
+        </div>
+
       </div>
-
-      <div class="cat" data-cat="sembako">
-        <i class="fa-solid fa-bowl-rice"></i> Sembako, Bhn Memasak
-      </div>
-
-      <div class="cat" data-cat="makanan">
-        <i class="fa-solid fa-burger"></i> Makanan Cepat Saji
-      </div>
-
-      <div class="cat" data-cat="mie">
-        <i class="fa-solid fa-bowl-food"></i> Mie Instan & Serba Instan
-      </div>
-
-      <div class="cat" data-cat="snack">
-        <i class="fa-solid fa-cookie-bite"></i> Snack, Roti, Permen & Kue kering
-      </div>
-
-      <div class="cat" data-cat="minuman">
-        <i class="fa-solid fa-bottle-water"></i> Minuman kemasan Botol, Kaleng, Cup, & Kotak
-      </div>
-
-      <div class="cat" data-cat="minumansachet">
-        <i class="fa-solid fa-mug-hot"></i> Kopi, Teh, Susu (Sachetan), Rokok & Obat
-      </div>
-
-      <div class="cat" data-cat="rumah">
-        <i class="fa-solid fa-soap"></i> Kebutuhan harian, Sabun, DLL (barang non konsumsi)
-      </div>
-
     </div>
-  </div>
-</div>
 
   </div>
 </div>
@@ -487,9 +614,13 @@ if ('serviceWorker' in navigator) {
 </div>
 
 
-<button id="installBtn" style="position:fixed;bottom:110px;right:12px;z-index:9999;display:none;border-radius:10px;padding:8px 12px;background:#f6b042;color:#fff">
-  ➕ Instal Warung Emung
+<!-- ==== PWA INSTALL BUTTON PRO ==== -->
+<button id="installBtn" class="pwa-install-btn" style="display:none;">
+  <img src="images/logo-warung.png" class="pwa-logo">
+  <span>Instal Warung Emung</span>
+  <i class="fa-solid fa-cloud-arrow-down"></i>
 </button>
+
 
 <!-- Modal Konfirmasi Global -->
 <div id="modal-confirm" class="modal-confirm">
@@ -529,6 +660,7 @@ if ('serviceWorker' in navigator) {
   <script src="js/elementtt.js"></script>
 <script src="js/data-loader.js"></script>
 <script src="js/main.js"></script>
+<script src="js/flash.js"></script>
 
 <!-- Fitur utama -->
 <script src="js/sidebar.js"></script>
