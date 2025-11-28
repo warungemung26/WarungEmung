@@ -32,17 +32,20 @@ function renderFlash(list) {
 
         <div class="flash-control-row">
           <div class="qty-controls">
-            <button class="btn-minus" onclick="flashMinus('${p.id}')">−</button>
+            <button class="btn-minus" onclick="event.stopPropagation(); flashMinus('${p.id}')">−</button>
             <span id="qty-${p.id}" class="qty-number">1</span>
-            <button class="btn-plus" onclick="flashPlus('${p.id}')">+</button>
+            <button class="btn-plus" onclick="event.stopPropagation(); flashPlus('${p.id}')">+</button>
           </div>
 
-          <button class="add-btn" onclick="addFlash('${p.id}')">
+          <button class="add-btn" onclick="event.stopPropagation(); addFlash('${p.id}')">
             <i class="fa fa-cart-plus"></i>
           </button>
         </div>
       </div>
     `;
+
+    // === Klik flash card untuk buka modal detail ===
+    item.addEventListener("click", () => openProdukModal(p));
 
     flashBox.appendChild(item);
   });
