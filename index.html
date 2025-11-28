@@ -12,6 +12,7 @@
 
 <!-- Modals & komponen spesifik -->
 <link rel="stylesheet" href="css/popup-reg.css">   
+<link rel="stylesheet" href="css/produk-modal.css">   
 <link rel="stylesheet" href="css/cart-modal.css">  
 <link rel="stylesheet" href="css/cat-modal.css">   
 <link rel="stylesheet" href="css/akun-modal.css">  
@@ -430,7 +431,43 @@ if ('serviceWorker' in navigator) {
   </div>
 </div>
 
-  <!-- ================= PRODUK LIST================= -->
+  <!-- ================= ETALASE WARUNG ================= -->
+  	<!-- ============================
+     MODAL DETAIL PRODUK (SLIDE UP)
+     ============================ -->
+<div id="product-modal" class="pm-backdrop">
+  <div class="pm-sheet">
+
+    <!-- HANDLE SLIDE -->
+    <div class="pm-handle"></div>
+
+    <!-- CLOSE BUTTON -->
+    <button class="pm-close">&times;</button>
+
+    <!-- GAMBAR PRODUK -->
+    <img class="pm-img" src="" alt="">
+
+    <!-- NAMA PRODUK -->
+    <div class="pm-title"></div>
+
+    <!-- HARGA PRODUK -->
+    <div class="pm-price"></div>
+
+    <!-- QTY CONTROL -->
+    <div class="pm-qty">
+      <button class="pm-minus">−</button>
+      <span class="pm-number">1</span>
+      <button class="pm-plus">+</button>
+    </div>
+
+    <!-- BUTTON KERANJANG -->
+    <button class="pm-add">
+      <i class="fa fa-cart-plus"></i> Tambah ke Keranjang
+    </button>
+
+  </div>
+</div>
+
   <!-- ================= FLASH SALE ================= -->
 <div id="flash-section">
   <h3 class="flash-title-section">⚡ Flash Sale Hari Ini</h3>
@@ -666,6 +703,7 @@ if ('serviceWorker' in navigator) {
 <script src="js/sidebar.js"></script>
 <script src="js/search.js"></script>
 <script src="js/search-autocomplete.js"></script>
+<script src="js/produk-modal.js"></script>
 <script src="js/cta-links.js"></script>
 <script src="js/cat-modal.js"></script>
 <script src="js/cart-modal.js"></script>
