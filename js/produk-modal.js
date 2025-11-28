@@ -59,9 +59,12 @@ function closeProdukModal() {
 ============================= */
 document.querySelector(".pm-close").onclick = closeProdukModal;
 document.querySelector(".pm-back").onclick = closeProdukModal;
+
 document.getElementById("product-modal").addEventListener("click", (e) => {
   if (e.target.id === "product-modal") closeProdukModal();
 });
+
+// AGAR ISI MODAL BISA DIKLIK (qty / add)
 document.querySelector(".pm-sheet").addEventListener("click", (e) => e.stopPropagation());
 
 /* =============================
@@ -76,6 +79,16 @@ document.querySelector(".pm-minus").onclick = () => {
   if (pmQty > 1) pmQty--;
   document.querySelector(".pm-number").textContent = pmQty;
 };
+
+/* =============================
+   BACK BUTTON HP
+============================= */
+window.addEventListener("popstate", (e) => {
+  // Jika modal aktif, back HP akan tutup modal dulu
+  if (modalProdukAktif && !lockPop) {
+    closeProdukModal();
+  }
+});
 
 /* =============================
    GENERATE DESKRIPSI
