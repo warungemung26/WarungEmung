@@ -1,0 +1,105 @@
+/* BACKDROP */
+.pm-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(2px);
+  display: none;
+  justify-content: end;
+  align-items: flex-end;
+  z-index: 10000;
+}
+
+/* SHEET */
+.pm-sheet {
+  width: 100%;
+  background: #fff;
+  border-radius: 16px 16px 0 0;
+  padding: 18px;
+  position: relative;
+  animation: pmSlideUp 0.25s ease;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+}
+
+/* ANIMASI */
+@keyframes pmSlideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+/* HANDLE */
+.pm-handle {
+  width: 46px;
+  height: 5px;
+  background: #ccc;
+  border-radius: 50px;
+  margin: 0 auto 12px;
+}
+
+/* CLOSE BUTTON */
+.pm-close {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+/* IMAGE */
+.pm-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+
+/* TITLE */
+.pm-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* PRICE */
+.pm-price {
+  font-size: 18px;
+  color: #d9534f;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+/* QTY */
+.pm-qty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.pm-qty button {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: none;
+  background: #eee;
+  font-size: 22px;
+}
+
+/* ADD BUTTON */
+.pm-add {
+  width: 100%;
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
