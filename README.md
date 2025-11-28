@@ -1,144 +1,157 @@
-# **WarungEmung — Mini E-Commerce Sederhana Berbasis HTML + JSON**
+# **WarungEmung — Mini E-Commerce Berbasis HTML + JSON**
 
-Proyek ini adalah prototipe e-commerce ringan untuk warung/UMKM dengan fokus pada **kemudahan penggunaan, navigasi cepat, dan pengelolaan produk berbasis file JSON**.
-Seluruh fitur berjalan **tanpa backend**, cukup dijalankan melalui GitHub Pages atau hosting statis lain.
+Praktis, hemat, dekat dengan pelanggan. Proyek ini prototipe e-commerce ringan untuk **warung/UMKM**, fokus:
 
----
-
-# **📌 Fitur & Informasi Versi**
-
-## **🟦 1. Popup Pendaftaran Alamat (Pertama Kali Dibuka)**
-
-* Popup otomatis muncul saat kunjungan pertama untuk meminta pengguna memasukkan alamat sebelum berbelanja.
-* Pilihan: **Daftar Sekarang** atau **Nanti**.
-* Data tersimpan di **localStorage**, dapat diubah di menu profil kapan saja.
+* Kemudahan penggunaan
+* Navigasi cepat
+* Produk berbasis **JSON**
+* Tanpa backend — cukup GitHub Pages / hosting statis
 
 ---
 
-## **🟦 2. Filter & Pencarian Cerdas (Smart Search)**
+# **📌 Struktur Fitur & Navigasi (Update)**
 
-* Pencarian dilakukan pada **semua kategori (ALL)**.
-* Setelah menekan **Search** atau **Selesai**, halaman akan **scroll otomatis ke etalase produk**.
-* Pencarian tetap berfungsi meski pengguna berada di kategori manapun.
+## **1. Header & Floating Search**
 
----
+* Logo + search bar + tombol **X clear** + menu utama dalam **satu baris**, **floating** (tidak scroll).
+* **Search cerdas** dengan **autocomplete / teks sugesti**.
+* Menu utama:
 
-## **🟦 3. Navigasi Kategori & Randomisasi Produk**
-
-* Memilih kategori otomatis **scroll ke etalase kategori**.
-* **Urutan produk diacak setiap kali kategori dipilih** → tampilan selalu berbeda, tidak membosankan.
-* Saat halaman pertama dibuka → **urutan semua produk juga acak**.
-* Modal kategori tertutup otomatis setelah pilihan.
-* Modal dapat ditutup dengan:
-
-  * Klik tombol **X**
-  * Klik area luar modal
-  * Klik tombol **Kategori** di navbar kembali
+  * Troli / Cart
+  * Profil & Riwayat
+  * Toggle Dark Mode
+  * Toggle notifikasi suara
+  * Kustomisasi tampilan / tema
+  * Ganti alamat pengiriman
+  * Hapus storage / reset data
+  * Tentang WarungEmung
 
 ---
 
-## **🟦 4. Tombol Navigasi Utama**
+## **2. Hero Section**
 
-### **a. Home**
-
-* Scroll otomatis ke bagian paling atas halaman.
-
-### **b. Kategori**
-
-* Membuka modal pemilihan kategori.
-* Modal menutup otomatis setelah kategori dipilih atau dengan cara lain (X / klik luar / klik tombol kembali).
-
-### **c. Search**
-
-* Scroll otomatis ke input pencarian.
-* Input langsung fokus untuk mengetik.
-
-### **d. Profil**
-
-* Terdapat dua tab: **Profil** & **Riwayat**.
-* Bisa menambahkan foto profil.
-* Form alamat dapat discroll.
-* Tombol statis **Tutup** & **Simpan Perubahan** selalu tersedia di bawah.
-
-### **e. Cek Pesanan & Tombol WA**
-
-* Tombol **Cek Pesanan** di navbar & tombol **WA di Hero** sekarang **menggunakan satu modal/template**.
-* Mengambil data **riwayat pesanan terakhir** sebagai template WA.
-* Template WA lengkap berisi:
-
-  * 🆔 **ID Pesanan**
-  * 📅 **Waktu Pemesanan**
-  * 🛒 **Detail Item** (nama, qty, harga)
-  * 💰 **Total Belanja**
-  * Ikon untuk visualisasi (misal 🛒, 🆔)
-* Tombol WA Hero dapat digunakan untuk **request produk yang belum ada**; jika pesanan statis, tetap menampilkan template riwayat terakhir.
-* Modal tunggal ini digunakan untuk **kedua tombol**, sehingga konsisten.
-
-### **f. Troli (Cart)**
-
-* Modal troli terbuka hanya jika ada item.
-* Badge angka muncul di icon troli saat produk ditambahkan.
-* Menampilkan daftar item, harga per item, dan total belanja.
-* Tombol:
-
-  * **Pesan via WhatsApp** (mengambil alamat & estimasi belanja otomatis)
-  * **Kosongkan Keranjang**
-* Modal tertutup saat:
-
-  * Tombol **Kosongkan Keranjang** ditekan
-  * Tombol **Pesan via WhatsApp** digunakan
-  * Tombol troli ditekan kembali
+* Teks scroll pengumuman.
+* Tombol **Request Stok Kustom**.
+* Tombol WA / Cek Pesanan → memanggil **Modal Konfirmasi Global**.
 
 ---
 
-## **🟦 5. Notifikasi Toast**
+## **3. Kategori Utama**
 
-* Animasi modern.
-* Mendukung **text-to-speech sederhana** untuk aksesibilitas.
-
----
-
-## **🟦 6. Efek Suara**
-
-* Efek *ding* saat menekan **Add Produk**.
+* Grid 2 baris, scroll horizontal kanan-kiri.
+* Panah navigasi auto hide sesuai kebutuhan.
+* Pilihan kategori → scroll otomatis ke **etalase kategori**.
+* Produk diacak setiap load kategori.
 
 ---
 
-## **🟦 7. FontAwesome Offline**
+## **4. Flash Sale**
 
-* Semua ikon menggunakan pustaka FontAwesome offline.
-
----
-
-## **🟦 8. Menu Bantuan / Pusat Informasi**
-
-* Menu menuju halaman bantuan pelanggan, FAQ, informasi toko, atau halaman lain sesuai kebutuhan.
+* Produk muncul pada **waktu tertentu**.
+* Deskripsi singkat & tombol **floating** ke section.
+* Tombol auto hide setelah diklik.
 
 ---
 
-## **🟦 9. Produk Dimuat dari File JSON Eksternal**
+## **5. Etalase Produk**
 
-* Semua data produk berada di `produk.json`.
-* Memudahkan update produk tanpa menyentuh file HTML.
-* **Urutan produk diacak** setiap kali halaman dibuka dan setiap kali kategori dipilih, agar tampilan selalu segar.
+* Produk dari `produk.json`.
+* **Urutan acak** per load & kategori.
+* Setiap kartu produk:
 
----
-
-## **🟦 10. Kontrol Produk di Setiap Kartu**
-
-* Kontrol **Qty** tersedia.
-* Tombol **Add Produk** menambah item ke keranjang dengan toast & badge notifikasi.
+  * Kontrol **Qty**
+  * Tombol **Add Produk** → efek *ding* + toast + badge
 
 ---
 
-# **📁 Struktur Folder Rekomendasi**
+## **6. Footer**
+
+* Informasi kontak / alamat.
+* Link bantuan / FAQ.
+* Sosial media opsional.
+
+---
+
+# **📌 Modal Konfirmasi Global**
+
+* Satu modal menangani banyak aksi:
+
+| Aksi          | Keterangan                                               |
+| ------------- | -------------------------------------------------------- |
+| Cek Pesanan   | Menampilkan detail pesanan, ID pesanan, total, list item |
+| Hapus Storage | Konfirmasi reset data lokal                              |
+| Request Stok  | Mengirimkan request ke WA atau sistem backend (opsional) |
+| Ubah Alamat   | Konfirmasi perubahan alamat                              |
+| Lainnya       | Dapat dipakai untuk modal konfirmasi umum lainnya        |
+
+* Semua modal ini memiliki tombol **Konfirmasi / Batalkan**.
+* Data penting (misal pesanan) tersimpan di **localStorage** dan **riwayat**.
+
+---
+
+# **📌 Profil & Riwayat**
+
+* Tab Profil:
+
+  * Data alamat, foto profil
+  * Scroll form alamat
+  * Tombol **Simpan Perubahan**
+* Tab Riwayat:
+
+  * Menampilkan **riwayat checkout**
+  * Setiap transaksi memiliki **ID Pesanan** unik
+  * Tombol **Cek Pesanan → WA Template**
+
+    * Template rapi berisi:
+
+      * 🆔 ID Pesanan
+      * 📅 Waktu Pemesanan
+      * 🛒 Detail item (nama, qty, harga)
+      * 💰 Total belanja
+
+---
+
+# **📌 Navigasi Utama**
+
+| Tombol                | Fungsi                                            |
+| --------------------- | ------------------------------------------------- |
+| Home                  | Scroll ke atas halaman                            |
+| Kategori              | Modal kategori (2 baris, scroll horizontal)       |
+| Search                | Scroll ke input search + fokus                    |
+| Profil                | Modal Profil & Riwayat                            |
+| Cek Pesanan / WA Hero | Modal Konfirmasi Global → template WA             |
+| Troli / Cart          | Modal daftar item, total, WA, Kosongkan Keranjang |
+
+---
+
+# **📌 Notifikasi & Efek**
+
+* **Toast** → animasi modern + text-to-speech
+* **Efek Suara** → *ding* saat Add Produk
+* **FontAwesome Offline** → ikon tetap muncul tanpa internet
+
+---
+
+# **📌 Penyimpanan & Riwayat**
+
+* **localStorage**:
+
+  * Alamat pengguna
+  * Riwayat checkout
+  * Status Dark Mode / Tema
+  * Produk di troli
+* **ID Pesanan** unik dicatat setiap checkout
+* Riwayat digunakan untuk template WA agar pelanggan bisa menyalin / mengirim pesanan lama
+
+---
+
+# **📌 Struktur Folder (Update)**
 
 ```
 WarungEmung/
 │
 ├── index.html
 ├── README.md
-├── manifest.json
 │
 ├── assets/
 │   ├── img/
@@ -149,90 +162,139 @@ WarungEmung/
 │
 ├── css/
 │   ├── ui.css
+│   ├── flash.css
 │   ├── popup-reg.css
-│   ├── qty-addcart.css
 │   ├── cart-modal.css
 │   ├── cat-modal.css
-│   ├── modal-akun.css
+│   ├── akun-modal.css
+│   ├── qty-addcart.css
 │   ├── nama-alamat.css
+│   ├── search.css
 │   ├── toast.css
-│   ├── text-scroll.css
-│   └── search.css
+│   ├── text-scrol.css
+│   └── theme.css
 │
 ├── js/
-│   ├── data-loader.js      <-- randomisasi produk terintegrasi
-│   ├── main.js         <-- 
-│   ├── search.js         <-- cari dan randomisasi
-│   ├── modal-cat.js         <-- 
-│   ├── toast-audio.js         <-- 
-│   ├── modal-cart.js         <-- 
-│   ├── register.js         <-- popup registrasi
-│   ├── 
-│   ├── 
-│   └── cta-link.js         <-- update tombol WA & cek pesanan
+│   ├── sidebar.js
+│   ├── search.js
+│   ├── search-autocomplete.js
+│   ├── cta-links.js
+│   ├── cat-modal.js
+│   ├── cart-modal.js
+│   ├── akun-modal.js
+│   ├── toast-audio.js
+│   ├── register.js
+│   ├── global-modal.js    <-- menangani semua konfirmasi
+│   └── pwa.js
 │
-├── fontawesome/
-│   └── (file ikon offline)
+├── icons/
+│   ├──
+│
+├── fondawesome/
+│   ├──
 └── data/
+    ├── flash.json
     └── produk.json
 ```
 
 ---
 
-# **⚠️ Bug & Masalah Diketahui**
+# **Alur Modal Konfirmasi Global & Riwayat**
 
-## **Tombol #open-cart**
-
-* Tombol ini seharusnya **tidak dibutuhkan**, fungsi troli sudah di navbar.
-* Namun beberapa fungsi JS masih memanggil ID lama.
-
-### **Gejala Bug**
-
-* Menekan **Kosongkan Keranjang**:
-
-  * ✔️ Item di JS / localStorage kosong
-  * ❌ UI tidak ikut reset, modal tidak menutup
-* Menutup modal dengan tombol navbar cart → muncul **toast** “keranjang masih kosong”
-* Setelah menambahkan item baru → bug muncul lagi saat Kosongkan Keranjang berikutnya
-
-### **Penyebab Diduga**
-
-1. Event listener masih mengikat tombol `#open-cart`.
-2. Fungsi `renderCart()` atau `updateCartUI()` tidak dipanggil saat reset.
-3. Modal tidak menerima trigger close karena event terhubung ke ID lama.
-
-### **Dampak**
-
-* Modal bisa **stuck open** ketika keranjang kosong.
-* Navigasi tombol cart memunculkan toast alih-alih menutup modal.
-
-### **Rencana Perbaikan**
-
-* Ganti semua pemanggilan `document.getElementById("open-cart")` ke tombol navbar cart terbaru.
-* Buat fungsi tunggal untuk membuka modal cart:
-
-```js
-function showCartModal() { ... }
 ```
-
-* Pastikan fungsi dipanggil setelah **Kosongkan Keranjang**:
-
-```js
-renderCartItems();
-updateCartUI();
-closeCartModal();
+[Aksi Pengguna]
+      |
+      v
+[Modal Konfirmasi Global]
+      |
+      +--> Cek Pesanan --> Simpan ke Riwayat --> Tombol WA Template
+      +--> Hapus Storage --> Reset Data
+      +--> Request Stok --> Kirim WA
+      +--> Ubah Alamat --> Update localStorage
+      +--> Aksi Lain --> Konfirmasi/Batal
 ```
-
-* Audit event listener ganda agar tidak terjadi duplikasi.
 
 ---
 
-# **📌 Rencana Pengembangan (Opsional)**
+# **Diagram Alur & Navigasi WarungEmung**
 
-* Halaman bantuan lebih lengkap
-* Mode offline (PWA)
-* Mode gelap / terang
-* Validasi alamat lebih baik
-* Optimasi gambar produk
-* Integrasi tombol WA & cek pesanan menggunakan **satu modal/template** untuk konsistensi
-* **Randomisasi urutan produk** agar tampilan selalu segar dan tidak monoton
+```
++---------------------------------------------------+
+|                   Header (Floating)             |
+|  Logo  | Search [X Clear] | Menu [≡]            |
+|  (selalu di atas, tidak scroll)                 |
++---------------------------------------------------+
+          |               |                  |
+          |               |                  |
+          v               v                  v
+   Search Autocomplete   Menu Modal        Troli / Cart Modal
+   - Text suggest        - Profil & Riwayat
+   - Scroll ke etalase   - Dark Mode toggle
+                         - Sound toggle
+                         - Tema kustom
+                         - Ganti alamat
+                         - Hapus storage
+                         - Tentang
+                         
+                         
++---------------------------------------------------+
+|                  Hero Section                    |
+|  - Teks scroll pengumuman                        |
+|  - Tombol Request Stok Kustom                    |
+|  - Tombol WA / Cek Pesanan                       |
++---------------------------------------------------+
+          |
+          v
++---------------------------------------------------+
+|                  Kategori Grid                   |
+|  - 2 baris, scroll horizontal                    |
+|  - Panah kanan/kiri (auto hide jika tidak perlu) |
++---------------------------------------------------+
+          |
+          v
++---------------------------------------------------+
+|                 Flash Sale Section               |
+|  - Produk muncul pada waktu tertentu            |
+|  - Deskripsi singkat                             |
+|  - Tombol floating ke section (pojok kanan bawah)|
+|  - Tombol auto hide setelah diklik               |
++---------------------------------------------------+
+          |
+          v
++---------------------------------------------------+
+|                  Etalase Produk                  |
+|  - Produk dari produk.json                        |
+|  - Urutan acak per load & per kategori           |
+|  - Setiap kartu: Qty + Add Produk                |
+|  - Add Produk: efek ding + toast + badge         |
++---------------------------------------------------+
+          |
+          v
++---------------------------------------------------+
+|                       Footer                      |
+|  - Kontak / alamat                               |
+|  - Link bantuan / FAQ                             |
+|  - Sosial media (opsional)                        |
++---------------------------------------------------+
+
+```
+
+# **Interaksi Modal & Navigasi Utama**
+
+```
+[Home Button] -----------------------> Scroll ke atas
+[Kategori Button] ------------------> Modal Kategori (grid 2 baris)
+[Search Button] --------------------> Scroll ke input search + fokus
+[Profil Button] --------------------> Modal Profil & Riwayat
+[Cek Pesanan / WA Hero Button] -----> Modal tunggal Cek Pesanan / Request Stok
+[Troli Button] ---------------------> Modal Cart (list produk, total, WA, Kosongkan)
+```
+
+# **Notasi Tambahan**
+
+* **Floating search**: tetap di atas saat scroll.
+* **Modal**: menutup otomatis jika klik luar, X, atau tombol kembali.
+* **Panah kategori & tombol flash sale**: muncul/hilang otomatis sesuai scroll atau klik.
+* **Toast**: muncul saat Add Produk atau aksi penting lainnya.
+* **Efek suara**: *ding* saat Add Produk.
+
