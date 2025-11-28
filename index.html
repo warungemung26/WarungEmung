@@ -438,29 +438,25 @@ if ('serviceWorker' in navigator) {
 <div id="product-modal" class="pm-backdrop">
   <div class="pm-sheet">
 
-    <!-- HANDLE SLIDE -->
+    <!-- TOPBAR -->
+    <div class="pm-topbar">
+      <button class="pm-back"><i class="fa fa-arrow-left"></i></button>
+      <button class="pm-close"><i class="fa fa-times"></i></button>
+    </div>
+
     <div class="pm-handle"></div>
 
-    <!-- CLOSE BUTTON -->
-    <button class="pm-close">&times;</button>
-
-    <!-- GAMBAR PRODUK -->
     <img class="pm-img" src="" alt="">
-
-    <!-- NAMA PRODUK -->
     <div class="pm-title"></div>
-
-    <!-- HARGA PRODUK -->
     <div class="pm-price"></div>
+    <div class="pm-desc"></div>
 
-    <!-- QTY CONTROL -->
     <div class="pm-qty">
       <button class="pm-minus">−</button>
       <span class="pm-number">1</span>
       <button class="pm-plus">+</button>
     </div>
 
-    <!-- BUTTON KERANJANG -->
     <button class="pm-add">
       <i class="fa fa-cart-plus"></i> Tambah ke Keranjang
     </button>
