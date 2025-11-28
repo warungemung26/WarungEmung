@@ -34,65 +34,75 @@ function render(data) {
     price.textContent = formatRupiah(p.price);
     card.appendChild(price);
 
-    // === Kontrol Qty + Tombol Add ===
-    const controlsWrapper = document.createElement('div');
-    controlsWrapper.className = 'controls-wrapper';
+// === Kontrol Qty + Tombol Add ===
+const controlsWrapper = document.createElement('div');
+controlsWrapper.className = 'controls-wrapper';
 
-    const controls = document.createElement('div');
-    controls.className = 'qty-controls';
+const controls = document.createElement('div');
+controls.className = 'qty-controls';
 
-    const minus = document.createElement('button');
-    minus.type = 'button';
-    minus.textContent = '-';
-    minus.className = 'btn-minus';
+const minus = document.createElement('button');
+minus.type = 'button';
+minus.textContent = '-';
+minus.className = 'btn-minus';
 
-    let q = 1;
-    const qty = document.createElement('span');
-    qty.textContent = q;
-    qty.className = 'qty-number';
+let q = 1;
+const qty = document.createElement('span');
+qty.textContent = q;
+qty.className = 'qty-number';
 
-    const plus = document.createElement('button');
-    plus.type = 'button';
-    plus.textContent = '+';
-    plus.className = 'btn-plus';
+const plus = document.createElement('button');
+plus.type = 'button';
+plus.textContent = '+';
+plus.className = 'btn-plus';
 
-    minus.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (q > 1) { q--; qty.textContent = q; }
-    });
-    plus.addEventListener('click', (e) => {
-      e.stopPropagation();
-      q++; qty.textContent = q;
-    });
+minus.addEventListener('click', (e) => {
+  e.stopPropagation();
+  if (q > 1) { q--; qty.textContent = q; }
+});
 
-    controls.appendChild(minus);
-    controls.appendChild(qty);
-    controls.appendChild(plus);
+plus.addEventListener('click', (e) => {
+  e.stopPropagation();
+  q++; qty.textContent = q;
+});
 
-    const add = document.createElement('button');
-    add.type = 'button';
-    add.className = 'add-btn';
-    add.innerHTML = '<i class="fa fa-cart-plus"></i>';
+controls.appendChild(minus);
+controls.appendChild(qty);
+controls.appendChild(plus);
 
-    add.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const existing = cart.find(it => it.name === p.name);
-      if (existing) { existing.qty += q; }
-      else { cart.push({ name: p.name, qty: q, price: p.price }); }
-      updateCartCount();
-      showToast(`Ditambahkan: ${p.name} x ${q}`);
-      ding.currentTime = 0;
-      ding.play().catch(()=>{}); // supaya tidak error di browser tanpa izin suara
-      q = 1; qty.textContent = '1';
-    });
+const add = document.createElement('button');
+add.type = 'button';
+add.className = 'add-btn';
+add.innerHTML = '<i class="fa fa-cart-plus"></i>';
 
-    controlsWrapper.appendChild(controls);
-    controlsWrapper.appendChild(add);
-    card.appendChild(controlsWrapper);
+add.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const existing = cart.find(it => it.name === p.name);
+  if (existing) { existing.qty += q; }
+  else { cart.push({ name: p.name, qty: q, price: p.price }); }
 
-    listEl.appendChild(card);
-  });
-}
+  updateCartCount();
+  showToast(`Ditambahkan: ${p.name} x ${q}`);
+
+  ding.currentTime = 0;
+  ding.play().catch(()=>{}); // aman untuk browser
+
+  q = 1;
+  qty.textContent = '1';
+});
+
+controlsWrapper.appendChild(controls);
+controlsWrapper.appendChild(add);
+card.appendChild(controlsWrapper);
+
+// === Klik card untuk buka modal detail ===
+card.addEventListener('click', () => openProdukModal(p));
+
+listEl.appendChild(card);
+});   // <==== PENUTUP forEach
+
+}      // <==== PENUTUP fungsi render()
+
 
 
 
