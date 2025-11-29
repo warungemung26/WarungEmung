@@ -1,8 +1,12 @@
+/* ================= FLASH SALE ================= */
 .flash-wrapper {
   display: flex;
   flex-direction: column;
   gap: 12px;
   margin-bottom: 18px;
+  max-width: 100%;        /* jangan melebihi container utama */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .flash-card {
@@ -12,6 +16,9 @@
   padding: 12px;
   border-radius: 12px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  max-width: 100%;       /* sesuai container grid */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .flash-img {
@@ -21,10 +28,12 @@
   border-radius: 10px;
   margin-right: 12px;
   border: 1px solid #ffe1bc;
+  flex-shrink: 0;         /* jangan mengecil */
 }
 
 .flash-info {
   flex: 1;
+  min-width: 0;           /* supaya teks tidak memaksa melebar */
 }
 
 .flash-title {
@@ -108,41 +117,62 @@
   justify-content:center;
 }
 
-/* TOMBOL FLASH MELAYANG PRO */
+/* ================= FLOATING BUTTON ================= */
 #flash-btn {
   position: fixed;
   bottom: 85px;
   right: 15px;
-  width: 52px;
+  width: 140px;             /* lebar tetap agar simetris */
   height: 52px;
-  background: #ff3b30;
-  border-radius: 50%;
-  border: none;
-  outline: none;
-  z-index: 999;
+  background: linear-gradient(45deg,#ff3b30,#ff6b42);
+  border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* Shadow dan animasi */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.28);
+  gap: 8px;
+  z-index: 999;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.32);
   opacity: 0;
   transform: scale(0.8);
   pointer-events: none;
   transition: opacity .25s ease, transform .25s ease;
+  overflow: hidden;
+  text-align: center;
 }
 
-/* Saat visible */
 #flash-btn.show {
   opacity: 1;
   transform: scale(1);
   pointer-events: auto;
+  animation: pulse 1.5s infinite;
 }
 
-/* Icon PNG di dalam tombol */
+@keyframes pulse {
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.05);}
+}
+
 #flash-btn img {
   width: 26px;
   height: 26px;
   pointer-events: none;
+  flex-shrink: 0;
 }
 
+#flash-btn .flash-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+}
+
+/* Responsive */
+@media(max-width:400px){
+  #flash-btn{width:120px;height:46px;padding:0 10px;}
+  #flash-btn img{width:22px;height:22px;}
+  #flash-btn .flash-text{font-size:13px;}
+}
