@@ -351,3 +351,40 @@ Mohon informasinya.`;
 
   }); // END delegation
 })();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const alamatBtn = document.getElementById("edit-alamat");
+  if(alamatBtn){
+    alamatBtn.addEventListener("click", (e)=>{
+      e.preventDefault();
+      e.stopPropagation();
+
+      const userData = JSON.parse(localStorage.getItem("userData") || "{}");
+      const currentAlamat = userData.alamat || "";
+
+      if(typeof openModalDynamic === 'function'){
+        openModalDynamic({
+          title: "Ubah Alamat Pengiriman",
+          bodyHTML: `<input type="text" id="input-alamat" placeholder="Masukkan alamat baru" value="${currentAlamat}" style="width:100%;padding:8px;">`,
+          action: (body) => {
+            const input = body.querySelector("#input-alamat");
+            if(input && input.value.trim() !== ""){
+              userData.alamat = input.value.trim();
+              localStorage.setItem("userData", JSON.stringify(userData));
+              window.showToast("Alamat berhasil diperbarui!");
+            } else {
+              window.showToast("Alamat tidak boleh kosong!");
+            }
+          }
+        });
+      } else {
+        const newAlamat = prompt("Alamat Baru:", currentAlamat);
+        if(newAlamat !== null && newAlamat.trim() !== ""){
+          userData.alamat = newAlamat.trim();
+          localStorage.setItem("userData", JSON.stringify(userData));
+          window.showToast("Alamat berhasil diperbarui!");
+        }
+      }
+    });
+  }
+});
