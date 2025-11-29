@@ -30,6 +30,8 @@ function renderFlash(list) {
 
         <div class="flash-stock">Stok: ${p.stock}</div>
 
+        <div class="flash-countdown" id="countdown-${p.id}"></div>
+
         <div class="flash-control-row">
           <div class="qty-controls">
             <button class="btn-minus" onclick="event.stopPropagation(); flashMinus('${p.id}')">−</button>
@@ -48,6 +50,9 @@ function renderFlash(list) {
     item.addEventListener("click", () => openProdukModal(p));
 
     flashBox.appendChild(item);
+
+    // mulai countdown
+    startCountdown(p);
   });
 
   // ❗ WAJIB: Bikin tombol floating muncul
@@ -98,7 +103,6 @@ function addFlash(id) {
 }
 
 
-
 // ================= FETCH JSON ===================
 fetch("data/flash.json")
   .then(res => {
@@ -106,23 +110,65 @@ fetch("data/flash.json")
     return res.json();
   })
   .then(data => {
-    console.log("FLASH SALE:", data);
-    renderFlash(data);
+    console.log("FLASH SALE (raw):", data);
+
+    // ===== FILTER FLASH SALE YANG BELUM KADALUARSA =====
+    const now = new Date();
+    const activeFlash = data.filter(p => new Date(p.flash_until) > now);
+
+    console.log("FLASH SALE AKTIF:", activeFlash);
+
+    renderFlash(activeFlash);
   })
   .catch(err => console.error("Flash error:", err));
 
 
+// ================= COUNTDOWN ===================
+function startCountdown(p) {
+  const countdownEl = document.getElementById(`countdown-${p.id}`);
+  if (!countdownEl) return;
 
-/* ============================================
-   TOMBOL FLASH MELAYANG PRO (AUTO HIDE)
-============================================ */
+  function update() {
+    const now = new Date();
+    const end = new Date(p.flash_until);
+    const diff = end - now;
+
+    if (diff <= 0) {
+      countdownEl.textContent = "Flash sale berakhir";
+      // otomatis hapus card
+      const card = countdownEl.closest(".flash-card");
+      if (card) card.remove();
+      cekFlashButton(document.querySelectorAll(".flash-card").length);
+      return clearInterval(timer);
+    }
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    countdownEl.textContent = `Sisa: ${hours}h ${minutes}m ${seconds}s`;
+  }
+
+  update(); // panggil langsung
+  const timer = setInterval(update, 1000);
+}
+
+
+// ============================================
+// TOMBOL FLASH MELAYANG PRO (AUTO HIDE)
+// ============================================
 const flashBtn = document.getElementById("flash-btn");
 const flashSection = document.getElementById("flash-section");
 
 // munculkan kalau ada flash (dipanggil dari renderFlash)
 function cekFlashButton(jumlahFlash) {
-  if (jumlahFlash > 0) flashBtn.classList.add("show");
-  else flashBtn.classList.remove("show");
+  if (jumlahFlash > 0) {
+    flashBtn.classList.add("show");
+    flashBtn.style.pointerEvents = "auto";
+  } else {
+    flashBtn.classList.remove("show");
+    flashBtn.style.pointerEvents = "none";
+  }
 }
 
 // smooth scroll ke flash
@@ -132,12 +178,15 @@ flashBtn.addEventListener("click", () => {
 
 // hide otomatis kalau sudah sampai di area flash
 window.addEventListener("scroll", () => {
+  if (!flashSection) return;
   const rect = flashSection.getBoundingClientRect();
 
-  // Jika flash-section sudah di layar → sembunyikan tombol
+  const jumlahFlashAktif = document.querySelectorAll(".flash-card").length;
+
   if (rect.top <= 120 && rect.bottom >= 120) {
     flashBtn.classList.remove("show");
   } else {
-    flashBtn.classList.add("show");
+    if (jumlahFlashAktif > 0) flashBtn.classList.add("show");
+    else flashBtn.classList.remove("show");
   }
 });
