@@ -172,7 +172,7 @@
 
 /* Responsive */
 @media(max-width:400px){
-  #flash-btn{width:120px;height:46px;padding:0 10px;}
+  #flash-btn{width:95px;height:46px;padding:0 10px;}
   #flash-btn img{width:22px;height:22px;}
   #flash-btn .flash-text{font-size:13px;}
 }
