@@ -60,18 +60,6 @@ navCartBtn.addEventListener('click', (e) => {
 });
 
 
-// ================= CLEAR CART =================
-clearCartBtn.addEventListener('click', () => {
-  if (!confirm('Kosongkan keranjang?')) return;
-
-  cart = [];
-  updateCartCount();
-  renderCartModal();
-
-  cartModal.style.display = 'none';
-});
-
-
 // ================= PESAN VIA WA =================
 waCartBtn.addEventListener('click', () => {
 
