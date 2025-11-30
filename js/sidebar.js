@@ -129,14 +129,6 @@ document.addEventListener("DOMContentLoaded", () => {
     sidebarAccountBtn.addEventListener("click", () => navAccount.click());
   }
 
-  // ================= RESET DATA =================
-  const resetDataBtn = document.getElementById("reset-data");
-  if(resetDataBtn){
-    resetDataBtn.addEventListener("click", () => {
-      if(!confirm("Yakin ingin reset semua data lokal?")) return;
-      localStorage.clear();
-      location.reload();
-    });
-  }
+  
 
 });
