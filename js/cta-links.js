@@ -87,11 +87,164 @@
   // EVENT DELEGATION CTA-LINK
   // ======================================================
   document.addEventListener('click', function(e){
-    const anchor = e.target.closest('.cta-link');
-    if(!anchor) return;
+  // ======================================================
+  // TOMBOL KOSONGKAN KERANJANG
+  // ======================================================
+  const clearCartBtn = e.target.closest('.cta-clear-cart');
+  if(clearCartBtn){
     e.preventDefault();
 
+    if(cart.length === 0){
+      openModal({
+        title:"Keranjang Kosong",
+        message:"Keranjang sudah kosong.",
+        action:()=>{}
+      });
+      return;
+    }
+
+    openModal({
+      title: "Kosongkan Keranjang?",
+      message: "Semua item akan dihapus.",
+      action: function(){
+        cart = [];
+        updateCartCount();
+        renderCartModal();
+        cartModal.style.display = 'none';
+      }
+    });
+
+    return;
+  }
+
+  // ======================================================
+  // CTA LINK BIASA
+  // ======================================================
+  const anchor = e.target.closest('.cta-link');
+  if(!anchor) return;
+  e.preventDefault();
+
+
     const href = anchor.getAttribute('href') || '';
+    
+        // ======================================================
+    // === 1. PESAN SEKARANG (KERANJANG) ===
+    // ======================================================
+    if(anchor.classList.contains("cta-pesan-cart")){
+      if(cart.length === 0){
+        openModal({
+          title: "Keranjang Kosong",
+          message: "Tidak ada item untuk dipesan.",
+          action: ()=>{}
+        });
+        return;
+      }
+
+      openModal({
+        title: "Kirim Pesanan?",
+        message: "Pesanan Anda akan dikirim ke WhatsApp Warung Emung.",
+        action: function(){
+
+          const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+          const nama = userData.nama || 'Pelanggan';
+          const alamat = userData.alamat || '';
+          const noRumah = userData.noRumah || '';
+          const rtrw = userData.rtrw || '';
+          const hp = userData.hp || '';
+
+          const fullAlamat =
+            `${alamat}${noRumah ? ' No. ' + noRumah : ''}` +
+            `${rtrw ? ', RT/RW ' + rtrw : ''}`;
+
+          const orderId = 'EM-' + Date.now().toString().slice(-6);
+          const waktu = waktuPesan();
+
+          const subtotal = cart.reduce((s, i) => s + i.qty * i.price, 0);
+          const ONGKIR = 2000;
+          const total = subtotal + ONGKIR;
+
+          const lines = cart.map(it =>
+            `- ${it.qty} x ${it.name} - Rp ${formatRupiah(it.price * it.qty)}`
+          ).join("\n");
+
+          // Template WA
+          const message =
+` *PESANAN BARU - WARUNG EMUNG*
+ *ID Pesanan:* ${orderId}
+ *Waktu:* ${waktu}
+
+ *Nama:* ${nama}
+ *Alamat:* ${fullAlamat}
+ *HP:* ${hp || '-'}
+
+ *Detail Pesanan:*
+${lines}
+
+ *Ongkir:* Rp ${formatRupiah(ONGKIR)}
+ *Total:* Rp ${formatRupiah(total)}
+
+Mohon diproses.`;
+
+          // Buka WA
+          window.open(
+            'https://wa.me/6285322882512?text=' + encodeURIComponent(message),
+            '_blank'
+          );
+
+          // SIMPAN RIWAYAT
+          simpanRiwayat({
+            id: orderId,
+            items: cart.map(it => ({
+              id: it.id || null,
+              name: it.name,
+              qty: it.qty,
+              harga: it.price,
+              subtotal: it.price * it.qty
+            })),
+            subtotal,
+            ongkir: ONGKIR,
+            total,
+            waktu,
+            date: new Date().toISOString()
+          });
+
+          // RESET KERANJANG
+          cart = [];
+          updateCartCount();
+          renderCartModal();
+          cartModal.style.display = 'none';
+        }
+      });
+
+      return;
+    }
+
+    // ======================================================
+    // === 2. KOSONGKAN KERANJANG ===
+    // ======================================================
+    if(anchor.classList.contains("cta-clear-cart")){
+      if(cart.length === 0){
+        openModal({
+          title:"Kosong",
+          message:"Keranjang sudah kosong.",
+          action:()=>{}
+        });
+        return;
+      }
+
+      openModal({
+        title: "Kosongkan Keranjang?",
+        message: "Semua item akan dihapus.",
+        action: function(){
+          cart = [];
+          updateCartCount();
+          renderCartModal();
+          cartModal.style.display = 'none';
+        }
+      });
+
+      return;
+    }
     
     // ======================================================
 // RIWAYAT — HANDLER GLOBAL CTA
@@ -128,6 +281,8 @@ if (anchor.classList.contains("riwayat-clear-all")) {
 
   return;
 }
+
+
 
 // Ulangi pesanan dari riwayat
 if (anchor.classList.contains("riwayat-repeat")) {
@@ -295,31 +450,87 @@ Mohon informasinya.`;
 }
 
 
-    // ======================================================
-    // 3. REQUEST PRODUK VIA WA (FLOW LAMA)
-    // ======================================================
-    if(href.includes('wa.me')){
-      openModal({
-        title: "Request Produk via WhatsApp",
-        message: "Masukkan Nama Produk dan Jumlah:",
-        isWA: true,
-        action: function(produk, jumlah){
-          let waLink = href;
+ // ======================================================
+// 3. REQUEST PRODUK VIA WA (FLOW LAMA) � FIX TEMPLATE
+// ======================================================
+if (href.includes('wa.me')) {
+  openModal({
+    title: "Request Produk via WhatsApp",
+    message: "Masukkan Nama Produk dan Jumlah:",
+    isWA: true,
+    action: function (produk, jumlah) {
 
-          if(waLink.includes("[NAMA PRODUK]") || waLink.includes("[JUMLAH]")){
-            waLink = waLink.replace(/\[NAMA PRODUK\]/g, encodeURIComponent(produk))
-                           .replace(/\[JUMLAH\]/g, encodeURIComponent(jumlah));
-          } else {
-            const extra = encodeURIComponent(` Produk: ${produk} Jumlah: ${jumlah}`);
-            if(waLink.includes('?text=')) waLink += extra;
-            else waLink += '?text=' + extra;
-          }
+      let waLink = href;
 
-          window.open(waLink, '_blank');
-        }
-      });
-      return;
+      // ============================
+      // 1. Ambil bagian ?text= jika ada
+      // ============================
+      const textMatch = waLink.match(/[\?&]text=([^&]+)/);
+
+      if (textMatch) {
+        // Decode text bawaan
+        let decoded = decodeURIComponent(textMatch[1]);
+
+        // Replace placeholder
+        // ===== Template WA profesional =====
+const pesanPro = 
+`Halo Warung Emung ,
+
+Saya ingin melakukan request produk:
+
+ *Nama Produk*: ${produk}
+ *Jumlah*: ${jumlah}
+
+Mohon konfirmasi ketersediaannya.
+Terima kasih `;
+
+// Replace isi template lama dengan format baru
+decoded = pesanPro;
+
+
+        // Encode ulang
+        const encoded = encodeURIComponent(decoded);
+
+        // Masukkan kembali text= yang sudah diganti
+        waLink = waLink.replace(textMatch[1], encoded);
+
+      } else {
+        // Jika tidak ada template sama sekali  buat format WA baru
+        const pesan = 
+`Halo Warung Emung, saya ingin request produk:
+� Nama Produk: ${produk}
+� Jumlah: ${jumlah}
+
+Mohon informasinya.`;
+
+        waLink += `?text=${encodeURIComponent(pesan)}`;
+      }
+
+      window.open(waLink, "_blank");
     }
+  });
+  return;
+}
+
+// ======================================================
+// RESET DATA LOKAL — HANDLER
+// ======================================================
+const resetDataBtn = e.target.closest('#reset-data');
+if(resetDataBtn){
+  e.preventDefault();
+  openModal({
+    title: "Reset Data Lokal?",
+    message: "Semua data lokal akan dihapus permanen. Lanjutkan?",
+    action: function(){
+      localStorage.clear();
+      sessionStorage.clear();
+      location.reload();
+    }
+  });
+  return;
+}
+
+
 
     // ======================================================
     // 4. ANCHOR IN-PAGE
