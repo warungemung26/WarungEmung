@@ -130,3 +130,12 @@
   align-items: center;
   gap: 8px;
 }
+
+/* FILTER */
+.filter-container{
+  margin: 10px;
+}
+#filter-harga{
+  padding: 6px;
+  border-radius: 6px;
+}
