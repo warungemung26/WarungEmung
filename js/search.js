@@ -17,6 +17,8 @@ function applyFilters(){
 
   let filtered = products;
 
+
+
   // ============================
   // MODE SEARCH
   // ============================
@@ -77,17 +79,42 @@ function applyFilters(){
 
   }
 
+
   // ============================
-  // MODE KATEGORI
-  // ============================
-  else if(currentCategory){
-    filtered = products.filter(p => p.category === currentCategory);
+// MODE KATEGORI
+// ============================
+else if(currentCategory){
+  filtered = products.filter(p => p.category === currentCategory);
+}
+
+
+// ======================================================
+//   FILTER HARGA (SETELAH KATEGORI / SEARCH TERAPLIKASI)
+// ======================================================
+
+const filterSelect = document.getElementById('filter-harga');
+if(filterSelect && filterSelect.value){
+  
+  if(filterSelect.value === 'low'){
+    filtered = [...filtered].sort((a,b) => a.price - b.price);
   }
+  else if(filterSelect.value === 'high'){
+    filtered = [...filtered].sort((a,b) => b.price - a.price);
+  }
+  // default "" = tidak apa-apa, biarkan acak biasa
+}
+
 
   // ============================
   // RENDER + ACAK SETIAP TAMPIL
   // ============================
-  render(shuffle([...filtered]));
+  // jika sedang filter harga → jangan acak
+if (filterSelect && filterSelect.value) {
+  render([...filtered]); 
+} else {
+  render(shuffle([...filtered])); // acak hanya kalau tidak sorting harga
+}
+
 
   return filtered; // penting untuk runSearch()
 }
@@ -98,6 +125,23 @@ function applyFilters(){
 function setCategory(cat){
   currentCategory = cat;
   searchEl.value = "";
+  
+  catOptions.querySelectorAll('.cat').forEach(el => {
+  el.addEventListener('click', () => {
+    const cat = el.getAttribute('data-cat');
+    currentCategory = cat;  // <── tambahkan ini
+    searchEl.value = "";
+    applyFilters();
+    closeCatModal();
+  });
+});
+
+
+  // === RESET FILTER HARGA DI SINI ===
+  const filterSelect = document.getElementById('filter-harga');
+  if(filterSelect){
+    filterSelect.value = "";   // kembali ke default
+  }
 
   applyFilters();
 
@@ -108,6 +152,7 @@ function setCategory(cat){
   document.getElementById('produk-list')
     .scrollIntoView({behavior:'smooth', block:'start'});
 }
+
 
 /* ============================================================
    SEARCH BUTTON + ENTER
@@ -156,3 +201,4 @@ function runSearch(){
   document.getElementById('produk-list')
     .scrollIntoView({behavior:'smooth', block:'start'});
 }
+
