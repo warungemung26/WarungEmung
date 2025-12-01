@@ -221,28 +221,7 @@ wrap.innerHTML += r.map(order => `
     </div>
   `).join("");
 
-  // Attach event tombol
-  wrap.querySelector(".riwayat-clear-all")?.addEventListener("click", hapusSemuaRiwayat);
 
-  wrap.querySelectorAll(".riwayat-delete").forEach(btn => {
-    btn.addEventListener("click", () => hapusRiwayat(btn.dataset.id));
-  });
-
-  wrap.querySelectorAll(".riwayat-status").forEach(btn => {
-    const order = r.find(o => o.id === btn.dataset.id);
-    if (order) btn.addEventListener("click", () => waCekStatus(order));
-  });
-
-  wrap.querySelectorAll(".riwayat-repeat").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const order = r.find(o => o.id === btn.dataset.id);
-      if (!order) return;
-      if (typeof addToCart === "function") {
-        order.items.forEach(it => addToCart(it));
-        alert("Pesanan diulang ke keranjang!");
-      }
-    });
-  });
 };
 
 
