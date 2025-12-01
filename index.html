@@ -288,6 +288,103 @@ if ('serviceWorker' in navigator) {
   <button class="cat-arrow right" onclick="slideCat(1)">❯</button>
 </div>
 
+<!-- ================= KATEGORI MODAL ================= -->
+<div id="cat-modal-backdrop">
+  <div id="cat-modal" role="dialog" aria-hidden="true">
+
+    <!-- HEADER (TIDAK SCROLL) -->
+    <button id="close-cat" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+
+    <h4 class="cat-title">
+      <i class="fa-solid fa-list"></i> Pilih Kategori
+    </h4>
+
+    <!-- BODY (YANG SCROLL) -->
+    <div class="cat-body">
+      <div id="cat-options">
+
+        <div class="cat" data-cat="">
+          <i class="fa-solid fa-cart-shopping"></i> Semua Produk
+        </div>
+
+        <div class="cat" data-cat="sembako">
+          <i class="fa-solid fa-bowl-rice"></i> Sembako, Beras, Telur, Daging, Ikan, dll
+        </div>
+
+        <div class="cat" data-cat="bumbu">
+          <i class="fa-solid fa-pepper-hot"></i> Bumbu Dapur
+        </div>
+
+        <div class="cat" data-cat="mie">
+          <i class="fa-solid fa-bowl-food"></i> Mie Instan
+        </div>
+
+        <div class="cat" data-cat="snack">
+          <i class="fa-solid fa-cookie-bite"></i> Snack, Jajanan Anak, dll
+        </div>
+
+        <div class="cat" data-cat="toy">
+          <i class="fa-solid fa-puzzle-piece"></i> Mainan Anak
+        </div>
+
+        <div class="cat" data-cat="roti">
+          <i class="fa-solid fa-bread-slice"></i> Roti & Kue
+        </div>
+
+        <div class="cat" data-cat="makanan">
+          <i class="fa-solid fa-burger"></i> Makanan Siap Saji
+        </div>
+
+        <div class="cat" data-cat="minuman">
+          <i class="fa-solid fa-bottle-water"></i> Minuman Botol/Cup/Kotak
+        </div>
+
+        <div class="cat" data-cat="minumansachet">
+          <i class="fa-solid fa-mug-hot"></i> Minuman Sachet
+        </div>
+
+        <div class="cat" data-cat="frozen">
+          <i class="fa-solid fa-snowflake"></i> Ice Cream & Frozen Food
+        </div>
+
+        <div class="cat" data-cat="rokok">
+          <i class="fa-solid fa-fire-flame-simple"></i> Rokok
+        </div>
+
+        <div class="cat" data-cat="obat">
+          <i class="fa-solid fa-capsules"></i> Obat Harian
+        </div>
+
+        <div class="cat" data-cat="rumah">
+          <i class="fa-solid fa-pump-soap"></i> Sabun & Perlengkapan Toilet
+        </div>
+
+        <div class="cat" data-cat="peralatan">
+          <i class="fa-solid fa-screwdriver-wrench"></i> Peralatan Rumah Tangga
+        </div>
+
+        <div class="cat" data-cat="peralatansekolah">
+          <i class="fa-solid fa-pen-ruler"></i> Peralatan Sekolah
+        </div>
+
+        <div class="cat" data-cat="outfit">
+          <i class="fa-solid fa-shirt"></i> Pakaian
+        </div>
+        
+        <div class="cat" data-cat="sandal">
+          <i class="fa-solid fa-shirt"></i> Aneka Sandal
+        </div>
+
+        <div class="cat" data-cat="lainnya">
+          <i class="fa-solid fa-ellipsis"></i> Lainnya
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <!-- PENGUMUMAN BERJALAN -->
 <div class="pengumuman">
   <marquee behavior="scroll" direction="left">
@@ -307,7 +404,7 @@ if ('serviceWorker' in navigator) {
      href="https://wa.me/6285322882512?text=Halo%20Warung%20Emung,%20saya%20ingin%20request%20produk:%20[NAMA%20PRODUK]%20dengan%20jumlah:%20[JUMLAH]%20Mohon%20informasinya."
      id="wa-hero-cta">
      <i class="fa-brands fa-whatsapp"></i>
-     <span>Request Stok Sekarang</span>
+     <span>Request Stok</span>
   </a>
 
   <p class="wa-cta-instructions">
@@ -315,6 +412,97 @@ if ('serviceWorker' in navigator) {
   </p>
 </div>
 </section>
+
+
+<!-- ============================
+     MODAL DETAIL PRODUK (SLIDE UP)
+     ============================ -->
+<div id="product-modal" class="pm-backdrop">
+  <div class="pm-sheet">
+
+    <!-- TOPBAR -->
+    <div class="pm-topbar">
+      <button class="pm-back"><i class="fa fa-arrow-left"></i></button>
+      <button class="pm-close"><i class="fa fa-times"></i></button>
+    </div>
+
+    <div class="pm-handle"></div>
+
+    <img class="pm-img" src="" alt="">
+    <div class="pm-title"></div>
+    <div class="pm-price"></div>
+    <div class="pm-desc"></div>
+
+    <div class="pm-qty">
+      <button class="pm-minus">−</button>
+      <span class="pm-number">1</span>
+      <button class="pm-plus">+</button>
+    </div>
+
+    <button class="pm-add">
+      <i class="fa fa-cart-plus"></i> Tambah ke Keranjang
+    </button>
+
+  </div>
+</div>
+
+<!-- ================= FLASH SALE ================= -->
+<div id="flash-section">
+  <h3 class="flash-title-section">⚡ Flash Sale Hari Ini</h3>
+  <div id="flash-list" class="flash-wrapper"></div>
+</div>
+<!-- FILTER HARGA -->
+	<div style="margin-bottom:12px;">
+  <label for="filter-price" style="font-weight:bold;">
+    <i class="fa fa-filter"></i> Urutkan Harga
+  </label>
+<i class="filter-container"></i>
+  <select id="filter-harga">
+    <option value="">Default</option>
+    <option value="low">⬇️ Termurah</option>
+    <option value="high">⬆️ Termahal</option>
+  </select>
+</div>
+
+
+<!-- ================= ETALASE WARUNG ================= -->
+<h3 class="etalase-title" style="margin-top:22px">Etalase Warung</h3>
+<div id="produk-list"></div>
+
+<!-- ================= FLOATING FLASH BUTTON ================= -->
+<button id="flash-btn">
+  <img src="images/flash.png" alt="Flash Icon">
+  <span class="flash-text">FLASH</span>
+</button>
+
+  <!-- ================= CART MODAL ================= -->
+  <!-- BACKDROP -->
+<div id="cart-backdrop" class="modal-backdrop" aria-hidden="true"></div>
+
+<!-- CART MODAL -->
+<div id="cart-modal" class="modal" role="dialog" aria-hidden="true">
+  <h4>Keranjang Anda</h4>
+
+  <div id="cart-items"></div>
+  <div class="total" id="cart-total"></div>
+
+  <div style="display:flex;gap:8px;margin-top:8px">
+    <button id="wa-cart" class="wa-btn">
+      Pesan Semua via <i class="fa-brands fa-whatsapp"></i>
+    </button>
+  <button id="clear-cart" class="add-btn cta-clear-cart" style="background:#ff4b4b;color:#fff;">
+  Kosongkan
+</button>
+
+  </div>
+</div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>Warung Emung — Praktis, Hemat, Dekat • Hubungi via WhatsApp untuk pesanan</footer>
+
+  <!-- ================= TOAST NOTIF ================= -->
+  <div id="toast">Berhasil</div>
 
 <!-- REGISTER POPUP -->
 <div id="register-backdrop" class="modal-backdrop" style="display:none;">
@@ -431,180 +619,8 @@ if ('serviceWorker' in navigator) {
   </div>
 </div>
 
-<!-- ============================
-     MODAL DETAIL PRODUK (SLIDE UP)
-     ============================ -->
-<div id="product-modal" class="pm-backdrop">
-  <div class="pm-sheet">
 
-    <!-- TOPBAR -->
-    <div class="pm-topbar">
-      <button class="pm-back"><i class="fa fa-arrow-left"></i></button>
-      <button class="pm-close"><i class="fa fa-times"></i></button>
-    </div>
-
-    <div class="pm-handle"></div>
-
-    <img class="pm-img" src="" alt="">
-    <div class="pm-title"></div>
-    <div class="pm-price"></div>
-    <div class="pm-desc"></div>
-
-    <div class="pm-qty">
-      <button class="pm-minus">−</button>
-      <span class="pm-number">1</span>
-      <button class="pm-plus">+</button>
-    </div>
-
-    <button class="pm-add">
-      <i class="fa fa-cart-plus"></i> Tambah ke Keranjang
-    </button>
-
-  </div>
-</div>
-
-<!-- ================= FLASH SALE ================= -->
-<div id="flash-section">
-  <h3 class="flash-title-section">⚡ Flash Sale Hari Ini</h3>
-  <div id="flash-list" class="flash-wrapper"></div>
-</div>
-
-<!-- ================= ETALASE WARUNG ================= -->
-<h3 class="etalase-title" style="margin-top:22px">Etalase Warung</h3>
-<div id="produk-list"></div>
-
-<!-- ================= FLOATING FLASH BUTTON ================= -->
-<button id="flash-btn">
-  <img src="images/flash.png" alt="Flash Icon">
-  <span class="flash-text">FLASH</span>
-</button>
-
-  <!-- ================= CART MODAL ================= -->
-  <!-- BACKDROP -->
-<div id="cart-backdrop" class="modal-backdrop" aria-hidden="true"></div>
-
-<!-- CART MODAL -->
-<div id="cart-modal" class="modal" role="dialog" aria-hidden="true">
-  <h4>Keranjang Anda</h4>
-
-  <div id="cart-items"></div>
-  <div class="total" id="cart-total"></div>
-
-  <div style="display:flex;gap:8px;margin-top:8px">
-    <button id="wa-cart" class="wa-btn">
-      Pesan Semua via <i class="fa-brands fa-whatsapp"></i>
-    </button>
-  <button id="clear-cart" class="add-btn cta-clear-cart" style="background:#ff4b4b;color:#fff;">
-  Kosongkan
-</button>
-
-  </div>
-</div>
-  </div>
-
-  <!-- ================= FOOTER ================= -->
-  <footer>Warung Emung — Praktis, Hemat, Dekat • Hubungi via WhatsApp untuk pesanan</footer>
-
-  <!-- ================= TOAST NOTIF ================= -->
-  <div id="toast">Berhasil</div>
-
-<!-- ================= KATEGORI MODAL ================= -->
-<div id="cat-modal-backdrop">
-  <div id="cat-modal" role="dialog" aria-hidden="true">
-
-    <!-- HEADER (TIDAK SCROLL) -->
-    <button id="close-cat" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
-
-    <h4 class="cat-title">
-      <i class="fa-solid fa-list"></i> Pilih Kategori
-    </h4>
-
-    <!-- BODY (YANG SCROLL) -->
-    <div class="cat-body">
-      <div id="cat-options">
-
-        <div class="cat" data-cat="">
-          <i class="fa-solid fa-cart-shopping"></i> Semua Produk
-        </div>
-
-        <div class="cat" data-cat="sembako">
-          <i class="fa-solid fa-bowl-rice"></i> Sembako, Beras, Telur, Daging, Ikan, dll
-        </div>
-
-        <div class="cat" data-cat="bumbu">
-          <i class="fa-solid fa-pepper-hot"></i> Bumbu Dapur
-        </div>
-
-        <div class="cat" data-cat="mie">
-          <i class="fa-solid fa-bowl-food"></i> Mie Instan
-        </div>
-
-        <div class="cat" data-cat="snack">
-          <i class="fa-solid fa-cookie-bite"></i> Snack, Jajanan Anak, dll
-        </div>
-
-        <div class="cat" data-cat="toy">
-          <i class="fa-solid fa-puzzle-piece"></i> Mainan Anak
-        </div>
-
-        <div class="cat" data-cat="roti">
-          <i class="fa-solid fa-bread-slice"></i> Roti & Kue
-        </div>
-
-        <div class="cat" data-cat="makanan">
-          <i class="fa-solid fa-burger"></i> Makanan Siap Saji
-        </div>
-
-        <div class="cat" data-cat="minuman">
-          <i class="fa-solid fa-bottle-water"></i> Minuman Botol/Cup/Kotak
-        </div>
-
-        <div class="cat" data-cat="minumansachet">
-          <i class="fa-solid fa-mug-hot"></i> Minuman Sachet
-        </div>
-
-        <div class="cat" data-cat="frozen">
-          <i class="fa-solid fa-snowflake"></i> Ice Cream & Frozen Food
-        </div>
-
-        <div class="cat" data-cat="rokok">
-          <i class="fa-solid fa-fire-flame-simple"></i> Rokok
-        </div>
-
-        <div class="cat" data-cat="obat">
-          <i class="fa-solid fa-capsules"></i> Obat Harian
-        </div>
-
-        <div class="cat" data-cat="rumah">
-          <i class="fa-solid fa-pump-soap"></i> Sabun & Perlengkapan Toilet
-        </div>
-
-        <div class="cat" data-cat="peralatan">
-          <i class="fa-solid fa-screwdriver-wrench"></i> Peralatan Rumah Tangga
-        </div>
-
-        <div class="cat" data-cat="peralatansekolah">
-          <i class="fa-solid fa-pen-ruler"></i> Peralatan Sekolah
-        </div>
-
-        <div class="cat" data-cat="outfit">
-          <i class="fa-solid fa-shirt"></i> Pakaian
-        </div>
-        
-        <div class="cat" data-cat="sandal">
-          <i class="fa-solid fa-shirt"></i> Aneka Sandal
-        </div>
-
-        <div class="cat" data-cat="lainnya">
-          <i class="fa-solid fa-ellipsis"></i> Lainnya
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-</div>
-
+<!-- ==== NAVIGASI ==== -->
 <div class="bottom-nav">
   <a href="#home" id="nav-home" class="active">
     <i class="fa-solid fa-house"></i>
@@ -626,7 +642,6 @@ if ('serviceWorker' in navigator) {
   <span>Akun</span>
 </a>
 
-      <!-- NAVBAR: Tombol WA (icon kecil) -->
 <a class="cta-link wa-nav"
    href="https://wa.me/6285322882512?text=Halo%20Warung%20Emung,%20saya%20ingin%20cek%20pesanan%20saya."
    aria-label="Cek pesanan"
@@ -635,14 +650,12 @@ if ('serviceWorker' in navigator) {
    <span class="label">Cek Pesanan</span>
 </a>
 
-
   <a href="#cart" id="nav-cart">
     <i class="fa-solid fa-cart-shopping"></i>
     <span>Troli</span>
     <div class="badge" id="cart-badge">0</div>
   </a>
 </div>
-
 
 <!-- ==== PWA INSTALL BUTTON PRO ==== -->
 <button id="installBtn" class="pwa-install-btn" style="display:none;">
