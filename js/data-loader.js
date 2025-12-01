@@ -148,8 +148,16 @@ fetch('data/produk.json')
     return res.json();
   })
   .then(data => {
-    products = data;                    // penting untuk kategori & scroll
-    const acak = shuffle([...data]);    // buat versi acak
-    render(acak);                       // tampilkan produk sekali, langsung acak
+    products = shuffle([...data]); // simpan versi acak sebagai "products"
+render(products);
+                       // tampilkan produk sekali, langsung acak
   })
   .catch(err => console.error(err));
+
+// === FILTER DROPDOWN HARGA ===
+const filterSelect = document.getElementById('filter-harga');
+if(filterSelect){
+  filterSelect.addEventListener('change', () => {
+    applyFilters();  // hanya ini!
+  });
+}
