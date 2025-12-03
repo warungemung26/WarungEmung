@@ -1,3 +1,8 @@
+## Hak Cipta
+© 2025 Atos. All rights reserved.
+Kode dalam repository ini tidak boleh disalin, diubah, atau didistribusikan tanpa izin pemilik.
+
+
 # **WarungEmung â€” Mini E-Commerce Berbasis HTML + JSON**
 
 Praktis, hemat, dekat dengan pelanggan. Proyek ini prototipe e-commerce ringan untuk **warung/UMKM**, fokus:
