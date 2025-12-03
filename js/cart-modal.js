@@ -1,3 +1,13 @@
+/*!
+ * Copyright (c) 2025, Atos
+ * All rights reserved.
+ * Unauthorized copying, modification, or distribution of this file is strictly prohibited.
+ */
+
+/* js/cart-modal.js
+   Menangani Cart Modal (Pesan sekarang, Kosongkan, template WA, save riwayat)
+*/
+
 // ================= FORMAT WAKTU =================
 function waktuPesan() {
   const d = new Date();
@@ -93,57 +103,8 @@ waCartBtn.addEventListener('click', () => {
   const ONGKIR = 2000;
   const total = subtotal + ONGKIR;
 
-  // FORMAT WA
-  const message = `
-🛍️ *PESANAN BARU - WARUNG EMUNG*
-🆔 *ID Pesanan:* ${orderId}
-📅 *Waktu:* ${waktu}
-
-👤 *Nama:* ${nama}
-📍 *Alamat:* ${fullAlamat}
-📱 *HP:* ${hp || '-'}
-
-🛒 *Detail Pesanan:*
-${lines.join('\n')}
-
-🧾 *Subtotal:* Rp ${formatRupiah(subtotal)}
-🚚 *Ongkir:* Rp ${formatRupiah(ONGKIR)}
-💰 *Total:* Rp ${formatRupiah(total)}
-
-Mohon diproses.`;
 
 
-  // SIMPAN RIWAYAT
-  simpanRiwayat({
-    id: orderId,
-    items: cart.map(it => ({
-      id: it.id || null,
-      name: it.name,
-      qty: it.qty,
-      harga: it.price,
-      subtotal: it.price * it.qty
-    })),
-    subtotal: subtotal,
-    ongkir: ONGKIR,
-    total: total,
-    waktu: waktu,
-    date: new Date().toISOString(),
-    nama: nama,
-    alamat: fullAlamat,
-    hp: hp
-  });
-
-  // KIRIM WA
-  window.open(
-    'https://wa.me/6285322882512?text=' + encodeURIComponent(message),
-    '_blank'
-  );
-
-  // RESET CART
-  cartModal.style.display = 'none';
-  cart = [];
-  updateCartCount();
-  renderCartModal();
 });
 
 
