@@ -1,3 +1,9 @@
+/*!
+ * Copyright (c) 2025, Atos
+ * All rights reserved.
+ * Unauthorized copying, modification, or distribution of this file is strictly prohibited.
+ */
+
 /* js/cta-links.js
    Menangani tombol CTA (WA, anchor, link eksternal) dengan modal konfirmasi
 */
@@ -16,7 +22,6 @@
   let currentAction = null;
   let isWaFlow = false;
 
-  // Buka modal
   function openModal({title="Konfirmasi", message="", isWA=false, action=null} = {}) {
     if(!modal) return fallbackModal(title, message, isWA, action);
 
@@ -36,14 +41,12 @@
     modal.setAttribute('aria-hidden','false');
   }
 
-  // Tutup modal
   function closeModal(){
     if(!modal) return;
     modal.style.display='none';
     modal.setAttribute('aria-hidden','true');
   }
 
-  // Fallback jika modal tidak ada
   function fallbackModal(title, message, isWA, action){
     if(isWA){
       const produk = prompt("Nama Produk:", "");
@@ -57,7 +60,6 @@
   }
 
   if(modalCancel) modalCancel.addEventListener('click', closeModal);
-
   if(modalOk) modalOk.addEventListener('click', function(){
     if(typeof currentAction !== 'function'){ closeModal(); return; }
 
@@ -76,7 +78,6 @@
     closeModal();
   });
 
-  // Tutup modal klik backdrop
   if(modal){
     modal.addEventListener('click', function(e){
       if(e.target === modal) closeModal();
@@ -87,50 +88,28 @@
   // EVENT DELEGATION CTA-LINK
   // ======================================================
   document.addEventListener('click', function(e){
-  // ======================================================
-  // TOMBOL KOSONGKAN KERANJANG
-  // ======================================================
-  const clearCartBtn = e.target.closest('.cta-clear-cart');
-  if(clearCartBtn){
-    e.preventDefault();
 
-    if(cart.length === 0){
-      openModal({
-        title:"Keranjang Kosong",
-        message:"Keranjang sudah kosong.",
-        action:()=>{}
-      });
-      return;
-    }
+    // ------------------------------
+    // WA CART — PESAN SEMUA VIA WHATSAPP
+    // ------------------------------
+    const waCartBtn = e.target.closest('#wa-cart');
+    if(waCartBtn){
+      e.preventDefault();
 
-    openModal({
-      title: "Kosongkan Keranjang?",
-      message: "Semua item akan dihapus.",
-      action: function(){
-        cart = [];
-        updateCartCount();
-        renderCartModal();
-        cartModal.style.display = 'none';
+      const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+      const alamat = userData.alamat || '';
+      const nama = userData.nama || 'Pelanggan';
+      const hp = userData.hp || '';
+
+      if(!alamat.trim()){
+        openModal({
+          title: "Alamat Belum Terisi",
+          message: "Harap isi alamat pengiriman terlebih dahulu sebelum memesan.",
+          action: ()=>{}
+        });
+        return;
       }
-    });
 
-    return;
-  }
-
-  // ======================================================
-  // CTA LINK BIASA
-  // ======================================================
-  const anchor = e.target.closest('.cta-link');
-  if(!anchor) return;
-  e.preventDefault();
-
-
-    const href = anchor.getAttribute('href') || '';
-    
-        // ======================================================
-    // === 1. PESAN SEKARANG (KERANJANG) ===
-    // ======================================================
-    if(anchor.classList.contains("cta-pesan-cart")){
       if(cart.length === 0){
         openModal({
           title: "Keranjang Kosong",
@@ -142,73 +121,62 @@
 
       openModal({
         title: "Kirim Pesanan?",
-        message: "Pesanan Anda akan dikirim ke WhatsApp Warung Emung.",
+        message: "Semua item di keranjang akan dikirim ke WhatsApp Warung Emung.",
         action: function(){
-
-          const userData = JSON.parse(localStorage.getItem('userData') || '{}');
-          const nama = userData.nama || 'Pelanggan';
-          const alamat = userData.alamat || '';
-          const noRumah = userData.noRumah || '';
-          const rtrw = userData.rtrw || '';
-          const hp = userData.hp || '';
-
-          const fullAlamat =
-            `${alamat}${noRumah ? ' No. ' + noRumah : ''}` +
-            `${rtrw ? ', RT/RW ' + rtrw : ''}`;
-
           const orderId = 'EM-' + Date.now().toString().slice(-6);
           const waktu = waktuPesan();
-
           const subtotal = cart.reduce((s, i) => s + i.qty * i.price, 0);
           const ONGKIR = 2000;
           const total = subtotal + ONGKIR;
-
           const lines = cart.map(it =>
             `- ${it.qty} x ${it.name} - Rp ${formatRupiah(it.price * it.qty)}`
           ).join("\n");
 
-          // Template WA
           const message =
-` *PESANAN BARU - WARUNG EMUNG*
- *ID Pesanan:* ${orderId}
- *Waktu:* ${waktu}
+`🛍️ *PESANAN BARU - WARUNG EMUNG*
+🆔 ID Pesanan: ${orderId}
+📅 Waktu: ${waktu}
 
- *Nama:* ${nama}
- *Alamat:* ${fullAlamat}
- *HP:* ${hp || '-'}
+👤 Nama: ${nama}
+📍 Alamat: ${alamat}
+📱 HP: ${hp || '-'}
 
- *Detail Pesanan:*
+🛒 Detail Pesanan:
 ${lines}
 
- *Ongkir:* Rp ${formatRupiah(ONGKIR)}
- *Total:* Rp ${formatRupiah(total)}
+🧾 *Subtotal:* Rp ${formatRupiah(subtotal)}
+🚚 Ongkir: Rp ${formatRupiah(ONGKIR)}
+💰 Total: Rp ${formatRupiah(total)}
 
 Mohon diproses.`;
 
-          // Buka WA
           window.open(
             'https://wa.me/6285322882512?text=' + encodeURIComponent(message),
             '_blank'
           );
 
-          // SIMPAN RIWAYAT
           simpanRiwayat({
-            id: orderId,
-            items: cart.map(it => ({
-              id: it.id || null,
-              name: it.name,
-              qty: it.qty,
-              harga: it.price,
-              subtotal: it.price * it.qty
-            })),
-            subtotal,
-            ongkir: ONGKIR,
-            total,
-            waktu,
-            date: new Date().toISOString()
-          });
+  id: orderId,
+  items: cart.map(it => ({
+    id: it.id || null,
+    name: it.name,
+    qty: it.qty,
+    harga: it.price,
+    subtotal: it.price * it.qty
+  })),
+  subtotal,
+  ongkir: ONGKIR,
+  total,
+  waktu,
+  date: new Date().toISOString(),
 
-          // RESET KERANJANG
+  // TAMBAHAN AGAR SAMA DENGAN CARTMODAL.JS
+  nama: nama,
+  alamat: alamat,   // atau fullAlamat jika variabelmu itu
+  hp: hp
+});
+
+
           cart = [];
           updateCartCount();
           renderCartModal();
@@ -217,11 +185,19 @@ Mohon diproses.`;
       });
 
       return;
-    }
+    }    
 
-    // ======================================================
-    // === 2. KOSONGKAN KERANJANG ===
-    // ======================================================
+    // ------------------------------
+    // CTA LINK BIASA
+    // ------------------------------
+    const anchor = e.target.closest('.cta-link, .cta-clear-cart, #wa-cart, .riwayat-delete, .riwayat-clear-all, .riwayat-repeat, .riwayat-status, .wa-status, .wa-nav');
+if(!anchor) return;
+    e.preventDefault();
+    const href = anchor.getAttribute('href') || '';
+
+
+
+    // 2. KOSONGKAN KERANJANG
     if(anchor.classList.contains("cta-clear-cart")){
       if(cart.length === 0){
         openModal({
@@ -245,7 +221,7 @@ Mohon diproses.`;
 
       return;
     }
-    
+
     // ======================================================
 // RIWAYAT — HANDLER GLOBAL CTA
 // ======================================================
@@ -599,3 +575,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
