@@ -574,5 +574,47 @@
     "price": 7000,
     "img": "images/kusuka-original-60g.jpg",
     "category": "snack"
+  },
+  {
+    "name": "WOW Spageti Creamy Carbonara",
+    "price": 3500,
+    "img": "images/wow-spageti-carbonara.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "WOW Spageti Meaty Bolognese",
+    "price": 3500,
+    "img": "images/wow-spageti-bolognese.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "WOW Spageti Aglio Olio",
+    "price": 3500,
+    "img": "images/wow-spageti-aglio-olio.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Supermi Goreng 85g",
+    "price": 3000,
+    "img": "images/supermi-goreng.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Sarimi Goreng 70g",
+    "price": 2500,
+    "img": "images/sarimi-goreng.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Mie ABC Instan 70g",
+    "price": 3000,
+    "img": "images/mie-abc-ayam.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Mie Burung Dara Goreng 70g",
+    "price": 3000,
+    "img": "images/burungdara-goreng.jpg",
+    "category": "mie"
   }
 ]
