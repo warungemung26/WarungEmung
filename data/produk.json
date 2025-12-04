@@ -840,13 +840,13 @@
     "category": "bumbu"
   },
   {
-    "name": "Kuku Bima EnerâG Rasa Anggur 1 sachet",
+    "name": "Kuku Bima EnerÃ¢ÂÂG Rasa Anggur 1 sachet",
     "price": 3000,
     "img": "images/kukubima-anggur-sachet.jpg",
     "category": "minumansachet"
   },
   {
-    "name": "Kuku Bima EnerâG Rasa Mangga / Vit C 1000mg 1 sachet",
+    "name": "Kuku Bima EnerÃ¢ÂÂG Rasa Mangga / Vit C 1000mg 1 sachet",
     "price": 3000,
     "img": "images/kukubima-mangga-sachet.jpg",
     "category": "minumansachet"
@@ -876,7 +876,7 @@
     "category": "minumansachet"
   },
   {
-    "name": "Indocafe Coffeemix 3âinâ1 1 sachet",
+    "name": "Indocafe Coffeemix 3Ã¢ÂÂinÃ¢ÂÂ1 1 sachet",
     "price": 2500,
     "img": "images/indocafe-3in1.jpg",
     "category": "minumansachet"
@@ -939,6 +939,36 @@
     "name": "Nipis Madu Lime Soda 330ml",
     "price": 4500,
     "img": "images/nipismadu-limesoda-330ml.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Le Minerale Botol 600ml",
+    "price": 3500,
+    "img": "images/leminerale-600ml.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Ades Botol 600ml",
+    "price": 3000,
+    "img": "images/ades-600ml.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Vit Botol 600ml",
+    "price": 3000,
+    "img": "images/vit-600ml.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Cleo Botol 600ml",
+    "price": 3000,
+    "img": "images/cleo-600ml.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Club Botol 600ml",
+    "price": 3500,
+    "img": "images/club-600ml.jpg",
     "category": "minuman"
   }
 ]
