@@ -934,5 +934,11 @@
     "price": 2000,
     "img": "images/ademsari-jeruknipis.jpg",
     "category": "minumansachet"
+  },
+  {
+    "name": "Nipis Madu Lime Soda 330ml",
+    "price": 4500,
+    "img": "images/nipismadu-limesoda-330ml.jpg",
+    "category": "minuman"
   }
 ]
