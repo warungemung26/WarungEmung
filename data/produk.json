@@ -970,5 +970,113 @@
     "price": 3500,
     "img": "images/club-600ml.jpg",
     "category": "minuman"
+  },
+  {
+    "name": "Kacang Hijau 1kg",
+    "price": 20000,
+    "img": "images/kacanghijau-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Kacang Tanah 1kg",
+    "price": 25000,
+    "img": "images/kacangtanah-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Beras Cap Rambutan 5kg",
+    "price": 90000,
+    "img": "images/beras-rambutan-5kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Tepung Beras 1kg",
+    "price": 12000,
+    "img": "images/tepungberas-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Gula Pasir Lokal 1kg",
+    "price": 18000,
+    "img": "images/gulapasir-lokal-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Minyak Goreng SunCo 1L",
+    "price": 18000,
+    "img": "images/minyak-sunco-1l.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Kacang Kedelai 1kg",
+    "price": 20000,
+    "img": "images/kacangkedelai-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Santan Kara 65ml",
+    "price": 4000,
+    "img": "images/santan-kara-65ml.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Tepung Tapioka 1kg",
+    "price": 14000,
+    "img": "images/tepung-tapioka-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Beras Cap Pandan Wangi 1kg",
+    "price": 20000,
+    "img": "images/beras-pandanwangi-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Tahu Putih Segar 1pcs",
+    "price": 2000,
+    "img": "images/tahu-putih-1pcs.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Tahu Kuning 1pcs",
+    "price": 2500,
+    "img": "images/tahu-kuning-1pcs.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Tempe Segar 1pcs",
+    "price": 2000,
+    "img": "images/tempe-1pcs.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Tempe Kering / Tepung Tempe 250g",
+    "price": 12000,
+    "img": "images/tempe-kering-250g.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Ikan Teri Kering 100g",
+    "price": 15000,
+    "img": "images/teri-kering-100g.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Udang Kering / Ebi 50g",
+    "price": 18000,
+    "img": "images/ebi-50g.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Tahu Kering 250g",
+    "price": 12000,
+    "img": "images/tahu-kering-250g.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Tempe Kering 250g",
+    "price": 12000,
+    "img": "images/tempe-kering-250g.jpg",
+    "category": "sembako"
   }
 ]
