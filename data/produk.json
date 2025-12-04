@@ -840,13 +840,13 @@
     "category": "bumbu"
   },
   {
-    "name": "Kuku Bima Ener‑G Rasa Anggur 1 sachet",
+    "name": "Kuku Bima EnerâG Rasa Anggur 1 sachet",
     "price": 3000,
     "img": "images/kukubima-anggur-sachet.jpg",
     "category": "minumansachet"
   },
   {
-    "name": "Kuku Bima Ener‑G Rasa Mangga / Vit C 1000mg 1 sachet",
+    "name": "Kuku Bima EnerâG Rasa Mangga / Vit C 1000mg 1 sachet",
     "price": 3000,
     "img": "images/kukubima-mangga-sachet.jpg",
     "category": "minumansachet"
@@ -876,7 +876,7 @@
     "category": "minumansachet"
   },
   {
-    "name": "Indocafe Coffeemix 3‑in‑1 1 sachet",
+    "name": "Indocafe Coffeemix 3âinâ1 1 sachet",
     "price": 2500,
     "img": "images/indocafe-3in1.jpg",
     "category": "minumansachet"
@@ -927,6 +927,12 @@
     "name": "Frisian Flag Susu Cokelat Sachet 1 sachet",
     "price": 5000,
     "img": "images/frisianflag-choco.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Adem Sari Jeruk Nipis 1 sachet",
+    "price": 2000,
+    "img": "images/ademsari-jeruknipis.jpg",
     "category": "minumansachet"
   }
 ]
