@@ -840,13 +840,13 @@
     "category": "bumbu"
   },
   {
-    "name": "Kuku Bima EnerÃ¢ÂÂG Rasa Anggur 1 sachet",
+    "name": "Kuku Bima EnerG Rasa Anggur 1 sachet",
     "price": 3000,
     "img": "images/kukubima-anggur-sachet.jpg",
     "category": "minumansachet"
   },
   {
-    "name": "Kuku Bima EnerÃ¢ÂÂG Rasa Mangga / Vit C 1000mg 1 sachet",
+    "name": "Kuku Bima EnerG Rasa Mangga / Vit C 1000mg 1 sachet",
     "price": 3000,
     "img": "images/kukubima-mangga-sachet.jpg",
     "category": "minumansachet"
@@ -873,12 +873,6 @@
     "name": "Good Day Mocacinno 1 sachet",
     "price": 2500,
     "img": "images/goodday-mocacinno.jpg",
-    "category": "minumansachet"
-  },
-  {
-    "name": "Indocafe Coffeemix 3Ã¢ÂÂinÃ¢ÂÂ1 1 sachet",
-    "price": 2500,
-    "img": "images/indocafe-3in1.jpg",
     "category": "minumansachet"
   },
   {
@@ -1050,9 +1044,9 @@
     "category": "sembako"
   },
   {
-    "name": "Tempe Kering / Tepung Tempe 250g",
+    "name": "Tempe Kering Tepung 250g",
     "price": 12000,
-    "img": "images/tempe-kering-250g.jpg",
+    "img": "images/tempetepung-kering-250g.jpg",
     "category": "sembako"
   },
   {
@@ -1074,9 +1068,9 @@
     "category": "sembako"
   },
   {
-    "name": "Tempe Kering 250g",
+    "name": "Tempe Oreg Kering 250g",
     "price": 12000,
-    "img": "images/tempe-kering-250g.jpg",
+    "img": "images/tempeoreg-kering-250g.jpg",
     "category": "sembako"
   }
 ]
