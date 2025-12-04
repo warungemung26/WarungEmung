@@ -838,5 +838,95 @@
     "price": 1000,
     "img": "images/desaku-ketumbar-bubuk.jpg",
     "category": "bumbu"
+  },
+  {
+    "name": "Kuku Bima Ener‑G Rasa Anggur 1 sachet",
+    "price": 3000,
+    "img": "images/kukubima-anggur-sachet.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Kuku Bima Ener‑G Rasa Mangga / Vit C 1000mg 1 sachet",
+    "price": 3000,
+    "img": "images/kukubima-mangga-sachet.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "NutriSari Jeruk Peras 1 sachet",
+    "price": 2000,
+    "img": "images/nutrisari-jeruk.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "NutriSari Blewah / Buah Tropis 1 sachet",
+    "price": 2000,
+    "img": "images/nutrisari-blewah.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Good Day Cappuccino 1 sachet",
+    "price": 2500,
+    "img": "images/goodday-cappuccino.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Good Day Mocacinno 1 sachet",
+    "price": 2500,
+    "img": "images/goodday-mocacinno.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Indocafe Coffeemix 3‑in‑1 1 sachet",
+    "price": 2500,
+    "img": "images/indocafe-3in1.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Pop Ice Cokelat 1 sachet",
+    "price": 2500,
+    "img": "images/popice-choco.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Pop Ice Stroberi / Buah 1 sachet",
+    "price": 2500,
+    "img": "images/popice-strawberry.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Energen Vanilla 1 sachet",
+    "price": 2000,
+    "img": "images/energen-vanilla.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Energen Cokelat 1 sachet",
+    "price": 2000,
+    "img": "images/energen-cokelat.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Energen Kacang Hijau 1 sachet",
+    "price": 2000,
+    "img": "images/energen-kacanghijau.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Max Tea Teh Tarik 1 sachet",
+    "price": 2000,
+    "img": "images/maxtea-tehtarik.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Teh Sosro Celup / Sachet 1 sachet",
+    "price": 1500,
+    "img": "images/teh-sosro-sachet.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Frisian Flag Susu Cokelat Sachet 1 sachet",
+    "price": 5000,
+    "img": "images/frisianflag-choco.jpg",
+    "category": "minumansachet"
   }
 ]
