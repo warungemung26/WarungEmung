@@ -748,5 +748,47 @@
     "price": 21000,
     "img": "images/la-lights-16s.jpg",
     "category": "rokok"
+  },
+  {
+    "name": "Sari Roti Tawar 250g",
+    "price": 12000,
+    "img": "images/sariroti-tawar.jpg",
+    "category": "roti"
+  },
+  {
+    "name": "Sari Roti Cokelat 50g",
+    "price": 3000,
+    "img": "images/sariroti-cokelat.jpg",
+    "category": "roti"
+  },
+  {
+    "name": "Sari Roti Keju 50g",
+    "price": 3000,
+    "img": "images/sariroti-keju.jpg",
+    "category": "roti"
+  },
+  {
+    "name": "Roti O Cokelat",
+    "price": 6000,
+    "img": "images/roti-o-cokelat.jpg",
+    "category": "roti"
+  },
+  {
+    "name": "Roti O Krim Vanilla",
+    "price": 6000,
+    "img": "images/roti-o-vanilla.jpg",
+    "category": "roti"
+  },
+  {
+    "name": "Choco Pie 2pcs",
+    "price": 5000,
+    "img": "images/chocopie-2pcs.jpg",
+    "category": "roti"
+  },
+  {
+    "name": "Maries / Roti Snack 30g",
+    "price": 2000,
+    "img": "images/maries-30g.jpg",
+    "category": "roti"
   }
 ]
