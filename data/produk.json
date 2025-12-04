@@ -700,5 +700,53 @@
     "price": 4000,
     "img": "images/minyak-telon.jpg",
     "category": "obat"
+  },
+  {
+    "name": "Gudang Garam Filter 16s",
+    "price": 22000,
+    "img": "images/gg-filter-16s.jpg",
+    "category": "rokok"
+  },
+  {
+    "name": "Djarum Super 12s",
+    "price": 17000,
+    "img": "images/djarum-super-12s.jpg",
+    "category": "rokok"
+  },
+  {
+    "name": "Djarum Black 12s",
+    "price": 18000,
+    "img": "images/djarum-black-12s.jpg",
+    "category": "rokok"
+  },
+  {
+    "name": "Sampoerna A Mild 16s",
+    "price": 20000,
+    "img": "images/sampoerna-a-mild-16s.jpg",
+    "category": "rokok"
+  },
+  {
+    "name": "Sampoerna U Mild 16s",
+    "price": 20000,
+    "img": "images/sampoerna-u-mild-16s.jpg",
+    "category": "rokok"
+  },
+  {
+    "name": "Marlboro Red 16s",
+    "price": 30000,
+    "img": "images/marlboro-red-16s.jpg",
+    "category": "rokok"
+  },
+  {
+    "name": "Marlboro Light 16s",
+    "price": 30000,
+    "img": "images/marlboro-light-16s.jpg",
+    "category": "rokok"
+  },
+  {
+    "name": "LA Lights 16s",
+    "price": 21000,
+    "img": "images/la-lights-16s.jpg",
+    "category": "rokok"
   }
 ]
