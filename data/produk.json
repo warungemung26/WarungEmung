@@ -616,5 +616,89 @@
     "price": 3000,
     "img": "images/burungdara-goreng.jpg",
     "category": "mie"
+  },
+  {
+    "name": "Panadol 10 Tablet",
+    "price": 5000,
+    "img": "images/panadol-10tab.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Bodrex 10 Tablet",
+    "price": 4000,
+    "img": "images/bodrex-10tab.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Paramek 10 Tablet",
+    "price": 3000,
+    "img": "images/paramek-10tab.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Decolgen 10 Tablet",
+    "price": 5000,
+    "img": "images/decolgen-10tab.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Woods 60ml Syrup",
+    "price": 7000,
+    "img": "images/woods-60ml.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "OBH Combi 60ml",
+    "price": 7000,
+    "img": "images/obh-combi-60ml.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Komix Anak 60ml",
+    "price": 7000,
+    "img": "images/komix-anak-60ml.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Gelusil 10 Tablet",
+    "price": 4000,
+    "img": "images/gelusil-10tab.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Antibiotik Salep Luka / Luka Ringan",
+    "price": 5000,
+    "img": "images/antibiotik-salep.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Salep Gatal / Anti Kutu / Ruam",
+    "price": 6000,
+    "img": "images/salep-gatal.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Minyak Kayu Putih 30ml",
+    "price": 3000,
+    "img": "images/minyak-kayu-putih.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Plester Luka / First Aid",
+    "price": 2000,
+    "img": "images/plester-luka.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Vitamin C 500mg 10 Tablet",
+    "price": 5000,
+    "img": "images/vitamin-c-500mg.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Minyak Telon Bayi 60ml",
+    "price": 4000,
+    "img": "images/minyak-telon.jpg",
+    "category": "obat"
   }
 ]
