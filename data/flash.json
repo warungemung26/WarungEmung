@@ -7,8 +7,8 @@
     "stock": 12,
     "img": "images/bandeng.jpg",
     "label": "Bandeng segar baru dipanen — 1 kg, daging tebal dan bersih.",
-    "category": "flash",
-    "flash_until": "2025-12-31T23:00:00"
+    "flash_until": "2025-12-31T23:00:00",
+    "category": "flash"
   },
   {
     "id": "flash-vaname",
@@ -16,9 +16,9 @@
     "price_normal": 55000,
     "price_flash": 20000,
     "stock": 9,
-    "img": "images/vaname.jpg",
+    "img": "images/udang-vaname.jpg",
     "label": "Udang vaname baru dipanen — 1 kg premium, manis & segar.",
-    "category": "flash",
-    "flash_until": "2025-12-31T23:00:00"
+    "flash_until": "2025-12-31T23:00:00",
+    "category": "flash"
   }
 ]
