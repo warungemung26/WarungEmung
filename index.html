@@ -70,7 +70,7 @@ if ('serviceWorker' in navigator) {
 <!-- ===== HEADER MINI PROFESIONAL ===== -->
 <header class="header-mini">
 
-  <img src="images/logo-warung.png" class="logo-mini" alt="Logo">
+   <img src="images/logo-warung.png" class="logo-mini" alt="Logo" id="logoMini">
 
   <!-- SEARCH WRAPPER -->
   <div class="search-wrap">
@@ -426,7 +426,7 @@ if ('serviceWorker' in navigator) {
      ============================ -->
 <div id="product-modal" class="pm-backdrop">
   <div class="pm-sheet">
-
+    
     <!-- TOPBAR -->
     <div class="pm-topbar">
       <button class="pm-back"><i class="fa fa-arrow-left"></i></button>
@@ -435,23 +435,30 @@ if ('serviceWorker' in navigator) {
 
     <div class="pm-handle"></div>
 
-    <img class="pm-img" src="" alt="">
-    <div class="pm-title"></div>
-    <div class="pm-price"></div>
-    <div class="pm-desc"></div>
-
-    <div class="pm-qty">
-      <button class="pm-minus">−</button>
-      <span class="pm-number">1</span>
-      <button class="pm-plus">+</button>
+    <!-- BAGIAN SCROLLABLE -->
+    <div class="pm-scroll">
+      <img class="pm-img" src="" alt="">
+      <div class="pm-title"></div>
+      <div class="pm-price"></div>
+      <div class="pm-desc"></div>
     </div>
 
-    <button class="pm-add">
-      <i class="fa fa-cart-plus"></i> Tambah ke Keranjang
-    </button>
+    <!-- BAGIAN STICKY -->
+    <div class="pm-sticky-bottom">
+      <div class="pm-qty">
+        <button class="pm-minus">−</button>
+        <span class="pm-number">1</span>
+        <button class="pm-plus">+</button>
+      </div>
+
+      <button class="pm-add">
+        <i class="fa fa-cart-plus"></i> Tambah ke Keranjang
+      </button>
+    </div>
 
   </div>
 </div>
+
 
 <!-- ================= FLASH SALE ================= -->
 <div id="flash-section">
@@ -732,7 +739,7 @@ if ('serviceWorker' in navigator) {
 
 <!-- Fitur utama -->
 <script src="js/sidebar.js"></script>
-<script src="js/search.js"></script>
+<script src="js/filter.js"></script>
 <script src="js/search-autocomplete.js"></script>
 <script src="js/produk-modal.js"></script>
 <script src="js/cta-links.js"></script>
