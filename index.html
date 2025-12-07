@@ -265,23 +265,102 @@ if ('serviceWorker' in navigator) {
     </div>
     
     <div class="cat" onclick="setCategory('peralatansekolah')">
+<!-- ================= MENU KATEGORI BARU ================= -->
+<h3 style="margin:10px 0;">Pilih Kategori</h3>
+
+<div class="cat-wrapper">
+  <button class="cat-arrow left" onclick="slideCat(-1)">◀</button>
+
+  <div class="kategori-grid" id="cat-scroll">
+
+    <div class="cat active" onclick="setCategory('')">
+      <img src="icons/all.png" class="cat-icon">
+      <span>Semua</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('sembako')">
+      <img src="icons/sembako.png" class="cat-icon">
+      <span>Sembako</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('bumbu')">
+      <img src="icons/bumbu.png" class="cat-icon">
+      <span>Bumbu</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('mie')">
+      <img src="icons/mie.png" class="cat-icon">
+      <span>Mie Instan</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('snack')">
+      <img src="icons/snack.png" class="cat-icon">
+      <span>Snack</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('roti')">
+      <img src="icons/roti.png" class="cat-icon">
+      <span>Roti</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('makanan')">
+      <img src="icons/makanan.png" class="cat-icon">
+      <span>Makanan</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('minuman')">
+      <img src="icons/minuman.png" class="cat-icon">
+      <span>Minuman</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('minumansachet')">
+      <img src="icons/sachet.png" class="cat-icon">
+      <span>Kopi</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('frozen')">
+      <img src="icons/frozen.png" class="cat-icon">
+      <span>Frozen</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('rokok')">
+      <img src="icons/rokok.png" class="cat-icon">
+      <span>Rokok</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('obat')">
+      <img src="icons/obat.png" class="cat-icon">
+      <span>Obat</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('rumah')">
+      <img src="icons/rumah.png" class="cat-icon">
+      <span>Sabun</span>
+    </div>
+
+    <div class="cat" onclick="setCategory('peralatandapur')">
+      <img src="icons/peralatandapur.png" class="cat-icon">
+      <span>Peralatan</span>
+    </div>
+    
+    <div class="cat" onclick="setCategory('peralatansekolah')">
       <img src="icons/peralatansekolah.png" class="cat-icon">
       <span>Alat Sekolah</span>
     </div>
     
-    <div class="cat" onclick="setCategory('peralatansekolah')">
+    <div class="cat" onclick="setCategory('toy')">
       <img src="icons/toy.png" class="cat-icon">
       <span>Mainan</span>
     </div>
 
-<div class="cat" onclick="setCategory('outfit')">
+    <div class="cat" onclick="setCategory('outfit')">
       <img src="icons/outfit.png" class="cat-icon">
       <span>Pakaian</span>
     </div>
     
     <div class="cat" onclick="setCategory('sandal')">
       <img src="icons/sandal.png" class="cat-icon">
-      <span>Pakaian</span>
+      <span>Sandal</span>
     </div>
 
     <div class="cat" onclick="setCategory('lainnya')">
@@ -291,8 +370,9 @@ if ('serviceWorker' in navigator) {
 
   </div>
 
-  <button class="cat-arrow right" onclick="slideCat(1)">❯</button>
+  <button class="cat-arrow right" onclick="slideCat(1)">▶</button>
 </div>
+
 
 <!-- ================= KATEGORI MODAL ================= -->
 <div id="cat-modal-backdrop">
