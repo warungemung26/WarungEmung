@@ -1,3 +1,9 @@
+/*!
+ * Copyright (c) 2025, Atos
+ * All rights reserved.
+ * Unauthorized copying, modification, or distribution of this file is strictly prohibited.
+ */
+
 let pmQty = 1;
 let modalProdukAktif = false;
 let lockPop = false;
@@ -159,3 +165,5 @@ function generateDeskripsi(nama, kategori = "") {
 function capitalize(str) {
   return str.split(" ").map(s => s[0].toUpperCase() + s.slice(1)).join(" ");
 }
+
+
