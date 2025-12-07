@@ -1,3 +1,9 @@
+/*!
+ * Copyright (c) 2025, Atos
+ * All rights reserved.
+ * Unauthorized copying, modification, or distribution of this file is strictly prohibited.
+ */
+
 // ================= SCRIPT PRODUK & KERANJANG =================
 
 // --- ELEMENTS ---
@@ -44,5 +50,26 @@ function updateCartCount() {
   cartCountEl.style.display = totalQty > 0 ? 'flex' : 'none';
 }
 
+const logo = document.getElementById('logoMini');
+
+  logo.addEventListener('click', () => {
+    // Tutup semua modal yang terbuka
+    const openModals = document.querySelectorAll('.modal'); // ganti sesuai class modal
+    openModals.forEach(modal => {
+      // Jika modal punya fungsi close internal, panggil dulu
+      if(typeof modal.close === 'function'){
+        modal.close(); // misal modal punya method close()
+      } else {
+        // Kalau tidak, sembunyikan secara manual
+        modal.style.display = 'none';
+      }
+    });
+
+    // Scroll ke section #home
+    const homeSection = document.getElementById('home');
+    if(homeSection){
+      homeSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 
 
