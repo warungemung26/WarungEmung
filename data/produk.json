@@ -1216,5 +1216,35 @@
     "price": 10000,
     "img": "images/autan-lotion-family-50ml.jpg",
     "category": "rumah"
+  },
+  {
+    "name": "Mie Sedaap Goreng Rasa Kari Ayam 91g",
+    "price": 3500,
+    "img": "images/sedap-goreng-kariayam.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Mie Sedaap Goreng Rasa Sate Ayam 91g",
+    "price": 3500,
+    "img": "images/sedap-goreng-sateayam.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Mie Sedaap Kuah Rasa Soto Mie 91g",
+    "price": 3500,
+    "img": "images/sedap-kuah-soto.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Mie Sedaap Kuah Rasa Baso Spesial 91g",
+    "price": 3500,
+    "img": "images/sedap-kuah-basospesial.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Mie Sedaap Kuah Rasa Kari Ayam 91g",
+    "price": 3500,
+    "img": "images/sedap-kuah-kariayam.jpg",
+    "category": "mie"
   }
 ]
