@@ -1180,5 +1180,41 @@
     "price": 3000,
     "img": "images/aice-choco-60ml.jpg",
     "category": "frozen"
+  },
+  {
+    "name": "Baygon Obat Nyamuk Bakar Lavender",
+    "price": 4000,
+    "img": "images/baygon-bakar-lavender.jpg",
+    "category": "obat-nyamuk"
+  },
+  {
+    "name": "Kingkong Obat Nyamuk Bakar Classic",
+    "price": 3500,
+    "img": "images/kingkong-bakar-classic.jpg",
+    "category": "obat-nyamuk"
+  },
+  {
+    "name": "Baygon Semprot Classic 250ml",
+    "price": 18000,
+    "img": "images/baygon-semprot-classic-250ml.jpg",
+    "category": "obat-nyamuk"
+  },
+  {
+    "name": "Hit Anti Nyamuk Spray 200ml",
+    "price": 16000,
+    "img": "images/hit-semprot-200ml.jpg",
+    "category": "obat-nyamuk"
+  },
+  {
+    "name": "Vape Anti Nyamuk Spray Orange 250ml",
+    "price": 17000,
+    "img": "images/vape-semprot-orange-250ml.jpg",
+    "category": "obat-nyamuk"
+  },
+  {
+    "name": "Autan Lotion Anti Nyamuk Family 50ml",
+    "price": 10000,
+    "img": "images/autan-lotion-family-50ml.jpg",
+    "category": "obat-nyamuk"
   }
 ]
