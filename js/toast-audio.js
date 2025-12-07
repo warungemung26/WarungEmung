@@ -1,3 +1,9 @@
+/*!
+ * Copyright (c) 2025, Atos
+ * All rights reserved.
+ * Unauthorized copying, modification, or distribution of this file is strictly prohibited.
+ */
+
 window.showToast = function(msg, options = {askFollowUp:false, playDing:false}){
   // Cek toggle suara
   if(!toastEnabled){
