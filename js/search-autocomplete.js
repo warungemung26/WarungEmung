@@ -1,3 +1,9 @@
+/*!
+ * Copyright (c) 2025, Atos
+ * All rights reserved.
+ * Unauthorized copying, modification, or distribution of this file is strictly prohibited.
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('search');
   const suggestionsEl = document.getElementById('search-suggestions');
