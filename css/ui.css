@@ -1,3 +1,9 @@
+/*!
+ * Copyright (c) 2025, Atos
+ * All rights reserved.
+ * Unauthorized copying, modification, or distribution of this file is strictly prohibited.
+ */
+
 /* ==================================================
    UI.CSS - Gabungan bagian statis & stabil
    ================================================== */
@@ -83,7 +89,7 @@ body {
   background: #28a745;
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 10000;
 }
 
 /* LOGO */
