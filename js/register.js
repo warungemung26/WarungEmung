@@ -1,6 +1,8 @@
-// ============================
-// reg.js (penuh, semua fitur tetap ada)
-// ============================
+/*!
+ * Copyright (c) 2025, Atos
+ * All rights reserved.
+ * Unauthorized copying, modification, or distribution of this file is strictly prohibited.
+ */
 
 // ============================
 // REGISTER MODAL ELEMENTS
