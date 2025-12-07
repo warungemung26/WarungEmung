@@ -1246,5 +1246,59 @@
     "price": 3500,
     "img": "images/sedap-kuah-kariayam.jpg",
     "category": "mie"
+  },
+  {
+    "name": "Indomie Goreng Sambal Matah",
+    "price": 4500,
+    "img": "images/indomie_sambal_matah.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Indomie Goreng Rendang",
+    "price": 4500,
+    "img": "images/indomie_rendang.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Indomie Goreng Soto Banjar",
+    "price": 4500,
+    "img": "images/indomie_soto_banjar.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Indomie Goreng Kari Ayam",
+    "price": 4500,
+    "img": "images/indomie_kari_ayam.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Indomie Goreng Ayam Bawang",
+    "price": 4500,
+    "img": "images/indomie_ayam_bawang.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Indomie Goreng Cabe Ijo",
+    "price": 4500,
+    "img": "images/indomie_cabe_ijo.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Indomie Kuah Tom Yum",
+    "price": 4500,
+    "img": "images/indomie_tom_yum.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Indomie Goreng Cakalang",
+    "price": 4500,
+    "img": "images/indomie_cakalang.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Indomie Goreng Sambal Rica-Rica",
+    "price": 4500,
+    "img": "images/indomie_sambal_rica.jpg",
+    "category": "makanan"
   }
 ]
