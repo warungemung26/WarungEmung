@@ -11,7 +11,9 @@ let lockPop = false;
 /* =============================
    BUKA MODAL PRODUK
 ============================= */
-function openProdukModal(p) {
+function openProdukModal(p) {  
+  window.currentModalProduct = p; // dipakai wishlist sinkron
+
   const bg = document.getElementById("product-modal");
 
   // SET DATA PRODUK
@@ -28,6 +30,13 @@ function openProdukModal(p) {
   pmQty = 1;
   bg.querySelector(".pm-number").textContent = pmQty;
 
+  // === SYNC STATUS WISHLIST ===
+  let wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+  const btnWL = bg.querySelector(".pm-wishlist");
+
+  if (wishlist.find(it => it.name === p.name)) btnWL.classList.add("active");
+  else btnWL.classList.remove("active");
+
   // TAMPILKAN MODAL
   bg.style.display = "flex";
   modalProdukAktif = true;
@@ -35,51 +44,47 @@ function openProdukModal(p) {
   // TAMBAH STATE UNTUK BACK HP
   history.pushState({ modal: true }, "");
 
-  // === TOMBOL ADD HIDUP ===
+  /* =============================
+     TOMBOL ADD PRODUK
+  ============================== */
   bg.querySelector(".pm-add").onclick = () => {
     const existing = cart.find(it => it.name === p.name);
+
     if (existing) existing.qty += pmQty;
-    else cart.push({ name: p.name, qty: pmQty, price: hargaFinal });
+    else cart.push({ 
+      name: p.name, 
+      qty: pmQty, 
+      price: hargaFinal,
+      img: p.img
+    });
 
     updateCartCount();
     showToast(`Ditambahkan: ${p.name} x ${pmQty}`);
     closeProdukModal();
   };
 
-  // === TOMBOL WISHLIST ===
+  /* =============================
+     TOMBOL WISHLIST (ORI + FIX)
+  ============================== */
   bg.querySelector(".pm-wishlist").onclick = () => {
     let wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+    const exist = wishlist.find(item => item.name === p.name);
 
-    if (!wishlist.find(item => item.name === p.name)) {
+    if (!exist) {
       wishlist.push({
         name: p.name,
         img: p.img,
-        price: p.price_flash || p.price,
+        price: hargaFinal,
         category: p.category || ""
       });
       localStorage.setItem("wishlist", JSON.stringify(wishlist));
       showToast("Disimpan ke Wishlist");
+      btnWL.classList.add("active");     // ★ FIX
     } else {
       showToast("Sudah ada di Wishlist");
     }
   };
 }
-
-document.querySelector('.pm-wishlist').addEventListener('click', function () {
-  this.classList.toggle('active');
-});
-
-document.addEventListener("click", function(e){
-  if (e.target.closest(".pm-wishlist")) {
-    const btn = e.target.closest(".pm-wishlist");
-
-    // Ambil data produk aktif
-    const p = window.currentModalProduct;
-    if (!p) return;
-
-    toggleWishlist(p);
-  }
-});
 
 /* =============================
    TUTUP MODAL PRODUK
@@ -95,7 +100,7 @@ function closeProdukModal() {
 }
 
 /* =============================
-   TOMBOL CLOSE, BACK, & BACKDROP
+   TOMBOL CLOSE, BACK & BACKDROP
 ============================= */
 document.querySelector(".pm-close").onclick = closeProdukModal;
 document.querySelector(".pm-back").onclick = closeProdukModal;
@@ -104,11 +109,11 @@ document.getElementById("product-modal").addEventListener("click", (e) => {
   if (e.target.id === "product-modal") closeProdukModal();
 });
 
-// AGAR ISI MODAL BISA DIKLIK (qty / add)
+// AGAR ISI MODAL BISA DIKLIK
 document.querySelector(".pm-sheet").addEventListener("click", (e) => e.stopPropagation());
 
 /* =============================
-   QTY BUTTON HIDUP
+   QTY BUTTON
 ============================= */
 document.querySelector(".pm-plus").onclick = () => {
   pmQty++;
@@ -123,11 +128,8 @@ document.querySelector(".pm-minus").onclick = () => {
 /* =============================
    BACK BUTTON HP
 ============================= */
-window.addEventListener("popstate", (e) => {
-  // Jika modal aktif, back HP akan tutup modal dulu
-  if (modalProdukAktif && !lockPop) {
-    closeProdukModal();
-  }
+window.addEventListener("popstate", () => {
+  if (modalProdukAktif && !lockPop) closeProdukModal();
 });
 
 
@@ -167,11 +169,11 @@ function generateDeskripsi(nama, kategori = "") {
     snack: "Camilan renyah yang enak untuk menemani waktu santai.",
     mie: "Mi instan favorit banyak orang dengan rasa yang khas.",
     sembako: "Kebutuhan pokok rumah tangga untuk persediaan harian.",
-    bumbu: "Bahan bumbu dapur praktis untuk memasak lebih mudah.",
-    rumah: "Produk kebutuhan rumah tangga untuk membantu pekerjaan sehari-hari.",
-    lainnya: "Produk serbaguna yang bisa digunakan sesuai kebutuhan.",
-    minumansachet: "Minuman instan praktis dalam bentuk sachet.",
-    obat: "Produk kesehatan dalam bentuk sachet untuk meredakan keluhan ringan."
+    bumbu: "Bahan bumbu dapur praktis.",
+    rumah: "Produk kebutuhan rumah tangga.",
+    lainnya: "Produk serbaguna sesuai kebutuhan.",
+    minumansachet: "Minuman instan praktis sachet.",
+    obat: "Produk kesehatan untuk meredakan keluhan ringan."
   };
 
   if (kategoriDesc[kategori]) descParts.push(kategoriDesc[kategori]);
@@ -183,13 +185,21 @@ function generateDeskripsi(nama, kategori = "") {
     else if (lower.includes("neozep")) descParts.push("Meringankan gejala flu.");
   }
 
-  if (lower.includes("kopi") && kategori !== "obat") descParts.push("Aroma kopi khas, praktis dibuat kapan saja.");
-  if (lower.includes("teh") && kategori !== "obat") descParts.push("Teh menyegarkan cocok dingin maupun hangat.");
-  if (lower.includes("susu")) descParts.push("Sumber energi dan nutrisi.");
-  if (lower.includes("keripik") || lower.includes("chips")) descParts.push("Renyah dan bikin nagih.");
+  if (lower.includes("kopi") && kategori !== "obat")
+    descParts.push("Aroma kopi khas, praktis dibuat kapan saja.");
+
+  if (lower.includes("teh") && kategori !== "obat")
+    descParts.push("Teh menyegarkan cocok dingin maupun hangat.");
+
+  if (lower.includes("susu"))
+    descParts.push("Sumber energi dan nutrisi.");
+
+  if (lower.includes("keripik") || lower.includes("chips"))
+    descParts.push("Renyah dan bikin nagih.");
 
   const sizeMatch = nama.match(/(\d+\s?(g|ml|kg|L))/i);
-  if (sizeMatch) descParts.push(`Kemasan ${sizeMatch[0]}, pas untuk kebutuhan harian.`);
+  if (sizeMatch)
+    descParts.push(`Kemasan ${sizeMatch[0]}, pas untuk kebutuhan harian.`);
 
   if (descParts.length === 0)
     descParts.push("Produk berkualitas yang cocok digunakan setiap hari.");
