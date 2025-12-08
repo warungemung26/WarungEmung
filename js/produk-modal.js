@@ -45,7 +45,41 @@ function openProdukModal(p) {
     showToast(`Ditambahkan: ${p.name} x ${pmQty}`);
     closeProdukModal();
   };
+
+  // === TOMBOL WISHLIST ===
+  bg.querySelector(".pm-wishlist").onclick = () => {
+    let wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+
+    if (!wishlist.find(item => item.name === p.name)) {
+      wishlist.push({
+        name: p.name,
+        img: p.img,
+        price: p.price_flash || p.price,
+        category: p.category || ""
+      });
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
+      showToast("Disimpan ke Wishlist");
+    } else {
+      showToast("Sudah ada di Wishlist");
+    }
+  };
 }
+
+document.querySelector('.pm-wishlist').addEventListener('click', function () {
+  this.classList.toggle('active');
+});
+
+document.addEventListener("click", function(e){
+  if (e.target.closest(".pm-wishlist")) {
+    const btn = e.target.closest(".pm-wishlist");
+
+    // Ambil data produk aktif
+    const p = window.currentModalProduct;
+    if (!p) return;
+
+    toggleWishlist(p);
+  }
+});
 
 /* =============================
    TUTUP MODAL PRODUK
@@ -95,6 +129,7 @@ window.addEventListener("popstate", (e) => {
     closeProdukModal();
   }
 });
+
 
 /* =============================
    GENERATE DESKRIPSI
@@ -165,5 +200,3 @@ function generateDeskripsi(nama, kategori = "") {
 function capitalize(str) {
   return str.split(" ").map(s => s[0].toUpperCase() + s.slice(1)).join(" ");
 }
-
-
