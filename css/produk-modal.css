@@ -48,11 +48,12 @@
 
 /* TOPBAR */
 .pm-topbar {
-  position: absolute;
-  top: 10px;
-  left: 0;
-  width: 100%;
-  padding: 0 12px;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  padding: 10px 12px;
+  z-index: 5;
+  border-radius: 16px 16px 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -103,45 +104,88 @@
   margin-bottom: 14px;
 }
 
+/* SCROLL AREA */
+.pm-scroll {
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+/* ================================
+   BAGIAN BAWAH — MINIMALIS
+   ================================ */
+
+/* WRAPPER QTY + WISHLIST */
+.pm-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
 /* QTY */
 .pm-qty {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
+  gap: 8px;
 }
 
 .pm-qty button {
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
   border: none;
   background: #eee;
-  font-size: 22px;
+  font-size: 18px;
+}
+
+.pm-number {
+  font-size: 15px;
+}
+
+/* WISHLIST ICON */
+.pm-wishlist {
+  width: 40px;
+  height: 36px;
+  background: #eee;
+  color: #555;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+}
+
+.pm-wishlist.active {
+  background: #ff4b4b;
+  color: #fff;
 }
 
 /* ADD BUTTON */
 .pm-add {
   width: 100%;
   background: #28a745;
-  color: white;
+  color: #fff;
   border: none;
-  padding: 12px;
-  border-radius: 10px;
-  font-size: 17px;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 15px;
   font-weight: 600;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 /* FILTER */
-.filter-container{
+.filter-container {
   margin: 10px;
 }
-#filter-harga{
+
+#filter-harga {
   padding: 6px;
   border-radius: 6px;
 }
