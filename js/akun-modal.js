@@ -1,3 +1,9 @@
+/*!
+ * Copyright (c) 2025, Atos
+ * All rights reserved.
+ * Unauthorized copying, modification, or distribution of this file is strictly prohibited.
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
 
   // ============================
@@ -178,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ${order.items.map(it => {
             const harga = it.price || it.harga || 0;
             return `
-              <li>${it.qty} × ${it.name} — Rp ${formatRupiah(harga)}</li>
+              <li>${it.qty} ï¿½ ${it.name} ï¿½ Rp ${formatRupiah(harga)}</li>
             `;
           }).join("")}
         </ul>
