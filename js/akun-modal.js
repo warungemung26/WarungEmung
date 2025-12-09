@@ -15,65 +15,86 @@ document.addEventListener("DOMContentLoaded", () => {
   const accSaveBtn = document.getElementById("acc-save-btn");
   const accCloseBtn = document.getElementById("acc-close-btn");
 
-  // ============================
-  // ACCOUNT MODAL FUNCTIONS
-  // ============================
-  function openAccount() {
-    if (!accountBackdrop || !accountModal) return;
-    accountBackdrop.style.display = 'flex';
+// ============================
+// OPEN / CLOSE ACCOUNT
+// ============================
+function openAccount() {
+  if (!accountBackdrop || !accountModal) return;
 
-    const data = JSON.parse(localStorage.getItem('userData') || '{}');
-    document.getElementById('acc-nama').value = data.nama || '';
-    document.getElementById('acc-alamat').value = data.alamat || '';
-    const accNoEl = document.getElementById('acc-no');
-    if (accNoEl) accNoEl.value = data.noRumah || '';
-    document.getElementById('acc-rt').value = data.rtrw || '';
-    document.getElementById('acc-hp').value = data.hp || '';
+  // Tampilkan modal
+  accountBackdrop.style.display = 'flex';
 
-    if (typeof bringModalToFront === "function") bringModalToFront(accountBackdrop, accountModal);
+  // Ambil data terbaru
+  const data = JSON.parse(localStorage.getItem('userData') || '{}');
+
+  // Reset semua input
+  const namaEl = document.getElementById('acc-nama');
+  const alamatEl = document.getElementById('acc-alamat');
+  const noEl = document.getElementById('acc-no');
+  const rtEl = document.getElementById('acc-rt');
+  const hpEl = document.getElementById('acc-hp');
+
+  if (namaEl) namaEl.value = data.nama || '';
+  if (alamatEl) alamatEl.value = data.alamat || '';
+  if (noEl) noEl.value = data.noRumah || '';
+  if (rtEl) rtEl.value = data.rtrw || '';
+  if (hpEl) hpEl.value = data.hp || '';
+
+  // Reset foto profil
+  const savedPP = localStorage.getItem("userPP");
+  if (ppPreview && savedPP) ppPreview.src = savedPP;
+
+  // **REFRESH TAB AKTIF** (riwayat / wishlist)
+  const activeTabBtn = document.querySelector(".tab-btn.active");
+  if (activeTabBtn) {
+    const target = activeTabBtn.getAttribute("data-tab");
+    if (target === "tab-riwayat") window.loadRiwayat();
+    if (target === "tab-wishlist") window.loadWishlist();
   }
 
-  function closeAccount() {
-    if (!accountBackdrop) return;
-    accountBackdrop.style.display = 'none';
-    if (typeof restoreNavInteraction === "function") restoreNavInteraction();
-  }
+  if (typeof bringModalToFront === "function") bringModalToFront(accountBackdrop, accountModal);
+}
 
-  if (navAccount) {
-    navAccount.addEventListener('click', (e) => {
-      e.preventDefault();
-      openAccount();
-    });
-  }
+function closeAccount() {
+  if (!accountBackdrop) return;
+  accountBackdrop.style.display = 'none';
+  if (typeof restoreNavInteraction === "function") restoreNavInteraction();
+}
 
-  if (accSaveBtn) {
-    accSaveBtn.addEventListener('click', () => {
-      const data = {
-        nama: document.getElementById('acc-nama').value.trim(),
-        alamat: document.getElementById('acc-alamat').value.trim(),
-        noRumah: (document.getElementById('acc-no') && document.getElementById('acc-no').value.trim()) || '',
-        rtrw: document.getElementById('acc-rt').value.trim(),
-        hp: document.getElementById('acc-hp').value.trim()
-      };
+if (navAccount) {
+  navAccount.addEventListener('click', e => {
+    e.preventDefault();
+    openAccount();
+  });
+}
 
-      if (!data.nama) {
-        alert('Nama tidak boleh kosong!');
-        return;
-      }
+if (accSaveBtn) {
+  accSaveBtn.addEventListener('click', () => {
+    const data = {
+      nama: document.getElementById('acc-nama').value.trim(),
+      alamat: document.getElementById('acc-alamat').value.trim(),
+      noRumah: (document.getElementById('acc-no') && document.getElementById('acc-no').value.trim()) || '',
+      rtrw: document.getElementById('acc-rt').value.trim(),
+      hp: document.getElementById('acc-hp').value.trim()
+    };
 
-      localStorage.setItem('userData', JSON.stringify(data));
-      alert('Perubahan tersimpan!');
-      closeAccount();
-    });
-  }
+    if (!data.nama) {
+      alert('Nama tidak boleh kosong!');
+      return;
+    }
 
-  if (accCloseBtn) accCloseBtn.addEventListener('click', closeAccount);
+    localStorage.setItem('userData', JSON.stringify(data));
+    alert('Perubahan tersimpan!');
+    closeAccount();
+  });
+}
 
-  if (accountBackdrop) {
-    accountBackdrop.addEventListener('click', (e) => {
-      if (e.target === accountBackdrop) closeAccount();
-    });
-  }
+if (accCloseBtn) accCloseBtn.addEventListener('click', closeAccount);
+if (accountBackdrop) {
+  accountBackdrop.addEventListener('click', e => {
+    if (e.target === accountBackdrop) closeAccount();
+  });
+}
 
   // ============================
   // FOTO PROFIL
@@ -184,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ${order.items.map(it => {
             const harga = it.price || it.harga || 0;
             return `
-              <li>${it.qty} � ${it.name} � Rp ${formatRupiah(harga)}</li>
+              <li>${it.qty}  ${it.name}   ${formatRupiah(harga)}</li>
             `;
           }).join("")}
         </ul>
@@ -286,13 +307,34 @@ window.loadWishlist = function () {
 
   // KLIK ITEM  OPEN MODAL PRODUK
   wrap.querySelectorAll(".wishlist-item").forEach(div => {
-    div.addEventListener("click", () => {
-      const name = div.dataset.name;
-      const wl = JSON.parse(localStorage.getItem("wishlist") || "[]");
-      const item = wl.find(i => i.name === name);
-      if (!item) return;
+  div.addEventListener("click", () => {
+    const name = div.dataset.name;
+    const wl = JSON.parse(localStorage.getItem("wishlist") || "[]");
+    const item = wl.find(i => i.name === name);
+    if (!item) return;
 
-      // Produk minimal untuk openProdukModal()
+    if (accountBackdrop && accountBackdrop.style.display !== 'none') {
+      // Fade out modal akun
+      accountBackdrop.style.transition = "opacity 0.3s";
+      accountBackdrop.style.opacity = 0;
+
+      // Listener sekali pakai
+      accountBackdrop.addEventListener("transitionend", () => {
+        accountBackdrop.style.display = 'none';
+        accountBackdrop.style.opacity = 1; // reset untuk next buka
+        if (typeof restoreNavInteraction === "function") restoreNavInteraction();
+
+        // Buka modal produk
+        openProdukModal({
+          name: item.name,
+          img: item.img,
+          price: item.price,
+          category: item.category || "",
+          desc: item.desc || ""
+        });
+      }, { once: true });
+
+    } else {
       openProdukModal({
         name: item.name,
         img: item.img,
@@ -300,9 +342,12 @@ window.loadWishlist = function () {
         category: item.category || "",
         desc: item.desc || ""
       });
-    });
+    }
   });
-};
+});
+
+
+}
 
 // =====================================
 // TOGGLE WISHLIST (TAMBAH / HAPUS)
