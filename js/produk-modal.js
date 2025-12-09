@@ -63,27 +63,36 @@ function openProdukModal(p) {
     closeProdukModal();
   };
 
-  /* =============================
-     TOMBOL WISHLIST (ORI + FIX)
-  ============================== */
-  bg.querySelector(".pm-wishlist").onclick = () => {
-    let wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
-    const exist = wishlist.find(item => item.name === p.name);
+ /* =============================
+   TOMBOL WISHLIST (FINAL TOGGLE)
+============================= */
+bg.querySelector(".pm-wishlist").onclick = () => {
+  let wl = JSON.parse(localStorage.getItem("wishlist") || "[]");
 
-    if (!exist) {
-      wishlist.push({
-        name: p.name,
-        img: p.img,
-        price: hargaFinal,
-        category: p.category || ""
-      });
-      localStorage.setItem("wishlist", JSON.stringify(wishlist));
-      showToast("Disimpan ke Wishlist");
-      btnWL.classList.add("active");     // ★ FIX
-    } else {
-      showToast("Sudah ada di Wishlist");
-    }
-  };
+  const exist = wl.some(it => it.name === p.name);
+  const btn = bg.querySelector(".pm-wishlist");
+
+  if (!exist) {
+    // === TAMBAHKAN ===
+    wl.push({
+      name: p.name,
+      img: p.img,
+      price: hargaFinal,
+      category: p.category || ""
+    });
+
+    localStorage.setItem("wishlist", JSON.stringify(wl));
+    btn.classList.add("active");
+    showToast("Ditambahkan ke Wishlist");
+  } else {
+    // === HAPUS ===
+    wl = wl.filter(it => it.name !== p.name);
+
+    localStorage.setItem("wishlist", JSON.stringify(wl));
+    btn.classList.remove("active");
+    showToast("Dihapus dari Wishlist");
+  }
+};
 }
 
 /* =============================
