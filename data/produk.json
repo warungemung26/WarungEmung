@@ -1251,19 +1251,19 @@
     "name": "Indomie Goreng Sambal Matah",
     "price": 4500,
     "img": "images/indomie_sambal_matah.jpg",
-    "category": "makanan"
+    "category": "mie"
   },
   {
     "name": "Indomie Goreng Rendang",
     "price": 4500,
     "img": "images/indomie_rendang.jpg",
-    "category": "makanan"
+    "category": "mie"
   },
   {
     "name": "Indomie Goreng Soto Banjar",
     "price": 4500,
     "img": "images/indomie_soto_banjar.jpg",
-    "category": "makanan"
+    "category": "mie"
   },
   {
     "name": "Indomie Goreng Kari Ayam",
@@ -1275,13 +1275,13 @@
     "name": "Indomie Goreng Ayam Bawang",
     "price": 4500,
     "img": "images/indomie_ayam_bawang.jpg",
-    "category": "makanan"
+    "category": "mie"
   },
   {
     "name": "Indomie Goreng Cabe Ijo",
     "price": 4500,
     "img": "images/indomie_cabe_ijo.jpg",
-    "category": "makanan"
+    "category": "mie"
   },
   {
     "name": "Indomie Kuah Tom Yum",
@@ -1293,12 +1293,12 @@
     "name": "Indomie Goreng Cakalang",
     "price": 4500,
     "img": "images/indomie_cakalang.jpg",
-    "category": "makanan"
+    "category": "mie"
   },
   {
     "name": "Indomie Goreng Sambal Rica-Rica",
     "price": 4500,
     "img": "images/indomie_sambal_rica.jpg",
-    "category": "makanan"
+    "category": "mie"
   }
 ]
