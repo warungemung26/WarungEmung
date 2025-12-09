@@ -1269,7 +1269,7 @@
     "name": "Indomie Goreng Kari Ayam",
     "price": 4500,
     "img": "images/indomie_kari_ayam.jpg",
-    "category": "makanan"
+    "category": "mie"
   },
   {
     "name": "Indomie Goreng Ayam Bawang",
@@ -1287,7 +1287,7 @@
     "name": "Indomie Kuah Tom Yum",
     "price": 4500,
     "img": "images/indomie_tom_yum.jpg",
-    "category": "makanan"
+    "category": "mie"
   },
   {
     "name": "Indomie Goreng Cakalang",
