@@ -1312,5 +1312,95 @@
     "price": 3500,
     "img": "images/pop_spageti_carbonara.jpg",
     "category": "mie"
+  },
+  {
+    "name": "Lifebuoy Total 10",
+    "price": 3500,
+    "img": "images/sabun_lifebuoy_total10.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Lifebuoy Lemon Fresh",
+    "price": 3500,
+    "img": "images/sabun_lifebuoy_lemon_fresh.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Lifebuoy Mild Care",
+    "price": 3500,
+    "img": "images/sabun_lifebuoy_mild_care.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Lux Soft Touch",
+    "price": 4000,
+    "img": "images/sabun_lux_soft_touch.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Lux Magical Beauty",
+    "price": 4000,
+    "img": "images/sabun_lux_magical_beauty.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Lux Fresh Splash",
+    "price": 4000,
+    "img": "images/sabun_lux_fresh_splash.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Dettol Cool",
+    "price": 5000,
+    "img": "images/sabun_dettol_cool.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Dettol Fresh",
+    "price": 5000,
+    "img": "images/sabun_dettol_fresh.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Dettol Skincare",
+    "price": 5000,
+    "img": "images/sabun_dettol_skincare.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Giv White Beauty",
+    "price": 3000,
+    "img": "images/sabun_giv_white_beauty.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Giv Rose",
+    "price": 3000,
+    "img": "images/sabun_giv_rose.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Giv White Orchid",
+    "price": 3000,
+    "img": "images/sabun_giv_white_orchid.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Nuvo Family Clean",
+    "price": 3500,
+    "img": "images/sabun_nuvo_family.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Nuvo Cool Blue",
+    "price": 3500,
+    "img": "images/sabun_nuvo_cool_blue.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Nuvo Energetic",
+    "price": 3500,
+    "img": "images/sabun_nuvo_energetic.jpg",
+    "category": "rumah"
   }
 ]
