@@ -1300,5 +1300,17 @@
     "price": 4500,
     "img": "images/indomie_sambal_rica.jpg",
     "category": "mie"
+  },
+  {
+    "name": "Pop Spageti Bolognese",
+    "price": 3500,
+    "img": "images/pop_spageti_bolognese.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Pop Spageti Carbonara",
+    "price": 3500,
+    "img": "images/pop_spageti_carbonara.jpg",
+    "category": "mie"
   }
 ]
