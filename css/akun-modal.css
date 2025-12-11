@@ -156,3 +156,37 @@
 .riwayat-item li {
   margin-bottom: 2px;
 }
+
+
+
+/* HEADER BAR BARU */
+.acc-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.acc-header h3 {
+  flex: 1;
+  margin: 0;
+  text-align: center;
+  font-size: 1.25em;
+}
+
+.header-back-btn {
+  background: none;
+  border: none;
+  font-size: 1.4em;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+/* SEMBUNYIKAN TOMBOL SIMPAN KETIKA BUKAN TAB PROFIL */
+.hide-on-nnonprofil { display: none; }
+
+/* Ketika tab-profil aktif → tampilkan tombol */
+#tab-profil.active ~ .acc-actions-bottom .hide-on-nonprofil {
+  display: block;
+}
