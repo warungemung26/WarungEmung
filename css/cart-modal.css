@@ -5,6 +5,19 @@
  */
 
 /* === Modal Keranjang Fix Style === */
+#cart-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: none;
+  z-index: 99998;
+}
+
+#cart-backdrop.show {
+  display: block;
+}
+
+
 #cart-modal {
   position: fixed;
   bottom: 70px;
@@ -121,96 +134,43 @@
 }
 #close-cart:hover { background: #ddd; }
 
-/* Modal keranjang */
+/* === Close Button Absolute in Modal === */
 #cart-modal {
   position: fixed;
-  right: 12px;
-  bottom: 72px;
+  bottom: 70px;
+  right: 10px;
   width: 320px;
-  max-height: 60vh;
-  overflow-y: auto;
+  max-height: 70vh;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-  padding: 12px 14px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+  padding: 14px;
+  padding-top: 36px; /* tambah ruang untuk tombol close */
   display: none;
   flex-direction: column;
-  gap: 8px;
-  z-index: 2000;
-}
-
-#cart-modal.open {
-  display: flex;
-}
-
-#cart-modal h4 {
-  margin: 0;
-  font-size: 17px;
-  font-weight: 600;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 4px;
-}
-
-#cart-items {
-  flex: 1;
-  margin-top: 6px;
-}
-
-#cart-items .item {
-  display: flex;
-  justify-content: space-between;
-  padding: 6px 0;
-  border-bottom: 1px dashed #e3e3e3;
+  overflow: hidden;
+  z-index: 99999;
+  transition: all 0.25s ease;
   font-size: 14px;
 }
 
-#cart-items .item:last-child {
-  border-bottom: none;
-}
-
-#cart-items .item span:first-child {
-  color: #333;
-}
-
-#cart-items .item span:last-child {
-  color: #008000;
-  font-weight: 600;
-}
-
-#cart-total {
-  margin-top: 8px;
-  font-weight: 700;
-  color: #333;
-}
-
-#wa-cart, #clear-cart, #close-cart {
-  padding: 6px 10px;
+#close-cart.close-x {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
   border: none;
-  border-radius: 6px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
   cursor: pointer;
-  font-size: 14px;
 }
 
-#wa-cart {
-  background: #25D366;
-  color: white;
-}
-
-#clear-cart {
-  background: #f44336;
-  color: white;
-}
-
-#close-cart {
-  background: #555;
-  color: white;
-}
-
-/* Animasi buka */
-#cart-modal.open {
-  animation: popCart 0.25s ease;
-}
-@keyframes popCart {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+#close-cart.close-x:hover {
+  background: #e2e2e2;
 }
