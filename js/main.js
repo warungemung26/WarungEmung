@@ -23,9 +23,13 @@ const toastEl = document.getElementById('toast');
 const navCartBtn = document.getElementById('nav-cart');
 const navCatBtn = document.getElementById('nav-cat');
 const cartBadge = document.getElementById('cart-badge');
+const closeCartBtn = document.getElementById('close-cart');
+const cartBackdrop = document.getElementById('cart-backdrop');
+
 
 let currentCategory = '';
 let cart = [];
+
 
 // ================= SUARA =================
 const ding = new Audio('sounds/ding.mp3'); // pastikan file ada di folder sounds/
