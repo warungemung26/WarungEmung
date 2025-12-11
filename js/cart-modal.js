@@ -53,20 +53,33 @@ function renderCartModal() {
   `;
 }
 
+// ================= CLOSE CART MODAL =================
+function closeCartModal() {
+  cartModal.style.display = "none";
+  cartBackdrop.style.display = "none";
+}
+
+// Klik tombol X
+closeCartBtn.addEventListener("click", closeCartModal);
+
+// Klik di backdrop
+cartBackdrop.addEventListener("click", closeCartModal);
+
 
 // ================= NAVBAR CART BUTTON =================
 navCartBtn.addEventListener('click', (e) => {
   e.preventDefault();
 
   if (cart.length === 0) {
-    showToast('Keranjang masih kosong 😅');
+    showToast('Keranjang masih kosong ');
     return;
   }
 
   renderCartModal();
 
-  const visible = cartModal.style.display === 'block';
-  cartModal.style.display = visible ? 'none' : 'block';
+  // buka modal dan backdrop
+  cartModal.style.display = "block";
+  cartBackdrop.style.display = "block";
 });
 
 
@@ -134,3 +147,4 @@ if (sidebarCartBtn) {
     cartModal.style.display = visible ? "none" : "block";
   });
 }
+
