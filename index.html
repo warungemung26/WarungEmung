@@ -499,12 +499,19 @@ if ('serviceWorker' in navigator) {
   <span class="flash-text">FLASH</span>
 </button>
 
-  <!-- ================= CART MODAL ================= -->
-  <!-- BACKDROP -->
+<!-- ================= CART MODAL ================= -->
+<!-- BACKDROP -->
 <div id="cart-backdrop" class="modal-backdrop" aria-hidden="true"></div>
 
 <!-- CART MODAL -->
 <div id="cart-modal" class="modal" role="dialog" aria-hidden="true">
+
+  <!-- CLOSE BUTTON FIXED -->
+  <button id="close-cart" class="close-x">
+  <i class="fa-solid fa-xmark"></i>
+</button>
+
+
   <h4>Keranjang Anda</h4>
 
   <div id="cart-items"></div>
@@ -514,13 +521,13 @@ if ('serviceWorker' in navigator) {
     <button id="wa-cart" class="wa-btn">
       Pesan Semua via <i class="fa-brands fa-whatsapp"></i>
     </button>
-  <button id="clear-cart" class="add-btn cta-clear-cart" style="background:#ff4b4b;color:#fff;">
-  Kosongkan
-</button>
 
+    <button id="clear-cart" class="add-btn cta-clear-cart" style="background:#ff4b4b;color:#fff;">
+      Kosongkan
+    </button>
   </div>
+
 </div>
-  </div>
 
 <!-- ================= FOOTER ULTRA PRO SVG ================= -->
 <footer style="padding:20px; text-align:center; background:#f8f8f8; font-family:sans-serif; font-size:14px; color:#333; position:relative;">
@@ -611,7 +618,12 @@ if ('serviceWorker' in navigator) {
 <!-- ACCOUNT MODAL -->
 <div id="account-backdrop" class="modal-backdrop">
   <div id="account-modal" class="modal-box">
-    <h3>Akun Saya</h3>
+
+    <!-- HEADER BAR -->
+    <div class="acc-header">
+      <button id="acc-close-btn" class="header-back-btn">&#8592;</button>
+      <h3>Akun Saya</h3>
+    </div>
 
     <!-- TAB -->
     <div class="acc-tabs">
@@ -625,8 +637,15 @@ if ('serviceWorker' in navigator) {
 
       <!-- === TAB PROFIL === -->
       <div class="tab-content active" id="tab-profil">
+
         <div class="pp-box">
-          <img id="pp-preview" src="img/default-pp.png" alt="Foto Profil">
+          <img id="pp-preview" alt="Foto Profil"
+            src="data:image/svg+xml;utf8,
+            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
+              <circle cx='12' cy='8' r='5' fill='%23bbb'/>
+              <path d='M4 22c0-4 4-7 8-7s8 3 8 7' fill='%23bbb'/>
+            </svg>"
+          >
           <button id="btn-ubah-pp">Ubah Foto</button>
           <input type="file" id="pp-input" accept="image/*" style="display:none;">
         </div>
@@ -634,22 +653,26 @@ if ('serviceWorker' in navigator) {
         <div class="acc-form">
           <label>Nama:</label>
           <input type="text" id="acc-nama">
+
           <label>Alamat:</label>
           <input type="text" id="acc-alamat">
+
           <label>Nomor Rumah:</label>
           <input type="text" id="acc-no">
+
           <label>RT / RW:</label>
           <input type="text" id="acc-rt">
+
           <label>Nomor HP (opsional):</label>
           <input type="text" id="acc-hp">
         </div>
+
       </div>
 
-<!-- === TAB WISHLIST === -->
-<div class="tab-content" id="tab-wishlist">
-  <div id="wishlist-list"></div>
-</div>
-
+      <!-- === TAB WISHLIST (DIKEMBALIKAN) === -->
+      <div class="tab-content" id="tab-wishlist">
+        <div id="wishlist-list"></div>
+      </div>
 
       <!-- === TAB RIWAYAT === -->
       <div class="tab-content" id="tab-riwayat">
@@ -658,15 +681,15 @@ if ('serviceWorker' in navigator) {
 
     </div>
 
-    <!-- TOMBOL BAWAH FIX -->
+    <!-- TOMBOL BAWAH -->
     <div class="acc-actions acc-actions-bottom">
-      <button id="acc-close-btn" class="secondary">Tutup</button>
-      <button id="acc-save-btn" class="primary">Simpan Perubahan</button>
+      <button id="acc-save-btn" class="primary hide-on-nonprofil">
+        Simpan Perubahan
+      </button>
     </div>
 
   </div>
 </div>
-
 
 <!-- ==== NAVIGASI ==== -->
 <div class="bottom-nav">
