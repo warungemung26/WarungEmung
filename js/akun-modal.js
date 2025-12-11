@@ -16,41 +16,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const accCloseBtn = document.getElementById("acc-close-btn");
 
 // ============================
-// OPEN / CLOSE ACCOUNT
+// ACCOUNT MODAL FUNCTIONS (UPDATED)
 // ============================
 function openAccount() {
   if (!accountBackdrop || !accountModal) return;
-
-  // Tampilkan modal
   accountBackdrop.style.display = 'flex';
 
-  // Ambil data terbaru
+  // Load profil user
   const data = JSON.parse(localStorage.getItem('userData') || '{}');
+  document.getElementById('acc-nama').value = data.nama || '';
+  document.getElementById('acc-alamat').value = data.alamat || '';
+  const accNoEl = document.getElementById('acc-no');
+  if (accNoEl) accNoEl.value = data.noRumah || '';
+  document.getElementById('acc-rt').value = data.rtrw || '';
+  document.getElementById('acc-hp').value = data.hp || '';
 
-  // Reset semua input
-  const namaEl = document.getElementById('acc-nama');
-  const alamatEl = document.getElementById('acc-alamat');
-  const noEl = document.getElementById('acc-no');
-  const rtEl = document.getElementById('acc-rt');
-  const hpEl = document.getElementById('acc-hp');
-
-  if (namaEl) namaEl.value = data.nama || '';
-  if (alamatEl) alamatEl.value = data.alamat || '';
-  if (noEl) noEl.value = data.noRumah || '';
-  if (rtEl) rtEl.value = data.rtrw || '';
-  if (hpEl) hpEl.value = data.hp || '';
-
-  // Reset foto profil
-  const savedPP = localStorage.getItem("userPP");
-  if (ppPreview && savedPP) ppPreview.src = savedPP;
-
-  // **REFRESH TAB AKTIF** (riwayat / wishlist)
-  const activeTabBtn = document.querySelector(".tab-btn.active");
-  if (activeTabBtn) {
-    const target = activeTabBtn.getAttribute("data-tab");
-    if (target === "tab-riwayat") window.loadRiwayat();
-    if (target === "tab-wishlist") window.loadWishlist();
-  }
+  // Auto load wishlist agar selalu update
+  if (typeof loadWishlist === "function") loadWishlist();
 
   if (typeof bringModalToFront === "function") bringModalToFront(accountBackdrop, accountModal);
 }
@@ -61,13 +43,15 @@ function closeAccount() {
   if (typeof restoreNavInteraction === "function") restoreNavInteraction();
 }
 
+// Buka modal akun saat klik menu
 if (navAccount) {
-  navAccount.addEventListener('click', e => {
+  navAccount.addEventListener('click', (e) => {
     e.preventDefault();
     openAccount();
   });
 }
 
+// Tombol simpan perubahan
 if (accSaveBtn) {
   accSaveBtn.addEventListener('click', () => {
     const data = {
@@ -89,12 +73,19 @@ if (accSaveBtn) {
   });
 }
 
+// Tombol close di header
 if (accCloseBtn) accCloseBtn.addEventListener('click', closeAccount);
+
+// Klik backdrop untuk close
 if (accountBackdrop) {
-  accountBackdrop.addEventListener('click', e => {
+  accountBackdrop.addEventListener('click', (e) => {
     if (e.target === accountBackdrop) closeAccount();
   });
 }
+
+// Tambahkan di bawah closeAccount
+window.closeAccount = closeAccount;
+
 
   // ============================
   // FOTO PROFIL
@@ -142,27 +133,41 @@ if (accountBackdrop) {
     if (savedPP && ppPreview) ppPreview.src = savedPP;
   }
 
-  // ============================
-  // TAB SWITCH
-  // ============================
-  const tabButtons = document.querySelectorAll(".tab-btn");
-  const tabContents = document.querySelectorAll(".tab-content");
+// ============================
+// TAB SWITCH (UPDATED)
+// ============================
+const tabButtons = document.querySelectorAll(".tab-btn");
+const tabContents = document.querySelectorAll(".tab-content");
+const saveBtn = document.getElementById("acc-save-btn");
 
-  tabButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      tabButtons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
+// Fungsi switch tab
+function switchTab(target) {
+  tabButtons.forEach(b => b.classList.remove("active"));
+  const btn = document.querySelector(`.tab-btn[data-tab="${target}"]`);
+  if (btn) btn.classList.add("active");
 
-      tabContents.forEach(c => c.classList.remove("active"));
-      const target = btn.getAttribute("data-tab");
-      const targetContent = document.getElementById(target);
+  tabContents.forEach(c => c.classList.remove("active"));
+  const targetContent = document.getElementById(target);
+  if (targetContent) targetContent.classList.add("active");
 
-      if (targetContent) targetContent.classList.add("active");
+  // Load data sesuai tab
+  if (target === "tab-riwayat") loadRiwayat();
+  if (target === "tab-wishlist") loadWishlist();
 
-      if (target === "tab-riwayat") loadRiwayat();
-      if (target === "tab-wishlist") loadWishlist();
-    });
+  // Show/hide tombol simpan
+  saveBtn.style.display = (target === "tab-profil") ? "block" : "none";
+}
+
+// Event listener setiap tombol tab
+tabButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const target = btn.getAttribute("data-tab");
+    switchTab(target);
   });
+});
+
+// Default awal saat modal dibuka: tampilkan tab profil
+switchTab("tab-profil");
 
   // ============================
   // LOAD RIWAYAT
@@ -205,7 +210,7 @@ if (accountBackdrop) {
           ${order.items.map(it => {
             const harga = it.price || it.harga || 0;
             return `
-              <li>${it.qty}  ${it.name}   ${formatRupiah(harga)}</li>
+              <li>${it.qty}  ${it.name}  ${formatRupiah(harga)}</li>
             `;
           }).join("")}
         </ul>
@@ -213,14 +218,14 @@ if (accountBackdrop) {
         <table>
           <tr>
             <td><i class="fa-solid fa-calculator"></i></td>
-            <td><strong>Subtotal: Rp ${
+            <td><strong>Subtotal: ${
               formatRupiah(
                 order.items.reduce((t, it) => t + (it.price || it.harga || 0) * (it.qty || 1), 0)
               )
             }</strong></td>
           </tr>
-          <tr><td><i class="fa-solid fa-truck"></i></td><td><strong>Ongkir: Rp ${formatRupiah(order.ongkir || 0)}</strong></td></tr>
-          <tr><td><i class="fa-solid fa-wallet"></i></td><td><strong>Total: Rp ${formatRupiah(order.total)}</strong></td></tr>
+          <tr><td><i class="fa-solid fa-truck"></i></td><td><strong>Ongkir: ${formatRupiah(order.ongkir || 0)}</strong></td></tr>
+          <tr><td><i class="fa-solid fa-wallet"></i></td><td><strong>Total: ${formatRupiah(order.total)}</strong></td></tr>
           <tr><td><i class="fa-solid fa-calendar-day"></i></td><td><strong>${order.waktu || order.date || '-'}</strong></td></tr>
         </table>
 
@@ -259,13 +264,13 @@ if (accountBackdrop) {
 
 
 // =====================================
-// WISHLIST LIST + KLIK PRODUK
+// WISHLIST LIST + KLIK PRODUK (FIX AUTO CLOSE)
 // =====================================
 window.loadWishlist = function () {
   const wrap = document.getElementById("wishlist-list");
-  const wl = JSON.parse(localStorage.getItem("wishlist") || "[]");
-
   if (!wrap) return;
+
+  const wl = JSON.parse(localStorage.getItem("wishlist") || "[]");
 
   if (wl.length === 0) {
     wrap.innerHTML = "<p style='opacity:0.6'>Belum ada wishlist.</p>";
@@ -294,7 +299,7 @@ window.loadWishlist = function () {
     </div>
   `).join("");
 
-  // HAPUS WISHLIST
+  // Hapus wishlist
   wrap.querySelectorAll(".remove-wishlist").forEach(btn => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation(); // supaya tidak membuka modal produk
@@ -305,36 +310,18 @@ window.loadWishlist = function () {
     });
   });
 
-  // KLIK ITEM  OPEN MODAL PRODUK
+  // Klik item → buka modal produk + auto close akun
   wrap.querySelectorAll(".wishlist-item").forEach(div => {
-  div.addEventListener("click", () => {
-    const name = div.dataset.name;
-    const wl = JSON.parse(localStorage.getItem("wishlist") || "[]");
-    const item = wl.find(i => i.name === name);
-    if (!item) return;
+    div.addEventListener("click", () => {
+      const name = div.dataset.name;
+      const item = JSON.parse(localStorage.getItem("wishlist") || "[]")
+                      .find(i => i.name === name);
+      if (!item) return;
 
-    if (accountBackdrop && accountBackdrop.style.display !== 'none') {
-      // Fade out modal akun
-      accountBackdrop.style.transition = "opacity 0.3s";
-      accountBackdrop.style.opacity = 0;
+      // Tutup modal akun dulu, sebelum buka produk
+      if (typeof window.closeAccount === "function") window.closeAccount();
 
-      // Listener sekali pakai
-      accountBackdrop.addEventListener("transitionend", () => {
-        accountBackdrop.style.display = 'none';
-        accountBackdrop.style.opacity = 1; // reset untuk next buka
-        if (typeof restoreNavInteraction === "function") restoreNavInteraction();
-
-        // Buka modal produk
-        openProdukModal({
-          name: item.name,
-          img: item.img,
-          price: item.price,
-          category: item.category || "",
-          desc: item.desc || ""
-        });
-      }, { once: true });
-
-    } else {
+      // Buka modal produk
       openProdukModal({
         name: item.name,
         img: item.img,
@@ -342,15 +329,13 @@ window.loadWishlist = function () {
         category: item.category || "",
         desc: item.desc || ""
       });
-    }
+    });
   });
-});
+};
 
-
-}
 
 // =====================================
-// TOGGLE WISHLIST (TAMBAH / HAPUS)
+// TOGGLE WISHLIST (TAMBAH / HAPUS + AUTO REFRESH TAB)
 // =====================================
 window.toggleWishlist = function(product) {
   let wl = JSON.parse(localStorage.getItem("wishlist") || "[]");
@@ -368,14 +353,16 @@ window.toggleWishlist = function(product) {
 
   localStorage.setItem("wishlist", JSON.stringify(wl));
 
-  // UPDATE ICON di modal
+  // UPDATE ICON di modal produk
   const btn = document.querySelector(".pm-wishlist");
-  if (btn) {
-    if (exists) btn.classList.remove("active");
-    else btn.classList.add("active");
+  if (btn) btn.classList.toggle("active", !exists);
+
+  // Jika tab wishlist aktif, refresh langsung
+  const wishlistTab = document.querySelector(".tab-btn[data-tab='tab-wishlist']");
+  if (wishlistTab && wishlistTab.classList.contains("active")) {
+    if (typeof loadWishlist === "function") loadWishlist();
   }
 };
-
 
 // =========================
 // Tombol Profil Sidebar
