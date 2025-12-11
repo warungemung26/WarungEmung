@@ -7,11 +7,16 @@
 /* === Modal Keranjang Fix Style === */
 #cart-backdrop {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0,0,0,0.35);
   display: none;
   z-index: 99998;
+  pointer-events: auto;  /* WAJIB! */
 }
+
 
 #cart-backdrop.show {
   display: block;
