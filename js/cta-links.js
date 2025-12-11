@@ -209,15 +209,22 @@ if(!anchor) return;
       }
 
       openModal({
-        title: "Kosongkan Keranjang?",
-        message: "Semua item akan dihapus.",
-        action: function(){
-          cart = [];
-          updateCartCount();
-          renderCartModal();
-          cartModal.style.display = 'none';
-        }
-      });
+  title: "Kosongkan Keranjang?",
+  message: "Semua item akan dihapus.",
+  action: function(){
+    cart = [];
+    updateCartCount();
+    renderCartModal();
+
+    // TUTUP SEMUA: cart-modal + modal konfirmasi + backdrop
+    cartModal.style.display = 'none';
+    const confirmModal = document.querySelector(".modal-confirm");
+    if(confirmModal) confirmModal.style.display = 'none';
+    const backdrop = document.getElementById("cart-backdrop");
+    if(backdrop) backdrop.style.display = 'none';
+  }
+});
+
 
       return;
     }
