@@ -149,10 +149,22 @@ if ('serviceWorker' in navigator) {
       </select>
     </li>
 
-<li id="edit-alamat">
-  <i class="fa-solid fa-location-dot"></i>
-  <span>Ubah Alamat Pengiriman</span>
-</li>
+    <!-- ===== MATA UANG ===== -->
+    <li class="currency-select">
+      <i class="fa-solid fa-coins"></i>
+      <span>Mata Uang</span>
+      <select id="currency-select">
+        <option value="Rp">Rupiah (Rp)</option>
+        <option value="PI">Pi Network (PI)</option>
+        <option value="$">US Dollar ($)</option>
+      </select>
+    </li>
+    <!-- ===== END MATA UANG ===== -->
+
+    <li id="edit-alamat">
+      <i class="fa-solid fa-location-dot"></i>
+      <span>Ubah Alamat Pengiriman</span>
+    </li>
 
     <li>
       <i class="fa-solid fa-box"></i>
@@ -167,22 +179,22 @@ if ('serviceWorker' in navigator) {
       </a>
     </li>
 
- <li id="reset-data" class="cta-link">
-  <i class="fa-solid fa-broom"></i>
-  <span>Reset Data Lokal</span>
-</li>
+    <li id="reset-data" class="cta-link">
+      <i class="fa-solid fa-broom"></i>
+      <span>Reset Data Lokal</span>
+    </li>
 
-<!-- Tentang -->
-<li id="nav-about">
-  <i class="fa-solid fa-info-circle"></i>
-  <span>Tentang Warung Emung</span>
-</li>
+    <!-- Tentang -->
+    <li id="nav-about">
+      <i class="fa-solid fa-info-circle"></i>
+      <span>Tentang Warung Emung</span>
+    </li>
+
   </ul>
 </div>
 
 <!-- BACKDROP -->
 <div id="sidebar-backdrop" class="sidebar-backdrop"></div>
-
 
 <section id="home"><h2></h2></section>
 
