@@ -8,6 +8,11 @@
    Menangani tombol CTA (WA, anchor, link eksternal) dengan modal konfirmasi
 */
 
+function getSelectedCurrency() {
+  return localStorage.getItem('selectedCurrency') || 'Rp';
+}
+
+
 (function(){
   // Ambil elemen modal
   const modal = document.getElementById('modal-confirm');
@@ -93,46 +98,57 @@
     // WA CART — PESAN SEMUA VIA WHATSAPP
     // ------------------------------
     const waCartBtn = e.target.closest('#wa-cart');
-    if(waCartBtn){
-      e.preventDefault();
+if(waCartBtn){
+  e.preventDefault();
 
-      const userData = JSON.parse(localStorage.getItem('userData') || '{}');
-      const alamat = userData.alamat || '';
-      const nama = userData.nama || 'Pelanggan';
-      const hp = userData.hp || '';
+  const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+  const alamat = userData.alamat || '';
+  const nama = userData.nama || 'Pelanggan';
+  const hp = userData.hp || '';
 
-      if(!alamat.trim()){
-        openModal({
-          title: "Alamat Belum Terisi",
-          message: "Harap isi alamat pengiriman terlebih dahulu sebelum memesan.",
-          action: ()=>{}
-        });
-        return;
-      }
+  if(!alamat.trim()){
+    openModal({
+      title: "Alamat Belum Terisi",
+      message: "Harap isi alamat pengiriman terlebih dahulu sebelum memesan.",
+      action: ()=>{}
+    });
+    return;
+  }
 
-      if(cart.length === 0){
-        openModal({
-          title: "Keranjang Kosong",
-          message: "Tidak ada item untuk dipesan.",
-          action: ()=>{}
-        });
-        return;
-      }
+  if(cart.length === 0){
+    openModal({
+      title: "Keranjang Kosong",
+      message: "Tidak ada item untuk dipesan.",
+      action: ()=>{}
+    });
+    return;
+  }
 
-      openModal({
-        title: "Kirim Pesanan?",
-        message: "Semua item di keranjang akan dikirim ke WhatsApp Warung Emung.",
-        action: function(){
-          const orderId = 'EM-' + Date.now().toString().slice(-6);
-          const waktu = waktuPesan();
-          const subtotal = cart.reduce((s, i) => s + i.qty * i.price, 0);
-          const ONGKIR = 2000;
-          const total = subtotal + ONGKIR;
-          const lines = cart.map(it =>
-            `- ${it.qty} x ${it.name} - Rp ${formatRupiah(it.price * it.qty)}`
-          ).join("\n");
+  openModal({
+    title: "Kirim Pesanan?",
+    message: "Semua item di keranjang akan dikirim ke WhatsApp Warung Emung.",
+    action: function(){
+      const orderId = 'EM-' + Date.now().toString().slice(-6);
+      const waktu = waktuPesan();
+      const currency = getSelectedCurrency(); // ambil currency saat ini
 
-          const message =
+      const subtotal = cart.reduce((s, i) => s + i.qty * i.price, 0);
+      const ONGKIR = 2000;
+      const total = subtotal + ONGKIR;
+
+      const lines = cart.map(it => {
+        if(currency === 'PI'){
+          return `- ${it.qty} x ${it.name} - PI ${(it.price / 3200 * it.qty).toFixed(2)}`;
+        } else {
+          return `- ${it.qty} x ${it.name} - ${formatPrice(it.price * it.qty, currency)}`;
+        }
+      }).join("\n");
+
+      const subtotalStr = (currency === 'PI') ? `PI ${(subtotal / 3200).toFixed(2)}` : formatPrice(subtotal, currency);
+      const ongkirStr = (currency === 'PI') ? `PI ${(ONGKIR / 3200).toFixed(2)}` : formatPrice(ONGKIR, currency);
+      const totalStr = (currency === 'PI') ? `PI ${(total / 3200).toFixed(2)}` : formatPrice(total, currency);
+
+      const message =
 `🛍️ *PESANAN BARU - WARUNG EMUNG*
 🆔 ID Pesanan: ${orderId}
 📅 Waktu: ${waktu}
@@ -144,45 +160,44 @@
 🛒 Detail Pesanan:
 ${lines}
 
-🧾 *Subtotal:* Rp ${formatRupiah(subtotal)}
-🚚 Ongkir: Rp ${formatRupiah(ONGKIR)}
-💰 Total: Rp ${formatRupiah(total)}
+🧾 *Subtotal:* ${subtotalStr}
+🚚 Ongkir: ${ongkirStr}
+💰 Total: ${totalStr}
 
 Mohon diproses.`;
 
-          window.open(
-            'https://wa.me/6285322882512?text=' + encodeURIComponent(message),
-            '_blank'
-          );
+      window.open(
+        'https://wa.me/6285322882512?text=' + encodeURIComponent(message),
+        '_blank'
+      );
 
-          simpanRiwayat({
-  id: orderId,
-  items: cart.map(it => ({
-    id: it.id || null,
-    name: it.name,
-    qty: it.qty,
-    harga: it.price,
-    subtotal: it.price * it.qty
-  })),
-  subtotal,
-  ongkir: ONGKIR,
-  total,
-  waktu,
-  date: new Date().toISOString(),
-
-  // TAMBAHAN AGAR SAMA DENGAN CARTMODAL.JS
-  nama: nama,
-  alamat: alamat,   // atau fullAlamat jika variabelmu itu
-  hp: hp
-});
-
-
-          cart = [];
-          updateCartCount();
-          renderCartModal();
-          cartModal.style.display = 'none';
-        }
+      simpanRiwayat({
+        id: orderId,
+        items: cart.map(it => ({
+          id: it.id || null,
+          name: it.name,
+          qty: it.qty,
+          harga: it.price,
+          subtotal: it.price * it.qty
+        })),
+        subtotal,
+        ongkir: ONGKIR,
+        total,
+        waktu,
+        date: new Date().toISOString(),
+        // tambahan agar konsisten dengan cart-modal.js
+        nama: nama,
+        alamat: alamat,
+        hp: hp
       });
+
+      cart = [];
+      updateCartCount();
+      renderCartModal();
+      cartModal.style.display = 'none';
+    }
+  });
+
 
       return;
     }    
