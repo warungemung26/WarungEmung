@@ -21,7 +21,17 @@ function openProdukModal(p) {
   bg.querySelector(".pm-title").textContent = p.name;
 
   const hargaFinal = p.price_flash || p.price;
-  bg.querySelector(".pm-price").textContent = formatRupiah(hargaFinal);
+const currency = localStorage.getItem('selectedCurrency') || 'Rp';
+
+if (currency === 'PI') {
+  bg.querySelector(".pm-price").innerHTML = `
+    <img src="images/pi-logo.png" class="pi-logo" style="width:16px;height:16px;vertical-align:middle;margin-right:4px;">
+    PI ${(hargaFinal / 3200).toFixed(2)}
+  `;
+} else {
+  bg.querySelector(".pm-price").textContent = formatPrice(hargaFinal, currency);
+}
+
 
   const deskripsi = p.desc || p.label || generateDeskripsi(p.name, p.category);
   bg.querySelector(".pm-desc").textContent = deskripsi;
@@ -33,7 +43,6 @@ function openProdukModal(p) {
   // === SYNC STATUS WISHLIST ===
   let wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
   const btnWL = bg.querySelector(".pm-wishlist");
-
   if (wishlist.find(it => it.name === p.name)) btnWL.classList.add("active");
   else btnWL.classList.remove("active");
 
@@ -68,26 +77,21 @@ function openProdukModal(p) {
 ============================= */
 bg.querySelector(".pm-wishlist").onclick = () => {
   let wl = JSON.parse(localStorage.getItem("wishlist") || "[]");
-
   const exist = wl.some(it => it.name === p.name);
   const btn = bg.querySelector(".pm-wishlist");
 
   if (!exist) {
-    // === TAMBAHKAN ===
     wl.push({
       name: p.name,
       img: p.img,
       price: hargaFinal,
       category: p.category || ""
     });
-
     localStorage.setItem("wishlist", JSON.stringify(wl));
     btn.classList.add("active");
     showToast("Ditambahkan ke Wishlist");
   } else {
-    // === HAPUS ===
     wl = wl.filter(it => it.name !== p.name);
-
     localStorage.setItem("wishlist", JSON.stringify(wl));
     btn.classList.remove("active");
     showToast("Dihapus dari Wishlist");
