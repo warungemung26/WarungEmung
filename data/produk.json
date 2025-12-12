@@ -1402,5 +1402,41 @@
     "price": 3500,
     "img": "images/sabun_nuvo_energetic.jpg",
     "category": "rumah"
+  },
+  {
+    "name": "Royco Kaldu Ayam Sachet 8g",
+    "price": 1000,
+    "img": "images/royco_kaldu_ayam_8g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Royco Kaldu Sapi Sachet 8g",
+    "price": 1000,
+    "img": "images/royco_kaldu_sapi_8g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Royco Bumbu Komplit Nasi Goreng Sachet",
+    "price": 1500,
+    "img": "images/royco_nasgor.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Royco Bumbu Komplit Nasi Goreng Pedas Sachet",
+    "price": 1500,
+    "img": "images/royco_nasgor_pedas.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Royco Bumbu Komplit Tempe Tahu Goreng Sachet",
+    "price": 1500,
+    "img": "images/royco_tempe_tahu.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Royco Bumbu Komplit Sayur Asem Sachet",
+    "price": 1500,
+    "img": "images/royco_sayur_asem.jpg",
+    "category": "bumbu"
   }
 ]
