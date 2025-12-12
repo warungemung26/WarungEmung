@@ -116,11 +116,8 @@ fetch("data/flash.json")
 
     // ===== FILTER FLASH SALE YANG BELUM KADALUARSA =====
     const now = new Date();
-    const activeFlash = data.filter(p => new Date(p.flash_until) > now);
-
-    console.log("FLASH SALE AKTIF:", activeFlash);
-
-    renderFlash(activeFlash);
+    flashData = data.filter(p => new Date(p.flash_until) > now);
+renderFlash(flashData);
   })
   .catch(err => console.error("Flash error:", err));
 
@@ -192,3 +189,32 @@ window.addEventListener("scroll", () => {
     else flashBtn.classList.remove("show");
   }
 });
+
+// ============================
+// LISTENER PILIH MATA UANG (AUTO UPDATE FLASH)
+// ============================
+document.addEventListener("DOMContentLoaded", () => {
+  const currencySelect = document.getElementById("currency-select");
+  if (!currencySelect) return;
+
+  currencySelect.addEventListener("change", () => {
+    const val = currencySelect.value;
+    localStorage.setItem("selectedCurrency", val);
+
+    // update flash sale tanpa fetch ulang
+    if (typeof updateFlashDisplay === "function") updateFlashDisplay();
+
+    // optional: update riwayat dan wishlist juga
+    if (typeof loadRiwayat === "function") loadRiwayat();
+    if (typeof loadWishlist === "function") loadWishlist();
+  });
+});
+
+// ============================
+// FUNGSIONALITAS RE-RENDER FLASH
+// ============================
+// Pastikan flashData sudah didefinisikan di flash.js
+function updateFlashDisplay() {
+  if (!window.flashData || !flashData.length) return;
+  renderFlash(flashData);
+}
