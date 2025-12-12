@@ -825,6 +825,14 @@ footer {
   font-size: 18px;
 }
 
+.price .pi-logo {
+  width: 1em;           /* lebar sama dengan tinggi font */
+  height: 1em;          /* tinggi sama dengan font */
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.25em; /* jarak logo dengan angka */
+}
+
 
 /* ==================================================
    Catatan:
