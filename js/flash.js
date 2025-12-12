@@ -12,26 +12,36 @@ if (!flashBox) {
   console.warn("⚠️ flash-list tidak ditemukan di HTML");
 }
 
-// ================= RENDER ===================
+// ================= RENDER FLASH SALE ===================
 function renderFlash(list) {
   if (!flashBox) return;
 
+  const currency = getSelectedCurrency();
   flashBox.innerHTML = "";
 
   list.forEach(p => {
     const item = document.createElement("div");
     item.className = "flash-card";
 
+    // format harga
+    const priceNew = (currency === 'PI')
+      ? `<img src="images/pi-logo.png" class="pi-logo" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;"> PI ${(p.price_flash / 3200).toFixed(2)}`
+      : formatPrice(p.price_flash, currency);
+
+    const priceOld = (currency === 'PI')
+      ? `<img src="images/pi-logo.png" class="pi-logo" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;"> PI ${(p.price_normal / 3200).toFixed(2)}`
+      : formatPrice(p.price_normal, currency);
+
     item.innerHTML = `
       <img src="${p.img}" class="flash-img">
 
       <div class="flash-info">
         <div class="flash-title">${p.name}</div>
-        <div class="flash-label">${p.label}</div>
+        <div class="flash-label">${p.label || ''}</div>
 
         <div class="flash-price">
-          <span class="flash-new">Rp ${p.price_flash.toLocaleString()}</span>
-          <span class="flash-old">Rp ${p.price_normal.toLocaleString()}</span>
+          <span class="flash-new">${priceNew}</span>
+          <span class="flash-old">${priceOld}</span>
         </div>
 
         <div class="flash-stock">Stok: ${p.stock}</div>
@@ -52,34 +62,19 @@ function renderFlash(list) {
       </div>
     `;
 
-    // === Klik flash card untuk buka modal detail ===
+    // klik untuk buka modal produk
     item.addEventListener("click", () => openProdukModal(p));
-
     flashBox.appendChild(item);
 
     // mulai countdown
     startCountdown(p);
   });
 
-  // ❗ WAJIB: Bikin tombol floating muncul
+  // cek tombol floating
   cekFlashButton(list.length);
 }
 
-
-// ================= QTY ===================
-function flashPlus(id) {
-  let el = document.getElementById("qty-" + id);
-  el.innerText = Number(el.innerText) + 1;
-}
-
-function flashMinus(id) {
-  let el = document.getElementById("qty-" + id);
-  let now = Number(el.innerText);
-  if (now > 1) el.innerText = now - 1;
-}
-
-
-// =============== ADD TO CART ===============
+// ================= ADD TO CART FLASH ===================
 function addFlash(id) {
   fetch("data/flash.json")
     .then(r => r.json())
@@ -107,6 +102,7 @@ function addFlash(id) {
       qtyEl.innerText = "1";
     });
 }
+
 
 
 // ================= FETCH JSON ===================
