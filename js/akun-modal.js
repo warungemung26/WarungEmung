@@ -15,6 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const accSaveBtn = document.getElementById("acc-save-btn");
   const accCloseBtn = document.getElementById("acc-close-btn");
 
+function getSelectedCurrency() {
+  return localStorage.getItem('selectedCurrency') || 'Rp';
+}
+
+
 // ============================
 // ACCOUNT MODAL FUNCTIONS (UPDATED)
 // ============================
@@ -173,92 +178,94 @@ switchTab("tab-profil");
   // LOAD RIWAYAT
   // ============================
   window.loadRiwayat = function() {
-    const wrap = document.getElementById("riwayat-list");
-    const r = JSON.parse(localStorage.getItem("riwayat") || "[]");
-    if (!wrap) return;
+  const wrap = document.getElementById("riwayat-list");
+  const r = JSON.parse(localStorage.getItem("riwayat") || "[]");
+  if (!wrap) return;
 
-    if (r.length === 0) {
-      wrap.innerHTML = "<p style='opacity:0.6'>Belum ada riwayat belanja.</p>";
-      return;
-    }
+  const currency = getSelectedCurrency();
 
-    wrap.innerHTML = `
-      <button type="button"
-        class="cta-link riwayat-clear-all"
-        style="margin-bottom:10px;border:1px solid #d00;padding:6px;border-radius:6px;background:#ffe5e5">
-        Hapus Semua Riwayat
-      </button>
-    `;
+  if (r.length === 0) {
+    wrap.innerHTML = "<p style='opacity:0.6'>Belum ada riwayat belanja.</p>";
+    return;
+  }
 
-    wrap.innerHTML += r.map(order => `
-      <div class="riwayat-item" style="margin-bottom:12px;padding:10px;border:1px solid #ddd;border-radius:6px">
+  wrap.innerHTML = `
+    <button type="button"
+      class="cta-link riwayat-clear-all"
+      style="margin-bottom:10px;border:1px solid #d00;padding:6px;border-radius:6px;background:#ffe5e5">
+      Hapus Semua Riwayat
+    </button>
+  `;
 
-        <table>
-          <tr><td><i class="fa-solid fa-receipt"></i></td><td><strong>ID Pesanan: ${order.id}</strong></td></tr>
-          <tr><td><i class="fa-solid fa-user"></i></td><td><strong>${order.nama || '-'}</strong></td></tr>
-          <tr><td><i class="fa-solid fa-location-dot"></i></td><td><strong>${order.alamat || '-'}</strong></td></tr>
-          <tr><td><i class="fa-solid fa-phone"></i></td><td><strong>${order.hp || '-'}</strong></td></tr>
-        </table>
+  wrap.innerHTML += r.map(order => `
+    <div class="riwayat-item" style="margin-bottom:12px;padding:10px;border:1px solid #ddd;border-radius:6px">
 
-        <br>
+      <table>
+        <tr><td><i class="fa-solid fa-receipt"></i></td><td><strong>ID Pesanan: ${order.id}</strong></td></tr>
+        <tr><td><i class="fa-solid fa-user"></i></td><td><strong>${order.nama || '-'}</strong></td></tr>
+        <tr><td><i class="fa-solid fa-location-dot"></i></td><td><strong>${order.alamat || '-'}</strong></td></tr>
+        <tr><td><i class="fa-solid fa-phone"></i></td><td><strong>${order.hp || '-'}</strong></td></tr>
+      </table>
 
-        <table>
-          <tr><td><i class="fa-solid fa-cart-shopping"></i></td><td><strong>Detail Pesanan:</strong></td></tr>
-        </table>
+      <br>
 
-        <ul style="margin:4px 0 8px 22px;padding:0;">
-          ${order.items.map(it => {
-            const harga = it.price || it.harga || 0;
-            return `
-              <li>${it.qty}  ${it.name}  ${formatRupiah(harga)}</li>
-            `;
-          }).join("")}
-        </ul>
+      <table>
+        <tr><td><i class="fa-solid fa-cart-shopping"></i></td><td><strong>Detail Pesanan:</strong></td></tr>
+      </table>
 
-        <table>
-          <tr>
-            <td><i class="fa-solid fa-calculator"></i></td>
-            <td><strong>Subtotal: ${
-              formatRupiah(
-                order.items.reduce((t, it) => t + (it.price || it.harga || 0) * (it.qty || 1), 0)
-              )
-            }</strong></td>
-          </tr>
-          <tr><td><i class="fa-solid fa-truck"></i></td><td><strong>Ongkir: ${formatRupiah(order.ongkir || 0)}</strong></td></tr>
-          <tr><td><i class="fa-solid fa-wallet"></i></td><td><strong>Total: ${formatRupiah(order.total)}</strong></td></tr>
-          <tr><td><i class="fa-solid fa-calendar-day"></i></td><td><strong>${order.waktu || order.date || '-'}</strong></td></tr>
-        </table>
+      <ul style="margin:4px 0 8px 22px;padding:0;">
+        ${order.items.map(it => {
+          const harga = it.price || it.harga || 0;
+          if(currency === 'PI'){
+            return `<li>${it.qty} ${it.name} <img src="images/pi-logo.png" class="pi-logo" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;"> PI ${(harga / 3200).toFixed(2)}</li>`;
+          } else {
+            return `<li>${it.qty} ${it.name} ${formatPrice(harga, currency)}</li>`;
+          }
+        }).join("")}
+      </ul>
 
-        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
-          <button 
-            type="button"
-            class="cta-link riwayat-status"
-            data-id="${order.id}"
-            style="padding:6px 10px;border:1px solid #4caf50;border-radius:4px;background:#eaffea;">
-            Cek Status
-          </button>
+      <table>
+        <tr>
+          <td><i class="fa-solid fa-calculator"></i></td>
+          <td><strong>Subtotal: ${
+            (currency === 'PI')
+              ? `<img src="images/pi-logo.png" class="pi-logo" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;"> PI ${(order.items.reduce((t, it) => t + (it.price || it.harga || 0) * (it.qty || 1), 0) / 3200).toFixed(2)}`
+              : formatPrice(order.items.reduce((t, it) => t + (it.price || it.harga || 0) * (it.qty || 1), 0), currency)
+          }</strong></td>
+        </tr>
+        <tr>
+          <td><i class="fa-solid fa-truck"></i></td>
+          <td><strong>Ongkir: ${
+            (currency === 'PI') 
+              ? `<img src="images/pi-logo.png" class="pi-logo" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;"> PI ${((order.ongkir || 0) / 3200).toFixed(2)}`
+              : formatPrice(order.ongkir || 0, currency)
+          }</strong></td>
+        </tr>
+        <tr>
+          <td><i class="fa-solid fa-wallet"></i></td>
+          <td><strong>Total: ${
+            (currency === 'PI') 
+              ? `<img src="images/pi-logo.png" class="pi-logo" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;"> PI ${(order.total / 3200).toFixed(2)}`
+              : formatPrice(order.total, currency)
+          }</strong></td>
+        </tr>
+        <tr>
+          <td><i class="fa-solid fa-calendar-day"></i></td>
+          <td><strong>${order.waktu || order.date || '-'}</strong></td>
+        </tr>
+      </table>
 
-          <button 
-            type="button"
-            class="cta-link riwayat-repeat"
-            data-id="${order.id}"
-            style="padding:6px 10px;border:1px solid #2196f3;border-radius:4px;background:#e7f3ff;">
-            Ulangi
-          </button>
-
-          <button 
-            type="button"
-            class="cta-link riwayat-delete"
-            data-id="${order.id}"
-            style="padding:6px 10px;border:1px solid #aaa;border-radius:4px;background:#f7f7f7;">
-            Hapus
-          </button>
-        </div>
+      <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+        <button type="button" class="cta-link riwayat-status" data-id="${order.id}" style="padding:6px 10px;border:1px solid #4caf50;border-radius:4px;background:#eaffea;">Cek Status</button>
+        <button type="button" class="cta-link riwayat-repeat" data-id="${order.id}" style="padding:6px 10px;border:1px solid #2196f3;border-radius:4px;background:#e7f3ff;">Ulangi</button>
+        <button type="button" class="cta-link riwayat-delete" data-id="${order.id}" style="padding:6px 10px;border:1px solid #aaa;border-radius:4px;background:#f7f7f7;">Hapus</button>
       </div>
-    `).join("");
-  };
+    </div>
+  `).join("");
+};
 
-  loadRiwayat();
+loadRiwayat();
+
 });
 
 
@@ -278,26 +285,22 @@ window.loadWishlist = function () {
   }
 
   wrap.innerHTML = wl.map(item => `
-    <div 
-      class="wishlist-item" 
-      data-name="${item.name}"
-      style="display:flex;gap:10px;margin-bottom:12px;padding:10px;border:1px solid #ddd;border-radius:6px;cursor:pointer">
-
-      <img src="${item.img}" style="width:60px;height:60px;border-radius:6px;object-fit:cover">
-
-      <div style="flex:1">
-        <strong>${item.name}</strong><br>
-        ${formatRupiah(item.price)}
-      </div>
-
-      <button 
-        class="remove-wishlist" 
-        data-name="${item.name}"
-        style="border:1px solid #d33;padding:6px;border-radius:6px;background:#ffe5e5;cursor:pointer">
-        Hapus
-      </button>
+  <div class="wishlist-item" data-name="${item.name}" style="display:flex;gap:10px;margin-bottom:12px;padding:10px;border:1px solid #ddd;border-radius:6px;cursor:pointer">
+    <img src="${item.img}" style="width:60px;height:60px;border-radius:6px;object-fit:cover">
+    <div style="flex:1">
+      <strong>${item.name}</strong><br>
+      ${(() => {
+  const currency = getSelectedCurrency();
+  if(currency === 'PI'){
+    return `<img src="images/pi-logo.png" class="pi-logo" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;"> PI ${(item.price / 3200).toFixed(2)}`;
+  } else {
+    return formatPrice(item.price, currency);
+  }
+})()}
     </div>
-  `).join("");
+    <button class="remove-wishlist" data-name="${item.name}" style="border:1px solid #d33;padding:6px;border-radius:6px;background:#ffe5e5;cursor:pointer">Hapus</button>
+  </div>
+`).join("");
 
   // Hapus wishlist
   wrap.querySelectorAll(".remove-wishlist").forEach(btn => {
