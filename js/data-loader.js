@@ -36,9 +36,11 @@ function render(data) {
     card.appendChild(title);
 
     const price = document.createElement('div');
-    price.className = 'price';
-    price.textContent = formatRupiah(p.price);
-    card.appendChild(price);
+price.className = 'price';
+price.dataset.priceRp = p.price;   // simpan harga asli dalam Rupiah
+price.textContent = formatRupiah(p.price);
+card.appendChild(price);
+
 
 // === Kontrol Qty + Tombol Add ===
 const controlsWrapper = document.createElement('div');
@@ -144,6 +146,50 @@ function shuffle(arr) {
   }
   return arr;
 }
+
+// ================== MATA UANG ==================
+const currencySelect = document.getElementById('currency-select');
+
+function formatPrice(price, currency){
+  switch(currency){
+    case 'Rp': return 'Rp ' + Number(price).toLocaleString('id-ID');
+    case '$': return '$ ' + (price / 15000).toFixed(2);
+    case 'PI': return 'PI ' + (price / 1000).toFixed(2); // plain string
+    default: return price;
+  }
+}
+
+function updatePrices(currency){
+  const priceEls = document.querySelectorAll('.price, .pm-price'); // semua harga
+  priceEls.forEach(el => {
+  const basePrice = parseFloat(el.dataset.priceRp);
+  if(isNaN(basePrice)) return;
+
+ if(currency === 'PI'){
+  el.innerHTML = `<img src="images/pi-logo.png" class="pi-logo">
+                  PI ${(basePrice / 3200).toFixed(2)}`;
+} else {
+    el.textContent = formatPrice(basePrice, currency);
+  }
+});
+}
+
+// inisialisasi saat load
+window.addEventListener('DOMContentLoaded', () => {
+  const savedCurrency = localStorage.getItem('selectedCurrency') || 'Rp';
+  if(currencySelect) currencySelect.value = savedCurrency;
+  updatePrices(savedCurrency);
+});
+
+// event listener untuk select mata uang
+if(currencySelect){
+  currencySelect.addEventListener('change', () => {
+    const val = currencySelect.value;
+    localStorage.setItem('selectedCurrency', val);
+    updatePrices(val);
+  });
+}
+
 
 // ================== FETCH TUNGGAL ==================
 let products = [];   // dipakai untuk kategori, scroll, filter
