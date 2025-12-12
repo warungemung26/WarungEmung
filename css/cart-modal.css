@@ -179,3 +179,10 @@
 #close-cart.close-x:hover {
   background: #e2e2e2;
 }
+
+.pi-logo {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 3px;
+}
