@@ -633,9 +633,15 @@ if ('serviceWorker' in navigator) {
 
     <!-- HEADER BAR -->
     <div class="acc-header">
-      <button id="acc-close-btn" class="header-back-btn">&#8592;</button>
-      <h3>Akun Saya</h3>
-    </div>
+  <button id="acc-close-btn" class="header-back-btn">&#8592;</button>
+  <h3>Akun Saya</h3>
+
+  <!-- Tombol login Pi -->
+<button id="btn-pi-login" style="margin-left:10px;padding:6px 10px;border-radius:6px;">Login Pi</button>
+<span id="pi-username" style="margin-left:8px;font-weight:bold;">-</span>
+</div>
+
+
 
     <!-- TAB -->
     <div class="acc-tabs">
@@ -799,6 +805,8 @@ if ('serviceWorker' in navigator) {
 <script src="js/cat-modal.js"></script>
 <script src="js/cart-modal.js"></script>
 <script src="js/akun-modal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pi-sdk/dist/pi.min.js"></script>
+<script src="js/pi-integration.js"></script>
 <script src="js/toast-audio.js"></script>
 <script src="js/register.js"></script>
 
