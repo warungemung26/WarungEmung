@@ -663,9 +663,12 @@ footer {
     font-size: 13px;
   }
 
-  .card .price {
-    font-size: 12px;
-  }
+.card .price {
+  color: #e53935;   /* merah */
+  font-weight: 700; /* bold */
+  font-size: 13px;
+  text-align: center;
+}
 
   .modal {
     width: 95%;
