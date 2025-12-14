@@ -9,61 +9,76 @@ Unauthorized copying, modification, or distribution of this file is strictly pro
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Warung Emung Praktis, Hemat, Dekat</title>
-  
-<!-- ================== CSS ================== -->
-  <!-- Base / umum -->
-<link rel="stylesheet" href="css/ui.css">           
-<link rel="stylesheet" href="css/flash.css">
 
-<!-- Modals & komponen spesifik -->
-<link rel="stylesheet" href="css/popup-reg.css">   
-<link rel="stylesheet" href="css/produk-modal.css">   
-<link rel="stylesheet" href="css/cart-modal.css">  
-<link rel="stylesheet" href="css/cat-modal.css">   
-<link rel="stylesheet" href="css/akun-modal.css">  
+  <!-- ===== TITLE (SEO) ===== -->
+  <title>Warung Emung | Warung Online Praktis, Hemat & Dekat</title>
 
-<!-- Fitur tambahan -->
-<link rel="stylesheet" href="css/qty-addcart.css"> 
-<link rel="stylesheet" href="css/nama-alamat.css"> 
-<link rel="stylesheet" href="css/search.css">      
+  <!-- ===== BASIC SEO ===== -->
+  <meta name="description" content="Warung Emung adalah warung online UMKM lokal. Belanja sembako, snack, minuman, dan kebutuhan harian dengan mudah. Antar cepat area sekitar.">
+  <meta name="keywords" content="warung emung, warung online, sembako cirebon, belanja harian, UMKM lokal">
+  <meta name="robots" content="index, follow">
 
-<!-- Helper / state -->
-<link rel="stylesheet" href="css/toast.css">       
-<link rel="stylesheet" href="css/text-scrol.css">  
+  <!-- ===== OPEN GRAPH (WA / FB / TELEGRAM) ===== -->
+  <meta property="og:title" content="Warung Emung – Warung Online Dekat Rumah">
+  <meta property="og:description" content="Belanja harian gampang, tinggal klik. Antar cepat, praktis, dan hemat.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://warungemung26.github.io/WarungEmung/">
+  <meta property="og:image" content="https://warungemung26.github.io/WarungEmung/images/logo-warung.png">
+
+<link rel="canonical" href="https://warungemung26.github.io/WarungEmung/">
 
 
-
-  <!-- ================== PWA META ================== -->
-  <link rel="manifest" href="manifest.json">
+  <!-- ===== THEME & PWA ===== -->
   <meta name="theme-color" content="#f6b042">
+  <link rel="manifest" href="manifest.json">
 
+  <!-- ===== OPTIONAL: FILTER BOT GA ===== -->
+  <script>
+    if (navigator.webdriver) {
+      window['ga-disable-G-PYZMBZNKER'] = true;
+    }
+  </script>
 
+  <!-- ================== CSS ================== -->
+  <!-- Base / umum -->
+  <link rel="stylesheet" href="css/ui.css">
+  <link rel="stylesheet" href="css/flash.css">
 
-<script>
-// ================= UNREGISTER LAMA SW =================
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.getRegistrations().then(regs => {
-    regs.forEach(reg => {
-      reg.unregister().then(() => {
-        console.log('✅ SW lama dihapus:', reg.scope);
+  <!-- Modals & komponen -->
+  <link rel="stylesheet" href="css/popup-reg.css">
+  <link rel="stylesheet" href="css/produk-modal.css">
+  <link rel="stylesheet" href="css/cart-modal.css">
+  <link rel="stylesheet" href="css/cat-modal.css">
+  <link rel="stylesheet" href="css/akun-modal.css">
+
+  <!-- Fitur tambahan -->
+  <link rel="stylesheet" href="css/qty-addcart.css">
+  <link rel="stylesheet" href="css/nama-alamat.css">
+  <link rel="stylesheet" href="css/search.css">
+
+  <!-- Helper -->
+  <link rel="stylesheet" href="css/toast.css">
+  <link rel="stylesheet" href="css/text-scrol.css">
+
+  <!-- ===== Google Analytics ===== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYZMBZNKER"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PYZMBZNKER');
+  </script>
+
+  <!-- ===== UNREGISTER SW LAMA (DEV ONLY, BOLEH DIHAPUS NANTI) ===== -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(regs => {
+        regs.forEach(reg => reg.unregister());
       });
-    });
-  });
-}
-</script>
-	
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PYZMBZNKER"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-PYZMBZNKER');
-</script>
-
+    }
+  </script>
 </head>
+
 <body>
 
 
@@ -412,10 +427,13 @@ if ('serviceWorker' in navigator) {
 </div>
 <!-- ================= HERO ================= -->
 <section class="hero">
-  <h2 style="margin:0 0 8px">Belanja Harian Lebih Mudah</h2>
-  <p style="margin:0 0 12px; color:#fff">
-    Belanja harian gampang, tinggal klik — langsung kami antar! Buka setiap hari 06.00-22.00
-  </p>
+  <h2>Warung Emung</h2>
+<p>
+Belanja kebutuhan harian warga sekitar.  
+Cepat, hemat, dan dekat rumah 🏡  
+<b>Buka 06.00 – 22.00</b>
+</p>
+
 
 <!-- Tombol Request Stok Modern -->
 <div class="hero-cta">
@@ -432,6 +450,11 @@ if ('serviceWorker' in navigator) {
 </div>
 </section>
 
+<div style="padding:10px;background:#fffbe6;border-radius:8px;margin:12px 0;font-size:14px">
+📍 Melayani area sekitar<br>
+🚚 Antar cepat – bayar langsung<br>
+💬 Bisa pesan via WhatsApp
+</div>
 
 <!-- ============================
      MODAL DETAIL PRODUK (SLIDE UP)
