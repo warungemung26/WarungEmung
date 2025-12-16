@@ -103,8 +103,13 @@ controlsWrapper.appendChild(controls);
 controlsWrapper.appendChild(add);
 card.appendChild(controlsWrapper);
 
-// === Klik card untuk buka modal detail ===
-card.addEventListener('click', () => openProdukModal(p));
+// === Klik card untuk buka modal detail + update URL ===
+card.addEventListener('click', () => {
+  if (p.slug) {
+    location.hash = `produk/${p.slug}`;
+  }
+  openProdukModal(p);
+});
 
 listEl.appendChild(card);
 });   // <==== PENUTUP forEach
@@ -137,6 +142,22 @@ function renderProducts(list) {
     container.appendChild(card);
   });
 }
+
+// ================== OPEN PRODUK DARI URL HASH ==================
+function openFromHash() {
+  const hash = location.hash.replace('#', '');
+  if (!hash.startsWith('produk/')) return;
+
+  const slug = hash.split('/')[1];
+  const p = products.find(it => it.slug === slug);
+  if (p) {
+    openProdukModal(p);
+  }
+}
+
+// dengarkan perubahan URL
+window.addEventListener('hashchange', openFromHash);
+
 
 // ================== SHUFFLE ==================
 function shuffle(arr) {
@@ -199,11 +220,11 @@ fetch('data/produk.json')
     if (!res.ok) throw new Error('Gagal memuat produk.json');
     return res.json();
   })
-  .then(data => {
-    products = shuffle([...data]); // simpan versi acak sebagai "products"
-render(products);
-                       // tampilkan produk sekali, langsung acak
-  })
+.then(data => {
+  products = shuffle([...data]); // simpan versi acak sebagai "products"
+  render(products);
+  openFromHash(); // ⬅️ TAMBAHAN PENTING
+})
   .catch(err => console.error(err));
 
 // === FILTER DROPDOWN HARGA ===
