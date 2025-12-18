@@ -108,7 +108,7 @@ function closeProdukModal() {
   modalProdukAktif = false;
 
   lockPop = true;
-  history.replaceState(null, "");
+  history.replaceState(null, "", location.pathname);
   setTimeout(() => lockPop = false, 50);
 }
 
