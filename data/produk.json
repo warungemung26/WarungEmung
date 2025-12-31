@@ -1678,5 +1678,54 @@
     "price": 1500,
     "img": "images/royco_sayur_asem.jpg",
     "category": "bumbu"
+  },
+  {
+    "name": "Ladaku Merica Bubuk Sachet 5g",
+    "slug": "ladaku-merica-bubuk-sachet-5g",
+    "price": 2000,
+    "img": "images/ladaku-merica-5g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Indofood Sambal Terasi Sachet",
+    "slug": "indofood-sambal-terasi-sachet",
+    "price": 2500,
+    "img": "images/indofood-sambal-terasi.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Bumbu Racik Ayam Goreng Sajiku",
+    "slug": "bumbu-racik-ayam-goreng-sajiku",
+    "price": 3000,
+    "img": "images/sajiku-ayam-goreng.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Ketumbar Biji 100g",
+    "slug": "ketumbar-biji-100g",
+    "price": 7000,
+    "img": "images/ketumbar-biji-100g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Merica Butir Putih 50g",
+    "slug": "merica-butir-putih-50g",
+    "price": 12000,
+    "img": "images/merica-putih-butir-50g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Asam Jawa Tanpa Biji 100g",
+    "slug": "asam-jawa-tanpa-biji-100g",
+    "price": 6000,
+    "img": "images/asam-jawa-100g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Bumbu Racik Sayur Lodeh Sajiku",
+    "slug": "bumbu-racik-sayur-lodeh-sajiku",
+    "price": 2800,
+    "img": "images/sajiku-lodeh.jpg",
+    "category": "bumbu"
   }
 ]
