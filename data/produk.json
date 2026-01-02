@@ -1727,5 +1727,40 @@
     "price": 2800,
     "img": "images/sajiku-lodeh.jpg",
     "category": "bumbu"
+  },
+  {
+    "name": "Ibuprofen 200mg 10 Tablet",
+    "slug": "ibuprofen-200mg-10-tablet",
+    "price": 6000,
+    "img": "images/ibuprofen-200mg.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Hansaplast Rol 1m",
+    "slug": "hansaplast-rol-1m",
+    "price": 5000,
+    "img": "images/hansaplast-roll.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Konidin Obat Batuk Sachet",
+    "slug": "konidin-obat-batuk-sachet",
+    "price": 2500,
+    "img": "images/konidin-sachet.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Microlax Enema 5ml",
+    "slug": "microlax-enema-5ml",
+    "price": 18000,
+    "img": "images/microlax-5ml.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "My Baby Minyak Kayu Putih 30ml",
+    "slug": "my-baby-minyak-kayu-putih-30ml",
+    "price": 7000,
+    "img": "images/mybaby-kayu-putih-30ml.jpg",
+    "category": "obat"
   }
 ]
