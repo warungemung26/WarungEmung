@@ -17,7 +17,15 @@ function shuffle(arr) {
 }
 
 /* =========================================================
-   LAZY IMAGE OBSERVER (GLOBAL – WAJIB DI LUAR RENDER)
+   GLOBAL STATE
+========================================================= */
+let isAllMode = false;
+let allIndex = 0;
+const ALL_CHUNK = 24;
+let currentCurrency = 'Rp';
+
+/* =========================================================
+   LAZY IMAGE OBSERVER
 ========================================================= */
 const imgObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -29,8 +37,106 @@ const imgObserver = new IntersectionObserver(entries => {
   });
 }, { rootMargin: '200px' });
 
-/* ================= RENDER PRODUK ================= */
+/* =========================================================
+   FORMAT PRICE BY CURRENCY (SINGLE SOURCE)
+========================================================= */
+function renderPrice(el, priceRp){
+  el.dataset.priceRp = priceRp;
+
+  if (currentCurrency === 'PI') {
+    el.innerHTML = `<img src="images/pi-logo.png" class="pi-logo">
+                    PI ${(priceRp / 3200).toFixed(2)}`;
+  } else {
+    el.textContent = formatPrice(priceRp, currentCurrency);
+  }
+}
+
+/* =========================================================
+   CREATE CARD (REUSABLE)
+========================================================= */
+function createCard(p){
+  const card = document.createElement('div');
+  card.className = 'card';
+
+  const img = document.createElement('img');
+  img.dataset.src = p.img;
+  img.src = 'images/placeholder.png';
+  img.alt = p.name;
+  img.loading = 'lazy';
+  card.appendChild(img);
+  imgObserver.observe(img);
+
+  const title = document.createElement('div');
+  title.className = 'title';
+  title.textContent = p.name;
+  card.appendChild(title);
+
+  const price = document.createElement('div');
+  price.className = 'price';
+  renderPrice(price, p.price);
+  card.appendChild(price);
+
+  const controlsWrapper = document.createElement('div');
+  controlsWrapper.className = 'controls-wrapper';
+
+  const controls = document.createElement('div');
+  controls.className = 'qty-controls';
+
+  let q = 1;
+  const qty = document.createElement('span');
+  qty.className = 'qty-number';
+  qty.textContent = q;
+
+  const minus = document.createElement('button');
+  minus.className = 'btn-minus';
+  minus.textContent = '-';
+  minus.onclick = e => {
+    e.stopPropagation();
+    if (q > 1) qty.textContent = --q;
+  };
+
+  const plus = document.createElement('button');
+  plus.className = 'btn-plus';
+  plus.textContent = '+';
+  plus.onclick = e => {
+    e.stopPropagation();
+    qty.textContent = ++q;
+  };
+
+  controls.append(minus, qty, plus);
+
+  const add = document.createElement('button');
+  add.className = 'add-btn';
+  add.innerHTML = '<i class="fa fa-cart-plus"></i>';
+  add.onclick = e => {
+    e.stopPropagation();
+    const existing = cart.find(it => it.name === p.name);
+    if (existing) existing.qty += q;
+    else cart.push({ name: p.name, qty: q, price: p.price });
+    updateCartCount();
+    showToast(`Ditambahkan: ${p.name} x ${q}`);
+    ding.currentTime = 0;
+    ding.play().catch(()=>{});
+    q = 1;
+    qty.textContent = '1';
+  };
+
+  controlsWrapper.append(controls, add);
+  card.appendChild(controlsWrapper);
+
+  card.onclick = () => {
+    if (p.slug) history.pushState(null, '', '?produk=' + p.slug);
+    openProdukModal(p);
+  };
+
+  return card;
+}
+
+/* =========================================================
+   RENDER NORMAL
+========================================================= */
 function render(data) {
+  isAllMode = false;
   listEl.innerHTML = '';
 
   if (!data || data.length === 0) {
@@ -39,120 +145,41 @@ function render(data) {
     return;
   }
 
-  const CHUNK_SIZE = 24;      // aman untuk Android
-  let index = 0;
+  const fragment = document.createDocumentFragment();
+  data.forEach(p => fragment.appendChild(createCard(p)));
+  listEl.appendChild(fragment);
+}
 
-  function renderChunk() {
-    const fragment = document.createDocumentFragment();
-    const slice = data.slice(index, index + CHUNK_SIZE);
-
-    slice.forEach(p => {
-      const card = document.createElement('div');
-      card.className = 'card';
-
-      /* ===== IMAGE (LAZY) ===== */
-      const img = document.createElement('img');
-      img.dataset.src = p.img;
-      img.src = 'images/placeholder.png';
-      img.alt = p.name;
-      img.loading = 'lazy';
-      card.appendChild(img);
-      imgObserver.observe(img);
-
-      /* ===== TITLE ===== */
-      const title = document.createElement('div');
-      title.className = 'title';
-      title.textContent = p.name;
-      card.appendChild(title);
-
-      /* ===== PRICE ===== */
-      const price = document.createElement('div');
-      price.className = 'price';
-      price.dataset.priceRp = p.price;
-      price.textContent = formatRupiah(p.price);
-      card.appendChild(price);
-
-      /* ===== QTY + ADD ===== */
-      const controlsWrapper = document.createElement('div');
-      controlsWrapper.className = 'controls-wrapper';
-
-      const controls = document.createElement('div');
-      controls.className = 'qty-controls';
-
-      const minus = document.createElement('button');
-      minus.type = 'button';
-      minus.textContent = '-';
-      minus.className = 'btn-minus';
-
-      let q = 1;
-      const qty = document.createElement('span');
-      qty.textContent = q;
-      qty.className = 'qty-number';
-
-      const plus = document.createElement('button');
-      plus.type = 'button';
-      plus.textContent = '+';
-      plus.className = 'btn-plus';
-
-      minus.addEventListener('click', e => {
-        e.stopPropagation();
-        if (q > 1) { q--; qty.textContent = q; }
-      });
-
-      plus.addEventListener('click', e => {
-        e.stopPropagation();
-        q++; qty.textContent = q;
-      });
-
-      controls.appendChild(minus);
-      controls.appendChild(qty);
-      controls.appendChild(plus);
-
-      const add = document.createElement('button');
-      add.type = 'button';
-      add.className = 'add-btn';
-      add.innerHTML = '<i class="fa fa-cart-plus"></i>';
-
-      add.addEventListener('click', e => {
-        e.stopPropagation();
-        const existing = cart.find(it => it.name === p.name);
-        if (existing) existing.qty += q;
-        else cart.push({ name: p.name, qty: q, price: p.price });
-
-        updateCartCount();
-        showToast(`Ditambahkan: ${p.name} x ${q}`);
-
-        ding.currentTime = 0;
-        ding.play().catch(()=>{});
-
-        q = 1;
-        qty.textContent = '1';
-      });
-
-      controlsWrapper.appendChild(controls);
-      controlsWrapper.appendChild(add);
-      card.appendChild(controlsWrapper);
-
-      /* ===== CARD CLICK ===== */
-      card.addEventListener('click', () => {
-        if (p.slug) history.pushState(null, '', '?produk=' + p.slug);
-        openProdukModal(p);
-      });
-
-      fragment.appendChild(card);
-    });
-
-    listEl.appendChild(fragment);
-    index += CHUNK_SIZE;
-
-    // render berikutnya (halus, tidak freeze)
-    if (index < data.length) {
-      requestAnimationFrame(renderChunk);
-    }
+/* =========================================================
+   RENDER ALL (INFINITE)
+========================================================= */
+function renderAll(reset = false){
+  if (reset) {
+    listEl.innerHTML = '';
+    allIndex = 0;
+    isAllMode = true;
   }
 
-  renderChunk();
+  const slice = products.slice(allIndex, allIndex + ALL_CHUNK);
+  if (slice.length === 0) return;
+
+  const fragment = document.createDocumentFragment();
+  slice.forEach(p => fragment.appendChild(createCard(p)));
+  listEl.appendChild(fragment);
+
+  allIndex += ALL_CHUNK;
 }
+
+/* =========================================================
+   SCROLL LISTENER
+========================================================= */
+window.addEventListener('scroll', () => {
+  if (!isAllMode) return;
+
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 300) {
+    renderAll();
+  }
+});
 
 /* ================== MATA UANG ================== */
 const currencySelect = document.getElementById('currency-select');
@@ -167,30 +194,24 @@ function formatPrice(price, currency){
 }
 
 function updatePrices(currency){
+  currentCurrency = currency;
   document.querySelectorAll('.price, .pm-price').forEach(el => {
     const base = parseFloat(el.dataset.priceRp);
-    if (isNaN(base)) return;
-
-    if (currency === 'PI') {
-      el.innerHTML = `<img src="images/pi-logo.png" class="pi-logo">
-                      PI ${(base / 3200).toFixed(2)}`;
-    } else {
-      el.textContent = formatPrice(base, currency);
-    }
+    if (!isNaN(base)) renderPrice(el, base);
   });
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  const saved = localStorage.getItem('selectedCurrency') || 'Rp';
-  if (currencySelect) currencySelect.value = saved;
-  updatePrices(saved);
+  currentCurrency = localStorage.getItem('selectedCurrency') || 'Rp';
+  if (currencySelect) currencySelect.value = currentCurrency;
+  updatePrices(currentCurrency);
 });
 
 if (currencySelect) {
   currencySelect.addEventListener('change', () => {
-    const val = currencySelect.value;
-    localStorage.setItem('selectedCurrency', val);
-    updatePrices(val);
+    currentCurrency = currencySelect.value;
+    localStorage.setItem('selectedCurrency', currentCurrency);
+    updatePrices(currentCurrency);
   });
 }
 
@@ -198,13 +219,10 @@ if (currencySelect) {
 let products = [];
 
 fetch('data/produk.json')
-  .then(res => {
-    if (!res.ok) throw new Error('Gagal memuat produk.json');
-    return res.json();
-  })
+  .then(res => res.json())
   .then(data => {
     products = shuffle([...data]);
-    render(products);
+    renderAll(true);
 
     const slug = getProdukSlug();
     if (slug) {
@@ -218,6 +236,7 @@ fetch('data/produk.json')
 const filterSelect = document.getElementById('filter-harga');
 if (filterSelect) {
   filterSelect.addEventListener('change', () => {
+    isAllMode = false;
     applyFilters();
   });
 }
