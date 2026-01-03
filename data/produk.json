@@ -193,7 +193,7 @@
     "slug": "telur-asin",
     "price": 6000,
     "img": "images/telurasin.jpg",
-    "category": "sembako"
+    "category": "makanan"
   },
   {
     "name": "Gula Merah 250g",
@@ -1222,7 +1222,7 @@
     "slug": "tempe-kering-tepung-250g",
     "price": 12000,
     "img": "images/tempetepung-kering-250g.jpg",
-    "category": "sembako"
+    "category": "makanan"
   },
   {
     "name": "Ikan Teri Kering 100g",
@@ -1236,7 +1236,7 @@
     "slug": "udang-kering-ebi-50g",
     "price": 18000,
     "img": "images/ebi-50g.jpg",
-    "category": "sembako"
+    "category": "makanan"
   },
   {
     "name": "Tahu Kering 250g",
@@ -1250,7 +1250,7 @@
     "slug": "tempe-oreg-kering-250g",
     "price": 12000,
     "img": "images/tempeoreg-kering-250g.jpg",
-    "category": "sembako"
+    "category": "makanan"
   },
   {
     "name": "Roti Tawar Serbaguna",
