@@ -180,7 +180,9 @@ body {
   box-shadow: 0px 6px 16px rgba(0,0,0,0.15);
   padding: 6px 0;
   display: none;
-  z-index: 50;
+
+  /* dinaikkan agar tidak ketimpa PWA / elemen fixed */
+  z-index: 9500;
 }
 
 .search-suggestions li {
@@ -232,7 +234,6 @@ body {
   font-size: 0.9em;
   color: var(--price-color);
 }
-
 
 
 /* ===== SIDEBAR ===== */
@@ -782,27 +783,26 @@ footer {
     background-color: #fff;
 }
 
-/* === PWA INSTALL BUTTON PROFESSIONAL === */
+/* === PWA INSTALL BUTTON PROFESSIONAL (POSISI BARU) === */
 .pwa-install-btn {
   position: fixed;
-  bottom: 110px;
+  top: 68px;              /* ↓ tepat di bawah header */
   right: 12px;
-  z-index: 9999;
+  z-index: 9000;          /* di bawah header & search */
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 
   background: #f6b042;
   color: #fff;
-  padding: 10px 14px;
-  border-radius: 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
   border: none;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
 
   box-shadow: 0 4px 14px rgba(0,0,0,0.22);
   cursor: pointer;
-
   transition: all .25s ease;
 }
 
