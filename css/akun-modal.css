@@ -4,6 +4,54 @@
  * Unauthorized copying, modification, or distribution of this file is strictly prohibited.
  */
 
+/* ================= VARIABEL DARK MODE ================= */
+:root {
+  /* BACKGROUND & TEXT */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-modal: #fff;
+  --bg-tab: #fff;
+  --bg-tab-active: #4CAF50;
+  --bg-button-primary: #4CAF50;
+  --bg-button-secondary: #FF5252;
+  --text-primary: #000000;
+  --text-secondary: #555555;
+  --text-tab-active: #ffffff;
+  --border-color: #eee;
+  --border-color-dark: #444;
+  --pp-border: #4CAF50;
+
+  /* DARK MODE OVERRIDE */
+  --bg-primary-dark: #121212;
+  --bg-secondary-dark: #1e1e1e;
+  --bg-modal-dark: #1e1e1e;
+  --bg-tab-dark: #2c2c2c;
+  --bg-tab-active-dark: #4CAF50;
+  --bg-button-primary-dark: #4CAF50;
+  --bg-button-secondary-dark: #FF5252;
+  --text-primary-dark: #e0e0e0;
+  --text-secondary-dark: #aaa;
+  --text-tab-active-dark: #fff;
+  --border-color-dark-mode: #333;
+  --pp-border-dark: #4CAF50;
+}
+
+/* ================= DARK MODE SWITCH ================= */
+[data-theme="dark"] {
+  --bg-primary: var(--bg-primary-dark);
+  --bg-secondary: var(--bg-secondary-dark);
+  --bg-modal: var(--bg-modal-dark);
+  --bg-tab: var(--bg-tab-dark);
+  --bg-tab-active: var(--bg-tab-active-dark);
+  --bg-button-primary: var(--bg-button-primary-dark);
+  --bg-button-secondary: var(--bg-button-secondary-dark);
+  --text-primary: var(--text-primary-dark);
+  --text-secondary: var(--text-secondary-dark);
+  --text-tab-active: var(--text-tab-active-dark);
+  --border-color: var(--border-color-dark-mode);
+  --pp-border: var(--pp-border-dark);
+}
+
 /* ================= MODAL AKUN ================= */
 #account-backdrop {
   position: fixed;
@@ -19,7 +67,8 @@
   width: 100%;
   max-width: 430px;
   height: 100vh;
-  background: #fff;
+  background: var(--bg-modal);
+  color: var(--text-primary);
   display: flex;
   flex-direction: column;
   border-radius: 0;
@@ -31,7 +80,7 @@
   padding: 16px 20px;
   font-size: 1.3em;
   text-align: center;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border-color);
   flex-shrink: 0;
 }
 
@@ -40,8 +89,8 @@
   display: flex;
   gap: 10px;
   padding: 10px 16px;
-  border-bottom: 1px solid #eee;
-  background: #fff;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-tab);
   flex-shrink: 0;
 }
 
@@ -50,13 +99,14 @@
   padding: 10px 0;
   border: none;
   border-radius: 8px;
-  background: #eee;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
   cursor: pointer;
 }
 
 .tab-btn.active {
-  background: #4CAF50;
-  color: #fff;
+  background: var(--bg-tab-active);
+  color: var(--text-tab-active);
 }
 
 /* TAB CONTENT */
@@ -86,7 +136,7 @@
   height: 90px;
   object-fit: cover;
   border-radius: 50%;
-  border: 2px solid #4CAF50;
+  border: 2px solid var(--pp-border);
 }
 
 #btn-ubah-pp {
@@ -94,8 +144,8 @@
   margin-top: 10px;
   padding: 6px 12px;
   border: none;
-  background: #4CAF50;
-  color: #fff;
+  background: var(--bg-button-primary);
+  color: var(--text-tab-active);
   border-radius: 6px;
   font-size: 13px;
 }
@@ -109,8 +159,10 @@
 
 .acc-form input {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 6px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 /* TOMBOL BAWAH FIX */
@@ -119,11 +171,11 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: #fff;
+  background: var(--bg-modal);
   padding: 12px 16px;
   display: flex;
   gap: 10px;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--border-color);
   z-index: 20;
 }
 
@@ -134,17 +186,18 @@
   border-radius: 8px;
   font-size: 15px;
   font-weight: 600;
-  color: white;
+  color: var(--text-tab-active);
 }
 
-.primary { background: #4CAF50; }
-.secondary { background: #FF5252; }
+.primary { background: var(--bg-button-primary); }
+.secondary { background: var(--bg-button-secondary); }
 
 /* RIWAYAT ITEMS */
 .riwayat-item {
   padding: 8px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border-color);
   font-size: 0.95rem;
+  color: var(--text-secondary);
 }
 
 .riwayat-item ul {
@@ -157,15 +210,15 @@
   margin-bottom: 2px;
 }
 
-
-
 /* HEADER BAR BARU */
 .acc-header {
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 16px 16px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-modal);
+  color: var(--text-primary);
 }
 
 .acc-header h3 {
@@ -181,6 +234,7 @@
   font-size: 1.4em;
   cursor: pointer;
   padding: 0 10px;
+  color: var(--text-primary);
 }
 
 /* SEMBUNYIKAN TOMBOL SIMPAN KETIKA BUKAN TAB PROFIL */
