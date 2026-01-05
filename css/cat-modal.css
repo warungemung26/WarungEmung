@@ -1,12 +1,13 @@
 /*!
  * Copyright (c) 2025, Atos
  * All rights reserved.
- * Unauthorized copying, modification, or distribution of this file is strictly prohibited.
  */
 
-/* ===== THEME VARIABLES ===== */
+/* ======================================================
+   THEME VARIABLES
+====================================================== */
 :root {
-  /* Kategori Grid */
+  /* GRID & ITEM */
   --cat-grid-bg: #fff;
   --cat-bg: #fff8e1;
   --cat-border: #fdd835;
@@ -14,66 +15,96 @@
   --cat-hover-bg: #fff3cd;
   --cat-active-bg: #ffe082;
   --cat-active-border: #fbc02d;
-  --cat-active-shadow: rgba(255,193,7,0.3);
-  --cat-icon-color: #fbc02d;
+  --cat-active-shadow: rgba(255,193,7,.3);
 
-  /* Footer */
-  --footer-text: #666;
+  /* MODAL */
+  --cat-modal-bg: #fffef8;
+  --cat-modal-border: #e5decf;
+  --cat-modal-title-bg: #fffdf7;
+  --cat-modal-title-color: #764d2f;
+  --cat-modal-close-bg: #fff7ec;
+  --cat-modal-close-border: #e0d2bc;
+  --cat-modal-close-color: #8b5a2b;
+  --cat-option-bg: #fff;
+  --cat-option-border: #e5dcc9;
+  --cat-option-hover-bg: #f7f1e4;
+  --cat-option-hover-border: #d1c2a5;
+  --cat-option-text: #5e4329;
 }
 
+/* DARK MODE OVERRIDE */
 [data-theme="dark"] {
-  /* Kategori Grid Dark */
   --cat-grid-bg: #1e1e1e;
   --cat-bg: #2a2a2a;
   --cat-border: #555;
-  --cat-text: #fff;
+  --cat-text: #e0e0e0;
   --cat-hover-bg: #333;
   --cat-active-bg: #444;
   --cat-active-border: #4CAF50;
-  --cat-active-shadow: rgba(76,175,80,0.3);
-  --cat-icon-color: #ffcc00;
+  --cat-active-shadow: rgba(76,175,80,.3);
 
-  /* Footer Dark */
-  --footer-text: #ccc;
+  --cat-modal-bg: #2c2c2c;
+  --cat-modal-border: #444;
+  --cat-modal-title-bg: #333;
+  --cat-modal-title-color: #fff;
+  --cat-modal-close-bg: #3a3a3a;
+  --cat-modal-close-border: #555;
+  --cat-modal-close-color: #fff;
+  --cat-option-bg: #2a2a2a;
+  --cat-option-border: #555;
+  --cat-option-hover-bg: #3a3a3a;
+  --cat-option-hover-border: #666;
+  --cat-option-text: #e0e0e0;
 }
 
-/* ===== Kategori Grid ===== */
-/* === KATEGORI: GRID 2 BARIS + SLIDE HORIZONTAL === */
-.kategori-grid {
+/* ======================================================
+   BLOK 1 — MENU KATEGORI (GRID + SLIDER)
+====================================================== */
+
+.cat-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* grid slider */
+.kategori-grid,
+#cat-scroll {
   display: grid;
   grid-auto-flow: column;
-  grid-template-rows: repeat(2, 1fr); /* dua baris */
-  grid-auto-columns: 90px;            /* lebar tiap item */
-  gap: 10px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-auto-columns: 75px;
+  gap: 8px;
+  padding: 8px;
+  width: 100%;
   overflow-x: auto;
-  padding: 10px;
+  background: var(--cat-grid-bg);
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  background: var(--cat-grid-bg);
-  width: 100%;
+  scrollbar-width: none;
 }
 
+/* scrollbar webkit */
 .kategori-grid::-webkit-scrollbar {
   height: 6px;
 }
-
 .kategori-grid::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: #888; /* lebih kontras di dark mode */
   border-radius: 20px;
 }
 
-/* Item kategori tetap sama â€” tidak diubah */
+/* item kategori */
 .cat {
   background: var(--cat-bg);
   border: 1px solid var(--cat-border);
   border-radius: 12px;
+  padding: 6px 4px;
   text-align: center;
-  padding: 6px 3px;
   font-size: 12px;
   color: var(--cat-text);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  transition: all 0.2s ease;
   cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,.05);
+  transition: .2s ease;
 }
 
 .cat:hover {
@@ -87,73 +118,61 @@
   box-shadow: 0 0 4px var(--cat-active-shadow);
 }
 
+/* HARD LOCK ICON */
 .cat img.cat-icon {
-  width: 28px;
-  height: 28px;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px;
+  min-height: 28px;
+  max-width: 28px;
+  max-height: 28px;
   object-fit: contain;
-  margin-bottom: 5px;
   display: block;
+  margin: 0 auto 5px;
+  flex-shrink: 0;
 }
 
-/* === WRAPPER SLIDER === */
-.cat-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
+.kategori-grid img {
+  max-width: none !important;
+  height: 28px !important;
 }
 
-/* === SCROLL HORIZONTAL === */
-#cat-scroll {
-  display: grid !important;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(2, 1fr);
-  grid-auto-columns: 75px;   /* ðŸ”¥ Ramping */
-  gap: 8px;                  /* Sedikit lebih rapat */
-  padding: 8px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.cat-arrow {
-  transition: opacity .25s ease;
-}
-
-
-/* === TOMBOL PANAH === */
+/* arrow slider */
 .cat-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 5;
+  z-index: 10;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
   background: var(--cat-active-bg);
   border: 1px solid var(--cat-active-border);
   color: var(--cat-text);
   font-size: 18px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,.2);
+  transition: .25s ease;
 }
 
-.cat-arrow.left { left: -5px; }
+.cat-arrow.left  { left: -5px; }
 .cat-arrow.right { right: -5px; }
 
 .cat-arrow:hover {
   transform: translateY(-50%) scale(1.1);
 }
 
+/* ======================================================
+   BLOK 2 — MODAL KATEGORI
+====================================================== */
 
-/* ================== CATEGORY MODAL ================== */
 #cat-modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,.4);
   display: none;
   align-items: center;
   justify-content: center;
@@ -165,76 +184,88 @@
 }
 
 #cat-modal {
-  background: #fffef8;
+  background: var(--cat-modal-bg);
   width: 330px;
   max-width: 92%;
-  max-height: 80vh;       /*  tidak full, ada batas */
+  max-height: 80vh;
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-  overflow: hidden;       /* penting agar scroll hanya di body */
-  position: relative;
+  border: 1px solid var(--cat-modal-border);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  overflow: hidden;
   transform: translateY(-10px) scale(.96);
   opacity: 0;
   transition: .25s ease;
-  border: 1px solid #e5decf;
 }
 
 #cat-modal.open {
-  opacity: 1;
   transform: translateY(0) scale(1);
+  opacity: 1;
 }
 
-/* HEADER FIXED / TIDAK SCROLL */
+/* header modal */
 .cat-title {
   margin: 0;
   padding: 14px 16px 10px;
   font-size: 17px;
   font-weight: 600;
   text-align: center;
-  color: #764d2f;
-  border-bottom: 1px solid #e8e1d2;
-  background: #fffdf7;
-  position: relative;   /*  penting: supaya tombol X muncul */
+  color: var(--cat-modal-title-color);
+  background: var(--cat-modal-title-bg);
+  border-bottom: 1px solid var(--cat-modal-border);
+  position: relative;
 }
 
+/* tombol X */
 #cat-modal .close-btn {
   position: absolute;
   top: 10px;
   right: 12px;
-  background: none;
-  border: none;
-  font-size: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cat-modal-close-bg);
+  border: 1px solid var(--cat-modal-close-border);
+  color: var(--cat-modal-close-color);
+  font-size: 18px;
   cursor: pointer;
-  color: #a67c52;
-  z-index: 20;
+  z-index: 50;
 }
 
+#cat-modal .close-btn:hover {
+  background: var(--cat-modal-close-bg-hover, #f2e6d5);
+}
 
-/* BODY SCROLL */
+#cat-modal .close-btn i {
+  pointer-events: none;
+}
+
+/* body modal */
 .cat-body {
   padding: 10px 0 16px;
-  overflow-y: auto;           /*  hanya body yg scroll */
-  max-height: calc(80vh - 60px); /* 60px = header height */
+  overflow-y: auto;
+  max-height: calc(80vh - 60px);
 }
 
-/* ITEM CAT */
+/* item modal */
 #cat-options .cat {
-  padding: 12px 18px;
   margin: 2px 8px;
-  background: #fff;
+  padding: 12px 18px;
+  background: var(--cat-option-bg);
   border-radius: 10px;
-  border: 1px solid #e5dcc9;
-  cursor: pointer;
+  border: 1px solid var(--cat-option-border);
+  font-size: 15px;
+  color: var(--cat-option-text);
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 15px;
-  color: #5e4329;
   transition: .15s ease;
 }
 
 #cat-options .cat:hover {
-  background: #f7f1e4;
-  border-color: #d1c2a5;
+  background: var(--cat-option-hover-bg);
+  border-color: var(--cat-option-hover-border);
   transform: translateX(2px);
 }
