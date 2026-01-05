@@ -4,6 +4,74 @@
  * Unauthorized copying, modification, or distribution of this file is strictly prohibited.
  */
 
+/* ================= VARIABEL DARK MODE ================= */
+:root {
+  /* BACKGROUND & TEXT */
+  --bg-modal: #fff;
+  --bg-backdrop: rgba(0,0,0,0.35);
+  --bg-item: #f5f5f5;
+  --bg-qty-btn: #f5f5f5;
+  --bg-total: #fff;
+  --bg-wa: #25D366;
+  --bg-wa-hover: #1ebe5d;
+  --bg-clear: #ffebee;
+  --bg-clear-hover: #ffcdd2;
+  --bg-close: #eee;
+  --bg-close-hover: #ddd;
+
+  --text-primary: #000;
+  --text-secondary: #333;
+  --text-clear: #e53935;
+  --text-wa: #fff;
+
+  --border-color: #eee;
+  --border-dashed: #ddd;
+
+  /* DARK MODE OVERRIDE */
+  --bg-modal-dark: #1e1e1e;
+  --bg-backdrop-dark: rgba(0,0,0,0.6);
+  --bg-item-dark: #2c2c2c;
+  --bg-qty-btn-dark: #3a3a3a;
+  --bg-total-dark: #1e1e1e;
+  --bg-wa-dark: #25D366;
+  --bg-wa-hover-dark: #1ebe5d;
+  --bg-clear-dark: #b71c1c;
+  --bg-clear-hover-dark: #e53935;
+  --bg-close-dark: #333;
+  --bg-close-hover-dark: #444;
+
+  --text-primary-dark: #e0e0e0;
+  --text-secondary-dark: #ccc;
+  --text-clear-dark: #ffcdd2;
+  --text-wa-dark: #fff;
+
+  --border-color-dark-mode: #444;
+  --border-dashed-dark-mode: #555;
+}
+
+/* ================= DARK MODE SWITCH ================= */
+[data-theme="dark"] {
+  --bg-modal: var(--bg-modal-dark);
+  --bg-backdrop: var(--bg-backdrop-dark);
+  --bg-item: var(--bg-item-dark);
+  --bg-qty-btn: var(--bg-qty-btn-dark);
+  --bg-total: var(--bg-total-dark);
+  --bg-wa: var(--bg-wa-dark);
+  --bg-wa-hover: var(--bg-wa-hover-dark);
+  --bg-clear: var(--bg-clear-dark);
+  --bg-clear-hover: var(--bg-clear-hover-dark);
+  --bg-close: var(--bg-close-dark);
+  --bg-close-hover: var(--bg-close-hover-dark);
+
+  --text-primary: var(--text-primary-dark);
+  --text-secondary: var(--text-secondary-dark);
+  --text-clear: var(--text-clear-dark);
+  --text-wa: var(--text-wa-dark);
+
+  --border-color: var(--border-color-dark-mode);
+  --border-dashed: var(--border-dashed-dark-mode);
+}
+
 /* === Modal Keranjang Fix Style === */
 #cart-backdrop {
   position: fixed;
@@ -11,17 +79,15 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.35);
+  background: var(--bg-backdrop);
   display: none;
   z-index: 99998;
   pointer-events: auto;  /* WAJIB! */
 }
 
-
 #cart-backdrop.show {
   display: block;
 }
-
 
 #cart-modal {
   position: fixed;
@@ -29,10 +95,12 @@
   right: 10px;
   width: 320px;
   max-height: 70vh;
-  background: #fff;
+  background: var(--bg-modal);
+  color: var(--text-primary);
   border-radius: 12px;
   box-shadow: 0 6px 24px rgba(0,0,0,0.25);
   padding: 14px;
+  padding-top: 36px; /* ruang untuk tombol close */
   display: none;
   flex-direction: column;
   overflow: hidden;
@@ -55,7 +123,7 @@
   margin: 0 0 10px;
   font-size: 16px;
   font-weight: bold;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 6px;
   text-align: center;
 }
@@ -72,7 +140,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 6px 0;
-  border-bottom: 1px dashed #ddd;
+  border-bottom: 1px dashed var(--border-dashed);
 }
 
 #cart-items .name {
@@ -90,8 +158,9 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  border: 1px solid #ccc;
-  background: #f5f5f5;
+  border: 1px solid var(--border-color);
+  background: var(--bg-qty-btn);
+  color: var(--text-primary);
   cursor: pointer;
   line-height: 18px;
 }
@@ -106,7 +175,8 @@
   text-align: right;
   font-weight: bold;
   padding: 8px 0;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
 }
 
 #wa-cart,
@@ -122,43 +192,24 @@
 }
 
 #wa-cart {
-  background: #25D366;
-  color: #fff;
+  background: var(--bg-wa);
+  color: var(--text-wa);
 }
-#wa-cart:hover { background: #1ebe5d; }
+#wa-cart:hover { background: var(--bg-wa-hover); }
 
 #clear-cart {
-  background: #ffebee;
-  color: #e53935;
+  background: var(--bg-clear);
+  color: var(--text-clear);
 }
-#clear-cart:hover { background: #ffcdd2; }
+#clear-cart:hover { background: var(--bg-clear-hover); }
 
 #close-cart {
-  background: #eee;
-  color: #333;
+  background: var(--bg-close);
+  color: var(--text-secondary);
 }
-#close-cart:hover { background: #ddd; }
+#close-cart:hover { background: var(--bg-close-hover); }
 
-/* === Close Button Absolute in Modal === */
-#cart-modal {
-  position: fixed;
-  bottom: 70px;
-  right: 10px;
-  width: 320px;
-  max-height: 70vh;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
-  padding: 14px;
-  padding-top: 36px; /* tambah ruang untuk tombol close */
-  display: none;
-  flex-direction: column;
-  overflow: hidden;
-  z-index: 99999;
-  transition: all 0.25s ease;
-  font-size: 14px;
-}
-
+/* Close Button Absolute in Modal */
 #close-cart.close-x {
   position: absolute;
   top: 10px;
@@ -167,8 +218,8 @@
   height: 28px;
   border: none;
   border-radius: 50%;
-  background: #f2f2f2;
-  color: #333;
+  background: var(--bg-close);
+  color: var(--text-secondary);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -177,7 +228,7 @@
 }
 
 #close-cart.close-x:hover {
-  background: #e2e2e2;
+  background: var(--bg-close-hover);
 }
 
 .pi-logo {
