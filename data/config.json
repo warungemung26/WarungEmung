@@ -1,0 +1,9 @@
+{
+  "whatsapp": {
+    "number": "6285220370383",
+    "defaultMessage": "Halo Warung Emung",
+    "requestMessage": "Halo Warung Emung, saya ingin request produk:",
+    "orderMessage": "Halo Warung Emung, saya ingin memesan produk berikut:",
+    "cekMessage": "Halo Warung Emung, saya ingin cek pesanan saya."
+  }
+}
