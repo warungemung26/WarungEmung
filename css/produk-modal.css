@@ -4,11 +4,74 @@
  * Unauthorized copying, modification, or distribution of this file is strictly prohibited.
  */
 
-/* BACKDROP */
+/* ================= VARIABEL DARK MODE ================= */
+:root {
+  --pm-bg: #fff;
+  --pm-backdrop: rgba(0,0,0,0.35);
+  --pm-sheet-bg: #fff;
+  --pm-topbar-bg: #fff;
+  --pm-topbar-color: #444;
+  --pm-handle: #ccc;
+
+  --pm-btn-bg: #f5f5f5;
+  --pm-btn-color: #444;
+  --pm-btn-shadow: rgba(0,0,0,0.15);
+
+  --pm-title: #333;
+  --pm-price: #d9534f;
+
+  --pm-qty-bg: #eee;
+  --pm-qty-color: #000;
+  --pm-number: #333;
+
+  --pm-wishlist-bg: #eee;
+  --pm-wishlist-color: #555;
+  --pm-wishlist-active-bg: #ff4b4b;
+  --pm-wishlist-active-color: #fff;
+
+  --pm-add-bg: #28a745;
+  --pm-add-color: #fff;
+
+  --pm-share-bg: #eee;
+  --pm-share-color: #555;
+}
+
+[data-theme="dark"] {
+  --pm-bg: #1e1e1e;
+  --pm-backdrop: rgba(0,0,0,0.55);
+  --pm-sheet-bg: #2a2a2a;
+  --pm-topbar-bg: #2a2a2a;
+  --pm-topbar-color: #e0e0e0;
+  --pm-handle: #555;
+
+  --pm-btn-bg: #333;
+  --pm-btn-color: #fff;
+  --pm-btn-shadow: rgba(0,0,0,0.5);
+
+  --pm-title: #e0e0e0;
+  --pm-price: #ffb74d;
+
+  --pm-qty-bg: #1e1e1e;
+  --pm-qty-color: #fff;
+  --pm-number: #fff;
+
+  --pm-wishlist-bg: #333;
+  --pm-wishlist-color: #eee;
+  --pm-wishlist-active-bg: #ff4b4b;
+  --pm-wishlist-active-color: #fff;
+
+  --pm-add-bg: #28a745;
+  --pm-add-color: #fff;
+
+  --pm-share-bg: #333;
+  --pm-share-color: #eee;
+}
+
+/* ================= BACKDROP ================= */
 .pm-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.35);
+  background: var(--pm-backdrop);
   backdrop-filter: blur(2px);
   display: none;
   justify-content: end;
@@ -17,54 +80,35 @@
   pointer-events: auto;
 }
 
-/* FULLSCREEN SHEET */
+/* ================= FULLSCREEN SHEET ================= */
 .pm-sheet {
   width: 100%;
-  background: #fff;
+  background: var(--pm-sheet-bg);
   border-radius: 16px 16px 0 0;
   padding: 18px;
   padding-top: 20px;
   position: relative;
-  height: 100vh;          /* FULL SCREEN */
-  max-height: 100vh;      /* TIDAK BOLEH LEBIH */
+  height: 100vh;
+  max-height: 100vh;
   display: flex;
-  flex-direction: column; /* supaya scroll & sticky bekerja */
+  flex-direction: column;
   box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
 }
 
-/* SCROLL AREA DINAMIS */
+/* SCROLL AREA */
 .pm-scroll {
-  flex: 1;         /* AMBIL SISA RUANG */
+  flex: 1;
   overflow-y: auto;
   padding-right: 6px;
-}
-
-/* BAGIAN BAWAH TETAP */
-.pm-sticky-bottom {
-  margin-top: auto; 
-}
-
-
-/* ANIMASI */
-@keyframes pmSlideUp {
-  from { transform: translateY(100%); opacity: 0; }
-  to   { transform: translateY(0); opacity: 1; }
-}
-
-/* HANDLE */
-.pm-handle {
-  width: 46px;
-  height: 5px;
-  background: #ccc;
-  border-radius: 50px;
-  margin: 0 auto;
+  background: var(--pm-sheet-bg);
 }
 
 /* TOPBAR */
 .pm-topbar {
   position: sticky;
   top: 0;
-  background: #fff;
+  background: var(--pm-topbar-bg);
+  color: var(--pm-topbar-color);
   padding: 6px 8px;
   z-index: 5;
   border-radius: 16px 16px 0 0;
@@ -73,10 +117,19 @@
   align-items: center;
 }
 
-/* BUTTONS (BACK & CLOSE) */
+/* HANDLE */
+.pm-handle {
+  width: 46px;
+  height: 5px;
+  background: var(--pm-handle);
+  border-radius: 50px;
+  margin: 0 auto;
+}
+
+/* BUTTONS BACK & CLOSE */
 .pm-back,
 .pm-close {
-  background: #f5f5f5;
+  background: var(--pm-btn-bg);
   border: none;
   width: 32px;
   height: 32px;
@@ -86,8 +139,8 @@
   align-items: center;
   font-size: 16px;
   cursor: pointer;
-  color: #444;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  color: var(--pm-btn-color);
+  box-shadow: 0 2px 6px var(--pm-btn-shadow);
 }
 
 .pm-back i,
@@ -103,26 +156,22 @@
   margin-bottom: 14px;
 }
 
-/* TITLE */
+/* TITLE & PRICE */
 .pm-title {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 6px;
+  color: var(--pm-title);
 }
 
-/* PRICE */
 .pm-price {
   font-size: 18px;
-  color: #d9534f;
+  color: var(--pm-price);
   font-weight: bold;
   margin-bottom: 14px;
 }
 
-/* ================================
-   BAGIAN BAWAH — MINIMALIS
-   ================================ */
-
-/* WRAPPER QTY + WISHLIST */
+/* BOTTOM ROW (QTY + WISHLIST) */
 .pm-bottom-row {
   display: flex;
   justify-content: space-between;
@@ -131,7 +180,6 @@
   gap: 10px;
 }
 
-/* QTY */
 .pm-qty {
   display: flex;
   align-items: center;
@@ -143,20 +191,22 @@
   height: 28px;
   border-radius: 6px;
   border: none;
-  background: #eee;
+  background: var(--pm-qty-bg);
+  color: var(--pm-qty-color);
   font-size: 18px;
 }
 
 .pm-number {
   font-size: 15px;
+  color: var(--pm-number);
 }
 
-/* WISHLIST ICON */
+/* WISHLIST */
 .pm-wishlist {
   width: 40px;
   height: 36px;
-  background: #eee;
-  color: #555;
+  background: var(--pm-wishlist-bg);
+  color: var(--pm-wishlist-color);
   border: none;
   border-radius: 8px;
   font-size: 18px;
@@ -167,15 +217,15 @@
 }
 
 .pm-wishlist.active {
-  background: #ff4b4b;
-  color: #fff;
+  background: var(--pm-wishlist-active-bg);
+  color: var(--pm-wishlist-active-color);
 }
 
 /* ADD BUTTON */
 .pm-add {
   width: 100%;
-  background: #28a745;
-  color: #fff;
+  background: var(--pm-add-bg);
+  color: var(--pm-add-color);
   border: none;
   padding: 10px;
   border-radius: 8px;
@@ -187,22 +237,12 @@
   gap: 6px;
 }
 
-/* FILTER */
-.filter-container {
-  margin: 10px;
-}
-
-#filter-harga {
-  padding: 6px;
-  border-radius: 6px;
-}
-
-/* SHARE ICON (MINIMALIS — SEJAJAR WISHLIST) */
-.pm-share{
+/* SHARE ICON */
+.pm-share {
   width: 40px;
   height: 36px;
-  background: #eee;
-  color: #555;
+  background: var(--pm-share-bg);
+  color: var(--pm-share-color);
   border: none;
   border-radius: 8px;
   font-size: 16px;
@@ -212,13 +252,6 @@
   transition: 0.2s;
 }
 
-/* efek tap */
-.pm-share:active{
+.pm-share:active {
   transform: scale(0.95);
-}
-
-/* dark mode (jika ada body.dark) */
-body.dark .pm-share{
-  background:#2a2a2a;
-  color:#eee;
 }
