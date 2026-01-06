@@ -1762,5 +1762,12 @@
     "price": 7000,
     "img": "images/mybaby-kayu-putih-30ml.jpg",
     "category": "obat"
+  },
+  {
+    "name": "Cireng Annisa Isi Ayam",
+    "slug": "cireng-annisa-isi-ayam",
+    "price": 3000,
+    "img": "images/cireng-annisa.jpg",
+    "category": "makanan"
   }
 ]
