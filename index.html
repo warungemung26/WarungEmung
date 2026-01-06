@@ -499,8 +499,22 @@ Cepat, hemat, dan dekat rumah 🏡
   <p><i class="fas fa-map-marker-alt info-map"></i> Melayani area sekitar</p>
   <p><i class="fas fa-truck info-truck"></i> Antar cepat – bayar langsung</p>
   <p><i class="fab fa-whatsapp info-whatsapp"></i> Bisa pesan via WhatsApp</p>
-</div>
+<div class="order-guide">
+  <details id="orderGuide">
+    <summary>
+      <i class="fas fa-question-circle"></i>
+      Cara Pesan
+    </summary>
 
+    <ol class="order-steps">
+      <li><strong>Isi profil & alamat</strong></li>
+      <li><strong>Cari produk</strong> via search / kategori</li>
+      <li><strong>Tambah ke keranjang</strong></li>
+      <li><strong>Buka troli</strong></li>
+      <li><strong>Pesan sekarang</strong> via WhatsApp</li>
+    </ol>
+  </details>
+</div>
 
 <!-- ============================
      MODAL DETAIL PRODUK (SLIDE UP)
@@ -920,6 +934,25 @@ if ('serviceWorker' in navigator) {
 }
 </script>
 
+<script>
+(function () {
+  const guide = document.getElementById("orderGuide");
+  if (!guide) return;
+
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    if (!guide.open) return;
+
+    // jika user benar-benar scroll (bukan goyang kecil)
+    if (Math.abs(window.scrollY - lastScrollY) > 10) {
+      guide.open = false;
+    }
+
+    lastScrollY = window.scrollY;
+  }, { passive: true });
+})();
+</script>
 
 
 
