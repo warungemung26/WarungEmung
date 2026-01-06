@@ -803,6 +803,13 @@ input:checked + .slider::before {
   100% { opacity: 1; }
 }
 
+/* ===== SINKRON LEBAR HEADER & GRID PRODUK ===== */
+#produk-list {
+  margin-left: -16px;
+  margin-right: -16px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
 
 /* ===== THEME VARIABLES ===== */
 :root {
@@ -1125,4 +1132,5 @@ input:checked + .slider::before {
     background-color: #2a2a2a !important;
   }
 }
+
 
