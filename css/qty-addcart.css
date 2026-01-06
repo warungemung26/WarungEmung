@@ -5,6 +5,8 @@
  */
 
 /* ================= QTY & BUTTON WARNA WARUNG ================= */
+
+/* ===== CARD ===== */
 .card {
   background: #fffef8;
   border-radius: 12px;
@@ -13,10 +15,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
-.card:hover { transform: translateY(-2px); }
 
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* ===== WRAPPER ===== */
 .controls-wrapper {
   display: flex;
   align-items: center;
@@ -26,7 +32,7 @@
   gap: 8px;
 }
 
-/* ======= QTY CONTROL ======= */
+/* ===== QTY CONTROL ===== */
 .qty-controls {
   display: flex;
   align-items: center;
@@ -46,39 +52,56 @@
   transition: background 0.2s ease, transform 0.1s ease;
 }
 
+.qty-controls button:active {
+  transform: scale(0.9);
+}
+
+/* tombol minus / plus */
 .btn-minus {
-  background: #e57373; /* merah lembut */
+  background: #e57373;
 }
+
 .btn-plus {
-  background: #81c784; /* hijau daun */
+  background: #81c784;
 }
 
-.qty-controls button:hover { opacity: 0.9; }
+.qty-controls button:hover {
+  opacity: 0.9;
+}
 
+/* angka qty (2 digit fixed) */
 .qty-number {
   background: #fffdf6;
-  padding: 0 10px;
-  min-width: 32px;
+  padding: 0;
+  width: 28px;
+  min-width: 28px;
+  max-width: 28px;
   text-align: center;
   font-weight: 600;
+  font-size: 13px;
   color: #333;
 }
 
-/* ======= ADD BUTTON ======= */
+/* ===== ADD BUTTON (SAMA DENGAN QTY) ===== */
 .add-btn {
-  background: #f9a825; /* oranye khas warung */
+  background: #f9a825;
   color: #fff;
   border: none;
-  border-radius: 10px;
-  width: 38px;
-  height: 38px;
+  border-radius: 8px;       /* sama dengan qty-controls */
+  
+  width: 32px;              /* disesuaikan dengan button qty */
+  height: 32px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+
+  font-size: 0;
+  line-height: 0;
+
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-  transition: background 0.2s ease, transform 0.1s ease;
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
 }
 
 .add-btn:hover {
@@ -86,4 +109,28 @@
   transform: scale(1.05);
 }
 
-.add-btn i { font-size: 16px; }
+.add-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* ICON KERANJANG */
+.add-btn i {
+  font-size: 16px;
+  line-height: 1;
+  display: block;
+}
+
+/* ===== DARK MODE UPDATE ===== */
+[data-theme="dark"] {
+  .add-btn {
+    background: #f9a825;
+    color: #111;
+    border-radius: 8px;      /* sama dengan qty dark */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  }
+
+  .add-btn:hover {
+    background: #ffb300;
+  }
+}
