@@ -8,6 +8,7 @@ function getProdukSlug(){
   return new URLSearchParams(window.location.search).get('produk');
 }
 
+
 function shuffle(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -16,227 +17,223 @@ function shuffle(arr) {
   return arr;
 }
 
-/* =========================================================
-   GLOBAL STATE
-========================================================= */
-let isAllMode = false;
-let allIndex = 0;
-const ALL_CHUNK = 24;
-let currentCurrency = 'Rp';
 
-/* =========================================================
-   LAZY IMAGE OBSERVER
-========================================================= */
-const imgObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const img = entry.target;
-      img.src = img.dataset.src;
-      imgObserver.unobserve(img);
-    }
-  });
-}, { rootMargin: '200px' });
-
-/* =========================================================
-   FORMAT PRICE BY CURRENCY (SINGLE SOURCE)
-========================================================= */
-function renderPrice(el, priceRp){
-  el.dataset.priceRp = priceRp;
-
-  if (currentCurrency === 'PI') {
-    el.innerHTML = `<img src="images/pi-logo.png" class="pi-logo">
-                    PI ${(priceRp / 3200).toFixed(2)}`;
-  } else {
-    el.textContent = formatPrice(priceRp, currentCurrency);
-  }
-}
-
-/* =========================================================
-   CREATE CARD (REUSABLE)
-========================================================= */
-function createCard(p){
-  const card = document.createElement('div');
-  card.className = 'card';
-
-  const img = document.createElement('img');
-  img.dataset.src = p.img;
-  img.src = 'images/placeholder.png';
-  img.alt = p.name;
-  img.loading = 'lazy';
-  card.appendChild(img);
-  imgObserver.observe(img);
-
-  const title = document.createElement('div');
-  title.className = 'title';
-  title.textContent = p.name;
-  card.appendChild(title);
-
-  const price = document.createElement('div');
-  price.className = 'price';
-  renderPrice(price, p.price);
-  card.appendChild(price);
-
-  const controlsWrapper = document.createElement('div');
-  controlsWrapper.className = 'controls-wrapper';
-
-  const controls = document.createElement('div');
-  controls.className = 'qty-controls';
-
-  let q = 1;
-  const qty = document.createElement('span');
-  qty.className = 'qty-number';
-  qty.textContent = q;
-
-  const minus = document.createElement('button');
-  minus.className = 'btn-minus';
-  minus.textContent = '-';
-  minus.onclick = e => {
-    e.stopPropagation();
-    if (q > 1) qty.textContent = --q;
-  };
-
-  const plus = document.createElement('button');
-  plus.className = 'btn-plus';
-  plus.textContent = '+';
-  plus.onclick = e => {
-    e.stopPropagation();
-    qty.textContent = ++q;
-  };
-
-  controls.append(minus, qty, plus);
-
-  const add = document.createElement('button');
-  add.className = 'add-btn';
-  add.innerHTML = '<i class="fa fa-cart-plus"></i>';
-  add.onclick = e => {
-    e.stopPropagation();
-    const existing = cart.find(it => it.name === p.name);
-    if (existing) existing.qty += q;
-    else cart.push({ name: p.name, qty: q, price: p.price });
-    updateCartCount();
-    showToast(`Ditambahkan: ${p.name} x ${q}`);
-    ding.currentTime = 0;
-    ding.play().catch(()=>{});
-    q = 1;
-    qty.textContent = '1';
-  };
-
-  controlsWrapper.append(controls, add);
-  card.appendChild(controlsWrapper);
-
-  card.onclick = () => {
-    if (p.slug) history.pushState(null, '', '?produk=' + p.slug);
-    openProdukModal(p);
-  };
-
-  return card;
-}
-
-/* =========================================================
-   RENDER NORMAL
-========================================================= */
+// ================= RENDER PRODUK =================
 function render(data) {
-  isAllMode = false;
   listEl.innerHTML = '';
-
   if (!data || data.length === 0) {
-    listEl.innerHTML =
-      '<div style="padding:12px;background:#fff;border:1px dashed #eee;border-radius:8px">Memuat Produk</div>';
+    listEl.innerHTML = '<div style="padding:12px;background:#fff;border:1px dashed #eee;border-radius:8px">Memuat Produk</div>';
     return;
   }
 
-  const fragment = document.createDocumentFragment();
-  data.forEach(p => fragment.appendChild(createCard(p)));
-  listEl.appendChild(fragment);
-}
+  data.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'card';
 
-/* =========================================================
-   RENDER ALL (INFINITE)
-========================================================= */
-function renderAll(reset = false){
-  if (reset) {
-    listEl.innerHTML = '';
-    allIndex = 0;
-    isAllMode = true;
-  }
+    const img = document.createElement('img');
+    img.src = p.img || 'images/placeholder.png';
+    img.alt = p.name;
+    card.appendChild(img);
 
-  const slice = products.slice(allIndex, allIndex + ALL_CHUNK);
-  if (slice.length === 0) return;
+    const title = document.createElement('div');
+    title.className = 'title';
+    title.textContent = p.name;
+    card.appendChild(title);
 
-  const fragment = document.createDocumentFragment();
-  slice.forEach(p => fragment.appendChild(createCard(p)));
-  listEl.appendChild(fragment);
+    const price = document.createElement('div');
+price.className = 'price';
+price.dataset.priceRp = p.price;   // simpan harga asli dalam Rupiah
+price.textContent = formatRupiah(p.price);
+card.appendChild(price);
 
-  allIndex += ALL_CHUNK;
-}
 
-/* =========================================================
-   SCROLL LISTENER
-========================================================= */
-window.addEventListener('scroll', () => {
-  if (!isAllMode) return;
+// === Kontrol Qty + Tombol Add ===
+const controlsWrapper = document.createElement('div');
+controlsWrapper.className = 'controls-wrapper';
 
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 300) {
-    renderAll();
-  }
+const controls = document.createElement('div');
+controls.className = 'qty-controls';
+
+const minus = document.createElement('button');
+minus.type = 'button';
+minus.textContent = '-';
+minus.className = 'btn-minus';
+
+let q = 1;
+const qty = document.createElement('span');
+qty.textContent = q;
+qty.className = 'qty-number';
+
+const plus = document.createElement('button');
+plus.type = 'button';
+plus.textContent = '+';
+plus.className = 'btn-plus';
+
+minus.addEventListener('click', (e) => {
+  e.stopPropagation();
+  if (q > 1) { q--; qty.textContent = q; }
 });
 
-/* ================== MATA UANG ================== */
+plus.addEventListener('click', (e) => {
+  e.stopPropagation();
+  q++; qty.textContent = q;
+});
+
+controls.appendChild(minus);
+controls.appendChild(qty);
+controls.appendChild(plus);
+
+const add = document.createElement('button');
+add.type = 'button';
+add.className = 'add-btn';
+add.innerHTML = '<i class="fa fa-cart-plus"></i>';
+
+add.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const existing = cart.find(it => it.name === p.name);
+  if (existing) { existing.qty += q; }
+  else { cart.push({ name: p.name, qty: q, price: p.price }); }
+
+  updateCartCount();
+  showToast(`Ditambahkan: ${p.name} x ${q}`);
+
+  ding.currentTime = 0;
+  ding.play().catch(()=>{}); // aman untuk browser
+
+  q = 1;
+  qty.textContent = '1';
+});
+
+controlsWrapper.appendChild(controls);
+controlsWrapper.appendChild(add);
+card.appendChild(controlsWrapper);
+
+// === Klik card untuk buka modal detail + update URL ===
+card.addEventListener('click', () => {
+  if (p.slug) {
+    history.pushState(null, '', '?produk=' + p.slug);
+  }
+  openProdukModal(p);
+});
+
+
+listEl.appendChild(card);
+});   // <==== PENUTUP forEach
+
+}      // <==== PENUTUP fungsi render()
+
+
+
+
+let produkData = [];
+
+
+
+   
+
+
+
+// fungsi untuk render produk ke #produk-list
+function renderProducts(list) {
+  const container = document.getElementById('produk-list');
+  container.innerHTML = '';
+  list.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <img src="${p.img}" alt="${p.name}">
+      <div class="title">${p.name}</div>
+      <div class="price">Rp ${p.price.toLocaleString()}</div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// ================== OPEN PRODUK DARI URL HASH ==================
+
+
+
+// ================== SHUFFLE ==================
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// ================== MATA UANG ==================
 const currencySelect = document.getElementById('currency-select');
 
 function formatPrice(price, currency){
   switch(currency){
     case 'Rp': return 'Rp ' + Number(price).toLocaleString('id-ID');
     case '$': return '$ ' + (price / 15000).toFixed(2);
-    case 'PI': return 'PI ' + (price / 1000).toFixed(2);
+    case 'PI': return 'PI ' + (price / 1000).toFixed(2); // plain string
     default: return price;
   }
 }
 
 function updatePrices(currency){
-  currentCurrency = currency;
-  document.querySelectorAll('.price, .pm-price').forEach(el => {
-    const base = parseFloat(el.dataset.priceRp);
-    if (!isNaN(base)) renderPrice(el, base);
-  });
+  const priceEls = document.querySelectorAll('.price, .pm-price'); // semua harga
+  priceEls.forEach(el => {
+  const basePrice = parseFloat(el.dataset.priceRp);
+  if(isNaN(basePrice)) return;
+
+ if(currency === 'PI'){
+  el.innerHTML = `<img src="images/pi-logo.png" class="pi-logo">
+                  PI ${(basePrice / 3200).toFixed(2)}`;
+} else {
+    el.textContent = formatPrice(basePrice, currency);
+  }
+});
 }
 
+// inisialisasi saat load
 window.addEventListener('DOMContentLoaded', () => {
-  currentCurrency = localStorage.getItem('selectedCurrency') || 'Rp';
-  if (currencySelect) currencySelect.value = currentCurrency;
-  updatePrices(currentCurrency);
+  const savedCurrency = localStorage.getItem('selectedCurrency') || 'Rp';
+  if(currencySelect) currencySelect.value = savedCurrency;
+  updatePrices(savedCurrency);
 });
 
-if (currencySelect) {
+// event listener untuk select mata uang
+if(currencySelect){
   currencySelect.addEventListener('change', () => {
-    currentCurrency = currencySelect.value;
-    localStorage.setItem('selectedCurrency', currentCurrency);
-    updatePrices(currentCurrency);
+    const val = currencySelect.value;
+    localStorage.setItem('selectedCurrency', val);
+    updatePrices(val);
   });
 }
 
-/* ================== FETCH ================== */
-let products = [];
+
+// ================== FETCH TUNGGAL ==================
+let products = [];   // dipakai untuk kategori, scroll, filter
 
 fetch('data/produk.json')
-  .then(res => res.json())
+  .then(res => {
+    if (!res.ok) throw new Error('Gagal memuat produk.json');
+    return res.json();
+  })
   .then(data => {
     products = shuffle([...data]);
-    renderAll(true);
+    render(products);
 
+    // ✅ buka produk dari query
     const slug = getProdukSlug();
     if (slug) {
       const p = products.find(x => x.slug === slug);
-      if (p) openProdukModal(p);
+      if (p) {
+        openProdukModal(p);
+      }
     }
   })
   .catch(err => console.error(err));
 
-/* ================== FILTER ================== */
+
+// === FILTER DROPDOWN HARGA ===
 const filterSelect = document.getElementById('filter-harga');
-if (filterSelect) {
+if(filterSelect){
   filterSelect.addEventListener('change', () => {
-    isAllMode = false;
-    applyFilters();
+    applyFilters();  // hanya ini!
   });
-}
+  }
