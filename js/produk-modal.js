@@ -12,29 +12,44 @@ let lockPop = false;
    BUKA MODAL PRODUK
 ============================= */
 function openProdukModal(p) {  
+  // =====================
+  // SINKRON PRODUK AKTIF
+  // =====================
   window.currentModalProduct = p; // dipakai wishlist sinkron
 
-  // 🔴 WAJIB: kirim produk aktif ke share-pro.js
-  window.setShareProduct(p);
+  // aman untuk share-pro.js (tidak crash kalau belum load)
+  if (window.setShareProduct) {
+    window.setShareProduct(p);
+  }
 
   const bg = document.getElementById("product-modal");
 
+  // =====================
+  // HITUNG HARGA (SINGLE SOURCE)
+  // =====================
+  const hargaFinal = p.price_flash || p.price;
+  const currency = localStorage.getItem("selectedCurrency") || "Rp";
 
-  // ===================== SET DATA PRODUK =====================
+  const hargaText = currency === "PI"
+    ? `PI ${(hargaFinal / 3200).toFixed(2)}`
+    : formatPrice(hargaFinal, currency);
+
+  // =====================
+  // SET DATA PRODUK
+  // =====================
   bg.querySelector(".pm-img").src = p.img;
   bg.querySelector(".pm-title").textContent = p.name;
 
-  const hargaFinal = p.price_flash || p.price;
-  const currency = localStorage.getItem('selectedCurrency') || 'Rp';
-
-  if (currency === 'PI') {
+  if (currency === "PI") {
     bg.querySelector(".pm-price").innerHTML = `
-      <img src="images/pi-logo.png" class="pi-logo" style="width:16px;height:16px;vertical-align:middle;margin-right:4px;">
-      PI ${(hargaFinal / 3200).toFixed(2)}
+      <img src="images/pi-logo.png" class="pi-logo"
+           style="width:16px;height:16px;vertical-align:middle;margin-right:4px;">
+      ${hargaText}
     `;
   } else {
-    bg.querySelector(".pm-price").textContent = formatPrice(hargaFinal, currency);
+    bg.querySelector(".pm-price").textContent = hargaText;
   }
+
 
   const deskripsi = p.desc || p.label || generateDeskripsi(p.name, p.category);
   bg.querySelector(".pm-desc").textContent = deskripsi;
