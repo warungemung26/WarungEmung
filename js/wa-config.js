@@ -4,32 +4,38 @@
  * Unauthorized copying, modification, or distribution of this file is strictly prohibited.
  */
 
-window.WA_CONFIG = {
-  number: "6285220370383",
+let WA_CONFIG = null;
 
-  templates: {
-    request:
-`Halo Warung Emung,
+fetch('data/config.json')
+  .then(res => res.json())
+  .then(cfg => {
+    WA_CONFIG = cfg.whatsapp;
+    initWhatsAppLinks();
+  })
+  .catch(err => console.error('❌ Gagal load config WA', err));
 
-Saya ingin request produk:
+function initWhatsAppLinks() {
+  if (!WA_CONFIG) return;
 
- Produk: {{produk}}
- Jumlah: {{jumlah}}
+  document.querySelectorAll('.wa-link').forEach(el => {
+    const type = el.dataset.wa || 'default';
+    let text = WA_CONFIG.defaultMessage;
 
-Terima kasih.`,
+    if (type === 'request') text = WA_CONFIG.requestMessage;
+else if (type === 'order') text = WA_CONFIG.orderMessage;
+else if (type === 'cart') text = WA_CONFIG.orderMessage;
+else if (type === 'cek') text = WA_CONFIG.cekMessage;
 
-    cek:
-`Halo Warung Emung,
-Saya ingin menanyakan status pesanan terbaru saya.
+    
 
- ID Pesanan: {{id}}
- Nama: {{nama}}
- Alamat: {{alamat}}
- HP: {{hp}}
- Produk: {{produk}}
- Total: {{total}}
- Waktu: {{waktu}}
+    const url =
+      `https://wa.me/${WA_CONFIG.number}?text=${encodeURIComponent(text)}`;
 
-Mohon informasinya.`
-  }
-};
+    el.setAttribute('href', url);
+
+    // untuk button
+    if (el.tagName === 'BUTTON') {
+      el.onclick = () => window.open(url, '_blank');
+    }
+  });
+}
