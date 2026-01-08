@@ -1,0 +1,60 @@
+{
+  "start": {
+    "message": "Halo! Mau cari apa hari ini?",
+    "options": [
+      { "label": "Cari Produk", "goto": "cari_produk" },
+      { "label": "Cek Promo Flash Sale", "goto": "flash_sale" },
+      { "label": "Rekomendasi Menu Masak", "goto": "menu_masakan" },
+      { "label": "Kategori Belanja", "goto": "kategori" }
+    ]
+  },
+
+  "kategori": {
+    "message": "Pilih kategori belanja:",
+    "options": [
+      { "label": "Makanan", "goto": "cat_makanan" },
+      { "label": "Minuman", "goto": "cat_minuman" },
+      { "label": "Sembako", "goto": "cat_sembako" },
+      { "label": "Bumbu Dapur", "goto": "cat_bumbu" },
+      { "label": "Rumah Tangga", "goto": "cat_rumah" },
+      { "label": "Kembali", "goto": "start" }
+    ]
+  },
+
+  "flash_sale": {
+    "message": "Promo Flash Sale Hari Ini!",
+    "dynamic": "flash_list",
+    "options": [
+      { "label": "Kembali", "goto": "start" }
+    ]
+  },
+
+  "cari_produk": {
+    "message": "Ketik nama produk, misalnya: *minyak*, *gula*, *indomie*",
+    "input": "search_product"
+  },
+
+  "menu_masakan": {
+    "message": "Mau masak apa hari ini?",
+    "options": [
+      { "label": "Sayur Asem", "goto": "masak_sayurasem" },
+      { "label": "Soto Ayam", "goto": "masak_soto" },
+      { "label": "Capcay", "goto": "masak_capcay" },
+      { "label": "Rica-rica Ayam", "goto": "masak_rica" },
+      { "label": "Sop Ayam", "goto": "masak_sop" },
+      { "label": "Kembali", "goto": "start" }
+    ]
+  },
+
+  "masak_sayurasem": {
+    "message": "Bahan sayur asem yang tersedia di Warung Emung:",
+    "dynamic": {
+      "type": "ingredients",
+      "items": ["gula", "garam", "bawang merah", "bawang putih"]
+    },
+    "options": [
+      { "label": "Masukkan semua ke keranjang", "action": "add_all_ingredients" },
+      { "label": "Kembali", "goto": "menu_masakan" }
+    ]
+  }
+}
