@@ -50,7 +50,6 @@ function openProdukModal(p) {
     bg.querySelector(".pm-price").textContent = hargaText;
   }
 
-
   const deskripsi = p.desc || p.label || generateDeskripsi(p.name, p.category);
   bg.querySelector(".pm-desc").textContent = deskripsi;
 
@@ -110,38 +109,6 @@ function openProdukModal(p) {
       showToast("Dihapus dari Wishlist");
     }
   };
-
-// ===================== TOMBOL SHARE LINK =====================
-const btnShare = bg.querySelector('#pm-share');
-if (btnShare) {
-  btnShare.onclick = () => {
-    if (!p || !p.slug) return;
-
-    const hargaFinal = p.price_flash || p.price;
-    const currency = localStorage.getItem('selectedCurrency') || 'Rp';
-    const hargaText = currency === 'PI'
-      ? `PI ${(hargaFinal / 3200).toFixed(2)}`
-      : formatPrice(hargaFinal, currency);
-
-    const baseUrl = location.origin + location.pathname;
-    const slug = p.slug || p.name.toLowerCase().replace(/[^a-z0-9]+/g,'-');
-    const productLink = `${baseUrl}?produk=${slug}`;
-
-    // ===== TEMPLATE WA PREMIUM =====
-    const text = 
-` *${p.name}*  
- Harga: ${hargaText}  
-
- Cek produk: ${productLink}  
------------------------
- Dapatkan sekarang di *Warung Emung*!`;
-
-    window.open(
-      `https://wa.me/?text=${encodeURIComponent(text)}`,
-      "_blank"
-    );
-  };
-}
 }
 
 /* =============================
