@@ -1,0 +1,243 @@
+/* ================= GLOBAL CONTAINER ================= */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: #fafafa;
+  color: #333;
+}
+
+.container {
+  max-width: 430px;      /* sesuai dengan layout mobile/web */
+  margin: 0 auto;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+/* ================= FLASH SALE ================= */
+.flash-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;       /* beri jarak bawah ke Etalase Warung */
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.flash-card {
+  display: flex;
+  background: #fff5e8;
+  border: 1px solid #ffd7a3;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.flash-img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 12px;
+  border: 1px solid #ffe1bc;
+  flex-shrink: 0;
+}
+
+.flash-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.flash-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+.flash-label {
+  font-size: 13px;
+  color: #777;
+  margin-top: 4px;
+}
+
+.flash-price {
+  margin-top: 6px;
+}
+
+.flash-new {
+  font-size: 17px;
+  font-weight: bold;
+  color: #e65100;
+}
+
+.flash-old {
+  font-size: 13px;
+  text-decoration: line-through;
+  color: #999;
+  margin-left: 6px;
+}
+
+.flash-stock {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #333;
+  font-weight: 600;
+}
+
+.flash-title-section {
+  margin-top: 10px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Kontrol qty & add */
+.flash-control-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.flash-info .btn-minus,
+.flash-info .btn-plus {
+  width: 30px;
+  height: 30px;
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.flash-info .btn-minus { background: #e57373; }
+.flash-info .btn-plus { background: #81c784; }
+
+.flash-info .qty-number {
+  min-width: 26px;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+}
+
+.flash-info .add-btn {
+  width: 40px;
+  height: 40px;
+  background: #f9a825;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* ================= ETALASE WARUNG ================= */
+.etalase-title {
+  margin-top: 22px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#produk-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 12px;
+  margin-bottom: 30px; /* beri jarak bawah ke footer */
+}
+
+#produk-list .card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  box-sizing: border-box;
+}
+
+#produk-list .card img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+
+#produk-list .card .title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+#produk-list .card .price {
+  font-size: 13px;
+  color: #e65100;
+}
+
+/* ================= FLOATING FLASH BUTTON ================= */
+#flash-btn {
+  position: fixed;
+  bottom: 85px;
+  right: 15px;
+  width: 140px;
+  height: 52px;
+  background: linear-gradient(45deg,#ff3b30,#ff6b42);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  z-index: 999;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.32);
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+  overflow: hidden;
+  text-align: center;
+}
+
+#flash-btn.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  animation: pulse 1.5s infinite;
+}
+
+#flash-btn img {
+  width: 26px;
+  height: 26px;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+#flash-btn .flash-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+}
+
+@keyframes pulse {
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.05);}
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:400px){
+  #flash-btn{width:120px;height:46px;padding:0 10px;}
+  #flash-btn img{width:22px;height:22px;}
+  #flash-btn .flash-text{font-size:13px;}
+  #produk-list{grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));}
+  #produk-list .card img{height:90px;}
+}
