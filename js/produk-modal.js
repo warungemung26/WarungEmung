@@ -14,7 +14,11 @@ let lockPop = false;
 function openProdukModal(p) {  
   window.currentModalProduct = p; // dipakai wishlist sinkron
 
+  // 🔴 WAJIB: kirim produk aktif ke share-pro.js
+  window.setShareProduct(p);
+
   const bg = document.getElementById("product-modal");
+
 
   // ===================== SET DATA PRODUK =====================
   bg.querySelector(".pm-img").src = p.img;
@@ -112,8 +116,6 @@ if (btnShare) {
     const text = 
 ` *${p.name}*  
  Harga: ${hargaText}  
- Kategori: ${p.category || '-'}  
- Deskripsi: ${p.desc || 'Produk berkualitas untuk kebutuhan harian.'}  
 
  Cek produk: ${productLink}  
 -----------------------
