@@ -911,6 +911,30 @@ Cepat, hemat, dan dekat rumah 🏡
   </div>
 </div>
 
+<!-- ================= SHARE MODAL PRO ================= -->
+<div id="share-backdrop" class="modal-backdrop" style="display:none;">
+  <div class="share-modal">
+
+    <h3>Bagikan Produk</h3>
+
+    <div class="share-buttons">
+      <button data-share="wa"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+      <button data-share="fb"><i class="fab fa-facebook"></i> Facebook</button>
+      <button data-share="tg"><i class="fab fa-telegram"></i> Telegram</button>
+      <button data-share="tw"><i class="fab fa-x-twitter"></i> X</button>
+      <button data-share="copy"><i class="fa fa-link"></i> Salin Link</button>
+    </div>
+
+    <!-- QR -->
+    <div class="qr-box">
+      <canvas id="share-qr"></canvas>
+      <small>Scan untuk membuka produk</small>
+    </div>
+
+    <button id="close-share" class="btn-secondary">Tutup</button>
+  </div>
+</div>
+
 
   <!-- ================== JAVASCRIPT ================== -->
   <!-- Core / data -->
@@ -935,6 +959,9 @@ Cepat, hemat, dan dekat rumah 🏡
 <script src="js/pi-integration.js"></script>
 <script src="js/toast-audio.js"></script>
 <script src="js/register.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+<script src="js/share-pro.js"></script>
+
 
 
 <!-- PWA / install -->
