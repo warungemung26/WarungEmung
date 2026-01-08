@@ -1,0 +1,23 @@
+{
+  "pertanyaan_awal": {
+    "tanya": "Halo! Mau belanja keperluan apa hari ini?",
+    "opsi": [
+      "Bahan Masak",
+      "Cemilan / Snack",
+      "Minuman / Teman Santai",
+      "Bumbu / Rempah",
+      "Sembako / Kebutuhan Rumah",
+      "Lain-lain / Obat & Rumah Tangga"
+    ]
+  },
+  "produk": "data/produk.json",
+  "flash": "data/flash.json",
+  "kategori_mapping": {
+    "Bahan Masak": ["makanan", "mie"],
+    "Cemilan / Snack": ["snack"],
+    "Minuman / Teman Santai": ["minuman", "minumansachet"],
+    "Bumbu / Rempah": ["bumbu"],
+    "Sembako / Kebutuhan Rumah": ["sembako", "rumah"],
+    "Lain-lain / Obat & Rumah Tangga": ["obat", "lainnya"]
+  }
+}
