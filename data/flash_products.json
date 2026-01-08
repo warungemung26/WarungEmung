@@ -1,0 +1,35 @@
+[
+  {
+    "id": "flash-bandeng",
+    "name": "Bandeng Segar (1 Kg)",
+    "price_normal": 32000,
+    "price_flash": 28000,
+    "stock": 12,
+    "img": "images/bandeng.jpg",
+    "label": "Bandeng segar baru dipanen — 1 kg, daging tebal dan bersih.",
+    "flash_until": "2026-01-07T23:00:00",
+    "category": "flash"
+  },
+  {
+    "id": "flash-vaname",
+    "name": "Udang Vaname Segar (1 Kg)",
+    "price_normal": 55000,
+    "price_flash": 45000,
+    "stock": 9,
+    "img": "images/vaname.jpg",
+    "label": "Udang vaname baru dipanen — 1 kg premium, manis & segar.",
+    "flash_until": "2025-12-31T23:00:00",
+    "category": "flash"
+  },
+  {
+    "id": "flash-1767439466554",
+    "name": "Kolak Pisang",
+    "price_normal": 5000,
+    "price_flash": 4500,
+    "stock": 30,
+    "img": "images/kolak-pisang.jpg",
+    "label": "Untuk takjil buka puasa",
+    "flash_until": "2026-01-03T18:23",
+    "category": "flash"
+  }
+]
