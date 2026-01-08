@@ -1,3 +1,9 @@
+/*!
+ * Copyright (c) 2025, Atos
+ * All rights reserved.
+ * Unauthorized copying, modification, or distribution of this file is strictly prohibited.
+ */
+
 // ===== SHARE PRO (EDITED) =====
 const shareBtn = document.getElementById("pm-share")
 const shareBackdrop = document.getElementById("share-backdrop")
