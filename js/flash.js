@@ -3,28 +3,6 @@
  * All rights reserved.
  * Unauthorized copying, modification, or distribution of this file is strictly prohibited.
  */
- 
-// Pastikan flashplus ada supaya tombol flash+ bisa pakai
-let flashplus = []; // array atau object sesuai kebutuhan
-
-// ================= SIMPAN QTY FLASH PER PRODUK ===================
-const flashQty = {}; // simpan qty tiap produk flash
-
-function flashMinus(id) {
-  const qtyEl = document.getElementById(`qty-${id}`);
-  let q = flashQty[id] || parseInt(qtyEl.textContent) || 1;
-  if (q > 1) q--;
-  flashQty[id] = q;
-  qtyEl.textContent = q;
-}
-
-function flashPlus(id) {
-  const qtyEl = document.getElementById(`qty-${id}`);
-  let q = flashQty[id] || parseInt(qtyEl.textContent) || 1;
-  q++;
-  flashQty[id] = q;
-  qtyEl.textContent = q;
-}
 
 // ================= FLASH SALE ===================
 
@@ -45,6 +23,7 @@ function renderFlash(list) {
     const item = document.createElement("div");
     item.className = "flash-card";
 
+    // format harga
     const priceNew = (currency === 'PI')
       ? `<img src="images/pi-logo.png" class="pi-logo" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;"> PI ${(p.price_flash / 3200).toFixed(2)}`
       : formatPrice(p.price_flash, currency);
@@ -101,7 +80,8 @@ function addFlash(id) {
     .then(r => r.json())
     .then(list => {
       const p = list.find(x => x.id === id);
-      const qty = flashQty[id] || 1;
+      const qtyEl = document.getElementById("qty-" + id);
+      const qty = Number(qtyEl.innerText);
 
       if (!p) return;
 
@@ -119,11 +99,11 @@ function addFlash(id) {
       ding.play().catch(()=>{});
 
       // reset ke 1
-      flashQty[id] = 1;
-      const qtyEl = document.getElementById("qty-" + id);
-      if (qtyEl) qtyEl.innerText = "1";
+      qtyEl.innerText = "1";
     });
 }
+
+
 
 // ================= FETCH JSON ===================
 fetch("data/flash.json")
@@ -137,9 +117,10 @@ fetch("data/flash.json")
     // ===== FILTER FLASH SALE YANG BELUM KADALUARSA =====
     const now = new Date();
     flashData = data.filter(p => new Date(p.flash_until) > now);
-    renderFlash(flashData);
+renderFlash(flashData);
   })
   .catch(err => console.error("Flash error:", err));
+
 
 // ================= COUNTDOWN ===================
 function startCountdown(p) {
@@ -171,12 +152,14 @@ function startCountdown(p) {
   const timer = setInterval(update, 1000);
 }
 
+
 // ============================================
 // TOMBOL FLASH MELAYANG PRO (AUTO HIDE)
 // ============================================
 const flashBtn = document.getElementById("flash-btn");
 const flashSection = document.getElementById("flash-section");
 
+// munculkan kalau ada flash (dipanggil dari renderFlash)
 function cekFlashButton(jumlahFlash) {
   if (jumlahFlash > 0) {
     flashBtn.classList.add("show");
@@ -187,13 +170,16 @@ function cekFlashButton(jumlahFlash) {
   }
 }
 
+// smooth scroll ke flash
 flashBtn.addEventListener("click", () => {
   flashSection.scrollIntoView({ behavior: "smooth" });
 });
 
+// hide otomatis kalau sudah sampai di area flash
 window.addEventListener("scroll", () => {
   if (!flashSection) return;
   const rect = flashSection.getBoundingClientRect();
+
   const jumlahFlashAktif = document.querySelectorAll(".flash-card").length;
 
   if (rect.top <= 120 && rect.bottom >= 120) {
@@ -205,7 +191,7 @@ window.addEventListener("scroll", () => {
 });
 
 // ============================
-// LISTENER PILIH MATA UANG
+// LISTENER PILIH MATA UANG (AUTO UPDATE FLASH)
 // ============================
 document.addEventListener("DOMContentLoaded", () => {
   const currencySelect = document.getElementById("currency-select");
@@ -215,7 +201,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const val = currencySelect.value;
     localStorage.setItem("selectedCurrency", val);
 
+    // update flash sale tanpa fetch ulang
     if (typeof updateFlashDisplay === "function") updateFlashDisplay();
+
+    // optional: update riwayat dan wishlist juga
     if (typeof loadRiwayat === "function") loadRiwayat();
     if (typeof loadWishlist === "function") loadWishlist();
   });
@@ -224,6 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // ============================
 // FUNGSIONALITAS RE-RENDER FLASH
 // ============================
+// Pastikan flashData sudah didefinisikan di flash.js
 function updateFlashDisplay() {
   if (!window.flashData || !flashData.length) return;
   renderFlash(flashData);
