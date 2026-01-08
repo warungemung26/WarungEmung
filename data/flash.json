@@ -7,7 +7,7 @@
     "stock": 12,
     "img": "images/bandeng.jpg",
     "label": "Bandeng segar baru dipanen — 1 kg, daging tebal dan bersih.",
-    "flash_until": "2026-01-07T23:00:00",
+    "flash_until": "2025-12-31T23:00:00",
     "category": "flash"
   },
   {
@@ -20,27 +20,5 @@
     "label": "Udang vaname baru dipanen — 1 kg premium, manis & segar.",
     "flash_until": "2025-12-31T23:00:00",
     "category": "flash"
-  },
-  {
-    "id": "flash-1767439466554",
-    "name": "Kolak Pisang",
-    "price_normal": 5000,
-    "price_flash": 4500,
-    "stock": 30,
-    "img": "images/kolak-pisang.jpg",
-    "label": "Untuk takjil buka puasa",
-    "flash_until": "2026-01-04T18:23",
-    "category": "flash"
-  },
-{
-  "id": "flash-cireng-annisa",
-  "name": "Cireng Annisa — Pastel Ayam Suwir",
-  "price_normal": 3000,
-  "price_flash": 2000,
-  "stock": 60,
-  "img": "images/cireng-annisa.jpg",
-  "label": "Pastel cireng renyah berisi ayam suwir gurih, pedas sedang, siap jadi camilan buka puasa.",
-  "flash_until": "2026-03-20T23:59:59",
-  "category": "flash"
-}
+  }
 ]
