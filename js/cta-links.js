@@ -3,6 +3,119 @@
  * All rights reserved.
  * Unauthorized copying, modification, or distribution of this file is strictly prohibited.
  */
+ 
+ /* js/cta-links.js
+   Menangani tombol CTA (NON-WA) dengan modal konfirmasi
+*/
+
+function getSelectedCurrency() {
+  return localStorage.getItem('selectedCurrency') || 'Rp';
+}
+
+(function(){
+
+  const modal = document.getElementById('modal-confirm');
+  const modalTitle = document.getElementById('modal-title');
+  const modalMessage = document.getElementById('modal-message');
+  const modalWaInputs = document.getElementById('modal-wa-inputs');
+  const modalProduk = document.getElementById('modal-produk');
+  const modalJumlah = document.getElementById('modal-jumlah');
+  const modalOk = document.getElementById('modal-ok');
+  const modalCancel = document.getElementById('modal-cancel');
+
+  let currentAction = null;
+  let isWaFlow = false;
+
+  // ======================
+  // OPEN MODAL
+  // ======================
+  function openModal({title="Konfirmasi", message="", isWA=false, action=null} = {}) {
+    if(!modal) return fallbackModal(title, message, isWA, action);
+
+    modalTitle.textContent = title;
+    modalMessage.textContent = message || "";
+    modalWaInputs.style.display = isWA ? 'block' : 'none';
+
+    if(isWA){
+      modalProduk.value = "";
+      modalJumlah.value = "";
+    }
+
+    currentAction = action;
+    isWaFlow = !!isWA;
+
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden','false');
+  }
+
+  // 🌍 expose ke wa-handler
+  window.openModal = openModal;
+
+  // ======================
+  // CLOSE MODAL (❗ WAJIB ADA)
+  // ======================
+  function closeModal(){
+    if(!modal) return;
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden','true');
+  }
+
+  // ======================
+  // FALLBACK (NO MODAL)
+  // ======================
+  function fallbackModal(title, message, isWA, action){
+    if(isWA){
+      const produk = prompt("Nama Produk:", "");
+      if(!produk) return;
+      const jumlah = prompt("Jumlah:", "1");
+      if(!jumlah) return;
+      action && action(produk, jumlah);
+    } else {
+      if(confirm(message || title) && typeof action === 'function'){
+        action();
+      }
+    }
+  }
+
+  // ======================
+  // BUTTON EVENTS
+  // ======================
+  if(modalCancel){
+    modalCancel.addEventListener('click', closeModal);
+  }
+
+  if(modalOk){
+    modalOk.addEventListener('click', function(){
+      if(typeof currentAction !== 'function'){
+        closeModal();
+        return;
+      }
+
+      if(isWaFlow){
+        const produk = modalProduk.value.trim();
+        const jumlah = modalJumlah.value.trim();
+
+        if(!produk || !jumlah){
+          alert("Harap isi Nama Produk dan Jumlah.");
+          return;
+        }
+        currentAction(produk, jumlah);
+      } else {
+        currentAction();
+      }
+
+      closeModal();
+    });
+  }
+
+  if(modal){
+    modal.addEventListener('click', function(e){
+      if(e.target === modal) closeModal();
+    });
+  }
+
+})();
+
 
 /* js/cta-links.js
    Menangani tombol CTA (WA, anchor, link eksternal) dengan modal konfirmasi
