@@ -1,5 +1,1272 @@
 [
   {
+    "name": "Sosis Bakar mba Atin",
+    "slug": "sosis-bakar-mba-atin",
+    "price": 5000,
+    "img": "images/sosisbakar.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Kebab Lezat Mbak Atin 1pcs",
+    "slug": "kebab-lezat-mbak-atin-1pcs",
+    "price": 4000,
+    "img": "images/kebab-atin1.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Pastel Box Annisa",
+    "slug": "pastel-box-annisa",
+    "price": 5000,
+    "img": "images/pastel-annisa.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Kebab Lezat Mbak Atin 3pcs",
+    "slug": "kebab-lezat-mbak-atin-3pcs",
+    "price": 10000,
+    "img": "images/kebab-atin3.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Bakso Bakar mba Atin",
+    "slug": "bakso-bakar-mba-atin",
+    "price": 5000,
+    "img": "images/baksobakar.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Seblak Anissa",
+    "slug": "seblak-anissa",
+    "price": 5000,
+    "img": "images/seblak.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Es Good Day",
+    "slug": "es-good-day",
+    "price": 3000,
+    "img": "images/esgoodday.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Es Tea Jus",
+    "slug": "es-tea-jus",
+    "price": 2000,
+    "img": "images/esteajus.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Beras Rojolele 5kg",
+    "slug": "beras-rojolele-5kg",
+    "price": 75000,
+    "img": "images/rojolele-5kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Beras Rojolele Eceran 1kg",
+    "slug": "beras-rojolele-eceran-1kg",
+    "price": 15500,
+    "img": "images/rojolele-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Gula Pasir Gulaku 1kg",
+    "slug": "gula-pasir-gulaku-1kg",
+    "price": 18500,
+    "img": "images/gula-pas-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Minyak Goreng Curah 1L",
+    "slug": "minyak-goreng-curah-1l",
+    "price": 18000,
+    "img": "images/bimoli-1l.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Telur Ayam 1kg",
+    "slug": "telur-ayam-1kg",
+    "price": 28000,
+    "img": "images/telur-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Telur Ayam 1/4kg",
+    "slug": "telur-ayam-14kg",
+    "price": 8000,
+    "img": "images/telur-1per4.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Minyak Goreng Bimoli 2L",
+    "slug": "minyak-goreng-bimoli-2l",
+    "price": 38000,
+    "img": "images/bimoli-2l.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Tepung Terigu Segitiga Biru 1kg",
+    "slug": "tepung-terigu-segitiga-biru-1kg",
+    "price": 15500,
+    "img": "images/terigu-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Kecap Bango 520ml",
+    "slug": "kecap-bango-520ml",
+    "price": 30000,
+    "img": "images/bango-refill.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Garam Dapur 500g (Cap Dolphin / Cap Kapal)",
+    "slug": "garam-dapur-500g-cap-dolphin-cap-kapal",
+    "price": 5000,
+    "img": "images/garam-500g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Masako Ayam / Sapi Sachet",
+    "slug": "masako-ayam-sapi-sachet",
+    "price": 1000,
+    "img": "images/masako.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Kaldu Bubuk Sasa 100g",
+    "slug": "kaldu-bubuk-sasa-100g",
+    "price": 7000,
+    "img": "images/sasa-kaldububuk-100g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Penyedap Sasa Micin 250g",
+    "slug": "penyedap-sasa-micin-250g",
+    "price": 6000,
+    "img": "images/sasa-micin-250g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Saori Saus Tiram 135ml",
+    "slug": "saori-saus-tiram-135ml",
+    "price": 10000,
+    "img": "images/saori-saustiram-135g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Saos Sambal ABC Sachet",
+    "slug": "saos-sambal-abc-sachet",
+    "price": 1000,
+    "img": "images/abc-saussambal.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Saos Sambal ABC Botol 335ml",
+    "slug": "saos-sambal-abc-botol-335ml",
+    "price": 21000,
+    "img": "images/abc-saussambal-335g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Kecap ABC 520ml",
+    "slug": "kecap-abc-520ml",
+    "price": 14000,
+    "img": "images/abc-kecap-520g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Blue Band Mini Sachet",
+    "slug": "blue-band-mini-sachet",
+    "price": 1000,
+    "img": "images/blueband-mini.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Minyak Goreng Filma / Tropical 1L refill",
+    "slug": "minyak-goreng-filma-tropical-1l-refill",
+    "price": 20000,
+    "img": "images/filma-minyakgoreng-1l.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Telur Asin",
+    "slug": "telur-asin",
+    "price": 6000,
+    "img": "images/telurasin.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Gula Merah 250g",
+    "slug": "gula-merah-250g",
+    "price": 6000,
+    "img": "images/gulamerah-250.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Gula Merah Batok 250g",
+    "slug": "gula-merah-batok-250g",
+    "price": 6000,
+    "img": "images/gulamerah-batok-250.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Bawang Merah 1/4 kg",
+    "slug": "bawang-merah-14-kg",
+    "price": 10000,
+    "img": "images/bawangmerah-250g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Bawang Putih 1/4 kg",
+    "slug": "bawang-putih-14-kg",
+    "price": 9000,
+    "img": "images/bawangputih-250g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Cabe Rawit 1/4 kg",
+    "slug": "cabe-rawit-14-kg",
+    "price": 12000,
+    "img": "images/caberawit-250g.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Royco Ayam / Sapi Sachet",
+    "slug": "royco-ayam-sapi-sachet",
+    "price": 1000,
+    "img": "images/royco.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Indomie Special Chicken Rasa Ayam Special 75g",
+    "slug": "indomie-special-chicken-rasa-ayam-special-75g",
+    "price": 3500,
+    "img": "images/IND-SPECIAL-75.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Indomie Goreng Original 85g",
+    "slug": "indomie-goreng-original-85g",
+    "price": 3500,
+    "img": "images/IND-GOR-OR-85.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Indomie Goreng Pedas 85g",
+    "slug": "indomie-goreng-pedas-85g",
+    "price": 3500,
+    "img": "images/IND-GOR-PDS-85.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Mie Sedaap Rasa Soto",
+    "slug": "mie-sedaap-rasa-soto",
+    "price": 3500,
+    "img": "images/sedap-soto.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Indomie Jumbo Goreng Rasa Barbaque Chicken 128g",
+    "slug": "indomie-jumbo-goreng-rasa-barbaque-chicken-128g",
+    "price": 6000,
+    "img": "images/IND-GOR-BARBQ-128.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Chitato 68g",
+    "slug": "chitato-68g",
+    "price": 9000,
+    "img": "images/chitato-68g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Roma Sari Gandum 240g",
+    "slug": "roma-sari-gandum-240g",
+    "price": 12000,
+    "img": "images/roma-marie-240g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Mie Sedap Goreng Korea Spicy Chicken",
+    "slug": "mie-sedap-goreng-korea-spicy-chicken",
+    "price": 3500,
+    "img": "images/sedap-goreng-korea.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Silverqueen 65g",
+    "slug": "silverqueen-65g",
+    "price": 18000,
+    "img": "images/silverqueen-65g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Aqua Botol 600ml",
+    "slug": "aqua-botol-600ml",
+    "price": 4000,
+    "img": "images/aqua-600ml.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Teh Pucuk 350ml",
+    "slug": "teh-pucuk-350ml",
+    "price": 5000,
+    "img": "images/tehpucuk-350ml.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Coca Cola 1L",
+    "slug": "coca-cola-1l",
+    "price": 15000,
+    "img": "images/cocacola-1l.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Susu Ultra Milk 250ml",
+    "slug": "susu-ultra-milk-250ml",
+    "price": 6000,
+    "img": "images/ultramilk-250ml.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Kopi Kapal Api Sachet",
+    "slug": "kopi-kapal-api-sachet",
+    "price": 3000,
+    "img": "images/kapalapi.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Kopi Good Day Sachet",
+    "slug": "kopi-good-day-sachet",
+    "price": 2000,
+    "img": "images/goodday.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Kopi ABC Susu Sachet",
+    "slug": "kopi-abc-susu-sachet",
+    "price": 2000,
+    "img": "images/abc-susu.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Susu Dancow Sachet",
+    "slug": "susu-dancow-sachet",
+    "price": 4000,
+    "img": "images/dancow.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Pop Ice (all variant)",
+    "slug": "pop-ice-all-variant",
+    "price": 2500,
+    "img": "images/popice.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Milo Sachet",
+    "slug": "milo-sachet",
+    "price": 3000,
+    "img": "images/milo-sachet.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Teh Celup Sari Wangi 25pcs",
+    "slug": "teh-celup-sari-wangi-25pcs",
+    "price": 5500,
+    "img": "images/sariwangi-tehcelup.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Good Day Cappuccino Botol 250ml",
+    "slug": "good-day-cappuccino-botol-250ml",
+    "price": 6500,
+    "img": "images/goodday-capucino-250ml.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Beng Beng / Tango Wafer Bar",
+    "slug": "beng-beng-tango-wafer-bar",
+    "price": 2500,
+    "img": "images/bengbeng-tangowafer.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Nutrisari Jeruk",
+    "slug": "nutrisari-jeruk",
+    "price": 2000,
+    "img": "images/nutrisari-jeruk.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Sabun Lifebuoy 60g",
+    "slug": "sabun-lifebuoy-60g",
+    "price": 5000,
+    "img": "images/lifebuoy-60g.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Shampo Sunsilk Sachet",
+    "slug": "shampo-sunsilk-sachet",
+    "price": 2000,
+    "img": "images/sunsilk-sachet.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Pasta Gigi Pepsodent Herbal",
+    "slug": "pasta-gigi-pepsodent-herbal",
+    "price": 6000,
+    "img": "images/pepsodent.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Gas LPG 3kg",
+    "slug": "gas-lpg-3kg",
+    "price": 22000,
+    "img": "images/gas.jpg",
+    "category": "lainnya"
+  },
+  {
+    "name": "Soklin Liquid Freshness Sachet",
+    "slug": "soklin-liquid-freshness-sachet",
+    "price": 500,
+    "img": "images/soklin-liquid-freshness.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Soklin Liquid Violet Sachet",
+    "slug": "soklin-liquid-violet-sachet",
+    "price": 500,
+    "img": "images/soklin-liquid-violet.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Rinso Anti Noda Sachet",
+    "slug": "rinso-anti-noda-sachet",
+    "price": 500,
+    "img": "images/rinso-antinoda.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Rinso Molto Perfume Essence Sachet",
+    "slug": "rinso-molto-perfume-essence-sachet",
+    "price": 500,
+    "img": "images/rinso-molto-essence.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Molto Pewangi Biru Sachet",
+    "slug": "molto-pewangi-biru-sachet",
+    "price": 500,
+    "img": "images/molto-biru.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Molto Pewangi Pink Sachet",
+    "slug": "molto-pewangi-pink-sachet",
+    "price": 500,
+    "img": "images/molto-pink.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "So Klin Softener Pink Sachet",
+    "slug": "so-klin-softener-pink-sachet",
+    "price": 500,
+    "img": "images/soklin-softener-pink.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Sunlight Jeruk Nipis",
+    "slug": "sunlight-jeruk-nipis",
+    "price": 2000,
+    "img": "images/sunlight-jeruk.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Daia Detergent Pink",
+    "slug": "daia-detergent-pink",
+    "price": 5000,
+    "img": "images/daia-pink.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Daia Detergent Lemon",
+    "slug": "daia-detergent-lemon",
+    "price": 5000,
+    "img": "images/daia-lemon.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Energen Cereal Sachet",
+    "slug": "energen-cereal-sachet",
+    "price": 2500,
+    "img": "images/energen.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Torabika Cappuccino Sachet",
+    "slug": "torabika-cappuccino-sachet",
+    "price": 2000,
+    "img": "images/torabika-cappuccino.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Indocafe Coffeemix 3in1 Sachet",
+    "slug": "indocafe-coffeemix-3in1-sachet",
+    "price": 2000,
+    "img": "images/indocafe-3in1.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "AMH Jahe Merah Sachet",
+    "slug": "amh-jahe-merah-sachet",
+    "price": 1500,
+    "img": "images/jahe-merah.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Nutrisari Anggur Merah",
+    "slug": "nutrisari-anggur-merah",
+    "price": 2000,
+    "img": "images/nutrisari-anggur.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Teh Tarik Golda Sachet",
+    "slug": "teh-tarik-golda-sachet",
+    "price": 2000,
+    "img": "images/golda-tehtarik.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Kopi ABC Susu Moka Sachet",
+    "slug": "kopi-abc-susu-moka-sachet",
+    "price": 2000,
+    "img": "images/abc-moka.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Good Day Mocacino Sachet",
+    "slug": "good-day-mocacino-sachet",
+    "price": 2000,
+    "img": "images/goodday-mocacino.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Es Kopi Kapal Api Easy Drip",
+    "slug": "es-kopi-kapal-api-easy-drip",
+    "price": 3000,
+    "img": "images/kapalapi-easydrip.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Wedang Uwuh Sachet",
+    "slug": "wedang-uwuh-sachet",
+    "price": 2000,
+    "img": "images/wedang-uwuh.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Oralit Sachet",
+    "slug": "oralit-sachet",
+    "price": 2000,
+    "img": "images/oralit.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Promag Sachet",
+    "slug": "promag-sachet",
+    "price": 2000,
+    "img": "images/promag.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Tolak Angin Cair Sachet",
+    "slug": "tolak-angin-cair-sachet",
+    "price": 3000,
+    "img": "images/tolak-angin.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Antangin JRG Sachet",
+    "slug": "antangin-jrg-sachet",
+    "price": 2500,
+    "img": "images/antangin.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Neozep Forte Sachet",
+    "slug": "neozep-forte-sachet",
+    "price": 1500,
+    "img": "images/neozep.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Qtela Keripik Singkong Balado 55g",
+    "slug": "qtela-keripik-singkong-balado-55g",
+    "price": 7000,
+    "img": "images/qtela-balado-55g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Taro Net Seaweed 70g",
+    "slug": "taro-net-seaweed-70g",
+    "price": 8000,
+    "img": "images/taro-seaweed-70g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Cheetos Rasa Keju 48g",
+    "slug": "cheetos-rasa-keju-48g",
+    "price": 7000,
+    "img": "images/cheetos-keju-48g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Chiki Balls Keju 75g",
+    "slug": "chiki-balls-keju-75g",
+    "price": 8000,
+    "img": "images/chikiballs-keju-75g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Pilus Garuda Pedas 15g",
+    "slug": "pilus-garuda-pedas-15g",
+    "price": 1000,
+    "img": "images/pilus-garuda-pedas-15g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Tango Wafer Vanilla 130g",
+    "slug": "tango-wafer-vanilla-130g",
+    "price": 8000,
+    "img": "images/tango-vanilla-130g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Oreo Vanilla 137g",
+    "slug": "oreo-vanilla-137g",
+    "price": 13000,
+    "img": "images/oreo-vanilla-137g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Malkist Roma Abon 135g",
+    "slug": "malkist-roma-abon-135g",
+    "price": 8000,
+    "img": "images/malkist-abon-135g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Potabee Beef BBQ 60g",
+    "slug": "potabee-beef-bbq-60g",
+    "price": 8000,
+    "img": "images/potabee-bbq-60g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "Kusuka Keripik Singkong Original 60g",
+    "slug": "kusuka-keripik-singkong-original-60g",
+    "price": 7000,
+    "img": "images/kusuka-original-60g.jpg",
+    "category": "snack"
+  },
+  {
+    "name": "WOW Spageti Creamy Carbonara",
+    "slug": "wow-spageti-creamy-carbonara",
+    "price": 3500,
+    "img": "images/wow-spageti-carbonara.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "WOW Spageti Meaty Bolognese",
+    "slug": "wow-spageti-meaty-bolognese",
+    "price": 3500,
+    "img": "images/wow-spageti-bolognese.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "WOW Spageti Aglio Olio",
+    "slug": "wow-spageti-aglio-olio",
+    "price": 3500,
+    "img": "images/wow-spageti-aglio-olio.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Supermi Goreng 85g",
+    "slug": "supermi-goreng-85g",
+    "price": 3000,
+    "img": "images/supermi-goreng.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Sarimi Goreng 70g",
+    "slug": "sarimi-goreng-70g",
+    "price": 2500,
+    "img": "images/sarimi-goreng.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Mie ABC Instan 70g",
+    "slug": "mie-abc-instan-70g",
+    "price": 3000,
+    "img": "images/mie-abc-ayam.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Mie Burung Dara Goreng 70g",
+    "slug": "mie-burung-dara-goreng-70g",
+    "price": 3000,
+    "img": "images/burungdara-goreng.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Panadol 10 Tablet",
+    "slug": "panadol-10-tablet",
+    "price": 5000,
+    "img": "images/panadol-10tab.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Bodrex 10 Tablet",
+    "slug": "bodrex-10-tablet",
+    "price": 4000,
+    "img": "images/bodrex-10tab.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Paramek 10 Tablet",
+    "slug": "paramek-10-tablet",
+    "price": 3000,
+    "img": "images/paramek-10tab.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Decolgen 10 Tablet",
+    "slug": "decolgen-10-tablet",
+    "price": 5000,
+    "img": "images/decolgen-10tab.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Woods 60ml Syrup",
+    "slug": "woods-60ml-syrup",
+    "price": 7000,
+    "img": "images/woods-60ml.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "OBH Combi 60ml",
+    "slug": "obh-combi-60ml",
+    "price": 7000,
+    "img": "images/obh-combi-60ml.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Komix Anak 60ml",
+    "slug": "komix-anak-60ml",
+    "price": 7000,
+    "img": "images/komix-anak-60ml.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Gelusil 10 Tablet",
+    "slug": "gelusil-10-tablet",
+    "price": 4000,
+    "img": "images/gelusil-10tab.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Antibiotik Salep Luka / Luka Ringan",
+    "slug": "antibiotik-salep-luka-luka-ringan",
+    "price": 5000,
+    "img": "images/antibiotik-salep.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Salep Gatal / Anti Kutu / Ruam",
+    "slug": "salep-gatal-anti-kutu-ruam",
+    "price": 6000,
+    "img": "images/salep-gatal.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Minyak Kayu Putih 30ml",
+    "slug": "minyak-kayu-putih-30ml",
+    "price": 3000,
+    "img": "images/minyak-kayu-putih.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Plester Luka / First Aid",
+    "slug": "plester-luka-first-aid",
+    "price": 2000,
+    "img": "images/plester-luka.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Vitamin C 500mg 10 Tablet",
+    "slug": "vitamin-c-500mg-10-tablet",
+    "price": 5000,
+    "img": "images/vitamin-c-500mg.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Minyak Telon Bayi 60ml",
+    "slug": "minyak-telon-bayi-60ml",
+    "price": 4000,
+    "img": "images/minyak-telon.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Gudang Garam Filter 16s",
+    "slug": "gudang-garam-filter-16s",
+    "price": 22000,
+    "img": "images/gg-filter-16s.jpg",
+    "category": "rokok"
+  },
+  {
+    "name": "Djarum Super 12s",
+    "slug": "djarum-super-12s",
+    "price": 17000,
+    "img": "images/djarum-super-12s.jpg",
+    "category": "rokok"
+  },
+  {
+    "name": "Djarum Black 12s",
+    "slug": "djarum-black-12s",
+    "price": 18000,
+    "img": "images/djarum-black-12s.jpg",
+    "category": "rokok"
+  },
+  {
+    "name": "Sampoerna A Mild 16s",
+    "slug": "sampoerna-a-mild-16s",
+    "price": 20000,
+    "img": "images/sampoerna-a-mild-16s.jpg",
+    "category": "rokok"
+  },
+  {
+    "name": "Sampoerna U Mild 16s",
+    "slug": "sampoerna-u-mild-16s",
+    "price": 20000,
+    "img": "images/sampoerna-u-mild-16s.jpg",
+    "category": "rokok"
+  },
+  {
+    "name": "Marlboro Red 16s",
+    "slug": "marlboro-red-16s",
+    "price": 30000,
+    "img": "images/marlboro-red-16s.jpg",
+    "category": "rokok"
+  },
+  {
+    "name": "Marlboro Light 16s",
+    "slug": "marlboro-light-16s",
+    "price": 30000,
+    "img": "images/marlboro-light-16s.jpg",
+    "category": "rokok"
+  },
+  {
+    "name": "LA Lights 16s",
+    "slug": "la-lights-16s",
+    "price": 21000,
+    "img": "images/la-lights-16s.jpg",
+    "category": "rokok"
+  },
+  {
+    "name": "Sari Roti Tawar 250g",
+    "slug": "sari-roti-tawar-250g",
+    "price": 12000,
+    "img": "images/sariroti-tawar.jpg",
+    "category": "roti"
+  },
+  {
+    "name": "Sari Roti Cokelat 50g",
+    "slug": "sari-roti-cokelat-50g",
+    "price": 3000,
+    "img": "images/sariroti-cokelat.jpg",
+    "category": "roti"
+  },
+  {
+    "name": "Sari Roti Keju 50g",
+    "slug": "sari-roti-keju-50g",
+    "price": 3000,
+    "img": "images/sariroti-keju.jpg",
+    "category": "roti"
+  },
+  {
+    "name": "Roti O Cokelat",
+    "slug": "roti-o-cokelat",
+    "price": 6000,
+    "img": "images/roti-o-cokelat.jpg",
+    "category": "roti"
+  },
+  {
+    "name": "Roti O Krim Vanilla",
+    "slug": "roti-o-krim-vanilla",
+    "price": 6000,
+    "img": "images/roti-o-vanilla.jpg",
+    "category": "roti"
+  },
+  {
+    "name": "Choco Pie 2pcs",
+    "slug": "choco-pie-2pcs",
+    "price": 5000,
+    "img": "images/chocopie-2pcs.jpg",
+    "category": "roti"
+  },
+  {
+    "name": "Maries / Roti Snack 30g",
+    "slug": "maries-roti-snack-30g",
+    "price": 2000,
+    "img": "images/maries-30g.jpg",
+    "category": "roti"
+  },
+  {
+    "name": "Desaku Bumbu Marinasi Sachet",
+    "slug": "desaku-bumbu-marinasi-sachet",
+    "price": 1050,
+    "img": "images/desaku-marinasi-sachet.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Desaku Bumbu Kari Nusantara 12.5g",
+    "slug": "desaku-bumbu-kari-nusantara-125g",
+    "price": 2590,
+    "img": "images/desaku-bubuk-kari-12_5g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Desaku Bubuk Gulai Padang 12.5g",
+    "slug": "desaku-bubuk-gulai-padang-125g",
+    "price": 2500,
+    "img": "images/desaku-bubuk-gulai.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Desaku Bubuk Opor 12.5g",
+    "slug": "desaku-bubuk-opor-125g",
+    "price": 2500,
+    "img": "images/desaku-bubuk-opor.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Desaku Sambal Goreng / Balado 12.5g",
+    "slug": "desaku-sambal-goreng-balado-125g",
+    "price": 2400,
+    "img": "images/desaku-sambal-goreng.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Desaku Cabe Bubuk Sachet",
+    "slug": "desaku-cabe-bubuk-sachet",
+    "price": 2790,
+    "img": "images/desaku-cabe-bubuk.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Desaku Kunyit Bubuk Sachet",
+    "slug": "desaku-kunyit-bubuk-sachet",
+    "price": 1000,
+    "img": "images/desaku-kunyit-bubuk.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Desaku Ketumbar Bubuk Sachet",
+    "slug": "desaku-ketumbar-bubuk-sachet",
+    "price": 1000,
+    "img": "images/desaku-ketumbar-bubuk.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Kuku Bima EnerG Rasa Anggur 1 sachet",
+    "slug": "kuku-bima-energ-rasa-anggur-1-sachet",
+    "price": 3000,
+    "img": "images/kukubima-anggur-sachet.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Kuku Bima EnerG Rasa Mangga / Vit C 1000mg 1 sachet",
+    "slug": "kuku-bima-energ-rasa-mangga-vit-c-1000mg-1-sachet",
+    "price": 3000,
+    "img": "images/kukubima-mangga-sachet.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "NutriSari Jeruk Peras 1 sachet",
+    "slug": "nutrisari-jeruk-peras-1-sachet",
+    "price": 2000,
+    "img": "images/nutrisari-jeruk.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "NutriSari Blewah / Buah Tropis 1 sachet",
+    "slug": "nutrisari-blewah-buah-tropis-1-sachet",
+    "price": 2000,
+    "img": "images/nutrisari-blewah.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Good Day Cappuccino 1 sachet",
+    "slug": "good-day-cappuccino-1-sachet",
+    "price": 2500,
+    "img": "images/goodday-cappuccino.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Good Day Mocacinno 1 sachet",
+    "slug": "good-day-mocacinno-1-sachet",
+    "price": 2500,
+    "img": "images/goodday-mocacinno.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Pop Ice Cokelat 1 sachet",
+    "slug": "pop-ice-cokelat-1-sachet",
+    "price": 2500,
+    "img": "images/popice-choco.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Pop Ice Stroberi / Buah 1 sachet",
+    "slug": "pop-ice-stroberi-buah-1-sachet",
+    "price": 2500,
+    "img": "images/popice-strawberry.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Energen Vanilla 1 sachet",
+    "slug": "energen-vanilla-1-sachet",
+    "price": 2000,
+    "img": "images/energen-vanilla.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Energen Cokelat 1 sachet",
+    "slug": "energen-cokelat-1-sachet",
+    "price": 2000,
+    "img": "images/energen-cokelat.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Energen Kacang Hijau 1 sachet",
+    "slug": "energen-kacang-hijau-1-sachet",
+    "price": 2000,
+    "img": "images/energen-kacanghijau.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Max Tea Teh Tarik 1 sachet",
+    "slug": "max-tea-teh-tarik-1-sachet",
+    "price": 2000,
+    "img": "images/maxtea-tehtarik.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Teh Sosro Celup / Sachet 1 sachet",
+    "slug": "teh-sosro-celup-sachet-1-sachet",
+    "price": 1500,
+    "img": "images/teh-sosro-sachet.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Frisian Flag Susu Cokelat Sachet 1 sachet",
+    "slug": "frisian-flag-susu-cokelat-sachet-1-sachet",
+    "price": 5000,
+    "img": "images/frisianflag-choco.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Adem Sari Jeruk Nipis 1 sachet",
+    "slug": "adem-sari-jeruk-nipis-1-sachet",
+    "price": 2000,
+    "img": "images/ademsari-jeruknipis.jpg",
+    "category": "minumansachet"
+  },
+  {
+    "name": "Nipis Madu Lime Soda 330ml",
+    "slug": "nipis-madu-lime-soda-330ml",
+    "price": 4500,
+    "img": "images/nipismadu-limesoda-330ml.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Le Minerale Botol 600ml",
+    "slug": "le-minerale-botol-600ml",
+    "price": 3500,
+    "img": "images/leminerale-600ml.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Ades Botol 600ml",
+    "slug": "ades-botol-600ml",
+    "price": 3000,
+    "img": "images/ades-600ml.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Vit Botol 600ml",
+    "slug": "vit-botol-600ml",
+    "price": 3000,
+    "img": "images/vit-600ml.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Cleo Botol 600ml",
+    "slug": "cleo-botol-600ml",
+    "price": 3000,
+    "img": "images/cleo-600ml.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Club Botol 600ml",
+    "slug": "club-botol-600ml",
+    "price": 3500,
+    "img": "images/club-600ml.jpg",
+    "category": "minuman"
+  },
+  {
+    "name": "Kacang Hijau 1kg",
+    "slug": "kacang-hijau-1kg",
+    "price": 20000,
+    "img": "images/kacanghijau-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Kacang Tanah 1kg",
+    "slug": "kacang-tanah-1kg",
+    "price": 25000,
+    "img": "images/kacangtanah-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Beras Cap Rambutan 5kg",
+    "slug": "beras-cap-rambutan-5kg",
+    "price": 90000,
+    "img": "images/beras-rambutan-5kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Tepung Beras 1kg",
+    "slug": "tepung-beras-1kg",
+    "price": 12000,
+    "img": "images/tepungberas-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Gula Pasir Lokal 1kg",
+    "slug": "gula-pasir-lokal-1kg",
+    "price": 18000,
+    "img": "images/gulapasir-lokal-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Minyak Goreng SunCo 1L",
+    "slug": "minyak-goreng-sunco-1l",
+    "price": 18000,
+    "img": "images/minyak-sunco-1l.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Kacang Kedelai 1kg",
+    "slug": "kacang-kedelai-1kg",
+    "price": 20000,
+    "img": "images/kacangkedelai-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Santan Kara 65ml",
+    "slug": "santan-kara-65ml",
+    "price": 4000,
+    "img": "images/santan-kara-65ml.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Tepung Tapioka 1kg",
+    "slug": "tepung-tapioka-1kg",
+    "price": 14000,
+    "img": "images/tepung-tapioka-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Beras Cap Pandan Wangi 1kg",
+    "slug": "beras-cap-pandan-wangi-1kg",
+    "price": 20000,
+    "img": "images/beras-pandanwangi-1kg.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Tahu Putih Segar 1pcs",
+    "slug": "tahu-putih-segar-1pcs",
+    "price": 2000,
+    "img": "images/tahu-putih-1pcs.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Tahu Kuning 1pcs",
+    "slug": "tahu-kuning-1pcs",
+    "price": 2500,
+    "img": "images/tahu-kuning-1pcs.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Tempe Segar 1pcs",
+    "slug": "tempe-segar-1pcs",
+    "price": 2000,
+    "img": "images/tempe-1pcs.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Tempe Kering Tepung 250g",
+    "slug": "tempe-kering-tepung-250g",
+    "price": 12000,
+    "img": "images/tempetepung-kering-250g.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Ikan Teri Kering 100g",
+    "slug": "ikan-teri-kering-100g",
+    "price": 15000,
+    "img": "images/teri-kering-100g.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Udang Kering / Ebi 50g",
+    "slug": "udang-kering-ebi-50g",
+    "price": 18000,
+    "img": "images/ebi-50g.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Tahu Kering 250g",
+    "slug": "tahu-kering-250g",
+    "price": 12000,
+    "img": "images/tahu-kering-250g.jpg",
+    "category": "sembako"
+  },
+  {
+    "name": "Tempe Oreg Kering 250g",
+    "slug": "tempe-oreg-kering-250g",
+    "price": 12000,
+    "img": "images/tempeoreg-kering-250g.jpg",
+    "category": "makanan"
+  },
+  {
+    "name": "Roti Tawar Serbaguna",
+    "slug": "roti-tawar-serbaguna",
+    "price": 12000,
+    "img": "images/roti-tawar-serbaguna.jpg",
+    "category": "roti"
+  },
+  {
+    "name": "Garam Refina 500g",
+    "slug": "garam-refina-500g",
+    "price": 4000,
+    "img": "images/garam-refina-500g.jpg",
+    "category": "sembako"
+  },
+  {
     "name": "Susu Ultra Milk Coklat 200ml",
     "slug": "susu-ultra-milk-coklat-200ml",
     "price": 6000,
@@ -39,28 +1306,28 @@
     "slug": "sabun-lifebuoy-cair-refill-450ml",
     "price": 23000,
     "img": "images/lifebuoy-refill-450ml.jpg",
-    "category": "kebersihan"
+    "category": "rumah"
   },
   {
     "name": "Sabun Mandi Lux Body Wash 250ml",
     "slug": "sabun-mandi-lux-body-wash-250ml",
     "price": 17000,
     "img": "images/lux-bodywash-250ml.jpg",
-    "category": "kebersihan"
+    "category": "rumah"
   },
   {
     "name": "Shampoo Sunsilk Hitam 170ml",
     "slug": "shampoo-sunsilk-hitam-170ml",
     "price": 19000,
     "img": "images/sunsilk-hitam-170ml.jpg",
-    "category": "kebersihan"
+    "category": "rumah"
   },
   {
     "name": "Shampoo Sunsilk Kuning 170ml",
     "slug": "shampoo-sunsilk-kuning-170ml",
     "price": 19000,
     "img": "images/sunsilk-kuning-170ml.jpg",
-    "category": "kebersihan"
+    "category": "rumah"
   },
   {
     "name": "Baygon Semprot Hijau 600ml",
@@ -74,35 +1341,35 @@
     "slug": "mama-lemon-jeruk-780ml",
     "price": 15000,
     "img": "images/mamalemon-780ml.jpg",
-    "category": "kebersihan"
+    "category": "rumah"
   },
   {
     "name": "Kecap Bango Refill 600ml",
     "slug": "kecap-bango-refill-600ml",
     "price": 20000,
     "img": "images/bango-refill-600ml.jpg",
-    "category": "bahan pokok"
+    "category": "sembako"
   },
   {
     "name": "Minyak Goreng Bimoli 2L",
     "slug": "minyak-goreng-bimoli-2l",
     "price": 29000,
     "img": "images/bimoli-2l.jpg",
-    "category": "bahan pokok"
+    "category": "sembako"
   },
   {
     "name": "Tepung Sajiku Bakwan 70g",
     "slug": "tepung-sajiku-bakwan-70g",
     "price": 3000,
     "img": "images/sajiku-bakwan-70g.jpg",
-    "category": "bahan pokok"
+    "category": "sembako"
   },
   {
     "name": "Kopi Kapal Api Susu 10 Sachet",
     "slug": "kopi-kapal-api-susu-10-sachet",
     "price": 13000,
     "img": "images/kapalapi-susu-10sachet.jpg",
-    "category": "kopi"
+    "category": "minumansachet"
   },
   {
     "name": "Es Krim Aice Chocolate 60ml",
@@ -155,35 +1422,35 @@
   },
   {
     "name": "Mie Sedaap Goreng Rasa Kari Ayam 91g",
-    "slug": "mie-sedaap-goreng-kari-ayam-91g",
+    "slug": "mie-sedaap-goreng-rasa-kari-ayam-91g",
     "price": 3500,
     "img": "images/sedap-goreng-kariayam.jpg",
     "category": "mie"
   },
   {
     "name": "Mie Sedaap Goreng Rasa Sate Ayam 91g",
-    "slug": "mie-sedaap-goreng-sate-ayam-91g",
+    "slug": "mie-sedaap-goreng-rasa-sate-ayam-91g",
     "price": 3500,
     "img": "images/sedap-goreng-sateayam.jpg",
     "category": "mie"
   },
   {
     "name": "Mie Sedaap Kuah Rasa Soto Mie 91g",
-    "slug": "mie-sedaap-kuah-soto-mie-91g",
+    "slug": "mie-sedaap-kuah-rasa-soto-mie-91g",
     "price": 3500,
     "img": "images/sedap-kuah-soto.jpg",
     "category": "mie"
   },
   {
     "name": "Mie Sedaap Kuah Rasa Baso Spesial 91g",
-    "slug": "mie-sedaap-kuah-baso-spesial-91g",
+    "slug": "mie-sedaap-kuah-rasa-baso-spesial-91g",
     "price": 3500,
     "img": "images/sedap-kuah-basospesial.jpg",
     "category": "mie"
   },
   {
     "name": "Mie Sedaap Kuah Rasa Kari Ayam 91g",
-    "slug": "mie-sedaap-kuah-kari-ayam-91g",
+    "slug": "mie-sedaap-kuah-rasa-kari-ayam-91g",
     "price": 3500,
     "img": "images/sedap-kuah-kariayam.jpg",
     "category": "mie"
@@ -193,63 +1460,314 @@
     "slug": "indomie-goreng-sambal-matah",
     "price": 4500,
     "img": "images/indomie_sambal_matah.jpg",
-    "category": "makanan"
+    "category": "mie"
   },
   {
     "name": "Indomie Goreng Rendang",
     "slug": "indomie-goreng-rendang",
     "price": 4500,
     "img": "images/indomie_rendang.jpg",
-    "category": "makanan"
+    "category": "mie"
   },
   {
     "name": "Indomie Goreng Soto Banjar",
     "slug": "indomie-goreng-soto-banjar",
     "price": 4500,
     "img": "images/indomie_soto_banjar.jpg",
-    "category": "makanan"
+    "category": "mie"
   },
   {
     "name": "Indomie Goreng Kari Ayam",
     "slug": "indomie-goreng-kari-ayam",
     "price": 4500,
     "img": "images/indomie_kari_ayam.jpg",
-    "category": "makanan"
+    "category": "mie"
   },
   {
     "name": "Indomie Goreng Ayam Bawang",
     "slug": "indomie-goreng-ayam-bawang",
     "price": 4500,
     "img": "images/indomie_ayam_bawang.jpg",
-    "category": "makanan"
+    "category": "mie"
   },
   {
     "name": "Indomie Goreng Cabe Ijo",
     "slug": "indomie-goreng-cabe-ijo",
     "price": 4500,
     "img": "images/indomie_cabe_ijo.jpg",
-    "category": "makanan"
+    "category": "mie"
   },
   {
     "name": "Indomie Kuah Tom Yum",
     "slug": "indomie-kuah-tom-yum",
     "price": 4500,
     "img": "images/indomie_tom_yum.jpg",
-    "category": "makanan"
+    "category": "mie"
   },
   {
     "name": "Indomie Goreng Cakalang",
     "slug": "indomie-goreng-cakalang",
     "price": 4500,
     "img": "images/indomie_cakalang.jpg",
-    "category": "makanan"
+    "category": "mie"
   },
   {
     "name": "Indomie Goreng Sambal Rica-Rica",
     "slug": "indomie-goreng-sambal-rica-rica",
     "price": 4500,
     "img": "images/indomie_sambal_rica.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Pop Spageti Bolognese",
+    "slug": "pop-spageti-bolognese",
+    "price": 3500,
+    "img": "images/pop_spageti_bolognese.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Pop Spageti Carbonara",
+    "slug": "pop-spageti-carbonara",
+    "price": 3500,
+    "img": "images/pop_spageti_carbonara.jpg",
+    "category": "mie"
+  },
+  {
+    "name": "Lifebuoy Total 10",
+    "slug": "lifebuoy-total-10",
+    "price": 3500,
+    "img": "images/sabun_lifebuoy_total10.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Lifebuoy Lemon Fresh",
+    "slug": "lifebuoy-lemon-fresh",
+    "price": 3500,
+    "img": "images/sabun_lifebuoy_lemon_fresh.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Lifebuoy Mild Care",
+    "slug": "lifebuoy-mild-care",
+    "price": 3500,
+    "img": "images/sabun_lifebuoy_mild_care.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Lux Soft Touch",
+    "slug": "lux-soft-touch",
+    "price": 4000,
+    "img": "images/sabun_lux_soft_touch.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Lux Magical Beauty",
+    "slug": "lux-magical-beauty",
+    "price": 4000,
+    "img": "images/sabun_lux_magical_beauty.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Lux Fresh Splash",
+    "slug": "lux-fresh-splash",
+    "price": 4000,
+    "img": "images/sabun_lux_fresh_splash.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Dettol Cool",
+    "slug": "dettol-cool",
+    "price": 5000,
+    "img": "images/sabun_dettol_cool.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Dettol Fresh",
+    "slug": "dettol-fresh",
+    "price": 5000,
+    "img": "images/sabun_dettol_fresh.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Dettol Skincare",
+    "slug": "dettol-skincare",
+    "price": 5000,
+    "img": "images/sabun_dettol_skincare.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Giv White Beauty",
+    "slug": "giv-white-beauty",
+    "price": 3000,
+    "img": "images/sabun_giv_white_beauty.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Giv Rose",
+    "slug": "giv-rose",
+    "price": 3000,
+    "img": "images/sabun_giv_rose.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Giv White Orchid",
+    "slug": "giv-white-orchid",
+    "price": 3000,
+    "img": "images/sabun_giv_white_orchid.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Nuvo Family Clean",
+    "slug": "nuvo-family-clean",
+    "price": 3500,
+    "img": "images/sabun_nuvo_family.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Nuvo Cool Blue",
+    "slug": "nuvo-cool-blue",
+    "price": 3500,
+    "img": "images/sabun_nuvo_cool_blue.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Nuvo Energetic",
+    "slug": "nuvo-energetic",
+    "price": 3500,
+    "img": "images/sabun_nuvo_energetic.jpg",
+    "category": "rumah"
+  },
+  {
+    "name": "Royco Kaldu Ayam Sachet 8g",
+    "slug": "royco-kaldu-ayam-sachet-8g",
+    "price": 1000,
+    "img": "images/royco_kaldu_ayam_8g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Royco Kaldu Sapi Sachet 8g",
+    "slug": "royco-kaldu-sapi-sachet-8g",
+    "price": 1000,
+    "img": "images/royco_kaldu_sapi_8g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Royco Bumbu Komplit Nasi Goreng Sachet",
+    "slug": "royco-bumbu-komplit-nasi-goreng-sachet",
+    "price": 1500,
+    "img": "images/royco_nasgor.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Royco Bumbu Komplit Nasi Goreng Pedas Sachet",
+    "slug": "royco-bumbu-komplit-nasi-goreng-pedas-sachet",
+    "price": 1500,
+    "img": "images/royco_nasgor_pedas.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Royco Bumbu Komplit Tempe Tahu Goreng Sachet",
+    "slug": "royco-bumbu-komplit-tempe-tahu-goreng-sachet",
+    "price": 1500,
+    "img": "images/royco_tempe_tahu.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Royco Bumbu Komplit Sayur Asem Sachet",
+    "slug": "royco-bumbu-komplit-sayur-asem-sachet",
+    "price": 1500,
+    "img": "images/royco_sayur_asem.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Ladaku Merica Bubuk Sachet 5g",
+    "slug": "ladaku-merica-bubuk-sachet-5g",
+    "price": 2000,
+    "img": "images/ladaku-merica-5g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Indofood Sambal Terasi Sachet",
+    "slug": "indofood-sambal-terasi-sachet",
+    "price": 2500,
+    "img": "images/indofood-sambal-terasi.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Bumbu Racik Ayam Goreng Sajiku",
+    "slug": "bumbu-racik-ayam-goreng-sajiku",
+    "price": 3000,
+    "img": "images/sajiku-ayam-goreng.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Ketumbar Biji 100g",
+    "slug": "ketumbar-biji-100g",
+    "price": 7000,
+    "img": "images/ketumbar-biji-100g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Merica Butir Putih 50g",
+    "slug": "merica-butir-putih-50g",
+    "price": 12000,
+    "img": "images/merica-putih-butir-50g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Asam Jawa Tanpa Biji 100g",
+    "slug": "asam-jawa-tanpa-biji-100g",
+    "price": 6000,
+    "img": "images/asam-jawa-100g.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Bumbu Racik Sayur Lodeh Sajiku",
+    "slug": "bumbu-racik-sayur-lodeh-sajiku",
+    "price": 2800,
+    "img": "images/sajiku-lodeh.jpg",
+    "category": "bumbu"
+  },
+  {
+    "name": "Ibuprofen 200mg 10 Tablet",
+    "slug": "ibuprofen-200mg-10-tablet",
+    "price": 6000,
+    "img": "images/ibuprofen-200mg.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Hansaplast Rol 1m",
+    "slug": "hansaplast-rol-1m",
+    "price": 5000,
+    "img": "images/hansaplast-roll.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Konidin Obat Batuk Sachet",
+    "slug": "konidin-obat-batuk-sachet",
+    "price": 2500,
+    "img": "images/konidin-sachet.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Microlax Enema 5ml",
+    "slug": "microlax-enema-5ml",
+    "price": 18000,
+    "img": "images/microlax-5ml.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "My Baby Minyak Kayu Putih 30ml",
+    "slug": "my-baby-minyak-kayu-putih-30ml",
+    "price": 7000,
+    "img": "images/mybaby-kayu-putih-30ml.jpg",
+    "category": "obat"
+  },
+  {
+    "name": "Cireng Annisa Isi Ayam",
+    "slug": "cireng-annisa-isi-ayam",
+    "price": 3000,
+    "img": "images/cireng-annisa.jpg",
     "category": "makanan"
   }
 ]
-
