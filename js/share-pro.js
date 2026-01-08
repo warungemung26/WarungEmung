@@ -11,8 +11,9 @@ shareBtn?.addEventListener("click", () => {
   const modal = document.getElementById("product-modal")
   const title = modal.querySelector(".pm-title")?.innerText || "Produk Warung Emung"
 
-  currentShareUrl = location.origin + location.pathname + "#produk"
-  currentShareTitle = title
+  const urlParams = new URLSearchParams(window.location.search);
+const produkParam = urlParams.get("produk") || "";
+currentShareUrl = `${location.origin}${location.pathname}?produk=${encodeURIComponent(produkParam)}`;  currentShareTitle = title
 
   // 🔹 Native share (HP modern)
   if (navigator.share) {
