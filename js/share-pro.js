@@ -1,75 +1,121 @@
-// ===== SHARE PRO =====
+// ===== SHARE PRO (EDITED) =====
 const shareBtn = document.getElementById("pm-share")
 const shareBackdrop = document.getElementById("share-backdrop")
 const closeShare = document.getElementById("close-share")
 const qrCanvas = document.getElementById("share-qr")
 
-let currentShareUrl = ""
-let currentShareTitle = ""
+let currentProduct = null
+
+//  dipanggil saat modal produk dibuka
+// pastikan ini dipanggil dari produk-modal.js
+window.setShareProduct = function(p){
+  currentProduct = p
+}
 
 shareBtn?.addEventListener("click", () => {
-  const modal = document.getElementById("product-modal")
-  const title = modal.querySelector(".pm-title")?.innerText || "Produk Warung Emung"
+  if(!currentProduct) return
 
-  const urlParams = new URLSearchParams(window.location.search);
-const produkParam = urlParams.get("produk") || "";
-currentShareUrl = `${location.origin}${location.pathname}?produk=${encodeURIComponent(produkParam)}`;  currentShareTitle = title
+  const slug = currentProduct.slug || currentProduct.id
+  const hargaFinal = currentProduct.price_flash || currentProduct.price
+const currency = localStorage.getItem("selectedCurrency") || "Rp"
 
-  // 🔹 Native share (HP modern)
-  if (navigator.share) {
+const hargaText = currency === "PI"
+  ? `PI ${(hargaFinal / 3200).toFixed(2)}`
+  : formatPrice(hargaFinal, currency)
+  const productLink =
+    `${location.origin}${location.pathname}?produk=${encodeURIComponent(slug)}`
+
+  // ===== TEMPLATE WA PREMIUM (PUNYAMU) =====
+  const text =
+` *${currentProduct.name}*  
+ Harga: ${hargaText}  
+
+ Cek produk:
+${productLink}
+-----------------------
+ Dapatkan sekarang di *Warung Emung*!`
+
+  //  Native Share (mobile)
+  if(navigator.share){
     navigator.share({
-      title: title,
-      text: "Cek produk ini di Warung Emung",
-      url: currentShareUrl
-    }).catch(()=>{})
+  title: currentProduct.name,
+  text
+}).catch(()=>{})
     return
   }
 
-  openShareModal()
+  openShareModal(productLink)
 })
 
-function openShareModal(){
+// ===== SHARE MODAL =====
+function openShareModal(productLink){
   shareBackdrop.style.display = "flex"
-  generateQR(currentShareUrl)
+  generateQR(productLink)
 }
 
-closeShare.onclick = ()=> shareBackdrop.style.display="none"
-
-shareBackdrop.addEventListener("click", e=>{
-  if(e.target===shareBackdrop) shareBackdrop.style.display="none"
+closeShare?.addEventListener("click", () => {
+  shareBackdrop.style.display = "none"
 })
 
-// ===== SHARE BUTTONS =====
-document.querySelectorAll("[data-share]").forEach(btn=>{
-  btn.onclick = ()=>{
-    const type = btn.dataset.share
-    let url=""
-
-    switch(type){
-      case "wa":
-        url=`https://wa.me/?text=${encodeURIComponent(currentShareTitle+" "+currentShareUrl)}`
-        break
-      case "fb":
-        url=`https://www.facebook.com/sharer/sharer.php?u=${currentShareUrl}`
-        break
-      case "tg":
-        url=`https://t.me/share/url?url=${currentShareUrl}&text=${currentShareTitle}`
-        break
-      case "tw":
-        url=`https://twitter.com/intent/tweet?url=${currentShareUrl}&text=${currentShareTitle}`
-        break
-      case "copy":
-        navigator.clipboard.writeText(currentShareUrl)
-        showToast("Link disalin")
-        return
-    }
-    window.open(url,"_blank")
+shareBackdrop?.addEventListener("click", e => {
+  if(e.target === shareBackdrop){
+    shareBackdrop.style.display = "none"
   }
 })
 
-// ===== QR GENERATOR (TANPA LIB BERAT) =====
+// ===== BUTTONS =====
+document.querySelectorAll("[data-share]").forEach(btn => {
+  btn.onclick = () => {
+    if(!currentProduct) return
+
+    const slug = currentProduct.slug || currentProduct.id
+    const hargaFinal = currentProduct.price_flash || currentProduct.price
+const currency = localStorage.getItem("selectedCurrency") || "Rp"
+
+const hargaText = currency === "PI"
+  ? `PI ${(hargaFinal / 3200).toFixed(2)}`
+  : formatPrice(hargaFinal, currency)
+    const productLink =
+      `${location.origin}${location.pathname}?produk=${encodeURIComponent(slug)}`
+
+    const text =
+` *${currentProduct.name}*  
+ Harga: ${hargaText}  
+
+ Cek produk:
+${productLink}
+-----------------------
+ Dapatkan sekarang di *Warung Emung*!`
+
+    let url = ""
+
+    switch(btn.dataset.share){
+      case "wa":
+        url = `https://wa.me/?text=${encodeURIComponent(text)}`
+        break
+      case "fb":
+        url = `https://www.facebook.com/sharer/sharer.php?u=${productLink}`
+        break
+      case "tg":
+        url = `https://t.me/share/url?url=${productLink}&text=${currentProduct.name}`
+        break
+      case "tw":
+        url = `https://twitter.com/intent/tweet?url=${productLink}&text=${currentProduct.name}`
+        break
+      case "copy":
+        navigator.clipboard.writeText(productLink)
+        showToast("Link disalin")
+        return
+    }
+
+    window.open(url, "_blank")
+  }
+})
+
+// ===== QR =====
 function generateQR(text){
-  const qr = new QRious({
+  if(!window.QRious) return
+  new QRious({
     element: qrCanvas,
     size: 180,
     value: text
