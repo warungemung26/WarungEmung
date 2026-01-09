@@ -10,15 +10,115 @@ let lockPop = false;
 let PRODUCT_DATA = {};  // JSON seluruh produk
 
 /* =============================
-   LOAD PRODUCTS JSON
+   DATA PRODUK (GLOBAL)
 ============================= */
-fetch("data/products.json")
-  .then(res => res.json())
-  .then(data => {
-    PRODUCT_DATA = data || {};
-  })
-  .catch(err => console.warn("Produk JSON gagal dimuat:", err));
-  
+
+PRODUCT_DATA = {
+  products: [
+    {
+      name: "Indomie Goreng",
+      category: "mie",
+      price: 3500,
+      price_flash: 3000,
+      img: "images/indomie-goreng.jpg",
+      brand: "indomie",
+      rasa: "original",
+      desc_short: "Mi instan goreng legendaris favorit keluarga.",
+      desc_long: "Indomie Goreng adalah mi instan dengan rasa gurih khas perpaduan kecap manis, minyak bawang, dan bumbu pilihan. Cocok disantap kapan saja, praktis dan mengenyangkan."
+    },
+    {
+      name: "Aqua 600ml",
+      category: "minuman",
+      price: 4000,
+      img: "images/aqua-600ml.jpg",
+      brand: "aqua",
+      desc_short: "Air mineral murni kemasan 600ml.",
+      desc_long: "AQUA 600ml berasal dari sumber pegunungan terpilih, diproses secara higienis untuk menjaga kemurnian dan kesegarannya. Cocok untuk menemani aktivitas harian."
+    },
+    {
+      name: "Kopi Kapal Api Sachet",
+      category: "minuman",
+      price: 2000,
+      img: "images/kapal-api.jpg",
+      brand: "kapal api",
+      rasa: "kopi",
+      desc_short: "Kopi hitam sachet dengan aroma khas.",
+      desc_long: "Kopi Kapal Api sachet menghadirkan cita rasa kopi hitam kuat dengan aroma khas. Praktis diseduh kapan saja untuk menemani pagi atau lembur."
+    }
+  ],
+
+  brands: [
+    "indomie","mie sedaap","supermi","sarimi","mie abc","burung dara","wow",
+    "chitato","qtela","taro","cheetos","chiki","pilus garuda","potabee","kusuka",
+    "roma","nabati","tango","silverqueen","oreo","aice","aqua","le minerale",
+    "ades","vit","cleo","club","coca cola","floridina","nipis madu","teh pucuk",
+    "teh botol","teh sosro","sari wangi","golda","max tea","ultra milk",
+    "bear brand","frisian flag","dancow","good day","kapal api","torabika",
+    "indocafe","abc","bango","sasa","royco","masako","saori","desaku",
+    "filma","tropical","bimoli","sunco","blue band","gulaku","refina","kara",
+    "sajiku","nutrisari","energen","kuku bima","pop ice","amh","adem sari",
+    "oralit","promag","tolak angin","antangin","neozep","panadol","bodrex",
+    "paramek","decolgen","woods","obh","komix","gelusil","lifebuoy","lux",
+    "sunsilk","pepsodent","soklin","rinso","molto","daia","sunlight","baygon",
+    "kingkong","gudang garam","djarum","sampoerna","marlboro","la lights",
+    "sari roti","roti o","maries"
+  ],
+
+  rasaMap: {
+    bbq: "Hadir dengan cita rasa BBQ gurih dan smoky.",
+    barbeque: "Rasa barbeque manis gurih yang nikmat.",
+    original: "Rasa original yang ringan dan tidak bikin enek.",
+    pedas: "Rasa pedas mantap yang bikin nagih.",
+    hot: "Sensasi pedas panas yang kuat.",
+    spicy: "Rasa spicy gurih khas.",
+    keju: "Rasa keju creamy yang lezat.",
+    cheese: "Rasa keju gurih creamy.",
+    balado: "Rasa balado pedas manis khas Nusantara.",
+    "ayam bawang": "Perpaduan rasa ayam dan bawang yang gurih.",
+    "ayam panggang": "Rasa ayam panggang gurih beraroma rempah.",
+    "ayam geprek": "Rasa ayam geprek pedas gurih kekinian.",
+    "sapi panggang": "Cita rasa daging sapi panggang yang lezat.",
+    "jagung bakar": "Rasa jagung bakar manis gurih.",
+    asin: "Rasa asin gurih yang sederhana dan nikmat.",
+    manis: "Rasa manis ringan yang disukai semua kalangan.",
+    cokelat: "Rasa coklat manis dan creamy.",
+    coklat: "Rasa coklat manis dan creamy.",
+    chocolate: "Cita rasa coklat kaya dan lembut.",
+    stroberi: "Rasa stroberi manis segar.",
+    vanila: "Rasa vanila lembut dan harum.",
+    madu: "Rasa madu manis alami.",
+    lemon: "Rasa lemon segar sedikit asam.",
+    jeruk: "Rasa jeruk segar menyegarkan.",
+    anggur: "Rasa anggur manis segar.",
+    kopi: "Rasa kopi khas yang kuat dan aromatik.",
+    mocha: "Perpaduan rasa kopi dan coklat.",
+    latte: "Rasa kopi susu yang lembut.",
+    "green tea": "Rasa teh hijau yang ringan dan segar"
+  },
+
+  kategoriDesc: {
+    makanan: "Hidangan siap santap yang cocok untuk camilan atau teman aktivitas.",
+    minuman: "Minuman segar yang cocok dinikmati kapan saja.",
+    snack: "Camilan renyah yang enak untuk menemani waktu santai.",
+    mie: "Mi instan favorit dengan rasa khas dan praktis disajikan.",
+    roti: "Roti lembut dengan tekstur empuk, cocok untuk sarapan atau camilan.",
+    frozen: "Produk beku praktis yang mudah disimpan dan diolah.",
+    rokok: "Produk tembakau dengan kualitas terjaga untuk kebutuhan dewasa.",
+    peralatansekolah: "Perlengkapan sekolah yang menunjang aktivitas belajar.",
+    peralatandapur: "Peralatan dapur fungsional untuk kebutuhan memasak harian.",
+    mainan: "Mainan menarik untuk hiburan dan aktivitas anak.",
+    baju: "Pakaian nyaman untuk penggunaan sehari-hari.",
+    sandal: "Sandal ringan dan nyaman untuk berbagai aktivitas.",
+    gas: "Produk kebutuhan energi rumah tangga yang aman dan praktis.",
+    sembako: "Kebutuhan pokok rumah tangga untuk persediaan harian.",
+    bumbu: "Bahan bumbu dapur praktis untuk berbagai masakan.",
+    rumah: "Produk kebutuhan rumah tangga sehari-hari.",
+    minumansachet: "Minuman instan sachet yang praktis disajikan.",
+    obat: "Produk kesehatan untuk membantu meredakan keluhan ringan.",
+    lainnya: "Produk serbaguna yang dapat digunakan sesuai kebutuhan."
+  }
+};
+
   /* =============================
    AUTO OPEN MODAL UNTUK FLASH DARI SLUG
    (TAMBAHAN – TIDAK GANTI KODE LAIN)
