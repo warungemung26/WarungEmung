@@ -184,15 +184,27 @@ window.addEventListener("popstate", () => {
 function getProductDescription(p) {
   const key = p.name.toLowerCase();
 
-  if (PRODUCT_DATA.products) {
-    const prod = PRODUCT_DATA.products.find(pr => pr.name.toLowerCase() === key);
+  // JIKA DATA BELUM SIAP
+  if (!PRODUCT_DATA || Object.keys(PRODUCT_DATA).length === 0) {
+    return generateDeskripsi(p.name, p.category);
+  }
+
+  // PRIORITAS: products.json (deskripsi khusus)
+  if (Array.isArray(PRODUCT_DATA.products)) {
+    const prod = PRODUCT_DATA.products.find(
+      pr => pr.name && pr.name.toLowerCase() === key
+    );
     if (prod) return prod.desc_long || prod.desc_short;
   }
 
+  // fallback dari produk langsung
   if (p.desc) return p.desc;
   if (p.label) return p.label;
+
+  // terakhir generate
   return generateDeskripsi(p.name, p.category);
 }
+
 
 /* =============================
    GENERATE DESKRIPSI DEFAULT
