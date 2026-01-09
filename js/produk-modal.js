@@ -18,6 +18,45 @@ fetch("data/products.json")
     PRODUCT_DATA = data || {};
   })
   .catch(err => console.warn("Produk JSON gagal dimuat:", err));
+  
+  /* =============================
+   AUTO OPEN MODAL UNTUK FLASH DARI SLUG
+   (TAMBAHAN – TIDAK GANTI KODE LAIN)
+============================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get("produk");
+  if (!slug) return;
+
+  // generate slug flash (harus konsisten dengan renderFlash)
+  const makeFlashSlug = name =>
+    "flash-" + name
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .trim()
+      .replace(/\s+/g, "-");
+
+  fetch("data/flash.json")
+    .then(r => r.json())
+    .then(list => {
+      if (!Array.isArray(list)) return;
+
+      const flashProd = list.find(p => {
+        const s = p.slug || makeFlashSlug(p.name);
+        return s === slug;
+      });
+
+      if (flashProd) {
+  // tunggu modal & DOM siap
+  setTimeout(() => {
+    if (document.getElementById("product-modal")) {
+      openProdukModal(flashProd);
+    }
+  }, 300);
+}
+    });
+});
+
 
 /* =============================
    BUKA MODAL PRODUK
