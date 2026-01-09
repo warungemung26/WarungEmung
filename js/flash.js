@@ -34,6 +34,16 @@ if (!flashBox) {
   console.warn("⚠️ flash-list tidak ditemukan di HTML");
 }
 
+// === helper slug untuk flash product ===
+function makeSlug(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+}
+
+
 // ================= RENDER FLASH SALE ===================
 function renderFlash(list) {
   if (!flashBox) return;
@@ -42,6 +52,12 @@ function renderFlash(list) {
   flashBox.innerHTML = "";
 
   list.forEach(p => {
+
+    // ====== TAMBAHAN PENTING: PASTIKAN SLUG ADA ======
+    if (!p.slug) {
+      p.slug = "flash-" + makeSlug(p.name);
+    }
+
     const item = document.createElement("div");
     item.className = "flash-card";
 
@@ -83,8 +99,14 @@ function renderFlash(list) {
       </div>
     `;
 
-    // klik untuk buka modal produk
-    item.addEventListener("click", () => openProdukModal(p));
+    // ====== EDIT KLIK CARD: SET URL SLUG ======
+    item.addEventListener("click", () => {
+      const url = new URL(window.location);
+      url.searchParams.set("produk", p.slug);
+      window.history.pushState({}, "", url);
+      openProdukModal(p);
+    });
+
     flashBox.appendChild(item);
 
     // mulai countdown
@@ -94,6 +116,7 @@ function renderFlash(list) {
   // cek tombol floating
   cekFlashButton(list.length);
 }
+
 
 // ================= ADD TO CART FLASH ===================
 function addFlash(id) {
