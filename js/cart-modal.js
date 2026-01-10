@@ -49,9 +49,16 @@ function renderCartModal() {
     }
 
     row.innerHTML = `
-      <div>${it.name} x ${it.qty}</div>
-      <div>${priceStr}</div>
-    `;
+  <div class="cart-left">
+    <img src="${it.img}" alt="${it.name}" class="cart-img">
+    <div class="cart-info">
+      <div class="cart-name">${it.name}</div>
+      <div class="cart-qty">x ${it.qty}</div>
+    </div>
+  </div>
+  <div class="cart-price">${priceStr}</div>
+`;
+
     cartItemsEl.appendChild(row);
 
     subtotal += it.price * it.qty;
