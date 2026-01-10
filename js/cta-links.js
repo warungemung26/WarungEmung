@@ -170,6 +170,12 @@ Mohon diproses.`;
         'https://wa.me/6285322882512?text=' + encodeURIComponent(message),
         '_blank'
       );
+      
+      // TAMPILKAN MODAL TERIMA KASIH
+setTimeout(() => {
+  openThankYouModal();
+}, 300);
+
 
       simpanRiwayat({
         id: orderId,
@@ -243,6 +249,15 @@ if(!anchor) return;
 
       return;
     }
+    
+    function openThankYouModal() {
+  openModal({
+    title: "Terima Kasih 🙏",
+    message: "Pesanan Anda sudah terkirim dan akan segera diproses.\n\nSilakan tunggu konfirmasi dari Warung Emung.",
+    action: function(){}
+  });
+}
+
 
     // ======================================================
 // RIWAYAT — HANDLER GLOBAL CTA
