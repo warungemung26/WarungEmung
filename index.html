@@ -881,37 +881,47 @@ Cepat, hemat, dan dekat rumah 🏡
 </button>
 
 
-<!-- Modal Konfirmasi Global -->
-<div id="modal-confirm" class="modal-confirm">
+<!-- ================= MODAL KONFIRMASI GLOBAL (SATU-SATUNYA) ================= -->
+<div id="modal-confirm" class="modal-confirm" aria-hidden="true">
   <div class="modal-content">
+
+    <!-- Judul -->
     <h3 id="modal-title">Konfirmasi</h3>
-    <p id="modal-message">Apakah Anda yakin ingin melanjutkan?</p>
-    
-    <!-- Form input WA (hanya muncul jika WA) -->
+
+    <!-- Pesan default (dipakai CTA lama) -->
+    <p id="modal-message" style="margin-top:8px;">
+      Apakah Anda yakin ingin melanjutkan?
+    </p>
+
+    <!-- Body dinamis (dipakai modal modern / edit alamat / dll) -->
+    <div id="modal-body" style="margin-top:10px; display:none;"></div>
+
+    <!-- Input WA (dipakai flow request produk) -->
     <div id="modal-wa-inputs" style="display:none; margin-top:10px;">
-      <input type="text" id="modal-produk" placeholder="Nama Produk" />
-      <input type="number" id="modal-jumlah" placeholder="Jumlah" />
+      <input
+        type="text"
+        id="modal-produk"
+        placeholder="Nama Produk"
+        style="width:100%; margin-bottom:8px;"
+      />
+      <input
+        type="number"
+        id="modal-jumlah"
+        placeholder="Jumlah"
+        min="1"
+        style="width:100%;"
+      />
     </div>
 
-    <div class="modal-buttons">
+    <!-- Tombol -->
+    <div class="modal-buttons" style="margin-top:15px;">
       <button id="modal-cancel" class="btn-secondary">Batal</button>
-      <button id="modal-ok" class="btn-primary">Ya</button>
+      <button id="modal-ok" class="btn-primary">OK</button>
     </div>
 
-<!-- Modal Global -->
-<div id="modal-confirm" class="modal-confirm">
-  <div class="modal-content">
-    <h3 id="modal-title">Konfirmasi</h3>
-    <div id="modal-body" style="margin-top:10px;">
-     
- <!-- Konten dinamis masuk sini -->
-    </div>
-    <div class="modal-buttons">
-      <button id="modal-cancel" class="btn-secondary">Batal</button>
-      <button id="modal-ok" class="btn-primary">Simpan</button>
-    </div>
   </div>
 </div>
+
 
 <!-- ================= SHARE MODAL PRO ================= -->
 <div id="share-backdrop" class="modal-backdrop" style="display:none;">
