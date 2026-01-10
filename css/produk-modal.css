@@ -255,3 +255,33 @@
 .pm-share:active {
   transform: scale(0.95);
 }
+
+/* ================= IMAGE LANDSCAPE CONSISTENT ================= */
+.pm-img-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 9;      /* kunci landscape */
+  overflow: hidden;
+  border-radius: 12px;
+  margin-top: 12px;
+  margin-bottom: 14px;
+  background: #f2f2f2;
+}
+
+[data-theme="dark"] .pm-img-wrap {
+  background: #1a1a1a;
+}
+
+.pm-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;     /* ❗ tidak zoom */
+  object-position: center;
+  display: block;
+}
+
+.pm-img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
