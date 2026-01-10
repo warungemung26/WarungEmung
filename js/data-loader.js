@@ -112,7 +112,12 @@ function createCard(p){
     e.stopPropagation();
     const existing = cart.find(it => it.name === p.name);
     if (existing) existing.qty += q;
-    else cart.push({ name: p.name, qty: q, price: p.price });
+    else cart.push({ 
+  name: p.name, 
+  qty: q, 
+  price: p.price,
+  img: p.img || 'images/placeholder.png'
+});
     updateCartCount();
     showToast(`Ditambahkan: ${p.name} x ${q}`);
     ding.currentTime = 0;
