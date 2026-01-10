@@ -89,6 +89,47 @@ function getSelectedCurrency() {
     });
   }
 
+function openInfoModal({ title = "Info", message = "", autoClose = false, delay = 2000 } = {}) {
+  const modal = document.getElementById('modal-confirm');
+  if (!modal) return;
+
+  const modalTitle = document.getElementById('modal-title');
+  const modalMessage = document.getElementById('modal-message');
+  const modalBody = document.getElementById('modal-body');
+  const modalWaInputs = document.getElementById('modal-wa-inputs');
+  const modalCancel = document.getElementById('modal-cancel');
+  const modalOk = document.getElementById('modal-ok');
+
+  // reset TOTAL (INI KUNCI)
+  currentAction = null;
+  isWaFlow = false;
+
+  modalTitle.textContent = title;
+  modalMessage.textContent = message;
+
+  // sembunyikan elemen yang tidak perlu
+  if (modalBody) modalBody.style.display = "none";
+  if (modalWaInputs) modalWaInputs.style.display = "none";
+
+  // HILANGKAN tombol BATAL
+  if (modalCancel) modalCancel.style.display = "none";
+
+  // OK jadi tombol TUTUP MURNI
+  if (modalOk) {
+    modalOk.textContent = "Tutup";
+    modalOk.onclick = function () {
+      closeModal();
+    };
+  }
+
+  modal.style.display = 'flex';
+  modal.setAttribute('aria-hidden', 'false');
+
+  if (autoClose) {
+    setTimeout(closeModal, delay);
+  }
+}
+
   // ======================================================
   // EVENT DELEGATION CTA-LINK
   // ======================================================
@@ -251,13 +292,11 @@ if(!anchor) return;
     }
     
     function openThankYouModal() {
-  openModal({
+  openInfoModal({
     title: "Terima Kasih 🙏",
     message: "Pesanan Anda sudah terkirim dan akan segera diproses.\n\nSilakan tunggu konfirmasi dari Warung Emung.",
-    action: function(){}
   });
 }
-
 
     // ======================================================
 // RIWAYAT — HANDLER GLOBAL CTA
