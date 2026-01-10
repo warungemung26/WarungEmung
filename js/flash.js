@@ -131,10 +131,11 @@ function addFlash(id) {
       const existing = cart.find(i => i.name === p.name);
       if (existing) existing.qty += qty;
       else cart.push({
-        name: p.name,
-        qty: qty,
-        price: p.price_flash
-      });
+  name: p.name,
+  qty: qty,
+  price: p.price_flash,
+  img: p.img || 'images/placeholder.png'
+});
 
       updateCartCount();
       showToast(`${p.name} x${qty} ditambahkan`);
