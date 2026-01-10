@@ -190,29 +190,36 @@
   justify-content:center;
 }
 
-/* ================= FLOATING BUTTON ================= */
+/* ================= FLOATING BUTTON (PNG MODE) ================= */
 #flash-btn {
   position: fixed;
   bottom: 85px;
-  right: 15px;
+  right: 0px;
+
   width: 140px;
   height: 52px;
-  background: var(--flash-btn-bg);
-  border-radius: 30px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+
+  background: transparent;      /* PNG full */
+  border: none;
+  outline: none;
+  border-radius: 0;              /* ikut bentuk PNG */
+
+  box-shadow: none;              /* hilangkan garis / bayangan */
+  overflow: visible;             /* cegah garis hitam saat scale */
+
   z-index: 999;
-  box-shadow: 0 6px 16px var(--flash-btn-shadow);
   opacity: 0;
-  transform: scale(0.8);
+  transform: scale(0.85);
   pointer-events: none;
+
   transition: opacity .25s ease, transform .25s ease;
-  overflow: hidden;
-  text-align: center;
 }
 
+/* tampil */
 #flash-btn.show {
   opacity: 1;
   transform: scale(1);
@@ -220,32 +227,42 @@
   animation: pulse 1.5s infinite;
 }
 
+/* animasi lembut (aman, no outline) */
 @keyframes pulse {
-  0%,100%{transform:scale(1);}
-  50%{transform:scale(1.05);}
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
 }
 
+/* gambar PNG */
 #flash-btn img {
-  width: 26px;
-  height: 26px;
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  object-fit: contain;
   pointer-events: none;
-  flex-shrink: 0;
+
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 
+/* teks lama dimatikan (PNG sudah ada tulisan) */
 #flash-btn .flash-text {
-  font-size: 14px;
-  font-weight: bold;
-  color: var(--flash-btn-text);
-  text-shadow: 0 1px 2px var(--flash-btn-text-shadow);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  flex-grow: 1;
+  display: none;
 }
 
-/* Responsive */
-@media(max-width:400px){
-  #flash-btn{width:95px;height:46px;padding:0 10px;}
-  #flash-btn img{width:22px;height:22px;}
-  #flash-btn .flash-text{font-size:13px;}
+/* focus safety */
+#flash-btn:focus,
+#flash-btn:active {
+  outline: none;
+  box-shadow: none;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 400px) {
+  #flash-btn {
+    width: 110px;
+    height: 46px;
+  }
 }
