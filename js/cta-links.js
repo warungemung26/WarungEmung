@@ -207,10 +207,10 @@ ${lines}
 
 Mohon diproses.`;
 
-      window.open(
-        'https://wa.me/6285322882512?text=' + encodeURIComponent(message),
-        '_blank'
-      );
+      const waNumber = window.APP_CONFIG?.WHATSAPP?.DEFAULT;
+const waUrl = "https://wa.me/" + waNumber + "?text=" + encodeURIComponent(message);
+
+window.open(waUrl, "_blank");
       
       // TAMPILKAN MODAL TERIMA KASIH
 setTimeout(() => {
@@ -293,10 +293,11 @@ if(!anchor) return;
     
     function openThankYouModal() {
   openInfoModal({
-    title: "Terima Kasih 🙏",
-    message: "Pesanan Anda sudah terkirim dan akan segera diproses.\n\nSilakan tunggu konfirmasi dari Warung Emung.",
+    title: "Matur Nuwun 🙏",
+    message: "Matur nuwun sampun ngubungi Warung Emung.\n\nMangga lanjut kirim pesenan liwat WhatsApp supados saged diproses.",
   });
 }
+
 
     // ======================================================
 // RIWAYAT — HANDLER GLOBAL CTA
@@ -425,10 +426,13 @@ Mohon informasinya.`;
     title: "Cek Status Pesanan?",
     message: "Ingin menanyakan status pesanan ini via WhatsApp?",
     action: function () {
-      const wa = "https://wa.me/6285322882512?text=" + encodeURIComponent(text);
-      window.open(wa, '_blank');
-    }
-  });
+      const waNumber = window.APP_CONFIG?.WHATSAPP?.DEFAULT;
+const wa = "https://wa.me/" + waNumber + "?text=" + encodeURIComponent(text);
+
+window.open(wa, "_blank");
+}
+});
+
 
   return;
 }
@@ -469,10 +473,13 @@ Mohon informasinya.`;
             `📅 *Waktu:* ${waktu}\n\n` +
             `Mohon informasinya.`;
 
-          const wa = "https://wa.me/6285322882512?text=" + encodeURIComponent(text);
-          window.open(wa, "_blank");
-        }
-      });
+          const waNumber = window.APP_CONFIG?.WHATSAPP?.DEFAULT;
+const wa = "https://wa.me/" + waNumber + "?text=" + encodeURIComponent(text);
+
+window.open(wa, "_blank");
+}
+});
+
 
       return;
     }
@@ -524,10 +531,12 @@ if(anchor.classList.contains("wa-nav")){
 
 Mohon informasinya.`;
 
-      const wa = "https://wa.me/6285322882512?text=" + encodeURIComponent(text);
-      window.open(wa, "_blank");
-    }
-  });
+      const waNumber = window.APP_CONFIG?.WHATSAPP?.DEFAULT;
+const wa = "https://wa.me/" + waNumber + "?text=" + encodeURIComponent(text);
+
+window.open(wa, "_blank");
+}
+});
 
   return;
 }
@@ -613,6 +622,35 @@ if(resetDataBtn){
   return;
 }
 
+// ======================================================
+// REQUEST PRODUK VIA WA (MODERN)
+// ======================================================
+if (anchor.dataset.wa === "request") {
+  openModal({
+    title: "Request Produk via WhatsApp",
+    message: "Masukkan Nama Produk dan Jumlah:",
+    isWA: true,
+    action: function (produk, jumlah) {
+
+      const waNumber = window.APP_CONFIG?.WHATSAPP?.DEFAULT;
+
+      const pesanPro =
+`Halo Warung Emung 🙏,
+
+Saya ingin melakukan request produk:
+
+📦 *Nama Produk*: ${produk}
+📊 *Jumlah*: ${jumlah}
+
+Mohon konfirmasi ketersediaannya.
+Terima kasih 🙏`;
+
+      const wa = "https://wa.me/" + waNumber + "?text=" + encodeURIComponent(pesanPro);
+      window.open(wa, "_blank");
+    }
+  });
+  return;
+}
 
 
     // ======================================================
@@ -682,4 +720,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
