@@ -50,7 +50,10 @@ function renderCartModal() {
 
     row.innerHTML = `
   <div class="cart-left">
-    <img src="${it.img}" alt="${it.name}" class="cart-img">
+    <img src="${it.img || 'images/placeholder.png'}"
+     onerror="this.src='images/placeholder.png'"
+     alt="${it.name}"
+     class="cart-img">
     <div class="cart-info">
       <div class="cart-name">${it.name}</div>
       <div class="cart-qty">x ${it.qty}</div>
