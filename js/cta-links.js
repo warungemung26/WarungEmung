@@ -340,13 +340,12 @@ if (anchor.classList.contains("riwayat-clear-all")) {
 if (anchor.classList.contains("riwayat-repeat")) {
   const id = anchor.dataset.id;
   const r = JSON.parse(localStorage.getItem("riwayat") || "[]");
-  const item = r.find(x => x.id == id);
+  const order = r.find(x => x.id == id);
 
-  if (!item) {
-    openModal({
-      title: "Tidak Ditemukan",
-      message: "Data pesanan tidak tersedia.",
-      action: function(){}
+  if (!order || !Array.isArray(order.items)) {
+    openInfoModal({
+      title: "Gagal",
+      message: "Data pesanan tidak valid."
     });
     return;
   }
@@ -355,7 +354,39 @@ if (anchor.classList.contains("riwayat-repeat")) {
     title: "Ulangi Pesanan?",
     message: "Semua produk dari pesanan ini akan dimasukkan ke keranjang.",
     action: function () {
-      localStorage.setItem("cart", JSON.stringify(item.items));
+
+      // 1. Reset cart aktif
+      cart = [];
+
+      // 2. Masukkan ulang item dengan DATA LENGKAP
+      order.items.forEach(it => {
+
+        // cari produk asli (untuk ambil img, slug, dll)
+        const produkAsli = (window.products || []).find(p => p.name === it.name);
+
+        cart.push({
+          id: it.id || (produkAsli ? produkAsli.id : null),
+          name: it.name,
+          qty: it.qty,
+          price: it.harga,
+          img: produkAsli ? produkAsli.img : "images/placeholder.png",
+          slug: produkAsli ? produkAsli.slug : null
+        });
+      });
+
+      // 3. Simpan & update UI
+      localStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCount();
+      renderCartModal();
+
+      // 4. FEEDBACK VISUAL 🔥
+      showToast("Pesanan berhasil dimasukkan ke keranjang 🛒");
+      if (typeof ding !== "undefined") {
+        ding.currentTime = 0;
+        ding.play().catch(()=>{});
+      }
+
+      // 5. Fokus ke keranjang
       location.href = "#keranjang";
     }
   });
