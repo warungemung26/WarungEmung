@@ -15,11 +15,10 @@ window.APP_CONFIG = {
 
   /* =========================
      WHATSAPP
-     (tanpa +, tanpa spasi)
+     (DINAMIS VIA JSON)
   ========================= */
   WHATSAPP: {
-    DEFAULT: "6285322882512", // ganti nomor utama
-    // ADMIN: "6289xxxxxxx" // opsional kalau nanti multi admin
+    DEFAULT: null // diisi otomatis dari data/whatsapp.json
   },
 
   /* =========================
@@ -50,3 +49,18 @@ window.APP_CONFIG = {
     THANKYOU_AUTOCLOSE: 2500
   }
 };
+
+/* =========================
+   LOAD WA NUMBER FROM JSON
+========================= */
+fetch("data/whatsapp.json")
+  .then(res => res.json())
+  .then(data => {
+    if (data && data.default) {
+      APP_CONFIG.WHATSAPP.DEFAULT = data.default;
+      console.log("WA number loaded:", data.default);
+    }
+  })
+  .catch(() => {
+    console.warn("whatsapp.json tidak ditemukan / gagal dimuat");
+  });
