@@ -7,6 +7,14 @@
 // Pastikan flashplus ada supaya tombol flash+ bisa pakai
 let flashplus = []; // array atau object sesuai kebutuhan
 
+// ===== FALLBACK getSelectedCurrency =====
+if (typeof getSelectedCurrency !== "function") {
+  function getSelectedCurrency() {
+    return localStorage.getItem("selectedCurrency") || "Rp";
+  }
+}
+
+
 // ================= SIMPAN QTY FLASH PER PRODUK ===================
 const flashQty = {}; // simpan qty tiap produk flash
 
@@ -43,7 +51,6 @@ function makeSlug(text) {
     .replace(/\s+/g, "-");
 }
 
-
 // ================= RENDER FLASH SALE ===================
 function renderFlash(list) {
   if (!flashBox) return;
@@ -71,7 +78,6 @@ function renderFlash(list) {
 
     item.innerHTML = `
       <img src="${p.img}" class="flash-img">
-
       <div class="flash-info">
         <div class="flash-title">${p.name}</div>
         <div class="flash-label">${p.label || ''}</div>
@@ -116,7 +122,6 @@ function renderFlash(list) {
   // cek tombol floating
   cekFlashButton(list.length);
 }
-
 
 // ================= ADD TO CART FLASH ===================
 function addFlash(id) {
