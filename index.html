@@ -1,1042 +1,856 @@
-<!--
-Copyright (c) 2025, Atos
-All rights reserved.
-Unauthorized copying, modification, or distribution of this file is strictly prohibited.
--->
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- ===== TITLE (SEO) ===== -->
-  <title>Warung Emung | Warung Online Praktis, Hemat & Dekat</title>
-
-  <!-- ===== BASIC SEO ===== -->
-  <meta name="description" content="Warung Emung adalah warung online UMKM lokal. Belanja sembako, snack, minuman, dan kebutuhan harian dengan mudah. Antar cepat area sekitar.">
-  <meta name="keywords" content="warung emung, warung online, sembako cirebon, belanja harian, UMKM lokal">
-  <meta name="robots" content="index, follow">
-
-  <!-- ===== OPEN GRAPH (WA / FB / TELEGRAM) ===== -->
-  <meta property="og:title" content="Warung Emung – Warung Online Dekat Rumah">
-  <meta property="og:description" content="Belanja harian gampang, tinggal klik. Antar cepat, praktis, dan hemat.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://warungemung26.github.io/WarungEmung/">
-  <meta property="og:image" content="https://warungemung26.github.io/WarungEmung/images/logo-warung.png">
-
-<link rel="canonical" href="https://warungemung26.github.io/WarungEmung/">
-
-<!-- ===== TWITTER CARD ===== -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Warung Emung – Warung Online Dekat Rumah">
-<meta name="twitter:description" content="Belanja harian gampang, tinggal klik. Antar cepat, praktis, dan hemat.">
-<meta name="twitter:image" content="https://warungemung26.github.io/WarungEmung/images/logo-warung.png">
-
-<meta name="author" content="Warung Emung">
-<meta name="geo.region" content="ID-JB">
-<meta name="geo.placename" content="Cirebon">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title></title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/bottom-nav.css">
+<link rel="stylesheet" href="css/flash.css">
 
 
-<!-- ===== SCHEMA.ORG : LOCAL BUSINESS ===== -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "OnlineStore",
-  "@id": "https://warungemung26.github.io/WarungEmung/#business",
-  "name": "Warung Emung",
-  "url": "https://warungemung26.github.io/WarungEmung/",
-  "logo": "https://warungemung26.github.io/WarungEmung/images/logo-warung.png",
-  "image": "https://warungemung26.github.io/WarungEmung/images/logo-warung.png",
-  "description": "Warung Emung adalah warung online UMKM lokal yang menyediakan sembako, snack, minuman, dan kebutuhan harian dengan antar cepat area sekitar.",
-  "telephone": "+62",
-  "priceRange": "Rp",
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "ID",
-    "addressRegion": "Jawa Barat",
-    "addressLocality": "Cirebon"
-  },
-  "areaServed": {
-    "@type": "AdministrativeArea",
-    "name": "Cirebon"
-  },
-  "sameAs": [
-    "https://warungemung26.github.io/WarungEmung/"
-  ]
+
+<style>
+/* ====== STYLE TAB (STICKY) ====== */
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 15px;
+  background: #fff;
+  padding-top: 8px;
 }
-</script>
 
+.tab {
+  padding: 10px 16px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  background: #f7f7f7;
+  margin-right: 5px;
+  border-radius: 6px 6px 0 0;
+  font-weight: bold;
+}
+.tab.active { 
+  background: #fff; 
+  border-bottom: 2px solid white; 
+}
 
-<link rel="preload" as="image" href="images/logo-warung.png">
+.tab-content { display: none; }
+.tab-content.active { display: block; }
 
+/* Card wrapper */
+.card {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
 
-  <!-- ===== THEME & PWA ===== -->
-  <meta name="theme-color" content="#f6b042">
-  <link rel="manifest" href="manifest.json">
-
-  <!-- ===== OPTIONAL: FILTER BOT GA ===== -->
-  <script>
-    if (navigator.webdriver) {
-      window['ga-disable-G-PYZMBZNKER'] = true;
-    }
-  </script>
-
-  <!-- ================== CSS ================== -->
-  <!-- Base / umum -->
-  <link rel="stylesheet" href="css/ui.css">
-  <link rel="stylesheet" href="css/all.min.css">
-  <link rel="stylesheet" href="css/flash.css">
-
-  <!-- Modals & komponen -->
-  <link rel="stylesheet" href="css/popup-reg.css">
-  <link rel="stylesheet" href="css/produk-modal.css">
-  <link rel="stylesheet" href="css/cart-modal.css">
-  <link rel="stylesheet" href="css/cat-modal.css">
-  <link rel="stylesheet" href="css/akun-modal.css">
-
-  <!-- Fitur tambahan -->
-  <link rel="stylesheet" href="css/qty-addcart.css">
-  <link rel="stylesheet" href="css/nama-alamat.css">
-  <link rel="stylesheet" href="css/search.css">
-
-  <!-- Helper -->
-  <link rel="stylesheet" href="css/toast.css">
-  <link rel="stylesheet" href="css/text-scrol.css">
-
-  <!-- ===== Google Analytics ===== -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYZMBZNKER"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-PYZMBZNKER');
-  </script>
-
-  <!-- ===== UNREGISTER SW LAMA (DEV ONLY, BOLEH DIHAPUS NANTI) ===== -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistrations().then(regs => {
-        regs.forEach(reg => reg.unregister());
-      });
-    }
-  </script>
+/* ======= MODAL ======= */
+#confirmModal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,.55);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+#confirmBox {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+}
+#confirmBox button {
+  padding: 10px 16px;
+  margin: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+</style>
 </head>
-
 <body>
 
+<h1></h1>
 
-<!-- ===== HEADER MINI PROFESIONAL ===== -->
-<header class="header-mini">
-
-   <img src="images/logo-warung.png" class="logo-mini" alt="Logo" id="logoMini">
-
-  <!-- SEARCH WRAPPER -->
-  <div class="search-wrap">
-    <input id="search" type="text" placeholder="Cari produk..." class="search-mini" autocomplete="off">
-
-    <!-- CLEAR SEARCH -->
-    <button id="search-clear" class="search-icon-clear">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-
-    <ul id="search-suggestions" class="search-suggestions"></ul>
-  </div>
-
-  <!-- SEARCH BTN -->
-  <button id="search-btn" class="search-btn icon-btn">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-
-  <!-- MENU BTN -->
-  <button id="menu-btn" class="menu-btn icon-btn">
-    <i class="fa-solid fa-bars"></i>
-  </button>
-
-</header>
-
-
-<!-- ===== SIDEBAR RIGHT ===== -->
-<div id="sidebar" class="sidebar">
-  <div class="sidebar-header">
-    <h3>Pengaturan</h3>
-    <button id="close-sidebar" class="close-btn">✖</button>
-  </div>
-
-  <!-- Tombol Keranjang -->
-  <button id="open-cart" class="cart-btn" title="Keranjang">
-    <i class="fa-solid fa-cart-shopping"></i>
-    <span id="cart-count" class="cart-count">0</span>
-  </button>
-
-  <ul class="sidebar-menu">
-    <!-- Akun -->
-    <li id="nav-accountk">
-      <i class="fa-solid fa-user"></i>
-      <span>Profil Saya</span>
-    </li>
-
-    <!-- Mode Gelap -->
-    <li class="dark-mode-toggle">
-      <i class="fa-solid fa-moon"></i>
-      <span>Mode Gelap</span>
-      <label class="switch">
-        <input type="checkbox" id="dark-toggle">
-        <span class="slider"></span>
-      </label>
-    </li>
-
-    <!-- Notifikasi Suara -->
-    <li class="toggle-toast">
-      <i class="fa-solid fa-bell"></i>
-      <span>Notifikasi Suara</span>
-      <label class="switch">
-        <input type="checkbox" id="toast-toggle">
-        <span class="slider"></span>
-      </label>
-    </li>
-
-    <!-- Tema Warna -->
-    <li class="theme-select">
-      <i class="fa-solid fa-palette"></i>
-      <span>Tema Warna</span>
-      <select id="theme-select">
-        <option value="default">Default</option>
-        <option value="red">Merah</option>
-        <option value="blue">Biru</option>
-        <option value="green">Hijau</option>
-      </select>
-    </li>
-
-    <!-- ===== MATA UANG ===== -->
-    <li class="currency-select">
-      <i class="fa-solid fa-coins"></i>
-      <span>Mata Uang</span>
-      <select id="currency-select">
-        <option value="Rp">Rupiah (Rp)</option>
-        <option value="PI">Pi Network (PI)</option>
-        <option value="$">US Dollar ($)</option>
-      </select>
-    </li>
-    <!-- ===== END MATA UANG ===== -->
-
-    <li id="edit-alamat">
-      <i class="fa-solid fa-location-dot"></i>
-      <span>Ubah Alamat Pengiriman</span>
-    </li>
-
-    <li>
-      <i class="fa-solid fa-box"></i>
-      <span>Status Pesanan</span>
-    </li>
-
-    <!-- Bantuan -->
-    <li class="help-btn">
-      <a href="pages/help-center.html">
-        <i class="fa-solid fa-circle-question"></i>
-        <span>Bantuan</span>
-      </a>
-    </li>
-
-    <li id="reset-data" class="cta-link">
-      <i class="fa-solid fa-broom"></i>
-      <span>Reset Data Lokal</span>
-    </li>
-
-    <!-- Tentang -->
-    <li id="nav-about">
-      <i class="fa-solid fa-info-circle"></i>
-      <span>Tentang Warung Emung</span>
-    </li>
-
-  </ul>
+<!-- =============== MENU TAB =============== -->
+<div class="tabs">	
+<div class="tab active" data-tab="offline">📦 Produk Biasa</div>
+<div class="tab" data-tab="flash">⚡ Flash Sale</div>
+<div class="tab" data-tab="repo">🌐 Repo Manager</div>
+<div class="tab" data-tab="token">🔐 Token</div>
 </div>
 
-<!-- BACKDROP -->
-<div id="sidebar-backdrop" class="sidebar-backdrop"></div>
+<!-- ============================================================
+     TAB 1 — DATA OFFLINE
+============================================================ -->
+<div id="tab-offline" class="tab-content active">
 
-<section id="home"><h2></h2></section>
+  <h2>📦 Kelola Data Offline</h2>
 
-<!-- ================= MENU KATEGORI BARU ================= -->
-<h3 style="margin:10px 0;">Pilih Kategori</h3>
+<!-- FORM TAMBAH -->
+<div class="card">
+  <h3>🛍️ Tambah Produk Baru</h3>
+  <div class="admin-form">
+    <input type="text" id="name" placeholder="Nama Produk"
+           autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    <input type="number" id="price" placeholder="Harga (Rp)"
+           autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
 
-<div class="cat-wrapper">
-  <button class="cat-arrow left" onclick="slideCat(-1)">❮</button>
+    <label>Kategori:</label>
+    <select id="categorySelect" onchange="toggleCustomCategory(this)">
+      <option value="">Pilih Kategori</option>
+      <option value="sembako">Sembako</option>
+      <option value="makanan">Makanan Cepat Saji</option>
+      <option value="mie">Mie Instan</option>
+      <option value="snack">Snack</option>
+      <option value="minuman">Minuman</option>
+      <option value="minumansachet">Obat</option>
+      <option value="rumah">Rumah</option>
+      <option value="custom">Custom...</option>
+    </select>
+    <input type="text" id="customCategory" placeholder="Tulis kategori baru..." style="display:none;"
+           autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
 
-  <div class="kategori-grid" id="cat-scroll">
-
-    <div class="cat active" onclick="setCategory('')">
-      <img src="icons/all.png" class="cat-icon">
-      <span>Semua</span>
+    <label>Gambar Produk:</label>
+    <div style="display:flex; gap:10px;">
+      <input type="text" id="imageName" placeholder="nama-file-gambar"
+             autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+      <button onclick="triggerFilePickerTemp()">📁 Pilih</button>
     </div>
 
-    <div class="cat" onclick="setCategory('sembako')">
-      <img src="icons/sembako.png" class="cat-icon">
-      <span>Sembako</span>
-    </div>
-
-    <div class="cat" onclick="setCategory('bumbu')">
-      <img src="icons/bumbu.png" class="cat-icon">
-      <span>Bumbu</span>
-    </div>
-
-    <div class="cat" onclick="setCategory('mie')">
-      <img src="icons/mie.png" class="cat-icon">
-      <span>Mie Instan</span>
-    </div>
-
-    <div class="cat" onclick="setCategory('snack')">
-      <img src="icons/snack.png" class="cat-icon">
-      <span>Makanan Ringan</span>
-    </div>
-
-    <div class="cat" onclick="setCategory('roti')">
-      <img src="icons/roti.png" class="cat-icon">
-      <span>Roti&Kue</span>
-    </div>
-
-    <div class="cat" onclick="setCategory('makanan')">
-      <img src="icons/makanan.png" class="cat-icon">
-      <span>Produk UMKM</span>
-    </div>
-
-    <div class="cat" onclick="setCategory('minuman')">
-      <img src="icons/minuman.png" class="cat-icon">
-      <span>Minuman Dingin</span>
-    </div>
-
-    <div class="cat" onclick="setCategory('minumansachet')">
-      <img src="icons/sachet.png" class="cat-icon">
-      <span>Minuman Sachet </span>
-    </div>
-
-    <div class="cat" onclick="setCategory('frozen')">
-      <img src="icons/frozen.png" class="cat-icon">
-      <span>Frozen</span>
-    </div>
-
-    <div class="cat" onclick="setCategory('rokok')">
-      <img src="icons/rokok.png" class="cat-icon">
-      <span>Rokok</span>
-    </div>
-
-    <div class="cat" onclick="setCategory('obat')">
-      <img src="icons/obat.png" class="cat-icon">
-      <span>Obat</span>
-    </div>
-
-    <div class="cat" onclick="setCategory('rumah')">
-      <img src="icons/rumah.png" class="cat-icon">
-      <span>SabunCuci & Mandi</span>
-    </div>
-
-    <div class="cat" onclick="setCategory('peralatandapur')">
-      <img src="icons/peralatandapur.png" class="cat-icon">
-      <span>Peralatan Dapur</span>
-    </div>
-    
-    <div class="cat" onclick="setCategory('peralatansekolah')">
-      <img src="icons/peralatansekolah.png" class="cat-icon">
-      <span>Alat Sekolah</span>
-    </div>
-    
-    <div class="cat" onclick="setCategory('mainan')">
-      <img src="icons/toy.png" class="cat-icon">
-      <span>Mainan</span>
-    </div>
-
-<div class="cat" onclick="setCategory('baju')">
-      <img src="icons/outfit.png" class="cat-icon">
-      <span>Pakaian</span>
-    </div>
-    
-    <div class="cat" onclick="setCategory('sandal')">
-      <img src="icons/sandal.png" class="cat-icon">
-      <span>Sandal</span>
-    </div>
-
-    <div class="cat" onclick="setCategory('lainnya')">
-      <img src="icons/other.png" class="cat-icon">
-      <span>Lainnya</span>
-    </div>
-
-  </div>
-
-  <button class="cat-arrow right" onclick="slideCat(1)">❯</button>
-</div>
-
-<!-- ================= KATEGORI MODAL ================= -->
-<div id="cat-modal-backdrop">
-  <div id="cat-modal" role="dialog" aria-hidden="true">
-
-    <!-- HEADER (TIDAK SCROLL) -->
-    <button id="close-cat" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
-
-    <h4 class="cat-title">
-      <i class="fa-solid fa-list"></i> Pilih Kategori
-    </h4>
-
-    <!-- BODY (YANG SCROLL) -->
-    <div class="cat-body">
-      <div id="cat-options">
-
-        <div class="cat" data-cat="">
-          <i class="fa-solid fa-cart-shopping"></i> Semua Produk
-        </div>
-
-        <div class="cat" data-cat="sembako">
-          <i class="fa-solid fa-bowl-rice"></i> Sembako (Bahan mentah keperluan dapur)
-        </div>
-
-        <div class="cat" data-cat="bumbu">
-          <i class="fa-solid fa-pepper-hot"></i> Bumbu Dapur & Rempah
-        </div>
-
-        <div class="cat" data-cat="mie">
-          <i class="fa-solid fa-bowl-food"></i> Mie Instan & Makanan Instan Lainnya
-        </div>
-
-        <div class="cat" data-cat="snack">
-          <i class="fa-solid fa-cookie-bite"></i> Snack & Jajanan Anak
-        </div>
-        
-        <div class="cat" data-cat="makanan">
-          <i class="fa-solid fa-burger"></i>  Makanan Produk UMKM
-        </div>
-        
-         <div class="cat" data-cat="roti">
-          <i class="fa-solid fa-bread-slice"></i> Roti & Kue Basah Lain Untuk Teman Ngopi
-        </div>
-        
-                <div class="cat" data-cat="minuman">
-          <i class="fa-solid fa-bottle-water"></i> Minuman Dingin Kemasan Botol/Cup/Kotak
-        </div>
-        
-                <div class="cat" data-cat="minumansachet">
-          <i class="fa-solid fa-mug-hot"></i> Minuman Sachet & Serbuk
-        </div>
-
-        <div class="cat" data-cat="mainan">
-          <i class="fa-solid fa-puzzle-piece"></i> Mainan Anak
-        </div>
-
-        <div class="cat" data-cat="frozen">
-          <i class="fa-solid fa-snowflake"></i> Ice Cream & Frozen Food
-        </div>
-
-        <div class="cat" data-cat="rokok">
-          <i class="fa-solid fa-fire-flame-simple"></i> Rokok
-        </div>
-
-        <div class="cat" data-cat="obat">
-          <i class="fa-solid fa-capsules"></i> Obat Harian & Vitamin
-        </div>
-
-        <div class="cat" data-cat="rumah">
-          <i class="fa-solid fa-pump-soap"></i> Sabun, Obat Nyamuk & Keperluan Rumah Lainnya
-        </div>
-
-        <div class="cat" data-cat="peralatandapur">
-          <i class="fa-solid fa-screwdriver-wrench"></i> Peralatan Rumah Tangga
-        </div>
-
-        <div class="cat" data-cat="peralatansekolah">
-          <i class="fa-solid fa-pen-ruler"></i> Peralatan Sekolah
-        </div>
-
-        <div class="cat" data-cat="baju">
-          <i class="fa-solid fa-shirt"></i> Pakaian
-        </div>
-
-        <div class="cat" data-cat="sandal">
-          <i class="fa-solid fa-shoe-prints"></i> Aneka Sandal
-        </div>
-
-        <div class="cat" data-cat="lainnya">
-          <i class="fa-solid fa-ellipsis"></i> Lainnya
-        </div>
-
-      </div>
-    </div>
-
+    <button class="btn-add" onclick="addProduct()">+ Tambah Produk</button>
   </div>
 </div>
 
 
-<!-- PENGUMUMAN BERJALAN -->
-<div class="pengumuman">
-  <marquee behavior="scroll" direction="left">
-    ⚠️ PEMBERITAHUAN: Seluruh data produk dan stok masih bersifat simulasi. Silakan lakukan uji coba pemesanan dan laporkan jika menemukan error atau kendala. Terima kasih. ⚠️
-  </marquee>
-</div>
-<!-- ================= HERO ================= -->
-<section class="hero">
-  <h2>Warung Emung</h2>
-<p>
-Belanja kebutuhan harian warga sekitar.  
-Cepat, hemat, dan dekat rumah 🏡  
-<b>Buka 06.00 – 22.00</b>
-</p>
-
-
-<!-- Tombol Request Stok Modern -->
-<div class="hero-cta">
-  <a class="cta-link wa-link wa-hero"
-     href="#"
-     id="wa-hero-cta"
-     data-wa="request">
-     <i class="fa-brands fa-whatsapp"></i>
-     <span>Request Stok</span>
-  </a>
-
-  <p class="wa-cta-instructions">
-    Produk tidak ada? Tekan tombol <strong>Request Stok Sekarang</strong> &amp; tulis <strong>nama produk</strong> + <strong>jumlah</strong>.
-  </p>
-</div>
-</section>
-
-<div class="info-box">
-  <p><i class="fas fa-map-marker-alt info-map"></i> Melayani area sekitar</p>
-  <p><i class="fas fa-truck info-truck"></i> Antar cepat – bayar langsung</p>
-  <p><i class="fab fa-whatsapp info-whatsapp"></i> Bisa pesan via WhatsApp</p>
-<div class="order-guide">
-  <details id="orderGuide">
-    <summary>
-      <i class="fas fa-question-circle"></i>
-      Cara Pesan
-    </summary>
-
-    <ol class="order-steps">
-      <li><strong>Isi profil & alamat</strong></li>
-      <li><strong>Cari produk</strong> via search / kategori</li>
-      <li><strong>Tambah ke keranjang</strong></li>
-      <li><strong>Buka troli</strong></li>
-      <li><strong>Pesan sekarang</strong> via WhatsApp</li>
-    </ol>
-  </details>
-</div>
-
-<!-- ============================
-     MODAL DETAIL PRODUK (SLIDE UP)
-     ============================ -->
-<div id="product-modal" class="pm-backdrop">
-  <div class="pm-sheet">
-    
-    <!-- TOPBAR -->
-    <div class="pm-topbar">
-      <button class="pm-back"><i class="fa fa-arrow-left"></i></button>
-      <button class="pm-close"><i class="fa fa-times"></i></button>
-    </div>
-
-    <div class="pm-handle"></div>
-
-    <!-- BAGIAN SCROLLABLE -->
-    <div class="pm-scroll">
-      <div class="pm-img-wrap">
-  <img class="pm-img" src="" alt="">
-</div>
-      <div class="pm-title"></div>
-      <div class="pm-price"></div>
-      <div class="pm-desc"></div>
-    </div>
-
-<!-- BAGIAN STICKY -->
-<div class="pm-sticky-bottom">
-
-  <!-- ROW: QTY + SHARE + WISHLIST -->
-  <div class="pm-bottom-row">
-
-    <div class="pm-qty">
-      <button class="pm-minus">−</button>
-      <span class="pm-number">1</span>
-      <button class="pm-plus">+</button>
-    </div>
-
-    <!-- SHARE (MINIMALIS) -->
-    <button class="pm-share" id="pm-share" title="Bagikan produk">
-      <i class="fa-solid fa-share-nodes"></i>
-    </button>
-
-    <!-- WISHLIST -->
-    <button class="pm-wishlist">
-      <i class="fa fa-heart"></i>
-    </button>
-
+  <!-- IMPORT JSON -->
+  <div class="card">
+    <h3>📥 Import JSON ke Tabel</h3>
+    <textarea id="jsonInput" placeholder='Tempelkan array JSON di sini...' style="width:100%;height:120px;"></textarea>
+    <button onclick="importJSON()">📤 Import</button>
+    <button onclick="clearJSONInput()">🧹 Bersihkan</button>
   </div>
 
-  <!-- ADD TO CART -->
-  <button class="pm-add">
-    <i class="fa fa-cart-plus"></i> Tambah ke Keranjang
-  </button>
+  <!-- FILTER / SORT -->
+  <div class="card">
+    <h3>🔍 Filter & Sort Produk</h3>
+    <select id="filterCategory" onchange="applyFilter()">
+      <option value="">Semua Kategori</option>
+    </select>
 
+    <select id="sortOption" onchange="applyFilter()">
+      <option value="">Tidak Diurutkan</option>
+      <option value="nameAsc">Nama (A–Z)</option>
+      <option value="nameDesc">Nama (Z–A)</option>
+      <option value="priceLow">Harga Termurah</option>
+      <option value="priceHigh">Harga Termahal</option>
+    </select>
+
+    <input id="searchInput" placeholder="Cari..." oninput="applyFilter()">
+    <button onclick="resetFilter()">🔄 Reset</button>
+  </div>
+
+<!-- ============================================================
+     TABEL PRODUK OFFLINE
+============================================================ -->
+
+<!-- BARIS ATAS: IMPORT PRODUK LOKAL + HAPUS SEMUA -->
+<div style="display:flex; gap:10px; margin-bottom:10px;">
+
+    <!-- TOMBOL IMPORT TANPA LINK -->
+    <button class="btn" onclick="loadProdukFromRepo()">📥 Import Produk</button>
+
+    <!-- ★★★ TOMBOL HAPUS SEMUA PRODUK ★★★ -->
+    <button class="btn" style="background:#ff3b30; color:white;" onclick="openConfirmDeleteAll()">🗑 Hapus Semua</button>
 </div>
 
 
+<div class="card">
+  <h3>📋 Data Produk (Offline)</h3>
+
+  <div class="table-wrap">
+    <table id="productTable">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Nama Produk</th>
+          <th>Harga</th>
+          <th>Kategori</th>
+          <th>Gambar</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
   </div>
 </div>
 
-
-<!-- ================= FLASH SALE ================= -->
-<div id="flash-section">
-  <h3 class="flash-title-section">⚡ Flash Sale Hari Ini</h3>
-  <div id="flash-list" class="flash-wrapper"></div>
-</div>
-<!-- FILTER HARGA -->
-	<div style="margin-bottom:12px;">
-  <label for="filter-price" style="font-weight:bold;">
-    <i class="fa fa-filter"></i> Urutkan Harga
-  </label>
-<i class="filter-container"></i>
-  <select id="filter-harga">
-    <option value="">Default</option>
-    <option value="low">⬇️ Termurah</option>
-    <option value="high">⬆️ Termahal</option>
-  </select>
-</div>
-
-
-<!-- ================= ETALASE WARUNG ================= -->
-<h3 class="etalase-title" style="margin-top:22px">Etalase Warung</h3>
-<div id="produk-list"></div>
-
-<!-- ================= FLOATING FLASH BUTTON ================= -->
-<button id="flash-btn">
-  <img src="images/flash.png" alt="Flash Icon">
-  <span class="flash-text">FLASH</span>
+  <!-- OUTPUT JSON -->
+  <div class="card">
+    <button onclick="generateAndScrollJSON()">💾 Generate JSON</button>
+    <button onclick="copyJSON()">📋 Copy</button>
+    <button onclick="window.open('tools/ai-product-generator.html','_blank')">
+  🤖 AI Product Generator
 </button>
+    <pre id="jsonOutput">[ Kosong ]</pre>
+  </div>
+</div>
 
-<!-- ================= CART MODAL ================= -->
-<!-- BACKDROP -->
-<div id="cart-backdrop" class="modal-backdrop" aria-hidden="true"></div>
+<!-- ============================================================
+     TAB FLASH SALE
+============================================================ -->
+<div id="tab-flash" class="tab-content">
+  <h2>⚡ Kelola Flash Sale</h2>
 
-<!-- CART MODAL -->
-<div id="cart-modal" class="modal" role="dialog" aria-hidden="true">
+  <!-- IMPORT BOX -->
+  <div class="flash-import-box">
+    <h3>📥 Import JSON Flash</h3>
 
-  <!-- CLOSE BUTTON FIXED -->
-  <button id="close-cart" class="close-x">
-    <i class="fa-solid fa-xmark"></i>
+    <!-- Import via FILE -->
+    <input type="file" id="flashFileInput" accept="application/json">
+    <button onclick="importFlashFromFile()">📁 Import dari File</button>
+
+    <!-- Import via TEXT -->
+    <textarea id="flashJsonText" placeholder="Paste JSON flash sale di sini..."></textarea>
+    <button onclick="importFlashFromText()">📥 Import dari Kode</button>
+    <button onclick="clearFlashJson()">🧹 Bersihkan Kode</button>
+  </div>
+
+  <!-- INPUT FLASH -->
+  <div class="card">
+    <h3>⚡ Flash Sale</h3>
+    <div class="admin-form">
+      <input type="text" id="flash_name" placeholder="Nama Produk">
+      <input type="number" id="flash_price_normal" placeholder="Harga Normal">
+      <input type="number" id="flash_price_flash" placeholder="Harga Flash">
+      <input type="number" id="flash_stock" placeholder="Stok">
+      <input type="text" id="flash_img" placeholder="URL Gambar">
+      <input type="text" id="flash_label" placeholder="Deskripsi">
+      <input type="datetime-local" id="flash_until">
+      <button onclick="addFlashProduct()">➕ Tambah Flash Sale</button>
+    </div>
+  </div>
+
+
+<!-- TABEL FLASH -->
+<button onclick="loadFlashFromRepo()">🔄 Sync Flash Sale dari Repo</button>
+<div class="table-wrap">
+  <table id="flashTable">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>Harga Normal</th>
+        <th>Harga Flash</th>
+        <th>Stok</th>
+        <th>Gambar</th>
+        <th>Label</th>
+        <th>Flash Sampai</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<!-- ============================================================
+     OUTPUT JSON FLASH
+============================================================ -->
+<div class="card" id="flash_json_section">
+  <h3>📤 JSON Flash</h3>
+
+  <button onclick="generateAndScrollFlashJSON()">💾 Generate JSON Flash</button>
+  <button onclick="copyFlashJSON()">📋 Copy</button>
+
+  <pre id="flashJsonOutput">[ Kosong ]</pre>
+</div>
+
+  <!-- EXPORT -->
+  <div style="margin-top:10px;">
+    <button onclick="downloadFlashJSON()">📤 Download JSON Flash</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     TAB 2 — REPO MANAGER
+============================================================ -->
+<div id="tab-repo" class="tab-content">
+
+  <h2>🌐 Kelola Repo GitHub</h2>
+
+  <div class="card">
+    <h3>📂 Upload Gambar Massal</h3>
+    <input type="file" id="filePicker" multiple accept="image/*">
+    <button id="uploadMassalBtn">🚀 Upload</button>
+    <div id="previewArea"></div>
+  </div>
+
+  <div class="card">
+    <h3>🗂️ Kelola Folder Repo</h3>
+    <input id="folderPath" placeholder="nama-folder (misal: images)">
+    <button id="loadFolder">📂 Load</button>
+    <button id="deleteSelected">🗑️ Hapus Terpilih</button>
+    <button id="deleteAll">🗑️ Hapus Semua</button>
+    <button onclick="buatFolderBaru()">📁 Buat Folder Baru</button>
+
+    <div id="fileList">
+      <small>Menunggu load folder...</small>
+    </div>
+  </div>
+
+
+<!-- =========================
+     REPO MANAGER (UPLOAD)
+========================= -->
+  <div class="card" id="repoManager">
+    <h3>🔁 Repo Produk Manager</h3>
+  <!-- ====== PUSH ZIP TO GITHUB ====== -->
+<div class="push-zip-box">
+
+  <!-- Token (jika sudah ada di localStorage, bisa kamu sembunyikan) -->
+  <label class="label">GitHub Token</label>
+  <input type="text" id="githubToken" placeholder="Masukkan token GitHub" />
+
+  <!-- Picker ZIP -->
+  <label class="label">Pilih File ZIP</label>
+  <input type="file" id="zipInputSafe" accept=".zip" />
+
+  <!-- Tombol Upload -->
+  <button id="btnPushZip" onclick="pushZipToGitHubSafe()">
+    🚀 Push ZIP ke GitHub
   </button>
 
-  <h4>Keranjang Anda</h4>
+  <!-- Progress Bar -->
+  <progress id="pushProgress" max="100" value="0"></progress>
 
-  <div id="cart-items"></div>
-  <div class="total" id="cart-total"></div>
+  <!-- Status Log -->
+  <div id="pushStatus"></div>
 
-  <div style="display:flex;gap:8px;margin-top:8px">
-    <button id="wa-cart" class="wa-btn">
-      Pesan Semua via <i class="fa-brands fa-whatsapp"></i>
-    </button>
+</div>
+     <button id="btnUploadProduk">📤 Upload Produk JSON</button>
+    <button id="btnUploadFlash">📤 Upload Flash JSON</button>
+    <button id="btnLoadFlash">🔁 Load Flash dari Repo</button>
+     <button onclick="downloadFlashJSON()">⬇ Download JSON Flash</button>
+    <button onclick="downloadJSON()">⬇️ Download JSON</button>
+    <button onclick="exportToExcel()">⬇️ Export Excel</button>
+   </div>
+  <p style="font-size:12px;color:#666;margin-top:8px;">
+    Pastikan token memiliki repo scope. File akan diupload ke <code>data/produk.json</code> dan <code>data/flash.json</code>.
+  </p>
+</div>
 
-    <button id="clear-cart" class="cta-clear-cart">
-      Kosongkan
-    </button>
+</div>
+
+<div class="card">
+  <h3>🧰 Tools Tambahan</h3>
+
+  <button onclick="window.open('tools/github-push-zip.html','_blank')">
+    📦 Push ZIP Custom Repo ke GitHub
+  </button>
+  
+  <button onclick="window.open('tools/wa-admin.html','_blank')">
+    💻 Admin Whatsapp
+  </button>
+</div>
+
+
+<!-- ============================================================
+     TAB 3 — TOKEN
+============================================================ -->
+<div id="tab-token" class="tab-content">
+
+  <h2>🔐 GitHub Token Manager</h2>
+
+  <div class="card">
+    <label>Token GitHub:</label>
+    <input id="githubToken" type="password" placeholder="Masukkan token">
+
+    <button id="btnPaste">📋 Paste</button>
+    <button id="btnUseStored">🔑 Pakai Token Tersimpan</button>
+    <button id="btnSave">💾 Simpan (Encrypted)</button>
+    <button id="btnSavePlain">💾 Simpan (Plain)</button>
+    <button id="btnClearStored" style="color:red;">🗑 Hapus Token</button>
+
+    <input id="passphrase" type="password" placeholder="Passphrase optional">
   </div>
 
 </div>
 
+<!-- ============= MODAL KONFIRMASI ============= -->
+<div id="confirmModal">
+  <div id="confirmBox">
+  	
+    <h3>⚠ Hapus Semua Produk?</h3>
+    <p>Semua data produk offline akan dihapus permanen.</p>
 
-</div>
-
-<footer class="footer-ultra-pro">
-  <p><strong>Warung Emung</strong> — Praktis, Hemat, Dekat</p>
-
-  <!-- Link Google Maps -->
-  <p>
-    <a href="https://maps.google.com/?cid=10650881012948988577&entry=gps"
-       target="_blank"
-       rel="noopener"
-       class="footer-map-link">
-
-      <!-- Map Pin SVG -->
-      <svg class="footer-map-icon"
-           xmlns="http://www.w3.org/2000/svg"
-           width="18" height="18"
-           viewBox="0 0 24 24"
-           aria-hidden="true">
-        <path d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5 14.5 7.62 14.5 9 13.38 11.5 12 11.5z"/>
-      </svg>
-      Lihat lokasi kami
-    </a>
-  </p>
-
-  <!-- Privacy + GitHub -->
-  <p class="footer-links">
-    <a href="privacy.html">Privacy Policy</a>
-    <span class="footer-sep">•</span>
-    <a href="https://github.com/warungemung26/WarungEmung"
-       target="_blank"
-       rel="noopener"
-       aria-label="GitHub Repository">
-
-      <!-- GitHub SVG -->
-      <svg class="footer-github-icon"
-           xmlns="http://www.w3.org/2000/svg"
-           width="18" height="18"
-           viewBox="0 0 24 24"
-           aria-hidden="true">
-        <path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.42 7.86 10.95.57.1.78-.25.78-.55v-2.02c-3.2.7-3.88-1.55-3.88-1.55-.53-1.36-1.3-1.72-1.3-1.72-1.06-.74.08-.73.08-.73 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.72 1.27 3.38.97.1-.76.4-1.27.73-1.56-2.56-.29-5.26-1.29-5.26-5.75 0-1.27.46-2.3 1.2-3.11-.12-.3-.52-1.5.12-3.13 0 0 .98-.32 3.2 1.19a11.1 11.1 0 0 1 5.83 0c2.22-1.51 3.2-1.19 3.2-1.19.64 1.63.24 2.83.12 3.13.75.81 1.2 1.84 1.2 3.11 0 4.47-2.7 5.45-5.28 5.73.41.36.78 1.07.78 2.16v3.2c0 .3.2.66.79.55A11.53 11.53 0 0 0 23.5 12C23.5 5.74 18.27.5 12 .5z"/>
-      </svg>
-      GitHub
-    </a>
-  </p>
-
-  <p class="footer-copy">
-    &copy; 2025 Warung Emung. Semua hak cipta dilindungi.
-  </p>
-</footer>
-
-  <!-- ================= TOAST NOTIF ================= -->
-  <div id="toast">Berhasil</div>
-
-<!-- REGISTER POPUP -->
-<div id="register-backdrop" class="modal-backdrop" style="display:none;">
-  <div id="register-modal" class="reg-modal-box">
-
-    <!-- STEP 1: PILIHAN AWAL -->
-    <div id="reg-step1" class="reg-step active">
-      <h3>Selamat Datang!</h3>
-      <p>Daftar untuk menjadi pelanggan Warung Emung.</p>
-
-      <div class="reg-actions reg-actions-bottom">
-        <button id="btn-register-now" class="primary big-btn">Daftar Sekarang</button>
-        <button id="btn-register-later" class="secondary big-btn">Daftar Nanti</button>
-      </div>
-    </div>
-
-    <!-- STEP 2: FORM PENDAFTARAN -->
-    <div id="reg-step2" class="reg-step">
-      <h3>Daftar Pelanggan</h3>
-      <p>Data disimpan di perangkat Anda.</p>
-
-      <!-- AREA SCROLL -->
-      <div class="reg-scroll-area">
-
-        <div class="reg-form">
-          <label>Nama Lengkap:</label>
-          <input type="text" id="reg-nama" placeholder="Contoh: Budi Setiawan">
-
-          <label>Alamat:</label>
-          <input type="text" id="reg-alamat" value="Blok Wanakaya" readonly>
-
-          <label>Nomor Rumah:</label>
-          <input type="number" id="reg-no" placeholder="17" min="1" max="999">
-
-          <label>RT / RW:</label>
-          <select id="reg-rtrw">
-          <option value="">Pilih RT / RW</option>
-          <option value="01/01">01/01</option>
-          <option value="01/02">01/02</option>
-          <option value="01/03">01/03</option>
-          <option value="02/01">02/01</option>
-          <option value="02/02">02/02</option>
-          <option value="02/03">02/03</option>
-        </select>
-
-          <label>Nomor HP (opsional):</label>
-          <input type="text" id="reg-hp" placeholder="08123xxxxxxx">
-        </div>
-
-      </div>
-
-      <!-- TOMBOL BAWAH -->
-      <div class="reg-actions reg-actions-bottom">
-        <button id="btn-back-register" class="secondary">Kembali</button>
-        <button id="btn-save-register" class="primary">Simpan Data</button>
-      </div>
-
-      <small id="register-hint"></small>
-    </div>
-
+    <button style="background:#ff3b30; color:white;" onclick="deleteAllProducts()">Ya, hapus semua</button>
+    <button onclick="closeConfirmDeleteAll()">Batal</button>
   </div>
 </div>
 
-
-<!-- ACCOUNT MODAL -->
-<div id="account-backdrop" class="modal-backdrop">
-  <div id="account-modal" class="modal-box">
-
-    <!-- HEADER BAR -->
-    <div class="acc-header">
-  <button id="acc-close-btn" class="header-back-btn">&#8592;</button>
-  <h3>Akun Saya</h3>
-
-  <!-- Tombol login Pi -->
-<button id="btn-pi-login" style="margin-left:10px;padding:6px 10px;border-radius:6px;">Login Pi</button>
-<span id="pi-username" style="margin-left:8px;font-weight:bold;">-</span>
-</div>
-
-
-
-    <!-- TAB -->
-    <div class="acc-tabs">
-      <button class="tab-btn active" data-tab="tab-profil">Profil</button>
-      <button class="tab-btn" data-tab="tab-riwayat">Riwayat</button>
-      <button class="tab-btn" data-tab="tab-wishlist">
-  <i class="fa-solid fa-heart" style="color:red;"></i> Wishlist
-</button>
-    </div>
-
-    <!-- AREA SCROLL -->
-    <div class="acc-scroll-area">
-
-      <!-- === TAB PROFIL === -->
-      <div class="tab-content active" id="tab-profil">
-
-        <div class="pp-box">
-          <img id="pp-preview" alt="Foto Profil"
-            src="data:image/svg+xml;utf8,
-            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
-              <circle cx='12' cy='8' r='5' fill='%23bbb'/>
-              <path d='M4 22c0-4 4-7 8-7s8 3 8 7' fill='%23bbb'/>
-            </svg>"
-          >
-          <button id="btn-ubah-pp">Ubah Foto</button>
-          <input type="file" id="pp-input" accept="image/*" style="display:none;">
-        </div>
-
-        <div class="acc-form">
-          <label>Nama:</label>
-          <input type="text" id="acc-nama">
-
-          <label>Alamat:</label>
-          <input type="text" id="acc-alamat">
-
-          <label>Nomor Rumah:</label>
-          <input type="text" id="acc-no">
-
-          <label>RT / RW:</label>
-          <input type="text" id="acc-rt">
-
-          <label>Nomor HP (opsional):</label>
-          <input type="text" id="acc-hp">
-        </div>
-
-      </div>
-
-      <!-- === TAB WISHLIST (DIKEMBALIKAN) === -->
-      <div class="tab-content" id="tab-wishlist">
-        <div id="wishlist-list"></div>
-      </div>
-
-      <!-- === TAB RIWAYAT === -->
-      <div class="tab-content" id="tab-riwayat">
-        <div id="riwayat-list"></div>
-      </div>
-
-    </div>
-
-    <!-- TOMBOL BAWAH -->
-    <div class="acc-actions acc-actions-bottom">
-      <button id="acc-save-btn" class="primary hide-on-nonprofil">
-        Simpan Perubahan
-      </button>
-    </div>
-
-  </div>
-</div>
-
-<!-- ==== NAVIGASI ==== -->
-<div class="bottom-nav">
-  <a href="#home" id="nav-home" class="active">
-    <i class="fa-solid fa-house"></i>
-    <span>Beranda</span>
-  </a>
-
-  <a href="#cat" id="nav-cat">
-    <i class="fa-solid fa-list"></i>    
-    <span>Kategori</span>
-  </a>
-
-  <a href="#search" id="nav-search">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span>Cari</span>
-  </a>
-
-<a href="#account" id="nav-account">
-  <i class="fa-solid fa-user"></i>
-  <span>Akun</span>
-</a>
-
-<a class="cta-link wa-link wa-nav"
-   href="#"
-   data-wa="cek"
-   aria-label="Cek pesanan"
-   title="Cek pesanan">
-   <i class="fa-solid fa-truck-fast"></i>
-   <span class="label">Cek Pesanan</span>
-</a>
-
-  <a href="#cart" id="nav-cart">
-    <i class="fa-solid fa-cart-shopping"></i>
-    <span>Troli</span>
-    <div class="badge" id="cart-badge">0</div>
-  </a>
-</div>
-
-<!-- ==== PWA INSTALL BUTTON PRO ==== -->
-<button id="installBtn" class="pwa-install-btn" style="display:none;">
-  <img src="images/logo-warung.png" class="pwa-logo">
-  <span>Instal Warung Emung</span>
-  <i class="fa-solid fa-cloud-arrow-down"></i>
-</button>
-
-
-<!-- ================= MODAL KONFIRMASI GLOBAL (SATU-SATUNYA) ================= -->
-<div id="modal-confirm" class="modal-confirm" aria-hidden="true">
+<!-- Modal Konfirmasi Hapus Semua -->
+<div id="modalConfirm" class="modal" style="display:none;">
   <div class="modal-content">
-
-    <!-- Judul -->
-    <h3 id="modal-title">Konfirmasi</h3>
-
-    <!-- Pesan default (dipakai CTA lama) -->
-    <p id="modal-message" style="margin-top:8px;">
-      Apakah Anda yakin ingin melanjutkan?
-    </p>
-
-    <!-- Body dinamis (dipakai modal modern / edit alamat / dll) -->
-    <div id="modal-body" style="margin-top:10px; display:none;"></div>
-
-    <!-- Input WA (dipakai flow request produk) -->
-    <div id="modal-wa-inputs" style="display:none; margin-top:10px;">
-      <input
-        type="text"
-        id="modal-produk"
-        placeholder="Nama Produk"
-        style="width:100%; margin-bottom:8px;"
-      />
-      <input
-        type="number"
-        id="modal-jumlah"
-        placeholder="Jumlah"
-        min="1"
-        style="width:100%;"
-      />
+    <p id="modalMessage">Apakah yakin ingin menghapus semua item?</p>
+    <div class="modal-actions">
+      <button id="modalCancel">Batal</button>
+      <button id="modalConfirmBtn">Hapus</button>
     </div>
-
-    <!-- Tombol -->
-    <div class="modal-buttons" style="margin-top:15px;">
-      <button id="modal-cancel" class="btn-secondary">Batal</button>
-      <button id="modal-ok" class="btn-primary">OK</button>
-    </div>
-
   </div>
 </div>
 
 
-<!-- ================= SHARE MODAL PRO ================= -->
-<div id="share-backdrop" class="modal-backdrop" style="display:none;">
-  <div class="share-modal">
-
-    <h3>Bagikan Produk</h3>
-
-    <div class="share-buttons">
-      <button data-share="wa"><i class="fab fa-whatsapp"></i> WhatsApp</button>
-      <button data-share="fb"><i class="fab fa-facebook"></i> Facebook</button>
-      <button data-share="tg"><i class="fab fa-telegram"></i> Telegram</button>
-      <button data-share="tw"><i class="fab fa-x-twitter"></i> X</button>
-      <button data-share="copy"><i class="fa fa-link"></i> Salin Link</button>
-    </div>
-
-    <!-- QR -->
-    <div class="qr-box">
-      <canvas id="share-qr"></canvas>
-      <small>Scan untuk membuka produk</small>
-    </div>
-
-    <button id="close-share" class="btn-secondary">Tutup</button>
-  </div>
-</div>
-
+<!-- TOAST -->
+<div id="toast" class="toast"></div>
 
   <!-- ================== JAVASCRIPT ================== -->
- <!-- ================== GLOBAL ================== -->
-<script src="js/config.js"></script>
-<script src="js/cta-wa.js"></script>
-
-<script src="js/cta-modal.js"></script>
-<script src="js/cta-riwayat.js"></script>
-<script src="js/utils.js"></script>
-
-<!-- ================== CORE DATA ================== -->
-<script src="js/data-loader.js"></script>
-<script src="js/main.js"></script>
-
-<!-- ================== FEATURE ================== -->
+  <!-- Core / data -->
+<script src="js/script.js"></script>
 <script src="js/flash.js"></script>
-<script src="js/sidebar.js"></script>
-<script src="js/filter.js"></script>
-<script src="js/search-autocomplete.js"></script>
-<script src="js/produk-modal.js"></script>
-<script src="js/cart-modal.js"></script>
-<script src="js/cat-modal.js"></script>
-<script src="js/akun-modal.js"></script>
-<script src="js/cta-links.js"></script>
-<script src="js/tentang.js"></script>
+<script src="js/bottom-nav.js"></script>
 
-<!-- ================== EXTRA ================== -->
-<script src="js/toast-audio.js"></script>
-<script src="js/register.js"></script>
-<script src="js/share-pro.js"></script>
+<!-- ================== NAVIGASI================== -->
+<!-- Bottom nav default (produk biasa) -->
+<div id="bottom-nav-normal" class="bottom-nav">
+  <button class="nav-btn" onclick="scrollToProductInput()">📝 Input Produk</button>
+  <button class="nav-btn" onclick="generateAndScrollJSON()">💾 Generate JSON</button>
+  <button class="nav-btn" onclick="openConfirmDeleteAll()">🗑 Hapus Semua</button>
+  <button class="nav-btn" onclick="scrollToJSON()">📤 Import JSON Lokal</button>
+  <button class="nav-btn github" onclick="loadProdukFromRepo()">🌐 Import dari GitHub</button>
+</div>
 
-<!-- ================== PAYMENT / SDK ================== -->
-<script src="https://cdn.jsdelivr.net/npm/pi-sdk/dist/pi.min.js"></script>
-<script src="js/pi-integration.js"></script>
+<!-- Bottom nav khusus Flash Sale (hidden default) -->
+<div id="bottom-nav-flash" class="bottom-nav" style="display:none;">
+  <button class="nav-btn" onclick="scrollToFlashInput()">📝 Input Flash</button>
+  <button class="nav-btn" onclick="generateAndScrollFlashJSON()">💾 Generate JSON Flash</button>
+  <button class="nav-btn" onclick="openConfirmDeleteFlash()">🗑 Hapus Semua Flash</button>
+ <button class="nav-btn" onclick="triggerLoadFlash()">📤 Load Dari GitHub</button>
+</div>
 
-<!-- ================== UTIL CDN ================== -->
-<script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
-
-<!-- ================== PWA ================== -->
-<script src="js/pwa.js"></script>
-
-
-<!-- Auto versioning cache bust -->
 <script>
-(function(){
-  const version = new Date().toISOString().slice(0,10).replace(/-/g,'');
-  document.querySelectorAll('link[rel="stylesheet"]').forEach(link=>{
-    const href=link.getAttribute('href');
-    if(href&&!href.includes('?v=')){link.setAttribute('href',href+'?v='+version);}
+// ====== TAB SWITCH + NAV SWITCH ======
+document.querySelectorAll(".tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+
+    // reset active
+    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+    document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
+
+    // aktifkan tab
+    tab.classList.add("active");
+    document.getElementById("tab-" + tab.dataset.tab).classList.add("active");
+
+    // ====== SWITCH BOTTOM NAV ======
+    const navNormal = document.getElementById("bottom-nav-normal");
+    const navFlash  = document.getElementById("bottom-nav-flash");
+
+    if (tab.dataset.tab === "offline") {
+      navNormal.style.display = "flex";
+      navFlash.style.display = "none";
+    }
+    else if (tab.dataset.tab === "flash") {
+      navNormal.style.display = "none";
+      navFlash.style.display = "flex";
+    }
+    else {
+      // repo / token → semua nav hilang
+      navNormal.style.display = "none";
+      navFlash.style.display = "none";
+    }
   });
-  document.querySelectorAll('script[src]').forEach(script=>{
-    const src=script.getAttribute('src');
-    if(src&&!src.includes('?v=')&&!src.includes('gtag')){script.setAttribute('src',src+'?v='+version);}
-  });
-})();
+});
+
+
+/* ============================================================
+   MODAL HAPUS SEMUA PRODUK
+============================================================ */
+
+// buka modal
+function openConfirmDeleteAll() {
+  document.getElementById("confirmModal").style.display = "flex";
+}
+
+// tutup modal
+function closeConfirmDeleteAll() {
+  document.getElementById("confirmModal").style.display = "none";
+}
+
+// Hapus semua produk
+function deleteAllProducts() {
+  if (typeof products === "undefined") {
+    alert("ERROR: Array 'products' tidak ditemukan!");
+    return;
+  }
+
+  products.length = 0; // kosongkan array
+  if (typeof renderTable === "function") renderTable();
+  if (typeof generateJSON === "function") generateJSON();
+
+  closeConfirmDeleteAll();
+  showToast("Semua produk berhasil dihapus!");
+}
+
 </script>
 
-<!-- Service Worker: paling akhir -->
+
 <script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js')
-      .then(reg => console.log('✅ Service Worker terdaftar:', reg.scope))
-      .catch(err => console.log('❌ SW error:', err));
+// ==============================================
+//  CONFIG REPO (UBAH JIKA PERLU)
+// ==============================================
+const owner  = "WarungEmung26";
+const repo   = "WarungEmung";
+const branch = "main";
+const filePath = "data/produk.json"; // lokasi tetap
+
+
+// ==============================================
+//  IMPORT PRODUK DARI REPO (PAKAI TOKEN)
+// ==============================================
+async function importFromRepo() {
+  const token = document.getElementById("githubToken") 
+                ? document.getElementById("githubToken").value.trim()
+                : "";
+
+  if (!token) {
+    alert("⚠️ Masukkan GitHub Token dulu!");
+    return;
+  }
+
+  try {
+    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}?ref=${branch}`;
+
+    const res = await fetch(url, {
+      headers: {
+        "Authorization": `token ${token}`,
+        "Accept": "application/vnd.github+json"
+      }
+    });
+
+    if (!res.ok) {
+      const errText = await res.text();
+      throw new Error(`Gagal ambil file (HTTP ${res.status}) → ${errText}`);
+    }
+
+    const meta = await res.json();
+
+    if (!meta.content) throw new Error("File tidak memiliki konten.");
+
+    // decode base64
+    const decoded = atob(meta.content.replace(/\n/g, ""));
+    let jsonData;
+
+    try {
+      jsonData = JSON.parse(decoded);
+    } catch (e) {
+      throw new Error("Isi produk.json bukan JSON valid: " + e.message);
+    }
+
+    if (!Array.isArray(jsonData)) {
+      throw new Error("Format produk.json harus ARRAY.");
+    }
+
+    // map ke format internal
+    products = jsonData.map(p => ({
+      id: p.id || crypto.randomUUID(),
+      name: p.name || "",
+      price: Number(p.price || 0),
+      category: p.category || "",
+      img: p.img || p.image || ""
+    }));
+
+    saveLocal();
+    renderTable();
+
+    alert("✅ Produk berhasil diimport dari GitHub!");
+  } catch (err) {
+    console.error("ERROR:", err);
+    alert("❌ Error import: " + err.message);
+  }
+}
+
+
+// ==============================================
+//  MODAL KONFIRMASI HAPUS SEMUA PRODUK
+// ==============================================
+function openConfirmDeleteAll() {
+  if (confirm("⚠️ Yakin hapus SEMUA produk?")) {
+    products = [];
+    saveLocal();
+    renderTable();
+    alert("🗑 Semua produk berhasil dihapus.");
+  }
+}
+
+
+// ==============================================
+//  FUNGSI WAJIB ADA (JIKA BELUM)
+// ==============================================
+function saveLocal() {
+  localStorage.setItem("products", JSON.stringify(products));
+}
+
+function renderTable() {
+  const tbody = document.querySelector("#productTable tbody");
+  tbody.innerHTML = "";
+
+  products.forEach((p, i) => {
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td>${i + 1}</td>
+      <td>${p.name}</td>
+      <td>${p.price}</td>
+      <td>${p.category}</td>
+      <td><img src="${p.img}" width="40"></td>
+      <td><button onclick="deleteProduct('${p.id}')">Hapus</button></td>
+    `;
+
+    tbody.appendChild(tr);
   });
+}
+
+function deleteProduct(id) {
+  products = products.filter(p => p.id !== id);
+  saveLocal();
+  renderTable();
 }
 </script>
 
+
+
+<!-- Place script at end of body -->
 <script>
-(function () {
-  const guide = document.getElementById("orderGuide");
-  if (!guide) return;
+/* ===========================
+   PASTIKAN DATA ADA
+===========================*/
+if (typeof products === 'undefined') window.products = window.products || [];
+if (typeof flashProducts === 'undefined') window.flashProducts = window.flashProducts || [];
 
-  let lastScrollY = window.scrollY;
+/* ===== HELPER: BUAT SLUG ===== */
+function makeSlug(text = '') {
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, '') // hapus simbol
+    .replace(/\s+/g, '-')         // spasi → -
+    .replace(/-+/g, '-');         // -- → -
+}
 
-  window.addEventListener("scroll", () => {
-    if (!guide.open) return;
-
-    // jika user benar-benar scroll (bukan goyang kecil)
-    if (Math.abs(window.scrollY - lastScrollY) > 10) {
-      guide.open = false;
+/* ===== UPLOAD JSON SEDERHANA (PRODUK) — DENGAN SLUG ===== */
+async function uploadJSONSimple() {
+  try {
+    if (!products || products.length === 0) {
+      return alert('⚠️ Belum ada produk untuk diupload!');
     }
 
-    lastScrollY = window.scrollY;
-  }, { passive: true });
-})();
-</script>
+    const token = document.getElementById('githubToken').value.trim();
+    if (!token) return alert('⚠️ Masukkan GitHub Token Anda!');
 
+    // 🔒 PAKSA SETIAP PRODUK PUNYA SLUG
+    const normalized = products.map(p => {
+      const name = p.name || '';
+      const slug = p.slug && p.slug.trim()
+        ? p.slug
+        : makeSlug(name);
+
+      return {
+        name,
+        slug, // ✅ SLUG MASUK
+        price: Number(p.price || p.price_normal || 0),
+        img: p.img || '',
+        category: p.category || ''
+      };
+    });
+
+    // 🔒 VALIDASI TERAKHIR
+    if (!normalized.every(p => p.slug)) {
+      return alert('❌ Gagal membuat slug. Pastikan semua produk punya nama.');
+    }
+
+    const content = JSON.stringify(normalized, null, 2);
+
+    const owner  = 'WarungEmung26';
+    const repo   = 'WarungEmung';
+    const path   = 'data/produk.json';
+    const branch = 'main';
+
+    // cek SHA file lama
+    let sha = null;
+    try {
+      const res = await fetch(
+        `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`,
+        { headers: { Authorization: 'token ' + token } }
+      );
+      if (res.ok) {
+        const data = await res.json();
+        sha = data.sha;
+      }
+    } catch(e) {}
+
+    // upload / update
+    const resUpload = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
+      {
+        method: 'PUT',
+        headers: { Authorization: 'token ' + token },
+        body: JSON.stringify({
+          message: sha ? 'Update produk JSON' : 'Add produk JSON',
+          content: btoa(unescape(encodeURIComponent(content))),
+          branch,
+          sha: sha || undefined
+        })
+      }
+    );
+
+    if (!resUpload.ok) {
+      const errBody = await resUpload.text();
+      throw new Error('HTTP ' + resUpload.status + ' — ' + errBody);
+    }
+
+    alert('✅ JSON produk (dengan slug) berhasil diupload ke GitHub!');
+
+  } catch (err) {
+    console.error('uploadJSONSimple error:', err);
+    alert('❌ Upload gagal: ' + (err.message || err));
+  }
+}
+
+
+/* ===== UPLOAD FLASH.JSON SEDERHANA ===== */
+async function uploadFlashJSONSimple() {
+  try {
+    if (!flashProducts || flashProducts.length === 0) return alert('⚠️ Belum ada data Flash Sale untuk diupload!');
+
+    const token = document.getElementById('githubToken').value.trim();
+    if (!token) return alert('⚠️ Masukkan GitHub Token Anda!');
+
+    const content = JSON.stringify(flashProducts, null, 2);
+
+    const owner = 'WarungEmung26'; // sesuaikan
+    const repo  = 'WarungEmung';   // sesuaikan
+    const path  = 'data/flash.json';
+    const branch = 'main';
+
+    // cek SHA file kalau sudah ada
+    let sha = null;
+    try {
+      const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`, {
+        headers: { Authorization: 'token ' + token }
+      });
+      if (res.ok) {
+        const data = await res.json();
+        sha = data.sha;
+      }
+    } catch(e) { /* file belum ada */ }
+
+    // upload / update
+    const resUpload = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+      method: 'PUT',
+      headers: { Authorization: 'token ' + token },
+      body: JSON.stringify({
+        message: sha ? 'Update flash.json' : 'Add flash.json',
+        content: btoa(unescape(encodeURIComponent(content))),
+        branch,
+        sha: sha || undefined
+      })
+    });
+
+    if (!resUpload.ok) {
+      const errBody = await resUpload.text();
+      throw new Error('HTTP ' + resUpload.status + ' — ' + errBody);
+    }
+    alert('✅ flash.json berhasil diupload ke GitHub!');
+  } catch (err) {
+    console.error('uploadFlashJSONSimple error:', err);
+    alert('❌ Upload Flash gagal: ' + (err.message || err));
+  }
+}
+
+/* ============================================================
+   LOAD FLASH DARI REPO (UNIVERSAL)
+   Bisa dipakai tombol manapun, normalisasi field otomatis
+============================================================ */
+async function loadFlashFromRepoUnified() {
+  try {
+    const token = (document.getElementById("githubToken")?.value || "").trim();
+    if (!token) return alert("⚠ Masukkan GitHub Token dulu.");
+
+    const owner = "WarungEmung26";   // sesuaikan
+    const repo  = "WarungEmung";     // sesuaikan
+    const path  = "data/flash.json"; // file repo
+    const branch = "main";
+
+    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
+
+    const res = await fetch(url, {
+      headers: {
+        "Authorization": `token ${token}`,
+        "Accept": "application/vnd.github.v3+json"
+      }
+    });
+
+    if (!res.ok) throw new Error(`HTTP ${res.status} — gagal ambil file`);
+
+    const data = await res.json();
+    if (!data.content) throw new Error("File tidak berisi konten");
+
+    // decode UTF-8 dari Base64
+const decoded = new TextDecoder("utf-8").decode(Uint8Array.from(atob(data.content), c => c.charCodeAt(0)));
+let json = JSON.parse(decoded);
+
+    // normalisasi field supaya renderFlashTable aman
+    json = json.map(p => ({
+      id: p.id || "flash-" + Date.now(),
+      name: p.name || p.product || "",
+      price_normal: Number(p.price_normal ?? p.price ?? 0),
+      price_flash: Number(p.price_flash ?? p.flashPrice ?? 0),
+      stock: Number(p.stock ?? 0),
+      img: p.img || p.image || "",
+      label: p.label || p.description || "",
+      flash_until: p.flash_until || p.until || "",
+      category: "flash"
+    }));
+
+    // assign global & localStorage
+    window.flashProducts = flashProducts = json;
+    localStorage.setItem("flashProducts", JSON.stringify(flashProducts));
+
+    // render tabel
+    if (typeof renderFlashTable === "function") renderFlashTable();
+
+    alert("✅ Flash Sale berhasil dimuat dari repo!");
+  } catch (err) {
+    console.error("LOAD FLASH ERROR:", err);
+    alert("❌ Gagal memuat Flash dari repo: " + (err.message || err));
+  }
+}
+
+/* ============================================================
+   Pasang tombol bottom-nav & tombol atas tabel ke fungsi ini
+============================================================ */
+const btnLoadFlashTop = document.querySelector("#tab-flash button[onclick*='loadFlashFromRepo']");
+if (btnLoadFlashTop) btnLoadFlashTop.onclick = loadFlashFromRepoUnified;
+
+const btnLoadFlashNav = document.getElementById("btnLoadFlash");
+if (btnLoadFlashNav) btnLoadFlashNav.addEventListener("click", loadFlashFromRepoUnified);
+
+/* ===== Hook tombol supaya tidak menggunakan inline onclick (lebih aman) ===== */
+document.getElementById('btnUploadProduk').addEventListener('click', uploadJSONSimple);
+document.getElementById('btnUploadFlash').addEventListener('click', uploadFlashJSONSimple);
+document.getElementById('btnLoadFlash').addEventListener('click', loadFlashFromRepoSimple);
+
+</script>
 
 
 </body>
-
 </html>
