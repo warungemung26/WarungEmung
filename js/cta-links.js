@@ -27,24 +27,50 @@ function getSelectedCurrency() {
   let currentAction = null;
   let isWaFlow = false;
 
-  function openModal({title="Konfirmasi", message="", isWA=false, action=null} = {}) {
-    if(!modal) return fallbackModal(title, message, isWA, action);
+function resetModalUI() {
+  if (!modal) return;
 
-    modalTitle.textContent = title;
-    modalMessage.textContent = message;
-    modalWaInputs.style.display = isWA ? 'block' : 'none';
-
-    if(isWA){
-      modalProduk.value = "";
-      modalJumlah.value = "";
-    }
-
-    currentAction = action;
-    isWaFlow = !!isWA;
-
-    modal.style.display = 'flex';
-    modal.setAttribute('aria-hidden','false');
+  // reset tombol
+  if (modalCancel) {
+    modalCancel.style.display = '';
   }
+
+  if (modalOk) {
+    modalOk.style.display = '';
+    modalOk.textContent = 'OK';
+    modalOk.onclick = null; // KUNCI
+  }
+
+  // reset body
+  if (modalWaInputs) modalWaInputs.style.display = 'none';
+
+  // reset state
+  currentAction = null;
+  isWaFlow = false;
+}
+
+
+  function openModal({title="Konfirmasi", message="", isWA=false, action=null} = {}) {
+  if(!modal) return fallbackModal(title, message, isWA, action);
+
+  resetModalUI(); // 🔥 INI KUNCI
+
+  modalTitle.textContent = title;
+  modalMessage.textContent = message;
+  modalWaInputs.style.display = isWA ? 'block' : 'none';
+
+  if(isWA){
+    modalProduk.value = "";
+    modalJumlah.value = "";
+  }
+
+  currentAction = action;
+  isWaFlow = !!isWA;
+
+  modal.style.display = 'flex';
+  modal.setAttribute('aria-hidden','false');
+}
+
 
   function closeModal(){
     if(!modal) return;
@@ -84,10 +110,15 @@ function getSelectedCurrency() {
   });
 
   if(modal){
-    modal.addEventListener('click', function(e){
-      if(e.target === modal) closeModal();
-    });
-  }
+  modal.addEventListener('click', function(e){
+    if(e.target === modal){
+      currentAction = null;
+      isWaFlow = false;
+      closeModal();
+    }
+  });
+}
+
 
 function openInfoModal({ title = "Info", message = "", autoClose = false, delay = 2000 } = {}) {
   const modal = document.getElementById('modal-confirm');
