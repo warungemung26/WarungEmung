@@ -98,22 +98,21 @@ closeCatModal();
 updateCartCount();
 render(products);
 
-// === AUTO SCROLL KE PRODUK LIST ===
+// === AUTO SCROLL KE PRODUK LIST (PAKAI HELPER GLOBAL) ===
 function scrollToProdukList() {
-  const produkList = document.getElementById('produk-list');
-  if (produkList) {
-    produkList.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
+  if (typeof safeScrollTo !== 'function') return;
+  safeScrollTo('#produk-list');
 }
 
-// Tambahkan efek scroll setelah kategori di modal diklik
+// Setelah kategori di modal diklik
 catOptions.querySelectorAll('.cat').forEach(el => {
   el.addEventListener('click', () => {
-    setTimeout(scrollToProdukList, 200); // delay sedikit biar render selesai
+    // tunggu render/filter selesai
+    setTimeout(scrollToProdukList, 200);
   });
 });
 
-// Tambahkan juga ke kategori grid utama
+// Setelah kategori grid utama diklik
 document.querySelectorAll('.kategori-grid .cat').forEach(el => {
   el.addEventListener('click', () => {
     setTimeout(scrollToProdukList, 200);
