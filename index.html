@@ -87,6 +87,8 @@ Unauthorized copying, modification, or distribution of this file is strictly pro
   <link rel="stylesheet" href="css/ui.css">
   <link rel="stylesheet" href="css/all.min.css">
   <link rel="stylesheet" href="css/flash.css">
+  <link rel="stylesheet" href="css/pelayan.css">
+
 
   <!-- Modals & komponen -->
   <link rel="stylesheet" href="css/popup-reg.css">
@@ -605,6 +607,12 @@ Cepat, hemat, dan dekat rumah 🏡
   <span class="flash-text">FLASH</span>
 </button>
 
+<!-- ================= PELAYAN VIRTUAL BUTTON ================= -->
+<button id="pelayan-btn" aria-label="Pelayan Virtual">
+  <img src="images/pelayan.png" alt="Pelayan">
+</button>
+
+
 <!-- ================= CART MODAL ================= -->
 <!-- BACKDROP -->
 <div id="cart-backdrop" class="modal-backdrop" aria-hidden="true"></div>
@@ -880,6 +888,29 @@ Cepat, hemat, dan dekat rumah 🏡
   <i class="fa-solid fa-cloud-arrow-down"></i>
 </button>
 
+<!-- ================= MODAL PELAYAN ================= -->
+<div id="pelayan-backdrop" class="modal-backdrop">
+  <div id="pelayan-modal" class="modal-box" role="dialog" aria-modal="true">
+
+    <!-- HEADER -->
+    <div class="modal-header">
+      <h3 id="pelayan-title">Sugeng rawuh 🙏</h3>
+      <button id="pelayan-close-x" aria-label="Tutup">×</button>
+    </div>
+
+    <!-- BODY (SCROLLABLE) -->
+    <div class="modal-body">
+      <p id="pelayan-text"></p>
+      <div id="pelayan-options" class="pelayan-options"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="modal-footer">
+      <button id="pelayan-close" class="btn-secondary">Tutup</button>
+    </div>
+
+  </div>
+</div>
 
 <!-- ================= MODAL KONFIRMASI GLOBAL (SATU-SATUNYA) ================= -->
 <div id="modal-confirm" class="modal-confirm" aria-hidden="true">
@@ -970,6 +1001,7 @@ Cepat, hemat, dan dekat rumah 🏡
 <script src="js/cart-modal.js"></script>
 <script src="js/cat-modal.js"></script>
 <script src="js/akun-modal.js"></script>
+<script src="js/pelayan.js"></script>
 <script src="js/cta-links.js"></script>
 <script src="js/tentang.js"></script>
 
