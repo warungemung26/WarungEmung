@@ -1,0 +1,220 @@
+/* ================= PELAYAN VIRTUAL BUTTON ================= */
+#pelayan-btn {
+  position: fixed;
+  bottom: 150px; /* di atas flash */
+  right: 14px;
+  width: 72px;
+  height: 72px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1200; /* di atas floating lain */
+}
+
+#pelayan-btn img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,.25));
+  transition: transform .2s ease;
+}
+
+#pelayan-btn:hover img {
+  transform: scale(1.05);
+}
+
+/* ================= BACKDROP ================= */
+#pelayan-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ACTIVE STATE */
+#pelayan-backdrop.active {
+  display: flex;
+}
+
+/* ================= MODAL BOX ================= */
+#pelayan-modal {
+  background: var(--pm-bg, #fff);
+  width: min(92%, 360px);
+  max-height: 80vh; /* scrollable jika konten tinggi */
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.3);
+  animation: pelayanPop .25s ease;
+  overflow: hidden; /* biar scroll hanya di body */
+}
+
+/* ================= HEADER MODAL ================= */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+#pelayan-close-x {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+  opacity: .7;
+}
+#pelayan-close-x:hover {
+  opacity: 1;
+}
+
+/* ================= BODY MODAL (SCROLLABLE) ================= */
+.modal-body {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 12px;
+}
+
+.modal-body p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: var(--pm-text-soft, #555);
+}
+
+/* ================= OPTIONS ================= */
+.pelayan-options {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.pelayan-options button {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: all .15s ease;
+}
+
+.pelayan-options button:hover {
+  background: #ffe9c2;
+}
+
+/* ================= CLOSE BUTTON ================= */
+#pelayan-close {
+  margin-top: 14px;
+  width: 100%;
+}
+
+/* ================= ANIMASI HALUS ================= */
+@keyframes pelayanPop {
+  from {
+    transform: translateY(20px) scale(.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* ================= DARK MODE ================= */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --pm-bg: #1e1e1e;        /* background modal */
+    --pm-text-soft: #bcbcbc; /* teks normal */
+  }
+
+  #pelayan-backdrop {
+    background: rgba(0,0,0,.7);
+  }
+
+  /* HEADER */
+  .modal-header {
+    border-color: rgba(255,255,255,.08);
+    color: #f1f1f1; /* teks header jelas */
+  }
+
+  /* BODY MODAL */
+  .modal-body {
+    color: #f1f1f1; /* teks body modal jelas */
+  }
+  .modal-body p {
+    color: #f1f1f1; /* pastikan teks “Badhe tumbas” terang */
+  }
+
+  /* OPTIONS BUTTON */
+  .pelayan-options button {
+    border-color: rgba(255,255,255,.12);
+    background: #2a2a2a;
+    color: #f1f1f1;
+  }
+
+  .pelayan-options button:hover {
+    background: #3a2f18;
+  }
+
+  /* FOOTER BUTTON */
+  #pelayan-close {
+    background: #2a2a2a;
+    color: #f1f1f1;
+    border: 1px solid rgba(255,255,255,.12);
+  }
+}
+
+/* ================= DARK MODE ================= */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --pm-bg: #1e1e1e;        /* background modal */
+    --pm-text-soft: #bcbcbc; /* teks normal */
+  }
+
+  #pelayan-backdrop {
+    background: rgba(0,0,0,.7);
+  }
+
+  /* HEADER */
+  .modal-header {
+    border-color: rgba(255,255,255,.08);
+    color: #f1f1f1; /* teks header jelas */
+  }
+
+  /* BODY MODAL */
+  .modal-body {
+    color: #f1f1f1; /* teks body modal jelas */
+  }
+  .modal-body p {
+    color: #f1f1f1; /* pastikan teks “Badhe tumbas” terang */
+  }
+
+  /* OPTIONS BUTTON */
+  .pelayan-options button {
+    border-color: rgba(255,255,255,.12);
+    background: #2a2a2a;
+    color: #f1f1f1;
+  }
+
+  .pelayan-options button:hover {
+    background: #3a2f18;
+  }
+
+  /* FOOTER BUTTON */
+  #pelayan-close {
+    background: #2a2a2a;
+    color: #f1f1f1;
+    border: 1px solid rgba(255,255,255,.12);
+  }
+}
