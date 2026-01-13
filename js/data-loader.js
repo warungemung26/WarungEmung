@@ -223,6 +223,53 @@ if (currencySelect) {
 /* ================== FETCH ================== */
 let products = [];
 
+/* ================== FILTER ================== */
+const filterSelect = document.getElementById('filter-harga');
+if (filterSelect) {
+  filterSelect.addEventListener('change', () => {
+    isAllMode = false;
+    applyFilters();
+  });
+}
+
+/* =========================================================
+   APPLY FILTERS (GLOBAL)
+   Dipakai oleh:
+   - dropdown filter
+   - modal pelayan
+========================================================= */
+function applyFilters(options = {}) {	
+  let result = [...products];
+
+  // FILTER KATEGORI
+  if (options.category) {
+    result = result.filter(p => p.category === options.category);
+  }
+
+  // FILTER HARGA
+  const priceMode = options.price || filterSelect?.value;
+
+  if (priceMode === 'low') {
+    result.sort((a, b) => a.price - b.price);
+  }
+
+  if (priceMode === 'high') {
+    result.sort((a, b) => b.price - a.price);
+  }
+
+  render(result);
+}
+
+/* =========================================================
+   SET CATEGORY (GLOBAL)
+   Dipanggil oleh pelayan.js
+========================================================= */
+function setCategory(category) {
+  isAllMode = false;
+  applyFilters({ category });
+}
+
+/* ================== LOAD DATA ================== */
 fetch('data/produk.json')
   .then(res => res.json())
   .then(data => {
@@ -236,12 +283,3 @@ fetch('data/produk.json')
     }
   })
   .catch(err => console.error(err));
-
-/* ================== FILTER ================== */
-const filterSelect = document.getElementById('filter-harga');
-if (filterSelect) {
-  filterSelect.addEventListener('change', () => {
-    isAllMode = false;
-    applyFilters();
-  });
-}
