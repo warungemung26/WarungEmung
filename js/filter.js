@@ -186,12 +186,54 @@ if(searchBtn){
 function runSearch(){
   const q = searchEl.value.trim();  
 
-  // jika user paksa search saat suggestion kosong  TIDAK MACET
-  const s = getSuggestions(q);
-  if(s.length === 0){
+  const final = applyFilters(q);
+
+  if(!final || final.length === 0){
     showToast("Produk tidak ditemukan");
     return;
   }
+
+  const target = document.getElementById('produk-list');
+  if(!target) return;
+
+  // ambil semua elemen sticky / fixed di atas
+  let offset = 0;
+  document.querySelectorAll('header, .search-container, .sticky, .fixed').forEach(el => {
+    const style = getComputedStyle(el);
+    if(style.position === 'fixed' || style.position === 'sticky'){
+      offset += el.offsetHeight;
+    }
+  });
+
+  // tambahan jarak aman
+  offset += 12;
+
+  const y =
+    target.getBoundingClientRect().top +
+    window.pageYOffset -
+    offset;
+
+  window.scrollTo({
+    top: y,
+    behavior: 'smooth'
+  });
+}
+
+function updateStickyOffset(){
+  let h = 0;
+  document.querySelectorAll('header, .search-container, .sticky, .fixed')
+    .forEach(el => {
+      const s = getComputedStyle(el);
+      if(s.position === 'fixed' || s.position === 'sticky'){
+        h += el.offsetHeight;
+      }
+    });
+
+  document.documentElement.style.setProperty('--sticky-offset', h + 'px');
+}
+
+function runSearch(){
+  const q = searchEl.value.trim();  
 
   const final = applyFilters(q);
 
@@ -200,11 +242,8 @@ function runSearch(){
     return;
   }
 
-  // tutup modal/cart saat search
-  cartBackdropClose?.();
-  closeRegisterModal?.();
+  updateStickyOffset();
 
   document.getElementById('produk-list')
-    .scrollIntoView({behavior:'smooth', block:'start'});
+    .scrollIntoView({ behavior:'smooth' });
 }
-
