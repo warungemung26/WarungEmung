@@ -14,7 +14,6 @@ if (typeof getSelectedCurrency !== "function") {
   }
 }
 
-
 // ================= SIMPAN QTY FLASH PER PRODUK ===================
 const flashQty = {}; // simpan qty tiap produk flash
 
@@ -217,15 +216,21 @@ function cekFlashButton(jumlahFlash) {
 }
 
 flashBtn.addEventListener("click", () => {
-  flashSection.scrollIntoView({ behavior: "smooth" });
+  if (typeof safeScrollTo === "function") {
+    safeScrollTo(flashSection, 16);
+  }
 });
 
 window.addEventListener("scroll", () => {
   if (!flashSection) return;
+
   const rect = flashSection.getBoundingClientRect();
   const jumlahFlashAktif = document.querySelectorAll(".flash-card").length;
 
-  if (rect.top <= 120 && rect.bottom >= 120) {
+  // pakai ambang visual, bukan magic number mentah
+  const triggerY = 120;
+
+  if (rect.top <= triggerY && rect.bottom >= triggerY) {
     flashBtn.classList.remove("show");
   } else {
     if (jumlahFlashAktif > 0) flashBtn.classList.add("show");
