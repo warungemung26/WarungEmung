@@ -69,11 +69,44 @@ const logo = document.getElementById('logoMini');
       }
     });
 
-    // Scroll ke section #home
-    const homeSection = document.getElementById('home');
-    if(homeSection){
-      homeSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
+// Scroll ke HOME (aman untuk header fixed/sticky)
+const homeSection = document.getElementById('home');
+if (homeSection && typeof safeScrollTo === 'function') {
+  safeScrollTo(homeSection, 0);
+}
+});
 
+/**
+ * Scroll aman ke elemen (anti ketutup header/search/sticky)
+ * @param {HTMLElement|string} target
+ * @param {number} extra jarak tambahan (opsional)
+ */
+function safeScrollTo(target, extra = 12){
+  const el = typeof target === 'string'
+    ? document.querySelector(target)
+    : target;
+
+  if(!el) return;
+
+  let offset = 0;
+
+  document.querySelectorAll('header, .search-container, .sticky, .fixed')
+    .forEach(e => {
+      const s = getComputedStyle(e);
+      if(s.position === 'fixed' || s.position === 'sticky'){
+        offset += e.offsetHeight;
+      }
+    });
+
+  const y =
+    el.getBoundingClientRect().top +
+    window.pageYOffset -
+    offset -
+    extra;
+
+  window.scrollTo({
+    top: Math.max(0, y),
+    behavior: 'smooth'
+  });
+}
 
