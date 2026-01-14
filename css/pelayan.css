@@ -1,3 +1,10 @@
+:root {
+  --pelayan-bg: var(--modal-bg);
+  --pelayan-text: var(--modal-text);
+  --pelayan-header-bg: var(--accent);
+  --pelayan-border: var(--border-soft);
+}
+
 /* ================= PELAYAN VIRTUAL BUTTON ================= */
 #pelayan-btn {
   position: fixed;
@@ -43,180 +50,87 @@
 #pelayan-backdrop {
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(circle at center,
-      rgba(0,0,0,.35),
-      rgba(0,0,0,.6));
-  z-index: 10000; /* ⛔ JANGAN DIUBAH */
   display: none;
   align-items: center;
   justify-content: center;
+  background: rgba(0,0,0,.6);
+  z-index: 10000;
 }
 
-#pelayan-backdrop.active {
-  display: flex;
+:root {
+  --pelayan-bg: var(--modal-bg);
+  --pelayan-text: var(--modal-text);
+  --pelayan-header-bg: var(--accent);
+  --pelayan-border: var(--border-soft);
+  --pelayan-option-bg: #f7f7f7;
+  --pelayan-option-border: #ddd;
 }
 
-/* ================= MODAL BOX ================= */
+/* ================= MODAL ================= */
 #pelayan-modal {
-  background: var(--pm-bg, #fff);
   width: min(92%, 360px);
   max-height: 80vh;
-  border-radius: 18px;
   display: flex;
   flex-direction: column;
-  padding: 18px;
+  background: var(--pelayan-bg);
+  color: var(--pelayan-text);
+  border-radius: 18px;
   overflow: hidden;
-
-  box-shadow: 0 25px 60px rgba(0,0,0,.35);
-  animation: pelayanPop .28s cubic-bezier(.2,.9,.3,1);
+  box-shadow: 0 25px 60px rgba(0,0,0,.4);
 }
 
-/* ================= HEADER MODAL ================= */
+/* ================= HEADER ================= */
 .modal-header {
+  padding: 14px 16px;
+  background: var(--pelayan-header-bg);
+  color: #000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(0,0,0,.08);
 }
 
-.modal-header h3 {
-  margin: 0;
-  font-size: 18px;
-}
-
-#pelayan-close-x {
-  background: transparent;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
-  line-height: 1;
-  opacity: .7;
-  color: inherit;
-}
-
-#pelayan-close-x:hover {
-  opacity: 1;
-}
-
-/* ================= BODY MODAL ================= */
+/* ================= BODY ================= */
 .modal-body {
   flex: 1;
+  padding: 16px;
   overflow-y: auto;
-  margin-top: 12px;
+  background: var(--pelayan-bg);
 }
 
 .modal-body p {
-  margin: 0 0 12px;
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--pm-text-soft, #555);
+  color: var(--pelayan-text);
+  margin-bottom: 12px;
 }
 
 /* ================= OPTIONS ================= */
-.pelayan-options {
-  display: grid;
-  gap: 10px;
-  margin-top: 14px;
-}
-
 .pelayan-options button {
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  background: #f9f9f9;
-  font-size: 14px;
-  cursor: pointer;
-  text-align: left;
-  transition: all .18s ease;
-  position: relative;
-}
-
-.pelayan-options button::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 8px;
-  bottom: 8px;
-  width: 4px;
-  border-radius: 4px;
-  background: transparent;
-  transition: background .18s ease;
-}
-
-.pelayan-options button:hover {
-  background: #fff3d6;
-  transform: translateX(2px);
-}
-
-.pelayan-options button:hover::before {
-  background: #ffc107;
-}
-
-/* ================= CLOSE BUTTON ================= */
-#pelayan-close {
-  margin-top: 14px;
   width: 100%;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  border: 1px solid var(--pelayan-option-border);
+  background: var(--pelayan-option-bg);
+  color: var(--pelayan-text);
+  cursor: pointer;
 }
 
-/* ================= ANIMASI ================= */
-@keyframes pelayanPop {
-  from {
-    transform: translateY(20px) scale(.95);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
+/* ================= FOOTER (STICKY) ================= */
+.modal-footer {
+  position: sticky;
+  bottom: 0;
+  padding: 14px;
+  background: var(--pelayan-bg);
+  border-top: 2px solid var(--pelayan-header-bg);
+  box-shadow: 0 -6px 16px rgba(0,0,0,.15);
+  z-index: 10;
 }
 
-/* ================= DARK MODE (FIX & JELAS) ================= */
-@media (prefers-color-scheme: dark) {
-
-  :root {
-    --pm-bg: #1e1e1e;
-    --pm-text-soft: #d0d0d0;
-  }
-
-  #pelayan-backdrop {
-    background:
-      radial-gradient(circle at center,
-        rgba(0,0,0,.55),
-        rgba(0,0,0,.8));
-  }
-
-  .modal-header {
-    border-color: rgba(255,255,255,.1);
-    color: #f5f5f5;
-  }
-
-  .modal-body {
-    color: #f5f5f5;
-  }
-
-  .modal-body p {
-    color: #e0e0e0; /* ⬅ dipastikan terang */
-  }
-
-  .pelayan-options button {
-    border-color: rgba(255,255,255,.14);
-    background: #2a2a2a;
-    color: #f5f5f5;
-  }
-
-  .pelayan-options button:hover {
-    background: #3a2f18;
-  }
-
-  .pelayan-options button:hover::before {
-    background: #ffcc33;
-  }
-
-  #pelayan-close {
-    background: #2a2a2a;
-    color: #f5f5f5;
-    border: 1px solid rgba(255,255,255,.14);
-  }
+#pelayan-close {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: var(--pelayan-header-bg);
+  font-weight: bold;
+  cursor: pointer;
 }
