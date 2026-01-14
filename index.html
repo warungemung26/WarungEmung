@@ -881,27 +881,29 @@ Unauthorized copying, modification, or distribution of this file is strictly pro
 </button>
 
 <!-- ================= MODAL PELAYAN ================= -->
-<div id="pelayan-backdrop" class="modal-backdrop">
-  <div id="pelayan-modal" class="modal-box" role="dialog" aria-modal="true">
+<div id="pelayan-backdrop">
+
+  <div id="pelayan-modal" role="dialog" aria-modal="true">
 
     <!-- HEADER -->
     <div class="modal-header">
-      <h3 id="pelayan-title">Sugeng rawuh 🙏</h3>
-      <button id="pelayan-close-x" aria-label="Tutup">×</button>
+      <h3 id="pelayan-title">Pelayan Virtual</h3>
+      <button id="pelayan-close-x" aria-label="Tutup">✕</button>
     </div>
 
-    <!-- BODY (SCROLLABLE) -->
+    <!-- BODY -->
     <div class="modal-body">
       <p id="pelayan-text"></p>
       <div id="pelayan-options" class="pelayan-options"></div>
     </div>
 
-    <!-- FOOTER -->
+    <!-- FOOTER (STICKY) -->
     <div class="modal-footer">
-      <button id="pelayan-close" class="btn-secondary">Tutup</button>
+      <button id="pelayan-close">Tutup</button>
     </div>
 
   </div>
+
 </div>
 
 <!-- ================= MODAL KONFIRMASI GLOBAL (SATU-SATUNYA) ================= -->
