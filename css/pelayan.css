@@ -8,32 +8,51 @@
   border: none;
   background: transparent;
   cursor: pointer;
-  z-index: 1200; /* di atas floating lain */
+  z-index: 1200; /* ⛔ JANGAN DIUBAH */
+
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(255,193,7,.45);
+  animation: pelayanPulse 2.4s infinite;
 }
 
 #pelayan-btn img {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 6px 10px rgba(0,0,0,.25));
-  transition: transform .2s ease;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,.35));
+  transition: transform .25s ease;
 }
 
 #pelayan-btn:hover img {
-  transform: scale(1.05);
+  transform: scale(1.08) rotate(-2deg);
+}
+
+/* pulse lembut */
+@keyframes pelayanPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255,193,7,.45);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(255,193,7,0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255,193,7,0);
+  }
 }
 
 /* ================= BACKDROP ================= */
 #pelayan-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.45);
-  z-index: 10000;
+  background:
+    radial-gradient(circle at center,
+      rgba(0,0,0,.35),
+      rgba(0,0,0,.6));
+  z-index: 10000; /* ⛔ JANGAN DIUBAH */
   display: none;
   align-items: center;
   justify-content: center;
 }
 
-/* ACTIVE STATE */
 #pelayan-backdrop.active {
   display: flex;
 }
@@ -42,14 +61,15 @@
 #pelayan-modal {
   background: var(--pm-bg, #fff);
   width: min(92%, 360px);
-  max-height: 80vh; /* scrollable jika konten tinggi */
-  border-radius: 16px;
+  max-height: 80vh;
+  border-radius: 18px;
   display: flex;
   flex-direction: column;
   padding: 18px;
-  box-shadow: 0 20px 50px rgba(0,0,0,.3);
-  animation: pelayanPop .25s ease;
-  overflow: hidden; /* biar scroll hanya di body */
+  overflow: hidden;
+
+  box-shadow: 0 25px 60px rgba(0,0,0,.35);
+  animation: pelayanPop .28s cubic-bezier(.2,.9,.3,1);
 }
 
 /* ================= HEADER MODAL ================= */
@@ -57,7 +77,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 6px;
+  padding-bottom: 8px;
   border-bottom: 1px solid rgba(0,0,0,.08);
 }
 
@@ -73,12 +93,14 @@
   cursor: pointer;
   line-height: 1;
   opacity: .7;
+  color: inherit;
 }
+
 #pelayan-close-x:hover {
   opacity: 1;
 }
 
-/* ================= BODY MODAL (SCROLLABLE) ================= */
+/* ================= BODY MODAL ================= */
 .modal-body {
   flex: 1;
   overflow-y: auto;
@@ -88,6 +110,7 @@
 .modal-body p {
   margin: 0 0 12px;
   font-size: 14px;
+  line-height: 1.6;
   color: var(--pm-text-soft, #555);
 }
 
@@ -99,18 +122,36 @@
 }
 
 .pelayan-options button {
-  padding: 10px 12px;
-  border-radius: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
   border: 1px solid #ddd;
   background: #f9f9f9;
   font-size: 14px;
   cursor: pointer;
   text-align: left;
-  transition: all .15s ease;
+  transition: all .18s ease;
+  position: relative;
+}
+
+.pelayan-options button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 4px;
+  border-radius: 4px;
+  background: transparent;
+  transition: background .18s ease;
 }
 
 .pelayan-options button:hover {
-  background: #ffe9c2;
+  background: #fff3d6;
+  transform: translateX(2px);
+}
+
+.pelayan-options button:hover::before {
+  background: #ffc107;
 }
 
 /* ================= CLOSE BUTTON ================= */
@@ -119,7 +160,7 @@
   width: 100%;
 }
 
-/* ================= ANIMASI HALUS ================= */
+/* ================= ANIMASI ================= */
 @keyframes pelayanPop {
   from {
     transform: translateY(20px) scale(.95);
@@ -131,90 +172,51 @@
   }
 }
 
-/* ================= DARK MODE ================= */
+/* ================= DARK MODE (FIX & JELAS) ================= */
 @media (prefers-color-scheme: dark) {
+
   :root {
-    --pm-bg: #1e1e1e;        /* background modal */
-    --pm-text-soft: #bcbcbc; /* teks normal */
+    --pm-bg: #1e1e1e;
+    --pm-text-soft: #d0d0d0;
   }
 
   #pelayan-backdrop {
-    background: rgba(0,0,0,.7);
+    background:
+      radial-gradient(circle at center,
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.8));
   }
 
-  /* HEADER */
   .modal-header {
-    border-color: rgba(255,255,255,.08);
-    color: #f1f1f1; /* teks header jelas */
+    border-color: rgba(255,255,255,.1);
+    color: #f5f5f5;
   }
 
-  /* BODY MODAL */
   .modal-body {
-    color: #f1f1f1; /* teks body modal jelas */
-  }
-  .modal-body p {
-    color: #f1f1f1; /* pastikan teks “Badhe tumbas” terang */
+    color: #f5f5f5;
   }
 
-  /* OPTIONS BUTTON */
+  .modal-body p {
+    color: #e0e0e0; /* ⬅ dipastikan terang */
+  }
+
   .pelayan-options button {
-    border-color: rgba(255,255,255,.12);
+    border-color: rgba(255,255,255,.14);
     background: #2a2a2a;
-    color: #f1f1f1;
+    color: #f5f5f5;
   }
 
   .pelayan-options button:hover {
     background: #3a2f18;
   }
 
-  /* FOOTER BUTTON */
+  .pelayan-options button:hover::before {
+    background: #ffcc33;
+  }
+
   #pelayan-close {
     background: #2a2a2a;
-    color: #f1f1f1;
-    border: 1px solid rgba(255,255,255,.12);
-  }
-}
-
-/* ================= DARK MODE ================= */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --pm-bg: #1e1e1e;        /* background modal */
-    --pm-text-soft: #bcbcbc; /* teks normal */
-  }
-
-  #pelayan-backdrop {
-    background: rgba(0,0,0,.7);
-  }
-
-  /* HEADER */
-  .modal-header {
-    border-color: rgba(255,255,255,.08);
-    color: #f1f1f1; /* teks header jelas */
-  }
-
-  /* BODY MODAL */
-  .modal-body {
-    color: #f1f1f1; /* teks body modal jelas */
-  }
-  .modal-body p {
-    color: #f1f1f1; /* pastikan teks “Badhe tumbas” terang */
-  }
-
-  /* OPTIONS BUTTON */
-  .pelayan-options button {
-    border-color: rgba(255,255,255,.12);
-    background: #2a2a2a;
-    color: #f1f1f1;
-  }
-
-  .pelayan-options button:hover {
-    background: #3a2f18;
-  }
-
-  /* FOOTER BUTTON */
-  #pelayan-close {
-    background: #2a2a2a;
-    color: #f1f1f1;
-    border: 1px solid rgba(255,255,255,.12);
+    color: #f5f5f5;
+    border: 1px solid rgba(255,255,255,.14);
   }
 }
