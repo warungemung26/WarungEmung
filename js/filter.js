@@ -151,10 +151,6 @@ function setCategory(cat){
 
   applyFilters();
 
-  // tutup modal/cart jika terbuka
-  cartBackdropClose?.();
-  closeRegisterModal?.();
-
   document.getElementById('produk-list')
     .scrollIntoView({behavior:'smooth', block:'start'});
 }
