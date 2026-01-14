@@ -35,16 +35,16 @@ PELAYAN.step = 0;
 ========================================================= */
 PELAYAN.kategoriMap = {
   masak: ['sembako','bumbu','mie','peralatandapur'],
-  cemilan: ['snack','roti','minuman','minumansachet'],
+  cemilan: ['snack','roti','minuman','minumansachet','makanan'],
   minum: ['minuman','frozen'],
   keluarga: ['sembako','makanan','minuman','snack','roti','frozen'],
   darurat: ['mie','minuman','minumansachet'],
   nyuci: ['rumah','peralatandapur'],
   laper: ['mie','makanan','roti'],
-  pengen_anget: ['mie','makanan','roti'],
+  pengen_anget: ['mie','makanan','minumansachet'],
   pengen_dingin: ['minuman','frozen'],
   manis: ['roti','frozen','minuman','minumansachet'],
-  nonton: ['snack','minuman','minumansachet','roti','frozen'],
+  nonton: ['snack','minuman','minumansachet','roti','frozen','makanan'],
   rokok: ['rokok']
 };
 
@@ -107,7 +107,7 @@ function stepPilih(intent){
 
   pelayanTitle.textContent = 'Inggih 🙏';
   pelayanText.textContent =
-    'Kulo tampilen rekomendasi nggih.';
+    'Kulo tampilaken rekomendasi nggih.';
 
   pelayanOptions.innerHTML = `
     <button onclick="applyPelayanFilter('${intent}')">
