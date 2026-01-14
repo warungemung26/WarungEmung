@@ -474,33 +474,25 @@ Unauthorized copying, modification, or distribution of this file is strictly pro
 <!-- ================= HERO ================= -->
 <section class="hero">
   <h2>Warung Emung</h2>
-<p>
-Belanja kebutuhan harian warga sekitar.  
-Cepat, hemat, dan dekat rumah 🏡  
-<b>Buka 06.00 – 22.00</b>
-</p>
 
-
-<!-- Tombol Request Stok Modern -->
-<div class="hero-cta">
-  <a class="cta-link wa-link wa-hero"
-     href="#"
-     id="wa-hero-cta"
-     data-wa="request">
-     <i class="fa-brands fa-whatsapp"></i>
-     <span>Request Stok</span>
-  </a>
-
-  <p class="wa-cta-instructions">
-    Produk tidak ada? Tekan tombol <strong>Request Stok Sekarang</strong> &amp; tulis <strong>nama produk</strong> + <strong>jumlah</strong>.
+  <p>
+    Belanja kebutuhan harian warga sekitar.<br>
+    Cepat, hemat, dan dekat rumah 🏡<br>
+    <b>Buka 06.00 – 22.00</b>
   </p>
-</div>
+
+  
+
+  <!-- INFO BOX MASUK HERO -->
+  <div class="info-box">
+    <p><i class="fas fa-map-marker-alt info-map"></i> Melayani area sekitar</p>
+    <p><i class="fas fa-truck info-truck"></i> Antar cepat – bayar langsung</p>
+    <p><i class="fab fa-whatsapp info-whatsapp"></i> Bisa pesan via WhatsApp</p>
+  </div>
+
 </section>
 
-<div class="info-box">
-  <p><i class="fas fa-map-marker-alt info-map"></i> Melayani area sekitar</p>
-  <p><i class="fas fa-truck info-truck"></i> Antar cepat – bayar langsung</p>
-  <p><i class="fab fa-whatsapp info-whatsapp"></i> Bisa pesan via WhatsApp</p>
+<!-- ================= CARA PESAN (DI LUAR HERO) ================= -->
 <div class="order-guide">
   <details id="orderGuide">
     <summary>
@@ -978,6 +970,22 @@ Cepat, hemat, dan dekat rumah 🏡
   </div>
 </div>
 
+<!-- CTA Request (hidden tapi aktif utk ctalinks) -->
+<a class="cta-link wa-link"
+   href="#"
+   id="wa-request-hidden"
+   data-wa="request"
+   aria-hidden="true"
+   tabindex="-1"
+   style="
+     position:absolute;
+     width:1px;
+     height:1px;
+     overflow:hidden;
+     opacity:0;
+     pointer-events:none;
+   ">
+</a>
 
   <!-- ================== JAVASCRIPT ================== -->
  <!-- ================== GLOBAL ================== -->
