@@ -14,16 +14,37 @@ const PELAYAN = window.PELAYAN;
    HELPER: NAMA SAPAAN (LOAD DARI STORAGE, DIPENDEKIN)
 ========================================================= */
 function getNamaSapaan(){
-  const raw = localStorage.getItem('nama');
-  if (!raw) return 'Sedulur';
+  let nama = 'Sedulur';
 
-  const parts = raw.trim().split(/\s+/);
-  let nama = parts[parts.length - 1]; // ambil kata terakhir
+  try {
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    if (userData && userData.nama) {
+      nama = userData.nama.trim();
+    }
+  } catch (e) {
+    console.warn('[Pelayan] userData rusak');
+  }
 
-  if (nama.length > 5) nama = nama.slice(0, 5);
+  // ambil kata terakhir
+  const parts = nama.split(/\s+/);
+  nama = parts[parts.length - 1];
+
+  // max 5 huruf
+  if (nama.length > 5) {
+    nama = nama.slice(0, 5);
+  }
 
   return nama.charAt(0).toUpperCase() + nama.slice(1).toLowerCase();
 }
+
+
+function getWaktuSekarang(){
+  const jam = new Date().getHours();
+  if (jam >= 4 && jam < 11) return 'pagi';
+  if (jam >= 11 && jam < 17) return 'siang';
+  return 'malam';
+}
+
 
 /* =========================================================
    STATE
@@ -43,10 +64,34 @@ PELAYAN.kategoriMap = {
   laper: ['mie','makanan','roti'],
   pengen_anget: ['mie','makanan','minumansachet'],
   pengen_dingin: ['minuman','frozen'],
+  ga_enak_badan: ['obat'],
   manis: ['roti','frozen','minuman','minumansachet'],
   nonton: ['snack','minuman','minumansachet','roti','frozen','makanan'],
   rokok: ['rokok']
 };
+
+/* =========================================================
+   MENU PELAYAN (URUT OTOMATIS BERDASAR WAKTU)
+========================================================= */
+PELAYAN.menuList = [
+  { id:'darurat', text:'⚡ Darurat, perlu cepet', waktu:['pagi','siang','malam'], prioritas:100 },
+  { id:'ga_enak_badan', text:'🤒 Lagi ora enak badan', waktu:['pagi','malam'], prioritas:90 },
+
+  { id:'laper', text:'😋 Laper, pengen makanan sing enak', waktu:['siang','malam'], prioritas:80 },
+  { id:'cemilan', text:'☕ Lagi santai, pengen cemilan', waktu:['siang','malam'], prioritas:70 },
+
+  { id:'minum', text:'🥤 Haus, pengen minuman', waktu:['pagi','siang','malam'], prioritas:60 },
+  { id:'pengen_dingin', text:'🥵 Sumuk, pengen sing adem', waktu:['siang'], prioritas:50 },
+  { id:'pengen_anget', text:'🥶 Atis, pengen sing anget', waktu:['pagi','malam'], prioritas:50 },
+
+  { id:'masak', text:'👨‍🍳 Lagi pengen masak', waktu:['pagi','siang','malam'], prioritas:40 },
+  { id:'nyuci', text:'🛁 Nyuci / bersih-bersih rumah', waktu:['pagi','siang'], prioritas:30 },
+
+  { id:'nonton', text:'📺 Cemilan pas nonton TV', waktu:['malam'], prioritas:20 },
+  { id:'rokok', text:'🚬 Pengen rokok', waktu:['siang','malam'], prioritas:10 },
+  { id:'keluarga', text:'👨‍👩‍👧 Belanja kanggo keluarga', waktu:['pagi','siang'], prioritas:10 }
+];
+
 
 /* =========================================================
    ELEMENT UI
@@ -82,22 +127,19 @@ function stepSapaan(){
   pelayanText.textContent =
     'Badhe tumbas punapa dinten niki? Pilih kegiatan utawa kebutuhan panjenengan:';
 
-  pelayanOptions.innerHTML = `
-    <button onclick="stepPilih('masak')">👨‍🍳 Pengen masak</button>
-    <button onclick="stepPilih('nyuci')">🛁 Nyuci / Bersih-bersih</button>
-    <button onclick="stepPilih('cemilan')">☕ Lagi nyantai pengen Cemilan</button>
-    <button onclick="stepPilih('laper')">😋 Laper, pengen makanan sing enak</button>
-    <button onclick="stepPilih('pengen_dingin')">☀️ Sumub pengen sing adem</button>
-     <button onclick="stepPilih('pengen_anget')">☃️ Atis pengen sing anget</button>
-    <button onclick="stepPilih('minum')">🥤 Haus, pengen minuman</button>
-    <button onclick="stepPilih('manis')">🍬 Pengen yang manis-manis</button>
-    <button onclick="stepPilih('nonton')">📺 Cemilan pas nonton TV</button>
-    <button onclick="stepPilih('rokok')">🚬 Pengen rokok</button>
-    <button onclick="stepPilih('keluarga')">👨‍👩‍👧 Belanja kanggo keluarga</button>
-    <button onclick="stepPilih('darurat')">⚡ Darurat / perlu cepet</button>
-    <button onclick="stepRequest()">❓ Ora ketemu barang</button>
-  `;
-}
+  const waktu = getWaktuSekarang();
+
+const menuTampil = PELAYAN.menuList
+  .filter(m => m.waktu.includes(waktu))
+  .sort((a,b) => b.prioritas - a.prioritas);
+
+pelayanOptions.innerHTML =
+  menuTampil.map(m => `
+    <button onclick="stepPilih('${m.id}')">
+      ${m.text}
+    </button>
+  `).join('') +
+  `<button onclick="stepRequest()">❓ Barang ora ketemu</button>`;}
 
 /* =========================================================
    STEP 2: PILIH & TAMPILKAN REKOMENDASI
