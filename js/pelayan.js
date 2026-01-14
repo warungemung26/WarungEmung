@@ -155,18 +155,17 @@ function stepRequest(){
 }
 
 function openRequestPelayan(){
-  if (typeof window.openRequestProduk === 'function') {
-    window.openRequestProduk();
-  }
-  else if (typeof window.openRequestModal === 'function') {
-    window.openRequestModal();
-  }
-  else {
+  const hiddenBtn = document.getElementById('wa-request-hidden');
+
+  if (hiddenBtn) {
+    hiddenBtn.click(); // 🔥 trigger ctalinks.js
+  } else {
     alert('Fitur request belum siap 🙏');
   }
 
   pelayanBackdrop.style.display = 'none';
 }
+
 
 /* =========================================================
    DEBUG (OPTIONAL)
