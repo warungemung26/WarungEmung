@@ -5,39 +5,22 @@
  */
 
 /* =========================================================
-   SINGLETON GLOBAL (ANTI DOUBLE DECLARE)
+   SINGLETON GLOBAL
 ========================================================= */
 window.PELAYAN = window.PELAYAN || {};
 const PELAYAN = window.PELAYAN;
 
 /* =========================================================
-   HELPER: NAMA SAPAAN (LOAD DARI STORAGE, DIPENDEKIN)
+   USER CACHE (PARSE SEKALI)
 ========================================================= */
-function getNamaSapaan(){
-  let nama = 'Sedulur';
+PELAYAN.userCache = {
+  nama: 'Sedulur',
+  panggilan: ''
+};
 
-  try {
-    const userData = JSON.parse(localStorage.getItem('userData'));
-    if (userData && userData.nama) {
-      nama = userData.nama.trim();
-    }
-  } catch (e) {
-    console.warn('[Pelayan] userData rusak');
-  }
-
-  // ambil kata terakhir
-  const parts = nama.split(/\s+/);
-  nama = parts[parts.length - 1];
-
-  // max 5 huruf
-  if (nama.length > 5) {
-    nama = nama.slice(0, 5);
-  }
-
-  return nama.charAt(0).toUpperCase() + nama.slice(1).toLowerCase();
-}
-
-
+/* =========================================================
+   HELPER
+========================================================= */
 function getWaktuSekarang(){
   const jam = new Date().getHours();
   if (jam >= 4 && jam < 11) return 'pagi';
@@ -45,6 +28,66 @@ function getWaktuSekarang(){
   return 'malam';
 }
 
+function deteksiPanggilan(nama){
+  if (!nama) return 'Kak';
+
+  const lower = nama.toLowerCase();
+
+  // daftar nama laki-laki umum (bisa kamu tambah)
+  const laki = ['teja','dewa','yoga','surya','bagas','adhi','agus','budi'];
+
+  if (laki.includes(lower)) return 'Mas';
+
+  // nama perempuan yang cukup pasti
+  const perempuan = ['siti','ayu','rina','dewi','fitri','nur'];
+
+  if (perempuan.includes(lower)) return 'Mbak';
+
+  // default aman
+  return 'Kak';
+}
+
+
+function loadUserCache(){
+  try {
+    const raw = localStorage.getItem('userData');
+    if (!raw) return;
+
+    const userData = JSON.parse(raw);
+    if (!userData.nama) return;
+
+    let nama = userData.nama.trim();
+
+    // ambil kata terakhir
+    const parts = nama.split(/\s+/);
+    nama = parts[parts.length - 1];
+
+    // max 5 huruf
+    if (nama.length > 5) nama = nama.slice(0, 5);
+
+    PELAYAN.userCache.nama =
+      nama.charAt(0).toUpperCase() + nama.slice(1).toLowerCase();
+
+    PELAYAN.userCache.panggilan =
+      deteksiPanggilan(PELAYAN.userCache.nama);
+
+  } catch (e) {
+    console.warn('[Pelayan] gagal load userData');
+  }
+}
+
+function getSapaanLengkap(){
+  const mapSapaan = {
+    pagi: 'Sugeng enjing',
+    siang: 'Sugeng siang',
+    malam: 'Sugeng ndalu'
+  };
+
+  const waktu = getWaktuSekarang();
+  const sapa = mapSapaan[waktu] || 'Sugeng rawuh';
+
+  return `${sapa}, ${PELAYAN.userCache.panggilan} ${PELAYAN.userCache.nama} 😊`;
+}
 
 /* =========================================================
    STATE
@@ -52,44 +95,200 @@ function getWaktuSekarang(){
 PELAYAN.step = 0;
 
 /* =========================================================
-   MAP INTENT → KATEGORI (ORI SESUAI LIST KAMU)
+   MAP INTENT → KATEGORI
 ========================================================= */
 PELAYAN.kategoriMap = {
   masak: ['sembako','bumbu','mie','peralatandapur'],
   cemilan: ['snack','roti','minuman','minumansachet','makanan'],
   minum: ['minuman','frozen'],
   keluarga: ['sembako','makanan','minuman','snack','roti','frozen'],
-  darurat: ['mie','minuman','minumansachet'],
+  instan: ['mie','minuman','minumansachet'],
   nyuci: ['rumah','peralatandapur'],
-  laper: ['mie','makanan','roti'],
-  pengen_anget: ['mie','makanan','minumansachet'],
-  pengen_dingin: ['minuman','frozen'],
-  ga_enak_badan: ['obat'],
+  ngenyangin: ['mie','makanan','roti'],
+  anget: ['mie','makanan','minumansachet'],
+  dingin: ['minuman','frozen'],
+  sakit: ['obat'],
   manis: ['roti','frozen','minuman','minumansachet'],
   nonton: ['snack','minuman','minumansachet','roti','frozen','makanan'],
   rokok: ['rokok']
 };
 
 /* =========================================================
-   MENU PELAYAN (URUT OTOMATIS BERDASAR WAKTU)
+   MAP INTENT → KATEGORI + TAG (UTAMA)
+========================================================= */
+PELAYAN.intentDetail = {
+
+  /* =====================================================
+     PAGI & MAKAN
+  ===================================================== */
+  sarapan: {
+    kategori: ['makanan','roti','mie','minumansachet'],
+    tags: ['sarapan','pagi','ringan']
+  },
+  makan_siang: {
+    kategori: ['makanan','mie'],
+    tags: ['makan','siang','ngenyangin']
+  },
+  makan_malam: {
+    kategori: ['makanan','mie'],
+    tags: ['makan','malam','ngenyangin']
+  },
+
+  /* =====================================================
+     CEPAT & PRAKTIS
+  ===================================================== */
+  instan: {
+    kategori: ['mie','minumansachet','minuman'],
+    tags: ['instan','cepat']
+  },
+  hemat: {
+    kategori: ['sembako','mie','makanan'],
+    tags: ['hemat','murah']
+  },
+
+  /* =====================================================
+     LAPAR & KONDISI
+  ===================================================== */
+  ngenyangin: {
+    kategori: ['makanan','mie','roti'],
+    tags: ['ngenyangin','kenyang']
+  },
+  sakit: {
+    kategori: ['obat','minumansachet'],
+    tags: ['hangat','ringan']
+  },
+
+  /* =====================================================
+     MINUMAN
+  ===================================================== */
+  minum: {
+    kategori: ['minuman','minumansachet'],
+    tags: ['minum','segar']
+  },
+  anget: {
+    kategori: ['makanan','mie','minumansachet'],
+    tags: ['anget','hangat']
+  },
+  dingin: {
+    kategori: ['minuman','frozen'],
+    tags: ['dingin','segar']
+  },
+  ngopi: {
+    kategori: ['minumansachet','minuman'],
+    tags: ['kopi','ngopi']
+  },
+
+  /* =====================================================
+     CEMILAN & RASA
+  ===================================================== */
+  cemilan: {
+    kategori: ['snack','roti'],
+    tags: ['cemilan','ringan']
+  },
+  manis: {
+    kategori: ['snack','roti','minuman','minumansachet','frozen'],
+    tags: ['manis','coklat','vanilla']
+  },
+  gurih: {
+    kategori: ['snack','makanan'],
+    tags: ['gurih','asin','keju']
+  },
+  pedas: {
+    kategori: ['snack','makanan'],
+    tags: ['pedas']
+  },
+
+  /* =====================================================
+     AKTIVITAS
+  ===================================================== */
+  masak: {
+    kategori: ['sembako','bumbu','mie','peralatandapur'],
+    tags: ['masak']
+  },
+  nyuci: {
+    kategori: ['rumah','peralatandapur'],
+    tags: ['bersih','nyuci']
+  },
+  stok: {
+    kategori: ['sembako','makanan','minuman'],
+    tags: ['stok','rumah']
+  },
+
+  /* =====================================================
+     MOMEN & SOSIAL
+  ===================================================== */
+  keluarga: {
+    kategori: ['sembako','makanan','minuman','snack','roti','frozen'],
+    tags: ['keluarga']
+  },
+  nonton: {
+    kategori: ['snack','minuman','roti','frozen'],
+    tags: ['nonton','santai']
+  },
+
+  /* =====================================================
+     LAINNYA
+  ===================================================== */
+  rokok: {
+    kategori: ['rokok'],
+    tags: ['rokok']
+  }
+};
+
+
+/* =========================================================
+   MENU – Pelayan
 ========================================================= */
 PELAYAN.menuList = [
-  { id:'darurat', text:'⚡ Darurat, perlu cepet', waktu:['pagi','siang','malam'], prioritas:100 },
-  { id:'ga_enak_badan', text:'🤒 Lagi ora enak badan', waktu:['pagi','malam'], prioritas:90 },
 
-  { id:'laper', text:'😋 Laper, pengen makanan sing enak', waktu:['siang','malam'], prioritas:80 },
-  { id:'cemilan', text:'☕ Lagi santai, pengen cemilan', waktu:['siang','malam'], prioritas:70 },
+  /* =====================================================
+     PAGI – BARU MULAI AKTIVITAS
+  ===================================================== */
+  { id:'sarapan', text:'🍳 Sarapan pagi', waktu:['pagi'], prioritas:100 },
+  { id:'anget', text:'☕ Pengen sing anget', waktu:['pagi'], prioritas:95 },
+  { id:'instan', text:'⚡ Perlu cepet & praktis', waktu:['pagi'], prioritas:90 },
+  { id:'masak', text:'👨‍🍳 Masak dhewe', waktu:['pagi'], prioritas:80 },
 
-  { id:'minum', text:'🥤 Haus, pengen minuman', waktu:['pagi','siang','malam'], prioritas:60 },
-  { id:'pengen_dingin', text:'🥵 Sumuk, pengen sing adem', waktu:['siang'], prioritas:50 },
-  { id:'pengen_anget', text:'🥶 Atis, pengen sing anget', waktu:['pagi','malam'], prioritas:50 },
+  /* =====================================================
+     SIANG – LAPAR & PRODUKTIF
+  ===================================================== */
+  { id:'ngenyangin', text:'😋 Laper, pengen sing ngenyangke', waktu:['siang'], prioritas:100 },
+  { id:'makan_siang', text:'🍛 Makan siang', waktu:['siang'], prioritas:95 },
+  { id:'minum', text:'🥤 Haus, pengen ngombe', waktu:['siang'], prioritas:90 },
+  { id:'hemat', text:'💸 Pengen irit / hemat', waktu:['siang'], prioritas:85 },
 
-  { id:'masak', text:'👨‍🍳 Lagi pengen masak', waktu:['pagi','siang','malam'], prioritas:40 },
-  { id:'nyuci', text:'🛁 Nyuci / bersih-bersih rumah', waktu:['pagi','siang'], prioritas:30 },
+  /* =====================================================
+     SORE – SANTAI & TRANSISI
+  ===================================================== */
+  { id:'cemilan', text:'🍪 Pengen cemilan', waktu:['siang','malam'], prioritas:90 },
+  { id:'manis', text:'🍫 Pengen sing manis', waktu:['siang','malam'], prioritas:85 },
+  { id:'dingin', text:'🧊 Pengen sing adem', waktu:['siang'], prioritas:85 },
 
-  { id:'nonton', text:'📺 Cemilan pas nonton TV', waktu:['malam'], prioritas:20 },
-  { id:'rokok', text:'🚬 Pengen rokok', waktu:['siang','malam'], prioritas:10 },
-  { id:'keluarga', text:'👨‍👩‍👧 Belanja kanggo keluarga', waktu:['pagi','siang'], prioritas:10 }
+  /* =====================================================
+     MALAM – MAKAN & ISTIRAHAT
+  ===================================================== */
+  { id:'makan_malam', text:'🍽️ Makan malam', waktu:['malam'], prioritas:100 },
+  { id:'keluarga', text:'👨‍👩‍👧 Kebutuhan keluarga', waktu:['malam'], prioritas:95 },
+  { id:'nonton', text:'📺 Cemilan pas nonton', waktu:['malam'], prioritas:90 },
+  { id:'ngopi', text:'☕ Ngopi / santai', waktu:['malam'], prioritas:85 },
+
+  /* =====================================================
+     RASA & SELERA
+  ===================================================== */
+  { id:'gurih', text:'🧀 Pengen sing gurih', waktu:['siang','malam'], prioritas:80 },
+  { id:'pedas', text:'🌶️ Pengen sing pedes', waktu:['siang','malam'], prioritas:78 },
+
+  /* =====================================================
+     AKTIVITAS RUMAH
+  ===================================================== */
+  { id:'nyuci', text:'🧼 Nyuci / resik-resik', waktu:['pagi','siang'], prioritas:70 },
+  { id:'stok', text:'📦 Ngecek stok dapur', waktu:['pagi','siang'], prioritas:65 },
+
+  /* =====================================================
+     KONDISI KHUSUS
+  ===================================================== */
+  { id:'sakit', text:'🤒 Lagi ora enak badan', waktu:['pagi','malam'], prioritas:75 },
+  { id:'rokok', text:'🚬 Pengen rokok', waktu:['siang','malam'], prioritas:40 }
 ];
 
 
@@ -102,6 +301,7 @@ const pelayanTitle    = document.getElementById('pelayan-title');
 const pelayanText     = document.getElementById('pelayan-text');
 const pelayanOptions  = document.getElementById('pelayan-options');
 const pelayanClose    = document.getElementById('pelayan-close');
+const pelayanCloseX   = document.getElementById('pelayan-close-x');
 
 /* =========================================================
    OPEN / CLOSE MODAL
@@ -115,41 +315,41 @@ pelayanClose?.addEventListener('click', () => {
   pelayanBackdrop.style.display = 'none';
 });
 
+pelayanCloseX?.addEventListener('click', () => {
+  pelayanBackdrop.style.display = 'none';
+});
+
 /* =========================================================
-   STEP 1: SAPAAN & PILIH KEGIATAN / KEBUTUHAN
+   STEP 1
 ========================================================= */
 function stepSapaan(){
   PELAYAN.step = 1;
 
-  pelayanTitle.textContent =
-    `Sugeng rawuh, ${getNamaSapaan()} 😊`;
-
+  pelayanTitle.textContent = getSapaanLengkap();
   pelayanText.textContent =
     'Badhe tumbas punapa dinten niki? Pilih kegiatan utawa kebutuhan panjenengan:';
 
   const waktu = getWaktuSekarang();
 
-const menuTampil = PELAYAN.menuList
-  .filter(m => m.waktu.includes(waktu))
-  .sort((a,b) => b.prioritas - a.prioritas);
+  const menuTampil = PELAYAN.menuList
+    .filter(m => m.waktu.includes(waktu))
+    .sort((a,b) => b.prioritas - a.prioritas);
 
-pelayanOptions.innerHTML =
-  menuTampil.map(m => `
-    <button onclick="stepPilih('${m.id}')">
-      ${m.text}
-    </button>
-  `).join('') +
-  `<button onclick="stepRequest()">❓ Barang ora ketemu</button>`;}
+  pelayanOptions.innerHTML =
+    menuTampil.map(m => `
+      <button onclick="stepPilih('${m.id}')">${m.text}</button>
+    `).join('') +
+    `<button onclick="stepRequest()">❓ Barang ora ketemu</button>`;
+}
 
 /* =========================================================
-   STEP 2: PILIH & TAMPILKAN REKOMENDASI
+   STEP 2
 ========================================================= */
 function stepPilih(intent){
   PELAYAN.step = 2;
 
   pelayanTitle.textContent = 'Inggih 🙏';
-  pelayanText.textContent =
-    'Kulo tampilaken rekomendasi nggih.';
+  pelayanText.textContent = 'Kulo tampilaken rekomendasi nggih.';
 
   pelayanOptions.innerHTML = `
     <button onclick="applyPelayanFilter('${intent}')">
@@ -159,20 +359,40 @@ function stepPilih(intent){
   `;
 }
 
-/* ================= MULTI FILTER SESUAI KATEGORI ================= */
-function applyPelayanFilter(tipe){
-  const kategoriList = PELAYAN.kategoriMap[tipe];
-  if (!Array.isArray(kategoriList)) return;
+/* =========================================================
+   FILTER PRODUK
+========================================================= */
+function applyPelayanFilter(intent){
+  let hasil = [];
 
-  // FILTER LANGSUNG DARI PRODUCTS (ORI)
-  const hasil = products.filter(p =>
-    kategoriList.includes(p.category)
-  );
+  // PRIORITAS 1: intentDetail (kategori + tags)
+  const detail = PELAYAN.intentDetail[intent];
+  if (detail) {
+    hasil = products.filter(p => {
+      const cocokKategori =
+        !detail.kategori || detail.kategori.includes(p.category);
 
+      const cocokTag =
+        !detail.tags ||
+        detail.tags.some(tag => p.tags?.includes(tag));
+
+      return cocokKategori && cocokTag;
+    });
+  }
+
+  // PRIORITAS 2: fallback ke kategoriMap lama
+  if (hasil.length === 0) {
+    const kategoriList = PELAYAN.kategoriMap[intent];
+    if (Array.isArray(kategoriList)) {
+      hasil = products.filter(p =>
+        kategoriList.includes(p.category)
+      );
+    }
+  }
+
+  // render
   if (typeof render === 'function') {
     render(hasil);
-  } else {
-    console.warn('[Pelayan] fungsi render tidak tersedia');
   }
 
   pelayanBackdrop.style.display = 'none';
@@ -182,8 +402,9 @@ function applyPelayanFilter(tipe){
   }
 }
 
+
 /* =========================================================
-   STEP REQUEST (ORIGINAL)
+   REQUEST
 ========================================================= */
 function stepRequest(){
   pelayanTitle.textContent = 'Nyuwun pangapunten 🙇';
@@ -198,30 +419,11 @@ function stepRequest(){
 
 function openRequestPelayan(){
   const hiddenBtn = document.getElementById('wa-request-hidden');
-
-  if (hiddenBtn) {
-    hiddenBtn.click(); // 🔥 trigger ctalinks.js
-  } else {
-    alert('Fitur request belum siap 🙏');
-  }
-
+  hiddenBtn ? hiddenBtn.click() : alert('Fitur request belum siap 🙏');
   pelayanBackdrop.style.display = 'none';
 }
 
-
 /* =========================================================
-   DEBUG (OPTIONAL)
+   INIT
 ========================================================= */
-PELAYAN.debug = function(){
-  console.log('[PELAYAN]', {
-    step: PELAYAN.step,
-    nama: getNamaSapaan(),
-    kategoriMap: PELAYAN.kategoriMap
-  });
-};
-
-const pelayanCloseX = document.getElementById('pelayan-close-x');
-
-pelayanCloseX?.addEventListener('click', () => {
-  pelayanBackdrop.style.display = 'none';
-});
+loadUserCache();
