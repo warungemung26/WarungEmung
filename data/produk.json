@@ -853,7 +853,7 @@
     "price": 12000,
     "img": "images/sariroti-tawar.jpg",
     "category": "roti",
-    "tags":["ngenyangin","roti","laper","kenyang"]
+    "tags":["ngenyangin","roti","laper","kenyang","manis","coklat","vanilla"]
   },
   {
     "name": "Sari Roti Sandwich Cokelat 50g",
@@ -861,7 +861,7 @@
     "price": 3000,
     "img": "images/sariroti-cokelat.jpg",
     "category": "roti",
-    "tags":["ngenyangin","roti","laper","kenyang"]
+    "tags":["ngenyangin","roti","laper","kenyang","manis","coklat","vanilla"]
   },
   {
     "name": "Sari Roti Keju 50g",
@@ -869,7 +869,7 @@
     "price": 3000,
     "img": "images/sariroti-keju.jpg",
     "category": "roti",
-    "tags":["ngenyangin","roti","laper","kenyang"]
+    "tags":["ngenyangin","roti","laper","kenyang","manis","coklat","vanilla"]
   },
   {
     "name": "Roti O Cokelat",
@@ -877,7 +877,7 @@
     "price": 6000,
     "img": "images/roti-o-cokelat.jpg",
     "category": "roti",
-    "tags":["ngenyangin","roti","laper","kenyang"]
+    "tags":["ngenyangin","roti","laper","kenyang","manis","coklat","vanilla"]
   },
   {
     "name": "Roti O Krim Vanilla",
@@ -885,7 +885,7 @@
     "price": 6000,
     "img": "images/roti-o-vanilla.jpg",
     "category": "roti",
-    "tags":["creamy","ngenyangin","roti","laper","kenyang"]
+    "tags":["creamy","ngenyangin","roti","laper","kenyang","manis","coklat","vanilla"]
   },
   {
     "name": "Choco Pie 2pcs",
@@ -893,7 +893,7 @@
     "price": 5000,
     "img": "images/chocopie-2pcs.jpg",
     "category": "roti",
-    "tags":["coklat","ngenyangin","kenyang"]
+    "tags":["coklat","ngenyangin","kenyang","manis","vanilla"]
   },
   {
     "name": "Maries / Roti Snack 30g",
@@ -901,7 +901,7 @@
     "price": 2000,
     "img": "images/maries-30g.jpg",
     "category": "roti",
-    "tags":["dingin","ngenyangin","roti","snack","laper","kenyang"]
+    "tags":["dingin","ngenyangin","roti","snack","manis","coklat","vanilla"]
   },
   {
     "name": "Roti Tawar Serbaguna",
@@ -909,7 +909,7 @@
     "price": 12000,
     "img": "images/roti-tawar-serbaguna.jpg",
     "category": "roti",
-    "tags":["ngenyangin","roti","laper","kenyang"]
+    "tags":["ngenyangin","roti","laper","kenyang","manis","coklat","vanilla"]
   },
   {
     "name": "Beras Rojolele 5kg",
@@ -1541,7 +1541,7 @@
     "price": 5000,
     "img": "images/antibiotik-salep.jpg",
     "category": "obat",
-    "tags":["sakit","obat","luka","hangat","ringan"]
+    "tags":["sakit","obat","luka"]
   },
   {
     "name": "Salep Gatal / Anti Kutu / Ruam",
@@ -1549,7 +1549,7 @@
     "price": 6000,
     "img": "images/salep-gatal.jpg",
     "category": "obat",
-    "tags":["sakit","obat","luka","hangat","ringan"]
+    "tags":["sakit","obat","luka"]
   },
   {
     "name": "Minyak Kayu Putih 30ml",
@@ -1557,7 +1557,7 @@
     "price": 3000,
     "img": "images/minyak-kayu-putih.jpg",
     "category": "obat",
-    "tags":["mie","sembako","masak","minyak","sakit","masuk_angin","cair","obat","hangat","ringan"]
+    "tags":["mie","sembako","masak","minyak","sakit","masuk_angin","cair","obat","hangat"]
   },
   {
     "name": "Plester Luka / First Aid",
@@ -1565,7 +1565,7 @@
     "price": 2000,
     "img": "images/plester-luka.jpg",
     "category": "obat",
-    "tags":["sakit","luka","obat","hangat","ringan"]
+    "tags":["sakit","luka","obat"]
   },
   {
     "name": "Vitamin C 500mg 10 Tablet",
@@ -1573,7 +1573,7 @@
     "price": 5000,
     "img": "images/vitamin-c-500mg.jpg",
     "category": "obat",
-    "tags":["mie","sakit","obat","praktis","vitamin","hangat","ringan"]
+    "tags":["mie","sakit","obat","vitamin","praktis","ringan"]
   },
   {
     "name": "Minyak Telon Bayi 60ml",
@@ -1581,7 +1581,7 @@
     "price": 4000,
     "img": "images/minyak-telon.jpg",
     "category": "obat",
-    "tags":["mie","sembako","masak","minyak","sakit","masuk_angin","anak","cair","obat","hangat","ringan"]
+    "tags":["mie","sembako","masak","minyak","sakit","masuk_angin","anak","cair","obat","hangat"]
   },
   {
     "name": "Ibuprofen 200mg 10 Tablet",
@@ -1597,7 +1597,7 @@
     "price": 5000,
     "img": "images/hansaplast-roll.jpg",
     "category": "obat",
-    "tags":["sakit","luka","obat","hangat","ringan"]
+    "tags":["sakit","luka","obat"]
   },
   {
     "name": "Konidin Obat Batuk Sachet",
@@ -1605,7 +1605,7 @@
     "price": 2500,
     "img": "images/konidin-sachet.jpg",
     "category": "obat",
-    "tags":["sakit","obat","batuk","praktis","minuman","hangat","ringan"]
+    "tags":["sakit","obat","minuman","batuk","praktis","ringan"]
   },
   {
     "name": "Microlax Enema 5ml",
