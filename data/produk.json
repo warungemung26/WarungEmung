@@ -349,7 +349,7 @@
     "price": 3500,
     "img": "images/IND-SPECIAL-75.jpg",
     "category": "mie",
-    "tags":["laper","anget","ngenyangin","mie","premium","instan","cepat"]
+    "tags":["laper","anget","ngenyangin","mie","premium","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Indomie Goreng Original 85g",
@@ -357,7 +357,7 @@
     "price": 3500,
     "img": "images/IND-GOR-OR-85.jpg",
     "category": "mie",
-    "tags":["laper","anget","ngenyangin","mie","goreng","instan","cepat"]
+    "tags":["laper","anget","ngenyangin","mie","goreng","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Indomie Goreng Pedas 85g",
@@ -365,7 +365,7 @@
     "price": 3500,
     "img": "images/IND-GOR-PDS-85.jpg",
     "category": "mie",
-    "tags":["laper","anget","pedas","ngenyangin","mie","goreng","sambal","instan","cepat"]
+    "tags":["laper","anget","pedas","ngenyangin","mie","goreng","sambal","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Mie Sedaap Rasa Soto",
@@ -373,7 +373,7 @@
     "price": 3500,
     "img": "images/sedap-soto.jpg",
     "category": "mie",
-    "tags":["laper","anget","ngenyangin","mie","instan","cepat"]
+    "tags":["laper","anget","ngenyangin","mie","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Indomie Jumbo Goreng Rasa Barbaque Chicken 128g",
@@ -381,7 +381,7 @@
     "price": 6000,
     "img": "images/IND-GOR-BARBQ-128.jpg",
     "category": "mie",
-    "tags":["laper","anget","ngenyangin","mie","goreng","instan","cepat"]
+    "tags":["laper","anget","ngenyangin","mie","goreng","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Mie Sedap Goreng Korea Spicy Chicken",
@@ -389,7 +389,7 @@
     "price": 3500,
     "img": "images/sedap-goreng-korea.jpg",
     "category": "mie",
-    "tags":["laper","anget","pedas","ngenyangin","mie","goreng","instan","cepat"]
+    "tags":["laper","anget","pedas","ngenyangin","mie","goreng","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "WOW Spageti Creamy Carbonara",
@@ -397,7 +397,7 @@
     "price": 3500,
     "img": "images/wow-spageti-carbonara.jpg",
     "category": "mie",
-    "tags":["laper","anget","spageti","susu","creamy","mie","ngenyangin","instan","cepat"]
+    "tags":["laper","anget","spageti","susu","creamy","mie","ngenyangin","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "WOW Spageti Meaty Bolognese",
@@ -405,7 +405,7 @@
     "price": 3500,
     "img": "images/wow-spageti-bolognese.jpg",
     "category": "mie",
-    "tags":["laper","anget","spageti","mie","ngenyangin","instan","cepat"]
+    "tags":["laper","anget","spageti","mie","ngenyangin","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "WOW Spageti Aglio Olio",
@@ -413,7 +413,7 @@
     "price": 3500,
     "img": "images/wow-spageti-aglio-olio.jpg",
     "category": "mie",
-    "tags":["laper","anget","spageti","mie","ngenyangin","instan","cepat"]
+    "tags":["laper","anget","spageti","mie","ngenyangin","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Supermi Goreng 85g",
@@ -421,7 +421,7 @@
     "price": 3000,
     "img": "images/supermi-goreng.jpg",
     "category": "mie",
-    "tags":["laper","anget","mie","goreng","instan","cepat"]
+    "tags":["laper","anget","mie","goreng","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Sarimi Goreng 70g",
@@ -429,7 +429,7 @@
     "price": 2500,
     "img": "images/sarimi-goreng.jpg",
     "category": "mie",
-    "tags":["laper","anget","mie","goreng","instan","cepat"]
+    "tags":["laper","anget","mie","goreng","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Mie ABC Instan 70g",
@@ -437,7 +437,7 @@
     "price": 3000,
     "img": "images/mie-abc-ayam.jpg",
     "category": "mie",
-    "tags":["laper","anget","ngenyangin","mie","cepat","kecap","minuman","instan"]
+    "tags":["laper","anget","ngenyangin","mie","cepat","kecap","minuman","instan","sarapan","pagi","ringan"]
   },
   {
     "name": "Mie Burung Dara Goreng 70g",
@@ -445,7 +445,7 @@
     "price": 3000,
     "img": "images/burungdara-goreng.jpg",
     "category": "mie",
-    "tags":["laper","anget","ngenyangin","mie","goreng","instan","cepat"]
+    "tags":["laper","anget","ngenyangin","mie","goreng","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Mie Sedaap Goreng Rasa Kari Ayam 91g",
@@ -453,7 +453,7 @@
     "price": 3500,
     "img": "images/sedap-goreng-kariayam.jpg",
     "category": "mie",
-    "tags":["laper","anget","ngenyangin","mie","goreng","bumbu_instal","instan","cepat"]
+    "tags":["laper","anget","ngenyangin","mie","goreng","bumbu_instal","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Mie Sedaap Goreng Rasa Sate Ayam 91g",
@@ -461,7 +461,7 @@
     "price": 3500,
     "img": "images/sedap-goreng-sateayam.jpg",
     "category": "mie",
-    "tags":["laper","anget","ngenyangin","mie","goreng","instan","cepat"]
+    "tags":["laper","anget","ngenyangin","mie","goreng","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Mie Sedaap Kuah Rasa Soto Mie 91g",
@@ -469,7 +469,7 @@
     "price": 3500,
     "img": "images/sedap-kuah-soto.jpg",
     "category": "mie",
-    "tags":["anget","laper","ngenyangin","mie","instan","cepat"]
+    "tags":["anget","laper","ngenyangin","mie","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Mie Sedaap Kuah Rasa Baso Spesial 91g",
@@ -477,7 +477,7 @@
     "price": 3500,
     "img": "images/sedap-kuah-basospesial.jpg",
     "category": "mie",
-    "tags":["anget","laper","ngenyangin","mie","instan","cepat"]
+    "tags":["anget","laper","ngenyangin","mie","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Mie Sedaap Kuah Rasa Kari Ayam 91g",
@@ -485,7 +485,7 @@
     "price": 3500,
     "img": "images/sedap-kuah-kariayam.jpg",
     "category": "mie",
-    "tags":["anget","laper","ngenyangin","mie","bumbu_instal","instan","cepat"]
+    "tags":["anget","laper","ngenyangin","mie","bumbu_instal","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Indomie Goreng Sambal Matah",
@@ -493,7 +493,7 @@
     "price": 4500,
     "img": "images/indomie_sambal_matah.jpg",
     "category": "mie",
-    "tags":["laper","anget","pedas","ngenyangin","mie","goreng","bumbu","sambal","instan","cepat"]
+    "tags":["laper","anget","pedas","ngenyangin","mie","goreng","bumbu","sambal","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Indomie Goreng Rendang",
@@ -501,7 +501,7 @@
     "price": 4500,
     "img": "images/indomie_rendang.jpg",
     "category": "mie",
-    "tags":["laper","anget","ngenyangin","mie","goreng","instan","cepat"]
+    "tags":["laper","anget","ngenyangin","mie","goreng","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Indomie Goreng Soto Banjar",
@@ -509,7 +509,7 @@
     "price": 4500,
     "img": "images/indomie_soto_banjar.jpg",
     "category": "mie",
-    "tags":["laper","anget","ngenyangin","mie","goreng","instan","cepat"]
+    "tags":["laper","anget","ngenyangin","mie","goreng","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Indomie Goreng Kari Ayam",
@@ -517,7 +517,7 @@
     "price": 4500,
     "img": "images/indomie_kari_ayam.jpg",
     "category": "mie",
-    "tags":["laper","anget","ngenyangin","mie","goreng","bumbu_instal","instan","cepat"]
+    "tags":["laper","anget","ngenyangin","mie","goreng","bumbu_instal","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Indomie Goreng Ayam Bawang",
@@ -525,7 +525,7 @@
     "price": 4500,
     "img": "images/indomie_ayam_bawang.jpg",
     "category": "mie",
-    "tags":["laper","anget","ngenyangin","mie","goreng","bumbu","bawang","instan","cepat"]
+    "tags":["laper","anget","ngenyangin","mie","goreng","bumbu","bawang","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Indomie Goreng Cabe Ijo",
@@ -533,7 +533,7 @@
     "price": 4500,
     "img": "images/indomie_cabe_ijo.jpg",
     "category": "mie",
-    "tags":["laper","anget","pedas","ngenyangin","mie","goreng","masak","cabai","instan","cepat"]
+    "tags":["laper","anget","pedas","ngenyangin","mie","goreng","masak","cabai","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Indomie Kuah Tom Yum",
@@ -541,7 +541,7 @@
     "price": 4500,
     "img": "images/indomie_tom_yum.jpg",
     "category": "mie",
-    "tags":["anget","laper","ngenyangin","mie","instan","cepat"]
+    "tags":["anget","laper","ngenyangin","mie","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Indomie Goreng Cakalang",
@@ -549,7 +549,7 @@
     "price": 4500,
     "img": "images/indomie_cakalang.jpg",
     "category": "mie",
-    "tags":["laper","anget","ngenyangin","mie","goreng","instan","cepat"]
+    "tags":["laper","anget","ngenyangin","mie","goreng","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Indomie Goreng Sambal Rica-Rica",
@@ -557,7 +557,7 @@
     "price": 4500,
     "img": "images/indomie_sambal_rica.jpg",
     "category": "mie",
-    "tags":["laper","anget","pedas","ngenyangin","mie","goreng","bumbu","sambal","instan","cepat"]
+    "tags":["laper","anget","pedas","ngenyangin","mie","goreng","bumbu","sambal","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Pop Spageti Bolognese",
@@ -565,7 +565,7 @@
     "price": 3500,
     "img": "images/pop_spageti_bolognese.jpg",
     "category": "mie",
-    "tags":["laper","anget","spageti","mie","ngenyangin","instan","cepat"]
+    "tags":["laper","anget","spageti","mie","ngenyangin","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Pop Spageti Carbonara",
@@ -573,7 +573,7 @@
     "price": 3500,
     "img": "images/pop_spageti_carbonara.jpg",
     "category": "mie",
-    "tags":["laper","anget","spageti","mie","ngenyangin","instan","cepat"]
+    "tags":["laper","anget","spageti","mie","ngenyangin","instan","cepat","sarapan","pagi","ringan"]
   },
   {
     "name": "Kopi Kapal Api Sachet",
@@ -853,7 +853,7 @@
     "price": 12000,
     "img": "images/sariroti-tawar.jpg",
     "category": "roti",
-    "tags":["ngenyangin","roti","laper","kenyang","manis","coklat","vanilla"]
+    "tags":["ngenyangin","roti","laper","kenyang","manis","coklat","vanilla","sarapan","pagi","ringan"]
   },
   {
     "name": "Sari Roti Sandwich Cokelat 50g",
@@ -861,7 +861,7 @@
     "price": 3000,
     "img": "images/sariroti-cokelat.jpg",
     "category": "roti",
-    "tags":["ngenyangin","roti","laper","kenyang","manis","coklat","vanilla"]
+    "tags":["ngenyangin","roti","laper","kenyang","manis","coklat","vanilla","sarapan","pagi","ringan"]
   },
   {
     "name": "Sari Roti Keju 50g",
@@ -869,7 +869,7 @@
     "price": 3000,
     "img": "images/sariroti-keju.jpg",
     "category": "roti",
-    "tags":["ngenyangin","roti","laper","kenyang","manis","coklat","vanilla"]
+    "tags":["ngenyangin","roti","laper","kenyang","manis","coklat","vanilla","sarapan","pagi","ringan"]
   },
   {
     "name": "Roti O Cokelat",
@@ -877,7 +877,7 @@
     "price": 6000,
     "img": "images/roti-o-cokelat.jpg",
     "category": "roti",
-    "tags":["ngenyangin","roti","laper","kenyang","manis","coklat","vanilla"]
+    "tags":["ngenyangin","roti","laper","kenyang","manis","coklat","vanilla","sarapan","pagi","ringan"]
   },
   {
     "name": "Roti O Krim Vanilla",
@@ -885,7 +885,7 @@
     "price": 6000,
     "img": "images/roti-o-vanilla.jpg",
     "category": "roti",
-    "tags":["creamy","ngenyangin","roti","laper","kenyang","manis","coklat","vanilla"]
+    "tags":["creamy","ngenyangin","roti","laper","kenyang","manis","coklat","vanilla","sarapan","pagi","ringan"]
   },
   {
     "name": "Choco Pie 2pcs",
@@ -893,7 +893,7 @@
     "price": 5000,
     "img": "images/chocopie-2pcs.jpg",
     "category": "roti",
-    "tags":["coklat","ngenyangin","kenyang","manis","vanilla"]
+    "tags":["coklat","ngenyangin","kenyang","manis","vanilla","sarapan","pagi","ringan"]
   },
   {
     "name": "Maries / Roti Snack 30g",
@@ -901,7 +901,7 @@
     "price": 2000,
     "img": "images/maries-30g.jpg",
     "category": "roti",
-    "tags":["dingin","ngenyangin","roti","snack","manis","coklat","vanilla"]
+    "tags":["dingin","ngenyangin","roti","snack","manis","coklat","vanilla","sarapan","pagi","ringan"]
   },
   {
     "name": "Roti Tawar Serbaguna",
@@ -909,7 +909,7 @@
     "price": 12000,
     "img": "images/roti-tawar-serbaguna.jpg",
     "category": "roti",
-    "tags":["ngenyangin","roti","laper","kenyang","manis","coklat","vanilla"]
+    "tags":["ngenyangin","roti","laper","kenyang","manis","coklat","vanilla","sarapan","pagi","ringan"]
   },
   {
     "name": "Beras Rojolele 5kg",
@@ -1629,7 +1629,7 @@
     "price": 5000,
     "img": "images/lifebuoy-60g.jpg",
     "category": "rumah",
-    "tags":["roti","mandi","rumah","kebersihan"]
+    "tags":["roti","mandi","rumah","kebersihan","bersih","nyuci","stok"]
   },
   {
     "name": "Shampo Sunsilk Sachet",
@@ -1637,7 +1637,7 @@
     "price": 2000,
     "img": "images/sunsilk-sachet.jpg",
     "category": "rumah",
-    "tags":["obat","praktis","nyuci","mandi","rumah","kebersihan","minuman"]
+    "tags":["mandi","minuman","nyuci","rumah","kebersihan","bersih","stok"]
   },
   {
     "name": "Pasta Gigi Pepsodent Herbal",
@@ -1645,7 +1645,7 @@
     "price": 6000,
     "img": "images/pepsodent.jpg",
     "category": "rumah",
-    "tags":["ngenyangin","mandi","kebersihan"]
+    "tags":["ngenyangin","mandi","kebersihan","bersih","nyuci","stok","rumah"]
   },
   {
     "name": "Soklin Liquid Freshness Sachet",
@@ -1653,7 +1653,7 @@
     "price": 500,
     "img": "images/soklin-liquid-freshness.jpg",
     "category": "rumah",
-    "tags":["obat","cair","praktis","nyuci","wangi","minuman"]
+    "tags":["nyuci","minuman","cair","praktis","wangi","stok","rumah"]
   },
   {
     "name": "Soklin Liquid Violet Sachet",
@@ -1661,7 +1661,7 @@
     "price": 500,
     "img": "images/soklin-liquid-violet.jpg",
     "category": "rumah",
-    "tags":["obat","cair","praktis","nyuci","wangi","minuman"]
+    "tags":["nyuci","minuman","cair","praktis","wangi","bersih","stok","rumah"]
   },
   {
     "name": "Rinso Anti Noda Sachet",
@@ -1669,7 +1669,7 @@
     "price": 500,
     "img": "images/rinso-antinoda.jpg",
     "category": "rumah",
-    "tags":["obat","praktis","nyuci","minuman"]
+    "tags":["nyuci","minuman","praktis","bersih","stok","rumah"]
   },
   {
     "name": "Rinso Molto Perfume Essence Sachet",
@@ -1677,7 +1677,7 @@
     "price": 500,
     "img": "images/rinso-molto-essence.jpg",
     "category": "rumah",
-    "tags":["obat","praktis","nyuci","wangi","minuman"]
+    "tags":["nyuci","minuman","praktis","wangi","stok","rumah"]
   },
   {
     "name": "Molto Pewangi Biru Sachet",
@@ -1685,7 +1685,7 @@
     "price": 500,
     "img": "images/molto-biru.jpg",
     "category": "rumah",
-    "tags":["obat","praktis","nyuci","rumah","wangi","minuman"]
+    "tags":["nyuci","minuman","praktis","rumah","wangi","stok"]
   },
   {
     "name": "Molto Pewangi Pink Sachet",
@@ -1693,7 +1693,7 @@
     "price": 500,
     "img": "images/molto-pink.jpg",
     "category": "rumah",
-    "tags":["obat","praktis","nyuci","rumah","wangi","minuman"]
+    "tags":["nyuci","minuman","praktis","rumah","wangi","bersih","stok"]
   },
   {
     "name": "So Klin Softener Pink Sachet",
@@ -1701,7 +1701,7 @@
     "price": 500,
     "img": "images/soklin-softener-pink.jpg",
     "category": "rumah",
-    "tags":["lembut","obat","praktis","nyuci","wangi","minuman"]
+    "tags":["lembut","obat","praktis","nyuci","wangi","minuman","stok","rumah"]
   },
   {
     "name": "Sunlight Jeruk Nipis",
@@ -1709,7 +1709,7 @@
     "price": 2000,
     "img": "images/sunlight-jeruk.jpg",
     "category": "rumah",
-    "tags":["wangi","asam","buah"]
+    "tags":["wangi","asam","buah","bersih","nyuci","stok","rumah"]
   },
   {
     "name": "Daia Detergent Pink",
@@ -1717,7 +1717,7 @@
     "price": 5000,
     "img": "images/daia-pink.jpg",
     "category": "rumah",
-    "tags":["nyuci","rumah","kebersihan","wangi"]
+    "tags":["nyuci","rumah","kebersihan","wangi","bersih","stok"]
   },
   {
     "name": "Daia Detergent Lemon",
@@ -1725,7 +1725,7 @@
     "price": 5000,
     "img": "images/daia-lemon.jpg",
     "category": "rumah",
-    "tags":["nyuci","rumah","kebersihan","wangi","asam"]
+    "tags":["nyuci","rumah","kebersihan","wangi","asam","bersih","stok"]
   },
   {
     "name": "Sabun Lifebuoy Cair Refill 450ml",
@@ -1733,7 +1733,7 @@
     "price": 23000,
     "img": "images/lifebuoy-refill-450ml.jpg",
     "category": "rumah",
-    "tags":["roti","minyak","cair","praktis","mandi","rumah","kebersihan"]
+    "tags":["roti","minyak","mandi","cair","praktis","rumah","kebersihan","bersih","nyuci","stok"]
   },
   {
     "name": "Sabun Mandi Lux Body Wash 250ml",
@@ -1741,7 +1741,7 @@
     "price": 17000,
     "img": "images/lux-bodywash-250ml.jpg",
     "category": "rumah",
-    "tags":["roti","mandi","rumah","kebersihan"]
+    "tags":["roti","mandi","rumah","kebersihan","bersih","nyuci","stok"]
   },
   {
     "name": "Shampoo Sunsilk Hitam 170ml",
@@ -1749,7 +1749,7 @@
     "price": 19000,
     "img": "images/sunsilk-hitam-170ml.jpg",
     "category": "rumah",
-    "tags":["mandi","tidur","rumah","kebersihan"]
+    "tags":["mandi","tidur","rumah","kebersihan","bersih","nyuci","stok"]
   },
   {
     "name": "Shampoo Sunsilk Kuning 170ml",
@@ -1757,7 +1757,7 @@
     "price": 19000,
     "img": "images/sunsilk-kuning-170ml.jpg",
     "category": "rumah",
-    "tags":["mandi","rumah","kebersihan"]
+    "tags":["mandi","rumah","kebersihan","bersih","nyuci","stok"]
   },
   {
     "name": "Baygon Semprot Hijau 600ml",
@@ -1765,7 +1765,7 @@
     "price": 36000,
     "img": "images/baygon-hijau-600ml.jpg",
     "category": "rumah",
-    "tags":["cair","tidur"]
+    "tags":["cair","tidur","stok","rumah"]
   },
   {
     "name": "Mama Lemon Jeruk 780ml",
@@ -1773,7 +1773,7 @@
     "price": 15000,
     "img": "images/mamalemon-780ml.jpg",
     "category": "rumah",
-    "tags":["wangi","asam","buah"]
+    "tags":["wangi","asam","buah","bersih","nyuci","stok","rumah"]
   },
   {
     "name": "Baygon Obat Nyamuk Bakar Lavender",
@@ -1781,7 +1781,7 @@
     "price": 4000,
     "img": "images/baygon-bakar-lavender.jpg",
     "category": "rumah",
-    "tags":["bakar","obat","tidur","wangi"]
+    "tags":["bakar","obat","tidur","wangi","stok","rumah"]
   },
   {
     "name": "Kingkong Obat Nyamuk Bakar Classic",
@@ -1789,7 +1789,7 @@
     "price": 3500,
     "img": "images/kingkong-bakar-classic.jpg",
     "category": "rumah",
-    "tags":["bakar","obat","tidur"]
+    "tags":["bakar","obat","tidur","stok","rumah"]
   },
   {
     "name": "Baygon Semprot Classic 250ml",
@@ -1797,7 +1797,7 @@
     "price": 18000,
     "img": "images/baygon-semprot-classic-250ml.jpg",
     "category": "rumah",
-    "tags":["cair","tidur"]
+    "tags":["cair","tidur","stok","rumah"]
   },
   {
     "name": "Hit Anti Nyamuk Spray 200ml",
@@ -1805,7 +1805,7 @@
     "price": 16000,
     "img": "images/hit-semprot-200ml.jpg",
     "category": "rumah",
-    "tags":["cair","tidur","rumah"]
+    "tags":["cair","tidur","rumah","stok"]
   },
   {
     "name": "Vape Anti Nyamuk Spray Orange 250ml",
@@ -1813,7 +1813,7 @@
     "price": 17000,
     "img": "images/vape-semprot-orange-250ml.jpg",
     "category": "rumah",
-    "tags":["cair","tidur","rumah"]
+    "tags":["cair","tidur","rumah","stok"]
   },
   {
     "name": "Autan Lotion Anti Nyamuk Family 50ml",
@@ -1821,7 +1821,7 @@
     "price": 10000,
     "img": "images/autan-lotion-family-50ml.jpg",
     "category": "rumah",
-    "tags":["mie","cair","tidur","rumah"]
+    "tags":["mie","cair","tidur","rumah","stok"]
   },
   {
     "name": "Lifebuoy Total 10",
@@ -1829,7 +1829,7 @@
     "price": 3500,
     "img": "images/sabun_lifebuoy_total10.jpg",
     "category": "rumah",
-    "tags":["mandi"]
+    "tags":["mandi","bersih","nyuci","stok","rumah"]
   },
   {
     "name": "Lifebuoy Lemon Fresh",
@@ -1837,7 +1837,7 @@
     "price": 3500,
     "img": "images/sabun_lifebuoy_lemon_fresh.jpg",
     "category": "rumah",
-    "tags":["mandi","wangi","asam"]
+    "tags":["mandi","wangi","asam","stok","rumah"]
   },
   {
     "name": "Lifebuoy Mild Care",
@@ -1845,7 +1845,7 @@
     "price": 3500,
     "img": "images/sabun_lifebuoy_mild_care.jpg",
     "category": "rumah",
-    "tags":["mie","mandi","rokok","dewasa"]
+    "tags":["mie","mandi","rokok","dewasa","bersih","nyuci","stok","rumah"]
   },
   {
     "name": "Lux Soft Touch",
@@ -1853,7 +1853,7 @@
     "price": 4000,
     "img": "images/sabun_lux_soft_touch.jpg",
     "category": "rumah",
-    "tags":["lembut","mandi"]
+    "tags":["lembut","mandi","bersih","nyuci","stok","rumah"]
   },
   {
     "name": "Lux Magical Beauty",
@@ -1861,7 +1861,7 @@
     "price": 4000,
     "img": "images/sabun_lux_magical_beauty.jpg",
     "category": "rumah",
-    "tags":["mandi"]
+    "tags":["mandi","bersih","nyuci","stok","rumah"]
   },
   {
     "name": "Lux Fresh Splash",
@@ -1869,7 +1869,7 @@
     "price": 4000,
     "img": "images/sabun_lux_fresh_splash.jpg",
     "category": "rumah",
-    "tags":["mandi","wangi"]
+    "tags":["mandi","wangi","stok","rumah"]
   },
   {
     "name": "Dettol Cool",
@@ -1877,7 +1877,7 @@
     "price": 5000,
     "img": "images/sabun_dettol_cool.jpg",
     "category": "rumah",
-    "tags":["mandi"]
+    "tags":["mandi","bersih","nyuci","stok","rumah"]
   },
   {
     "name": "Dettol Fresh",
@@ -1885,7 +1885,7 @@
     "price": 5000,
     "img": "images/sabun_dettol_fresh.jpg",
     "category": "rumah",
-    "tags":["mandi","wangi"]
+    "tags":["mandi","wangi","bersih","nyuci","stok","rumah"]
   },
   {
     "name": "Dettol Skincare",
@@ -1893,7 +1893,7 @@
     "price": 5000,
     "img": "images/sabun_dettol_skincare.jpg",
     "category": "rumah",
-    "tags":["mandi"]
+    "tags":["mandi","bersih","nyuci","stok","rumah"]
   },
   {
     "name": "Giv White Beauty",
@@ -1901,7 +1901,7 @@
     "price": 3000,
     "img": "images/sabun_giv_white_beauty.jpg",
     "category": "rumah",
-    "tags":["mandi","tidur"]
+    "tags":["mandi","tidur","bersih","nyuci","stok","rumah"]
   },
   {
     "name": "Giv Rose",
@@ -1909,7 +1909,7 @@
     "price": 3000,
     "img": "images/sabun_giv_rose.jpg",
     "category": "rumah",
-    "tags":["mandi"]
+    "tags":["mandi","bersih","nyuci","stok","rumah"]
   },
   {
     "name": "Giv White Orchid",
@@ -1917,7 +1917,7 @@
     "price": 3000,
     "img": "images/sabun_giv_white_orchid.jpg",
     "category": "rumah",
-    "tags":["mandi","tidur"]
+    "tags":["mandi","tidur","bersih","nyuci","stok","rumah"]
   },
   {
     "name": "Nuvo Family Clean",
@@ -1925,7 +1925,7 @@
     "price": 3500,
     "img": "images/sabun_nuvo_family.jpg",
     "category": "rumah",
-    "tags":["mie","mandi"]
+    "tags":["mie","mandi","bersih","nyuci","stok","rumah"]
   },
   {
     "name": "Nuvo Cool Blue",
@@ -1933,7 +1933,7 @@
     "price": 3500,
     "img": "images/sabun_nuvo_cool_blue.jpg",
     "category": "rumah",
-    "tags":["mandi"]
+    "tags":["mandi","bersih","nyuci","stok","rumah"]
   },
   {
     "name": "Nuvo Energetic",
@@ -1941,7 +1941,7 @@
     "price": 3500,
     "img": "images/sabun_nuvo_energetic.jpg",
     "category": "rumah",
-    "tags":["mandi"]
+    "tags":["mandi","bersih","nyuci","stok","rumah"]
   },
   {
     "name": "Gudang Garam Filter 16s",
