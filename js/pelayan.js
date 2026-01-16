@@ -123,14 +123,14 @@ PELAYAN.intentDetail = {
   ===================================================== */
   sarapan: {
     kategori: ['makanan','roti','mie','minumansachet'],
-    tags: ['sarapan','pagi','ringan']
+    tags: ['sarapan','pagi','ringan','cereal']
   },
   makan_siang: {
-    kategori: ['makanan','mie'],
+    kategori: ['makanan','mie','roti'],
     tags: ['makan','siang','ngenyangin']
   },
   makan_malam: {
-    kategori: ['makanan','mie'],
+    kategori: ['makanan','mie','roti'],
     tags: ['makan','malam','ngenyangin']
   },
 
@@ -159,7 +159,7 @@ PELAYAN.intentDetail = {
   },
 
   /* =====================================================
-     MINUMAN
+     MINUMAN MAKANAN
   ===================================================== */
   minum: {
     kategori: ['minuman','minumansachet'],
@@ -182,19 +182,19 @@ PELAYAN.intentDetail = {
      CEMILAN & RASA
   ===================================================== */
   cemilan: {
-    kategori: ['snack','roti'],
+    kategori: ['snack','roti','makanan'],
     tags: ['cemilan','ringan']
   },
   manis: {
-    kategori: ['snack','roti','minuman','minumansachet','frozen'],
+    kategori: ['sembako','snack','roti','minuman','minumansachet','frozen'],
     tags: ['manis','coklat','vanilla']
   },
   gurih: {
-    kategori: ['snack','makanan'],
+    kategori: ['snack','makanan','roti'],
     tags: ['gurih','asin','keju']
   },
   pedas: {
-    kategori: ['snack','makanan'],
+    kategori: ['bumbu','snack','makanan','mie'],
     tags: ['pedas']
   },
 
@@ -202,15 +202,15 @@ PELAYAN.intentDetail = {
      AKTIVITAS
   ===================================================== */
   masak: {
-    kategori: ['sembako','bumbu','mie','peralatandapur'],
+    kategori: ['sembako','bumbu','mie'],
     tags: ['masak']
   },
   nyuci: {
-    kategori: ['rumah','peralatandapur'],
+    kategori: ['rumah'],
     tags: ['bersih','nyuci']
   },
   stok: {
-    kategori: ['sembako','makanan','minuman'],
+    kategori: ['sembako','minuman','rumah'],
     tags: ['stok','rumah']
   },
 
