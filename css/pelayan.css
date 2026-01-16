@@ -80,14 +80,15 @@
 }
 
 /* ================= HEADER ================= */
-.modal-header {
-  padding: 14px 16px;
+.modal-header{
+  padding:8px 12px;
   background: var(--pelayan-header-bg);
-  color: #000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
+
 
 /* ================= BODY ================= */
 .modal-body {
@@ -115,31 +116,45 @@
 }
 
 /* ================= FOOTER (STICKY) ================= */
-.modal-footer {
-  position: sticky;
-  bottom: 0;
-  padding: 14px;
-  background: var(--pelayan-bg);
-  border-top: 2px solid var(--pelayan-header-bg);
-  box-shadow: 0 -6px 16px rgba(0,0,0,.15);
-  z-index: 10;
+.modal-footer{
+  position:sticky;
+  bottom:0;
+  padding:10px;
+  background:var(--pelayan-bg);
+  border-top:1px solid rgba(0,0,0,.08);
+  box-shadow:none;
+  z-index:10;
 }
 
-#pelayan-close {
-  width: 100%;
-  padding: 12px;
-  border-radius: 12px;
-  border: none;
-  background: var(--pelayan-header-bg);
-  font-weight: bold;
-  cursor: pointer;
+#pelayan-close{
+  width:100%;
+  padding:14px 16px;
+  border-radius:14px;
+  border:none;
+  background:linear-gradient(135deg,#ffcf40,#ffb300);
+  color:#000;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 6px 14px rgba(0,0,0,.25);
+  transition:.2s ease;
 }
+
+#pelayan-close:hover{
+  transform:translateY(-1px);
+  box-shadow:0 8px 18px rgba(0,0,0,.3);
+}
+
+#pelayan-close:active{
+  transform:scale(.98);
+}
+
 
 .mbak-neng-header{
   display:flex;
   align-items:center;
   gap:10px;
-  padding:2px 0;
+  padding:0;
 }
 
 .mbak-neng-img{
@@ -166,4 +181,11 @@
   font-size:12px;
   font-weight:500;
   color:#333;
+}
+
+#pelayan-title{
+  margin:0;
+  padding:0;
+  line-height:1.1;
+  flex:1;
 }
