@@ -325,7 +325,15 @@ pelayanCloseX?.addEventListener('click', () => {
 function stepSapaan(){
   PELAYAN.step = 1;
 
-  pelayanTitle.textContent = getSapaanLengkap();
+  pelayanTitle.innerHTML = `
+  <div class="mbak-neng-header row">
+    <img src="images/pelayan.png" alt="Mbak Neng" class="mbak-neng-img">
+    <div class="mbak-neng-text">
+      <div class="mbak-neng-sapa">${getSapaanLengkap()}</div>
+      <div class="mbak-neng-name">Mbak Neng</div>
+    </div>
+  </div>
+`;
   pelayanText.textContent =
     'Badhe tumbas punapa dinten niki? Pilih kegiatan utawa kebutuhan panjenengan:';
 
