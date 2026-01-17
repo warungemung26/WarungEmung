@@ -126,7 +126,18 @@ Unauthorized copying, modification, or distribution of this file is strictly pro
 </head>
 
 <body>
+	
+<!-- ===== SPLASH LOADING WITH PROGRESS ===== -->
+<div id="splash-screen">
+  <img src="images/logo-warung.png" class="splash-logo">
+  <div class="splash-text">Memuat Warung Emung...</div>
 
+  <div class="splash-bar">
+    <div class="splash-bar-fill" id="splash-bar-fill"></div>
+  </div>
+
+  <div class="splash-percent" id="splash-percent">0%</div>
+</div>
 
 <!-- ===== HEADER MINI PROFESIONAL ===== -->
 <header class="header-mini">
@@ -1064,6 +1075,48 @@ if ('serviceWorker' in navigator) {
   });
 }
 </script>
+
+<script>
+(function(){
+  const splash = document.getElementById("splash-screen");
+  const bar = document.getElementById("splash-bar-fill");
+  const percent = document.getElementById("splash-percent");
+
+  if (!splash) return;
+
+  let p = 0;
+
+  const fakeLoading = setInterval(() => {
+    p += Math.random() * 12;
+
+    if (p >= 100) {
+      p = 100;
+      clearInterval(fakeLoading);
+    }
+
+    bar.style.width = p + "%";
+    percent.textContent = Math.floor(p) + "%";
+  }, 120);
+
+  window.addEventListener("load", () => {
+    const finish = setInterval(() => {
+      if (p < 90) return;
+
+      p = 100;
+      bar.style.width = "100%";
+      percent.textContent = "100%";
+
+      clearInterval(finish);
+
+      setTimeout(() => {
+        splash.classList.add("hide");
+        setTimeout(() => splash.remove(), 500);
+      }, 300);
+    }, 100);
+  });
+})();
+</script>
+
 
 <script>
 (function () {
