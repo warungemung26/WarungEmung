@@ -1304,3 +1304,7 @@ input:checked + .slider::before {
   50%  { transform: scale(1.08); opacity:1 }
   100% { transform: scale(1); opacity:.85 }
 }
+
+.skip-splash #splash-screen {
+  display: none !important;
+}
