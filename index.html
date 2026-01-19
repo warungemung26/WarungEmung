@@ -123,6 +123,15 @@ Unauthorized copying, modification, or distribution of this file is strictly pro
       });
     }
   </script>
+  
+  <script>
+(function () {
+  if (sessionStorage.getItem("WE_SPLASH_DONE")) {
+    document.documentElement.classList.add("skip-splash");
+  }
+})();
+</script>
+
 </head>
 
 <body>
@@ -1084,16 +1093,35 @@ if ('serviceWorker' in navigator) {
 
   if (!splash) return;
 
+  // ==== DETEKSI NAVIGASI ====
+  const navEntry = performance.getEntriesByType("navigation")[0];
+  const navType = navEntry ? navEntry.type : "navigate";
+
+  const legacyReload =
+    performance.navigation &&
+    performance.navigation.type === performance.navigation.TYPE_RELOAD;
+
+  const alreadyShown = sessionStorage.getItem("splashShown");
+
+  // ==== KONDISI SKIP ====
+if (!splash) return;
+
+if (sessionStorage.getItem("WE_SPLASH_DONE")) {
+  splash.remove();
+  return;
+}
+
+sessionStorage.setItem("WE_SPLASH_DONE", "1");
+
+
   let p = 0;
 
   const fakeLoading = setInterval(() => {
     p += Math.random() * 12;
-
     if (p >= 100) {
       p = 100;
       clearInterval(fakeLoading);
     }
-
     bar.style.width = p + "%";
     percent.textContent = Math.floor(p) + "%";
   }, 120);
@@ -1115,6 +1143,16 @@ if ('serviceWorker' in navigator) {
     }, 100);
   });
 })();
+</script>
+
+
+<script>
+window.addEventListener("pageshow", e => {
+  if (e.persisted) {
+    const splash = document.getElementById("splash-screen");
+    if (splash) splash.remove();
+  }
+});
 </script>
 
 
