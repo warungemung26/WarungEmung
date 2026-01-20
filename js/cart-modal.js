@@ -80,11 +80,27 @@ function renderCartModal() {
     totalStr = formatPrice(total, currency);
   }
 
-  cartTotalEl.innerHTML = `
-    Subtotal: <strong>${subtotalStr}</strong><br>
-    Ongkir: <strong>${ongkirStr}</strong><br>
-    <strong>Total: ${totalStr}</strong>
+  const miniTotal = document.getElementById("cart-mini-total");
+
+if(miniTotal){
+  miniTotal.innerHTML = `
+    <div class="row">
+      <span>Subtotal</span>
+      <span>${subtotalStr}</span>
+    </div>
+    <div class="row">
+      <span>Ongkir</span>
+      <span>${ongkirStr}</span>
+    </div>
+    <div class="row total">
+      <span>Total</span>
+      <span>${totalStr}</span>
+    </div>
   `;
+}
+
+  
+  renderCartMiniPanel();
 }
 
 
@@ -187,4 +203,48 @@ if (sidebarCartBtn) {
     cartModal.style.display = visible ? "none" : "block";
   });
 }
+
+
+function renderCartMiniPanel(){
+  const box = document.getElementById("cart-mini-address");
+  if(!box) return;
+
+  const data = JSON.parse(localStorage.getItem("userData") || "{}");
+
+  if(!data.alamat){
+    box.innerHTML = `<i>Alamat belum diisi</i>`;
+    return;
+  }
+
+  box.innerHTML = `
+    <strong>${data.nama || ''}
+  `;
+}
+
+document.addEventListener("click", e=>{
+  if(e.target.closest("#cart-btn-address")){
+    closeCartModal();
+
+    setTimeout(()=>{
+      if(typeof window.openAccount === "function"){
+        window.openAccount();
+      }else{
+        showToast("Menu akun belum siap");
+      }
+    },150);
+  }
+});
+
+// Catatan
+document.addEventListener("click", function(e){
+  if(e.target.closest("#cart-btn-note")){
+    const old = localStorage.getItem("cartNote") || "";
+    const note = prompt("Catatan untuk pesanan:", old);
+
+    if(note !== null){
+      localStorage.setItem("cartNote", note);
+      showToast("Catatan disimpan ");
+    }
+  }
+});
 
