@@ -637,20 +637,43 @@ Unauthorized copying, modification, or distribution of this file is strictly pro
     <i class="fa-solid fa-xmark"></i>
   </button>
 
-  <h4>Keranjang Anda</h4>
+  <h4>Keranjang Belanja</h4>
 
   <div id="cart-items"></div>
-  <div class="total" id="cart-total"></div>
+  
+<div id="cart-mini-panel">
 
-  <div style="display:flex;gap:8px;margin-top:8px">
-    <button id="wa-cart" class="wa-btn">
-      Pesan Semua via <i class="fa-brands fa-whatsapp"></i>
+  <div class="mini-row">
+    <i class="fa-solid fa-location-dot"></i>
+    <div class="mini-text" id="cart-mini-address">
+  Belum ada alamat — klik isi alamat ya 🙂
+</div>
+  </div>
+
+  <!-- TOTAL PINDAH KE SINI -->
+  <div class="mini-total" id="cart-mini-total"></div>
+
+  <div class="mini-actions">
+    <button id="cart-btn-address">
+      <i class="fa-solid fa-user-pen"></i> Isi Alamat
     </button>
 
-    <button id="clear-cart" class="cta-clear-cart">
-      Kosongkan
+    <button id="cart-btn-note">
+      <i class="fa-solid fa-note-sticky"></i> Tambah Catatan
     </button>
   </div>
+
+</div>
+
+  <div id="cart-footer">
+  <button id="wa-cart" class="wa-btn">
+  Pesan Sekarang via <i class="fa-brands fa-whatsapp"></i>
+</button>
+
+  <button id="clear-cart" class="cta-clear-cart">
+  Kosongkan Keranjang
+</button>
+</div>
 
 </div>
 
