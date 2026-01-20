@@ -37,7 +37,16 @@ function renderCartModal() {
   let subtotal = 0;
   const ONGKIR = 2000;
 
-  cart.forEach(it => {
+  // HINT
+  if(cart.length){
+    cartItemsEl.innerHTML = `
+      <div style="font-size:11px;opacity:.6;text-align:center;margin:4px 0">
+        Atur jumlah pesanan di sini sebelum kirim 
+      </div>
+    `;
+  }
+
+  cart.forEach((it, index) => {
     const row = document.createElement('div');
     row.className = 'item';
 
@@ -51,16 +60,24 @@ function renderCartModal() {
     row.innerHTML = `
   <div class="cart-left">
     <img src="${it.img || 'images/placeholder.png'}"
-     onerror="this.src='images/placeholder.png'"
-     alt="${it.name}"
-     class="cart-img">
+      onerror="this.src='images/placeholder.png'"
+      alt="${it.name}"
+      class="cart-img">
+
     <div class="cart-info">
       <div class="cart-name">${it.name}</div>
-      <div class="cart-qty">x ${it.qty}</div>
+
+      <div class="cart-qty-control">
+        <button type="button" class="cart-minus" data-index="${index}">-</button>
+<span>${it.qty}</span>
+<button type="button" class="cart-plus" data-index="${index}">+</button>
+      </div>
     </div>
   </div>
+
   <div class="cart-price">${priceStr}</div>
 `;
+
 
     cartItemsEl.appendChild(row);
 
@@ -248,3 +265,31 @@ document.addEventListener("click", function(e){
   }
 });
 
+document.addEventListener("click", function (e) {
+
+  const btn = e.target;
+
+  if (!btn.classList.contains("cart-plus") &&
+      !btn.classList.contains("cart-minus")) return;
+
+  e.preventDefault();
+
+  const index = btn.dataset.index;
+  if (index === undefined) return;
+
+  if (!cart[index]) return;
+
+  if (btn.classList.contains("cart-plus")) {
+    cart[index].qty++;
+  }
+
+  if (btn.classList.contains("cart-minus")) {
+    cart[index].qty--;
+    if (cart[index].qty <= 0) {
+      cart.splice(index, 1);
+    }
+  }
+
+  renderCartModal();
+  updateCartCount();
+});
