@@ -399,3 +399,29 @@
   opacity:.85;
   font-size:13px;
 }
+
+.cart-qty-control{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin-top:4px;
+}
+
+.cart-qty-control button{
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  border:1px solid var(--border-color);
+  background:var(--bg-qty-btn);
+  color:var(--text-primary);
+  font-weight:bold;
+  cursor:pointer;
+  line-height:20px;
+}
+
+.cart-qty-control span{
+  min-width:18px;
+  text-align:center;
+  font-size:13px;
+  font-weight:600;
+}
