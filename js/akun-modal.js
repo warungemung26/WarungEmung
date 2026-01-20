@@ -42,6 +42,8 @@ function openAccount() {
   if (typeof bringModalToFront === "function") bringModalToFront(accountBackdrop, accountModal);
 }
 
+window.openAccount = openAccount;
+
 function closeAccount() {
   if (!accountBackdrop) return;
   accountBackdrop.style.display = 'none';
@@ -74,7 +76,11 @@ if (accSaveBtn) {
 
     localStorage.setItem('userData', JSON.stringify(data));
     alert('Perubahan tersimpan!');
-    closeAccount();
+closeAccount();
+
+if (typeof renderCartAddress === "function") {
+  renderCartAddress();
+}
   });
 }
 
