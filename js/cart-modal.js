@@ -234,7 +234,7 @@ function renderCartMiniPanel(){
   }
 
   box.innerHTML = `
-    <strong>${data.nama || ''}
+    <strong>${data.alamat || ''} ${data.noRumah || ''}
   `;
 }
 
