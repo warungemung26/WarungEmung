@@ -234,30 +234,52 @@ if(waCartBtn){
       : formatPrice(total,currency);
 
     return `
-      <div style="font-size:13px;line-height:1.5">
-        <p>
-          Mangga dipun priksa rumiyin pesenan lan alamat pangiriman panjenengan:
-        </p>
+  <div style="font-size:13px;line-height:1.5">
+    <p>
+      Mangga dipun priksa rumiyin pesenan lan alamat pangiriman panjenengan:
+    </p>
 
-        <div style="margin:8px 0;padding:8px;border-radius:8px;background:#f6f6f6">
-          ${listHTML}
-          <hr style="opacity:.3">
-<b style="display:flex;justify-content:space-between">
-  <span>Total</span>
-  <span>${totalStr}</span>
-</b>
-        </div>
+    <div style="margin:8px 0;padding:8px;border-radius:8px;background:#f6f6f6">
+      ${listHTML}
+      <hr style="opacity:.3">
 
-        <div style="margin-top:6px;padding:8px;border-radius:8px;background:#f9f9f9;font-size:12px">
-          <b>📍 Alamat Pangiriman</b><br>
-          ${alamatLengkap || '<i>Alamat belum diisi</i>'}
-        </div>
-
-        <p style="margin-top:6px">
-          Menawi sampun leres, mangga pencet <b>OK</b> supados pesenan dipun kirim liwat WhatsApp.
-        </p>
+      <div style="display:flex;justify-content:space-between;font-size:12px">
+        <span>Subtotal</span>
+        <span>${
+          currency==="PI"
+            ? `PI ${(subtotal/3200).toFixed(2)}`
+            : formatPrice(subtotal,currency)
+        }</span>
       </div>
-    `;
+
+      <div style="display:flex;justify-content:space-between;font-size:12px">
+        <span>Ongkir</span>
+        <span>${
+          currency==="PI"
+            ? `PI ${(ONGKIR/3200).toFixed(2)}`
+            : formatPrice(ONGKIR,currency)
+        }</span>
+      </div>
+
+      <hr style="opacity:.3">
+
+      <b style="display:flex;justify-content:space-between">
+        <span>Total</span>
+        <span>${totalStr}</span>
+      </b>
+    </div>
+
+    <div style="margin-top:6px;padding:8px;border-radius:8px;background:#f9f9f9;font-size:12px">
+      <b>📍 Alamat Pangiriman</b><br>
+      ${alamatLengkap || '<i>Alamat belum diisi</i>'}
+    </div>
+
+    <p style="margin-top:6px">
+      Menawi sampun leres, mangga pencet <b>OK</b> supados pesenan dipun kirim liwat WhatsApp.
+    </p>
+  </div>
+`;
+
   })(),
   action: function(){
     const orderId = 'EM-' + Date.now().toString().slice(-6);
