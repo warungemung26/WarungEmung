@@ -56,7 +56,7 @@ function resetModalUI() {
   resetModalUI(); // 🔥 INI KUNCI
 
   modalTitle.textContent = title;
-  modalMessage.textContent = message;
+  modalMessage.innerHTML = message;
   modalWaInputs.style.display = isWA ? 'block' : 'none';
 
   if(isWA){
@@ -197,12 +197,74 @@ if(waCartBtn){
   }
 
   openModal({
-    title: "Kirim Pesanan?",
-    message: "Semua item di keranjang akan dikirim ke WhatsApp Warung Emung.",
-    action: function(){
-      const orderId = 'EM-' + Date.now().toString().slice(-6);
-      const waktu = waktuPesan();
-      const currency = getSelectedCurrency(); // ambil currency saat ini
+  title: "Konfirmasi Pesenan 🙏",
+  message: (() => {
+    const currency = getSelectedCurrency();
+    const ONGKIR = 2000;
+    const subtotal = cart.reduce((s,i)=>s+i.qty*i.price,0);
+    const total = subtotal + ONGKIR;
+
+    // === AMBIL DATA ALAMAT ===
+    const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+    const alamat  = userData.alamat || '-';
+    const noRumah = userData.noRumah || '';
+    const rtrw    = userData.rtrw || '';
+
+    const alamatLengkap =
+      `${alamat}` +
+      `${noRumah ? ' No. ' + noRumah : ''}` +
+      `${rtrw ? ', RT/RW ' + rtrw : ''}`;
+
+    const listHTML = cart.map(it=>{
+      const harga = currency==="PI"
+        ? `PI ${(it.price/3200*it.qty).toFixed(2)}`
+        : formatPrice(it.price*it.qty,currency);
+
+      return `
+        <div style="display:flex;justify-content:space-between;font-size:13px;margin:4px 0">
+          <span>${it.qty} x ${it.name}</span>
+          <span>${harga}</span>
+        </div>
+      `;
+    }).join("");
+
+    const totalStr = currency==="PI"
+      ? `PI ${(total/3200).toFixed(2)}`
+      : formatPrice(total,currency);
+
+    return `
+      <div style="font-size:13px;line-height:1.5">
+        <p>
+          Matur nuwun sampun blanja wonten <b>Warung Emung</b> 🙏.<br>
+          Mangga dipun priksa rumiyin pesenan lan alamat pangiriman panjenengan:
+        </p>
+
+        <div style="margin:8px 0;padding:8px;border-radius:8px;background:#f6f6f6">
+          ${listHTML}
+          <hr style="opacity:.3">
+          <b style="display:flex;justify-content:space-between">
+            <span>Total</span>
+            <span>${totalStr}</span>
+          </b>
+        </div>
+
+        <div style="margin-top:6px;padding:8px;border-radius:8px;background:#f9f9f9;font-size:12px">
+          <b>📍 Alamat Pangiriman</b><br>
+          ${alamatLengkap || '<i>Alamat belum diisi</i>'}
+        </div>
+
+        <p style="margin-top:6px">
+          Menawi sampun leres, mangga pencet <b>OK</b> supados pesenan dipun kirim liwat WhatsApp.
+        </p>
+      </div>
+    `;
+  })(),
+  action: function(){
+    const orderId = 'EM-' + Date.now().toString().slice(-6);
+    const waktu = waktuPesan();
+    const currency = getSelectedCurrency();
+
+ // ambil currency saat ini
 
       const subtotal = cart.reduce((s, i) => s + i.qty * i.price, 0);
       const ONGKIR = 2000;
