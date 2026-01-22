@@ -228,6 +228,7 @@ if(waCartBtn){
       `;
     }).join("");
 
+
     const totalStr = currency==="PI"
       ? `PI ${(total/3200).toFixed(2)}`
       : formatPrice(total,currency);
@@ -235,17 +236,16 @@ if(waCartBtn){
     return `
       <div style="font-size:13px;line-height:1.5">
         <p>
-          Matur nuwun sampun blanja wonten <b>Warung Emung</b> 🙏.<br>
           Mangga dipun priksa rumiyin pesenan lan alamat pangiriman panjenengan:
         </p>
 
         <div style="margin:8px 0;padding:8px;border-radius:8px;background:#f6f6f6">
           ${listHTML}
           <hr style="opacity:.3">
-          <b style="display:flex;justify-content:space-between">
-            <span>Total</span>
-            <span>${totalStr}</span>
-          </b>
+<b style="display:flex;justify-content:space-between">
+  <span>Total</span>
+  <span>${totalStr}</span>
+</b>
         </div>
 
         <div style="margin-top:6px;padding:8px;border-radius:8px;background:#f9f9f9;font-size:12px">
