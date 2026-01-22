@@ -399,3 +399,68 @@
   opacity:.85;
   font-size:13px;
 }
+
+.cart-qty-control{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin-top:4px;
+}
+
+.cart-qty-control button{
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  border:1px solid var(--border-color);
+  background:var(--bg-qty-btn);
+  color:var(--text-primary);
+  font-weight:bold;
+  cursor:pointer;
+  line-height:20px;
+}
+
+.cart-qty-control span{
+  min-width:18px;
+  text-align:center;
+  font-size:13px;
+  font-weight:600;
+}
+
+/* ================= FIX QTY AGAR TIDAK TENGGELAM ================= */
+
+/* kasih ruang bawah agar item terakhir tidak ketutup panel */
+#cart-items{
+  padding-bottom: 120px !important;
+}
+
+/* item lebih lega */
+#cart-items .item{
+  padding: 10px 0;
+}
+
+/* rapikan area info */
+.cart-info{
+  gap: 4px;
+}
+
+/* jarak qty control */
+.cart-qty-control{
+  margin-top: 6px;
+}
+
+/* perbesar tombol */
+.cart-qty-control button{
+  width: 24px;
+  height: 24px;
+  line-height: 22px;
+}
+
+/* lebar angka qty */
+.cart-qty-control span{
+  min-width: 22px;
+}
+
+/* biar aman saat klik dekat footer */
+.cart-qty-control button{
+  scroll-margin-bottom: 120px;
+}
