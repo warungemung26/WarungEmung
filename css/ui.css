@@ -875,81 +875,108 @@ input:checked + .slider::before {
   --modal-secondary-text: #000;
 }
 
-/* ===== MODAL GLOBAL===== */
+/* ===== MODAL GLOBAL ===== */
 .modal-confirm {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000000;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none; /* ✅ tetap none supaya tidak muncul saat splash */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000000;
 }
 
-.modal-content {
-    background: var(--modal-bg);
-    color: var(--modal-text);
-    padding: 24px;
-    border-radius: 12px;
-    max-width: 400px;
-    width: 90%;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+/* BOX */
+.modal-confirm .modal-content {
+  background: var(--modal-bg);
+  color: var(--modal-text);
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+
+  /* scroll system */
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
 }
 
+/* TITLE */
 .modal-content h3 {
-    margin-bottom: 12px;
-    font-size: 20px;
+  margin-bottom: 12px;
+  font-size: 20px;
 }
 
+/* MESSAGE AREA */
 .modal-content p {
-    margin-bottom: 16px;
-    font-size: 14px;
+  margin-bottom: 16px;
+  font-size: 14px;
 }
 
+/* AREA YANG BOLEH SCROLL */
+#modal-message,
+#modal-body,
+#modal-wa-inputs {
+  overflow-y: auto;
+}
+
+#modal-message {
+  max-height: 55vh;
+}
+
+/* BUTTONS */
 .modal-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+
+  position: sticky;
+  bottom: 0;
+  background: var(--modal-bg);
+  padding-top: 10px;
+  margin-top: auto;
+  box-shadow: 0 -4px 10px rgba(0,0,0,.06);
 }
 
 .modal-buttons button {
-    padding: 10px 20px;
-    border-radius: 50px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.2s ease;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
 .btn-primary {
-    background-color: #25d366;
-    color: white;
+  background-color: #25d366;
+  color: white;
 }
 
 .btn-primary:hover {
-    background-color: #1ebe5d;
+  background-color: #1ebe5d;
 }
 
 .btn-secondary {
-    background-color: var(--modal-secondary-bg);
-    color: var(--modal-secondary-text);
+  background-color: var(--modal-secondary-bg);
+  color: var(--modal-secondary-text);
 }
 
 .btn-secondary:hover {
-    background-color: #ccc;
+  background-color: #ccc;
 }
 
+/* INPUT WA */
 #modal-wa-inputs input {
-    display: block;
-    width: 80%;
-    margin: 6px auto;
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    color: var(--modal-text);
-    background-color: #fff;
+  display: block;
+  width: 80%;
+  margin: 6px auto;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  color: var(--modal-text);
+  background-color: #fff;
 }
 
 /* === PWA INSTALL BUTTON PROFESSIONAL (POSISI BARU) === */
