@@ -77,57 +77,38 @@ function createCard(p){
   card.appendChild(price);
 
   const controlsWrapper = document.createElement('div');
-  controlsWrapper.className = 'controls-wrapper';
+controlsWrapper.className = 'controls-wrapper';
 
-  const controls = document.createElement('div');
-  controls.className = 'qty-controls';
+let q = 1; // selalu 1, edit di cart modal
 
-  let q = 1;
-  const qty = document.createElement('span');
-  qty.className = 'qty-number';
-  qty.textContent = q;
-
-  const minus = document.createElement('button');
-  minus.className = 'btn-minus';
-  minus.textContent = '-';
-  minus.onclick = e => {
-    e.stopPropagation();
-    if (q > 1) qty.textContent = --q;
-  };
-
-  const plus = document.createElement('button');
-  plus.className = 'btn-plus';
-  plus.textContent = '+';
-  plus.onclick = e => {
-    e.stopPropagation();
-    qty.textContent = ++q;
-  };
-
-  controls.append(minus, qty, plus);
 
   const add = document.createElement('button');
-  add.className = 'add-btn';
-  add.innerHTML = '<i class="fa fa-cart-plus"></i>';
-  add.onclick = e => {
-    e.stopPropagation();
-    const existing = cart.find(it => it.name === p.name);
-    if (existing) existing.qty += q;
-    else cart.push({ 
-  name: p.name, 
-  qty: q, 
-  price: p.price,
-  img: p.img || 'images/placeholder.png'
-});
-    updateCartCount();
-    showToast(`Ditambahkan: ${p.name} x ${q}`);
-    ding.currentTime = 0;
-    ding.play().catch(()=>{});
-    q = 1;
-    qty.textContent = '1';
-  };
+add.className = 'add-btn add-big';
+add.innerHTML = '<i class="fa fa-cart-plus"></i> Tambah';
+add.onclick = e => {
+  e.stopPropagation();
 
-  controlsWrapper.append(controls, add);
-  card.appendChild(controlsWrapper);
+  const q = 1; // selalu 1, edit di cart modal
+
+  const existing = cart.find(it => it.name === p.name);
+  if (existing) existing.qty += q;
+  else cart.push({ 
+    name: p.name, 
+    qty: q, 
+    price: p.price,
+    img: p.img || 'images/placeholder.png'
+  });
+
+  updateCartCount();
+  showToast(`Ditambahkan: ${p.name}`);
+  ding.currentTime = 0;
+  ding.play().catch(()=>{});
+};
+
+// ❌ hapus qty controls, cuma add
+controlsWrapper.append(add);
+card.appendChild(controlsWrapper);
+
 
   card.onclick = () => {
     if (p.slug) history.pushState(null, '', '?produk=' + p.slug);
