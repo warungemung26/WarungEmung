@@ -464,3 +464,21 @@
 .cart-qty-control button{
   scroll-margin-bottom: 120px;
 }
+
+/* ================= FIX ITEM TERAKHIR KETUTUP FOOTER ================= */
+
+/* kasih ruang ekstra agar item terakhir tidak tenggelam */
+#cart-items{
+  padding-bottom: 180px !important;
+  box-sizing: border-box;
+}
+
+/* pastikan area scroll benar */
+#cart-items{
+  overscroll-behavior: contain;
+}
+
+/* biar item bisa naik penuh sebelum mentok sticky panel */
+#cart-items .item:last-child{
+  margin-bottom: 40px;
+}
