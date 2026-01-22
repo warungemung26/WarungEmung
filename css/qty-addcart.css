@@ -134,3 +134,15 @@
     background: #ffb300;
   }
 }
+
+.add-big {
+  width: 100%;
+  height: 42px;
+  border-radius: 10px;
+  font-size: 14px;
+  gap: 6px;
+}
+
+.add-big i {
+  font-size: 18px;
+}
