@@ -5,24 +5,13 @@
     "price": 9000,
     "img": "images/chitato-68g.jpg",
     "category": "snack",
-    "tags":["gurih","asin","renyah","nonton","cemilan","ringan"],
-    "_manualTags": [
+    "tags": [
+      "gurih",
       "asin",
       "renyah",
       "nonton",
       "cemilan",
       "ringan"
-    ],
-    "_history": [
-      [
-        "gurih",
-        "asin",
-        "renyah",
-        "nonton",
-        "tidur",
-        "cemilan",
-        "ringan"
-      ]
     ]
   },
   {
@@ -31,16 +20,14 @@
     "price": 12000,
     "img": "images/roma-marie-240g.jpg",
     "category": "snack",
-    "tags":["manis","kering","teh","keluarga","cemilan","ringan"],
-    "_manualTags": [
+    "tags": [
       "manis",
       "kering",
       "teh",
       "keluarga",
       "cemilan",
       "ringan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Silverqueen 65g",
@@ -48,16 +35,14 @@
     "price": 18000,
     "img": "images/silverqueen-65g.jpg",
     "category": "snack",
-    "tags":["manis","coklat","hadiah","santai","cemilan","ringan"],
-    "_manualTags": [
+    "tags": [
       "manis",
       "coklat",
       "hadiah",
       "santai",
       "cemilan",
       "ringan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Beng Beng / Tango Wafer Bar",
@@ -65,15 +50,13 @@
     "price": 2500,
     "img": "images/bengbeng-tangowafer.jpg",
     "category": "snack",
-    "tags":["manis","coklat","cepat","cemilan","ringan"],
-    "_manualTags": [
+    "tags": [
       "manis",
       "coklat",
       "cepat",
       "cemilan",
       "ringan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Qtela Keripik Singkong Balado 55g",
@@ -81,18 +64,16 @@
     "price": 7000,
     "img": "images/qtela-balado-55g.jpg",
     "category": "snack",
-    "tags":["renyah","snack","sambal","pedas","gurih","nonton","cemilan","ringan"],
-    "_manualTags": [
+    "tags": [
+      "renyah",
       "snack",
+      "sambal",
       "pedas",
       "gurih",
       "nonton",
-      "renyah",
-      "sambal",
       "cemilan",
       "ringan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Taro Net Seaweed 70g",
@@ -100,14 +81,13 @@
     "price": 8000,
     "img": "images/taro-seaweed-70g.jpg",
     "category": "snack",
-    "tags":["gurih","asin","santai","ringan","cemilan"],
-    "_manualTags": [
+    "tags": [
+      "gurih",
       "asin",
       "santai",
       "ringan",
       "cemilan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Cheetos Rasa Keju 48g",
@@ -115,16 +95,14 @@
     "price": 7000,
     "img": "images/cheetos-keju-48g.jpg",
     "category": "snack",
-    "tags":["gurih","keju","renyah","anak","cemilan","ringan"],
-    "_manualTags": [
-      "keju",
+    "tags": [
       "gurih",
+      "keju",
       "renyah",
       "anak",
       "cemilan",
       "ringan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Chiki Balls Keju 75g",
@@ -132,15 +110,13 @@
     "price": 8000,
     "img": "images/chikiballs-keju-75g.jpg",
     "category": "snack",
-    "tags":["gurih","keju","anak","ringan","cemilan"],
-    "_manualTags": [
-      "keju",
+    "tags": [
       "gurih",
+      "keju",
       "anak",
       "ringan",
       "cemilan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Pilus Garuda Pedas 15g",
@@ -148,15 +124,13 @@
     "price": 1000,
     "img": "images/pilus-garuda-pedas-15g.jpg",
     "category": "snack",
-    "tags":["pedas","sambal","kecil","cemilan","ringan"],
-    "_manualTags": [
+    "tags": [
       "pedas",
+      "sambal",
       "kecil",
       "cemilan",
-      "sambal",
       "ringan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Tango Wafer Vanilla 130g",
@@ -164,16 +138,14 @@
     "price": 8000,
     "img": "images/tango-vanilla-130g.jpg",
     "category": "snack",
-    "tags":["manis","vanilla","wafer","keluarga","cemilan","ringan"],
-    "_manualTags": [
+    "tags": [
       "manis",
       "vanilla",
       "wafer",
       "keluarga",
       "cemilan",
       "ringan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Oreo Vanilla 137g",
@@ -181,16 +153,14 @@
     "price": 13000,
     "img": "images/oreo-vanilla-137g.jpg",
     "category": "snack",
-    "tags":["manis","biskuit","susu","nonton","cemilan","ringan"],
-    "_manualTags": [
+    "tags": [
       "manis",
       "biskuit",
       "susu",
       "nonton",
       "cemilan",
       "ringan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Malkist Roma Abon 135g",
@@ -198,16 +168,15 @@
     "price": 8000,
     "img": "images/malkist-abon-135g.jpg",
     "category": "snack",
-    "tags":["manis","asin","gurih","abon","ngenyangin","cemilan","ringan"],
-    "_manualTags": [
+    "tags": [
+      "manis",
       "asin",
       "gurih",
       "abon",
       "ngenyangin",
       "cemilan",
       "ringan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Potabee Beef BBQ 60g",
@@ -215,17 +184,15 @@
     "price": 8000,
     "img": "images/potabee-bbq-60g.jpg",
     "category": "snack",
-    "tags":["bakar","gurih","bbq","kentang","nonton","cemilan","ringan"],
-    "_manualTags": [
+    "tags": [
+      "bakar",
       "gurih",
       "bbq",
       "kentang",
       "nonton",
-      "bakar",
       "cemilan",
       "ringan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Kusuka Keripik Singkong Original 60g",
@@ -233,17 +200,15 @@
     "price": 7000,
     "img": "images/kusuka-original-60g.jpg",
     "category": "snack",
-    "tags":["renyah","snack","asin","original","santai","cemilan","ringan"],
-    "_manualTags": [
+    "tags": [
+      "renyah",
+      "snack",
       "asin",
       "original",
-      "renyah",
       "santai",
-      "snack",
       "cemilan",
       "ringan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Sosis Bakar mba Atin",
@@ -251,15 +216,13 @@
     "price": 5000,
     "img": "images/sosisbakar.jpg",
     "category": "makanan",
-    "tags":["ngenyangin","bakar","gurih","asin","anget"],
-    "_manualTags": [
+    "tags": [
+      "ngenyangin",
+      "bakar",
       "gurih",
       "asin",
-      "anget",
-      "ngenyangin",
-      "bakar"
-    ],
-    "_history": []
+      "anget"
+    ]
   },
   {
     "name": "Kebab Lezat Mbak Atin 1pcs",
@@ -267,13 +230,11 @@
     "price": 4000,
     "img": "images/kebab-atin1.jpg",
     "category": "makanan",
-    "tags":["ngenyangin","gurih","anget"],
-    "_manualTags": [
+    "tags": [
+      "ngenyangin",
       "gurih",
-      "anget",
-      "ngenyangin"
-    ],
-    "_history": []
+      "anget"
+    ]
   },
   {
     "name": "Pastel Box Annisa",
@@ -281,12 +242,11 @@
     "price": 5000,
     "img": "images/pastel-annisa.jpg",
     "category": "makanan",
-    "tags":["ngenyangin","gurih","renyah","cemilan"],
-    "_manualTags": [
+    "tags": [
+      "ngenyangin",
       "gurih",
       "renyah",
-      "cemilan",
-      "ngenyangin"
+      "cemilan"
     ]
   },
   {
@@ -295,11 +255,10 @@
     "price": 10000,
     "img": "images/kebab-atin3.jpg",
     "category": "makanan",
-    "tags":["ngenyangin","gurih","anget","keluarga"],
-    "_manualTags": [
+    "tags": [
+      "ngenyangin",
       "gurih",
       "anget",
-      "ngenyangin",
       "keluarga"
     ]
   },
@@ -309,14 +268,13 @@
     "price": 5000,
     "img": "images/baksobakar.jpg",
     "category": "makanan",
-    "tags":["ngenyangin","bakar","gurih","asin","anget","cemilan"],
-    "_manualTags": [
+    "tags": [
+      "ngenyangin",
+      "bakar",
       "gurih",
       "asin",
       "anget",
-      "cemilan",
-      "bakar",
-      "ngenyangin"
+      "cemilan"
     ]
   },
   {
@@ -325,40 +283,10 @@
     "price": 5000,
     "img": "images/seblak.jpg",
     "category": "makanan",
-    "tags":["ngenyangin","pedas","anget","hangat","kenyang","makan","siang"],
-    "_history": [
-      [
-        "pedas",
-        "anget",
-        "ngenyangin"
-      ],
-      [
-        "pedas",
-        "anget",
-        "ngenyangin",
-        "hangat"
-      ],
-      [
-        "pedas",
-        "anget",
-        "ngenyangin",
-        "hangat",
-        "kenyang"
-      ],
-      [
-        "pedas",
-        "anget",
-        "ngenyangin",
-        "hangat",
-        "kenyang",
-        "makan",
-        "siang"
-      ]
-    ],
-    "_manualTags": [
+    "tags": [
+      "ngenyangin",
       "pedas",
       "anget",
-      "ngenyangin",
       "hangat",
       "kenyang",
       "makan",
@@ -371,15 +299,14 @@
     "price": 6000,
     "img": "images/telurasin.jpg",
     "category": "makanan",
-    "tags":["asin","sembako","masak","telur","gurih","ngenyangin","lauk"],
-    "_manualTags": [
+    "tags": [
       "asin",
-      "gurih",
-      "ngenyangin",
-      "lauk",
       "sembako",
       "masak",
-      "telur"
+      "telur",
+      "gurih",
+      "ngenyangin",
+      "lauk"
     ]
   },
   {
@@ -388,16 +315,15 @@
     "price": 12000,
     "img": "images/tempetepung-kering-250g.jpg",
     "category": "makanan",
-    "tags":["sembako","masak","tepung","tempe","gurih","renyah","kering","cemilan"],
-    "_manualTags": [
-      "gurih",
-      "renyah",
-      "kering",
-      "cemilan",
+    "tags": [
       "sembako",
       "masak",
       "tepung",
-      "tempe"
+      "tempe",
+      "gurih",
+      "renyah",
+      "kering",
+      "cemilan"
     ]
   },
   {
@@ -406,8 +332,7 @@
     "price": 18000,
     "img": "images/ebi-50g.jpg",
     "category": "makanan",
-    "tags":["gurih","asin","kering"],
-    "_manualTags": [
+    "tags": [
       "gurih",
       "asin",
       "kering"
@@ -419,15 +344,14 @@
     "price": 12000,
     "img": "images/tempeoreg-kering-250g.jpg",
     "category": "makanan",
-    "tags":["sembako","masak","tempe","manis","gurih","kering","ngenyangin"],
-    "_manualTags": [
+    "tags": [
+      "sembako",
+      "masak",
+      "tempe",
       "manis",
       "gurih",
       "kering",
-      "ngenyangin",
-      "sembako",
-      "masak",
-      "tempe"
+      "ngenyangin"
     ]
   },
   {
@@ -436,12 +360,11 @@
     "price": 3000,
     "img": "images/cireng-annisa.jpg",
     "category": "makanan",
-    "tags":["ngenyangin","gurih","anget","cemilan"],
-    "_manualTags": [
+    "tags": [
+      "ngenyangin",
       "gurih",
       "anget",
-      "cemilan",
-      "ngenyangin"
+      "cemilan"
     ]
   },
   {
@@ -450,27 +373,15 @@
     "price": 3000,
     "img": "images/esgoodday.jpg",
     "category": "minuman",
-    "tags":["kopi","dingin","manis","seger","segar","air","netral","minum"],
-    "_manualTags": [
-      "manis",
-      "dingin",
+    "tags": [
       "kopi",
-      "seger"
-    ],
-    "_history": [
-      [
-        "kopi",
-        "dingin",
-        "manis",
-        "seger"
-      ],
-      [
-        "kopi",
-        "dingin",
-        "manis",
-        "seger",
-        "segar"
-      ]
+      "dingin",
+      "manis",
+      "seger",
+      "segar",
+      "air",
+      "netral",
+      "minum"
     ]
   },
   {
@@ -479,27 +390,15 @@
     "price": 2000,
     "img": "images/esteajus.jpg",
     "category": "minuman",
-    "tags":["teh","dingin","manis","seger","segar","air","netral","minum"],
-    "_manualTags": [
-      "manis",
-      "dingin",
+    "tags": [
       "teh",
-      "seger"
-    ],
-    "_history": [
-      [
-        "teh",
-        "dingin",
-        "manis",
-        "seger"
-      ],
-      [
-        "teh",
-        "dingin",
-        "manis",
-        "seger",
-        "segar"
-      ]
+      "dingin",
+      "manis",
+      "seger",
+      "segar",
+      "air",
+      "netral",
+      "minum"
     ]
   },
   {
@@ -508,31 +407,12 @@
     "price": 4000,
     "img": "images/aqua-600ml.jpg",
     "category": "minuman",
-    "tags":["air","netral","seger","minum","segar"],
-    "_manualTags": [
+    "tags": [
       "air",
       "netral",
       "seger",
       "minum",
       "segar"
-    ],
-    "_history": [
-      [
-        "air",
-        "netral",
-        "seger"
-      ],
-      [
-        "air",
-        "netral",
-        "seger",
-        "manis"
-      ],
-      [
-        "air",
-        "netral",
-        "seger"
-      ]
     ]
   },
   {
@@ -541,24 +421,15 @@
     "price": 5000,
     "img": "images/tehpucuk-350ml.jpg",
     "category": "minuman",
-    "tags":["teh","manis","dingin","segar","air","netral","seger","minum"],
-    "_manualTags": [
-      "manis",
+    "tags": [
       "teh",
-      "dingin"
-    ],
-    "_history": [
-      [
-        "teh",
-        "manis",
-        "dingin"
-      ],
-      [
-        "teh",
-        "manis",
-        "dingin",
-        "segar"
-      ]
+      "manis",
+      "dingin",
+      "segar",
+      "air",
+      "netral",
+      "seger",
+      "minum"
     ]
   },
   {
@@ -567,27 +438,16 @@
     "price": 15000,
     "img": "images/cocacola-1l.jpg",
     "category": "minuman",
-    "tags":["manis","soda","dingin","nonton","segar","air","netral","seger","minum"],
-    "_manualTags": [
+    "tags": [
       "manis",
       "soda",
       "dingin",
-      "nonton"
-    ],
-    "_history": [
-      [
-        "manis",
-        "soda",
-        "dingin",
-        "nonton"
-      ],
-      [
-        "manis",
-        "soda",
-        "dingin",
-        "nonton",
-        "segar"
-      ]
+      "nonton",
+      "segar",
+      "air",
+      "netral",
+      "seger",
+      "minum"
     ]
   },
   {
@@ -596,30 +456,15 @@
     "price": 6000,
     "img": "images/ultramilk-250ml.jpg",
     "category": "minuman",
-    "tags":["susu","manis","dingin","segar","air","netral","seger","minum"],
-    "_manualTags": [
+    "tags": [
+      "susu",
       "manis",
       "dingin",
-      "segar"
-    ],
-    "_history": [
-      [
-        "susu",
-        "manis",
-        "dingin",
-        "mie"
-      ],
-      [
-        "susu",
-        "manis",
-        "dingin"
-      ],
-      [
-        "susu",
-        "manis",
-        "dingin",
-        "segar"
-      ]
+      "segar",
+      "air",
+      "netral",
+      "seger",
+      "minum"
     ]
   },
   {
@@ -628,24 +473,15 @@
     "price": 6500,
     "img": "images/goodday-capucino-250ml.jpg",
     "category": "minuman",
-    "tags":["kopi","manis","dingin","segar","air","netral","seger","minum"],
-    "_manualTags": [
+    "tags": [
       "kopi",
       "manis",
-      "dingin"
-    ],
-    "_history": [
-      [
-        "kopi",
-        "manis",
-        "dingin"
-      ],
-      [
-        "kopi",
-        "manis",
-        "dingin",
-        "segar"
-      ]
+      "dingin",
+      "segar",
+      "air",
+      "netral",
+      "seger",
+      "minum"
     ]
   },
   {
@@ -654,30 +490,16 @@
     "price": 4500,
     "img": "images/nipismadu-limesoda-330ml.jpg",
     "category": "minuman",
-    "tags":["manis","asam","soda","seger","dingin","segar","air","netral","minum"],
-    "_manualTags": [
+    "tags": [
       "manis",
+      "asam",
       "soda",
       "seger",
       "dingin",
-      "asam"
-    ],
-    "_history": [
-      [
-        "manis",
-        "asam",
-        "soda",
-        "seger",
-        "dingin"
-      ],
-      [
-        "manis",
-        "asam",
-        "soda",
-        "seger",
-        "dingin",
-        "segar"
-      ]
+      "segar",
+      "air",
+      "netral",
+      "minum"
     ]
   },
   {
@@ -686,43 +508,12 @@
     "price": 3500,
     "img": "images/leminerale-600ml.jpg",
     "category": "minuman",
-    "tags":["air","netral","seger","minum","segar"],
-    "_manualTags": [
+    "tags": [
       "air",
       "netral",
-      "seger"
-    ],
-    "_history": [
-      [
-        "air",
-        "netral",
-        "seger",
-        "mie"
-      ],
-      [
-        "air",
-        "netral",
-        "seger"
-      ],
-      [
-        "air",
-        "netral",
-        "seger",
-        "manis",
-        "dingin",
-        "segar"
-      ],
-      [
-        "air",
-        "netral",
-        "seger",
-        "manis"
-      ],
-      [
-        "air",
-        "netral",
-        "seger"
-      ]
+      "seger",
+      "minum",
+      "segar"
     ]
   },
   {
@@ -731,35 +522,13 @@
     "price": 3000,
     "img": "images/ades-600ml.jpg",
     "category": "minuman",
-    "tags":["dingin","air","netral","seger","minum","segar"],
-    "_manualTags": [
+    "tags": [
+      "dingin",
       "air",
-      "netral"
-    ],
-    "_history": [
-      [
-        "dingin",
-        "air",
-        "netral"
-      ],
-      [
-        "dingin",
-        "air",
-        "netral",
-        "manis",
-        "segar"
-      ],
-      [
-        "dingin",
-        "air",
-        "netral",
-        "manis"
-      ],
-      [
-        "dingin",
-        "air",
-        "netral"
-      ]
+      "netral",
+      "seger",
+      "minum",
+      "segar"
     ]
   },
   {
@@ -768,32 +537,12 @@
     "price": 3000,
     "img": "images/vit-600ml.jpg",
     "category": "minuman",
-    "tags":["air","netral","seger","minum","segar"],
-    "_manualTags": [
+    "tags": [
       "air",
-      "netral"
-    ],
-    "_history": [
-      [
-        "air",
-        "netral"
-      ],
-      [
-        "air",
-        "netral",
-        "manis",
-        "dingin",
-        "segar"
-      ],
-      [
-        "air",
-        "netral",
-        "manis"
-      ],
-      [
-        "air",
-        "netral"
-      ]
+      "netral",
+      "seger",
+      "minum",
+      "segar"
     ]
   },
   {
@@ -802,32 +551,12 @@
     "price": 3000,
     "img": "images/cleo-600ml.jpg",
     "category": "minuman",
-    "tags":["air","netral","seger","minum","segar"],
-    "_manualTags": [
+    "tags": [
       "air",
-      "netral"
-    ],
-    "_history": [
-      [
-        "air",
-        "netral"
-      ],
-      [
-        "air",
-        "netral",
-        "manis",
-        "dingin",
-        "segar"
-      ],
-      [
-        "air",
-        "netral",
-        "manis"
-      ],
-      [
-        "air",
-        "netral"
-      ]
+      "netral",
+      "seger",
+      "minum",
+      "segar"
     ]
   },
   {
@@ -836,32 +565,12 @@
     "price": 3500,
     "img": "images/club-600ml.jpg",
     "category": "minuman",
-    "tags":["air","netral","seger","minum","segar"],
-    "_manualTags": [
+    "tags": [
       "air",
-      "netral"
-    ],
-    "_history": [
-      [
-        "air",
-        "netral"
-      ],
-      [
-        "air",
-        "netral",
-        "manis",
-        "dingin",
-        "segar"
-      ],
-      [
-        "air",
-        "netral",
-        "manis"
-      ],
-      [
-        "air",
-        "netral"
-      ]
+      "netral",
+      "seger",
+      "minum",
+      "segar"
     ]
   },
   {
@@ -870,29 +579,16 @@
     "price": 6000,
     "img": "images/ultra-coklat-200ml.jpg",
     "category": "minuman",
-    "tags":["susu","coklat","manis","dingin","segar","air","netral","seger","minum"],
-    "_manualTags": [
-      "manis"
-    ],
-    "_history": [
-      [
-        "susu",
-        "coklat",
-        "manis",
-        "mie"
-      ],
-      [
-        "susu",
-        "coklat",
-        "manis"
-      ],
-      [
-        "susu",
-        "coklat",
-        "manis",
-        "dingin",
-        "segar"
-      ]
+    "tags": [
+      "susu",
+      "coklat",
+      "manis",
+      "dingin",
+      "segar",
+      "air",
+      "netral",
+      "seger",
+      "minum"
     ]
   },
   {
@@ -901,29 +597,16 @@
     "price": 6000,
     "img": "images/ultra-fullcream-200ml.jpg",
     "category": "minuman",
-    "tags":["susu","creamy","manis","dingin","segar","air","netral","seger","minum"],
-    "_manualTags": [
-      "manis"
-    ],
-    "_history": [
-      [
-        "susu",
-        "creamy",
-        "manis",
-        "mie"
-      ],
-      [
-        "susu",
-        "creamy",
-        "manis"
-      ],
-      [
-        "susu",
-        "creamy",
-        "manis",
-        "dingin",
-        "segar"
-      ]
+    "tags": [
+      "susu",
+      "creamy",
+      "manis",
+      "dingin",
+      "segar",
+      "air",
+      "netral",
+      "seger",
+      "minum"
     ]
   },
   {
@@ -932,26 +615,16 @@
     "price": 11500,
     "img": "images/bearbrand-189ml.jpg",
     "category": "minuman",
-    "tags":["susu","netral","sehat","manis","dingin","segar","air","seger","minum"],
-    "_manualTags": [
+    "tags": [
       "susu",
       "netral",
-      "sehat"
-    ],
-    "_history": [
-      [
-        "susu",
-        "netral",
-        "sehat"
-      ],
-      [
-        "susu",
-        "netral",
-        "sehat",
-        "manis",
-        "dingin",
-        "segar"
-      ]
+      "sehat",
+      "manis",
+      "dingin",
+      "segar",
+      "air",
+      "seger",
+      "minum"
     ]
   },
   {
@@ -960,24 +633,15 @@
     "price": 4500,
     "img": "images/teh-pucuk-350ml.jpg",
     "category": "minuman",
-    "tags":["teh","manis","dingin","segar","air","netral","seger","minum"],
-    "_manualTags": [
-      "manis",
+    "tags": [
       "teh",
-      "dingin"
-    ],
-    "_history": [
-      [
-        "teh",
-        "manis",
-        "dingin"
-      ],
-      [
-        "teh",
-        "manis",
-        "dingin",
-        "segar"
-      ]
+      "manis",
+      "dingin",
+      "segar",
+      "air",
+      "netral",
+      "seger",
+      "minum"
     ]
   },
   {
@@ -986,33 +650,17 @@
     "price": 5000,
     "img": "images/floridina-350ml.jpg",
     "category": "minuman",
-    "tags":["asam","buah","manis","jeruk","seger","dingin","segar","air","netral","minum"],
-    "_manualTags": [
+    "tags": [
+      "asam",
+      "buah",
       "manis",
       "jeruk",
       "seger",
       "dingin",
-      "asam",
-      "buah"
-    ],
-    "_history": [
-      [
-        "asam",
-        "buah",
-        "manis",
-        "jeruk",
-        "seger",
-        "dingin"
-      ],
-      [
-        "asam",
-        "buah",
-        "manis",
-        "jeruk",
-        "seger",
-        "dingin",
-        "segar"
-      ]
+      "segar",
+      "air",
+      "netral",
+      "minum"
     ]
   },
   {
@@ -1021,13 +669,12 @@
     "price": 3500,
     "img": "images/IND-SPECIAL-75.jpg",
     "category": "mie",
-    "tags":["ngenyangin","mie","premium","laper","anget","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "laper",
-      "anget",
+    "tags": [
       "ngenyangin",
       "mie",
       "premium",
+      "laper",
+      "anget",
       "instan",
       "cepat",
       "sarapan",
@@ -1041,13 +688,12 @@
     "price": 3500,
     "img": "images/IND-GOR-OR-85.jpg",
     "category": "mie",
-    "tags":["ngenyangin","mie","goreng","laper","anget","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "laper",
-      "anget",
+    "tags": [
       "ngenyangin",
       "mie",
       "goreng",
+      "laper",
+      "anget",
       "instan",
       "cepat",
       "sarapan",
@@ -1061,15 +707,14 @@
     "price": 3500,
     "img": "images/IND-GOR-PDS-85.jpg",
     "category": "mie",
-    "tags":["pedas","ngenyangin","mie","goreng","sambal","laper","anget","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "laper",
-      "anget",
+    "tags": [
       "pedas",
       "ngenyangin",
       "mie",
       "goreng",
       "sambal",
+      "laper",
+      "anget",
       "instan",
       "cepat",
       "sarapan",
@@ -1083,12 +728,11 @@
     "price": 3500,
     "img": "images/sedap-soto.jpg",
     "category": "mie",
-    "tags":["ngenyangin","mie","laper","anget","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "laper",
-      "anget",
+    "tags": [
       "ngenyangin",
       "mie",
+      "laper",
+      "anget",
       "instan",
       "cepat",
       "sarapan",
@@ -1102,13 +746,12 @@
     "price": 6000,
     "img": "images/IND-GOR-BARBQ-128.jpg",
     "category": "mie",
-    "tags":["ngenyangin","mie","goreng","laper","anget","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "laper",
-      "anget",
+    "tags": [
       "ngenyangin",
       "mie",
       "goreng",
+      "laper",
+      "anget",
       "instan",
       "cepat",
       "sarapan",
@@ -1122,14 +765,13 @@
     "price": 3500,
     "img": "images/sedap-goreng-korea.jpg",
     "category": "mie",
-    "tags":["pedas","ngenyangin","mie","goreng","laper","anget","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "laper",
-      "anget",
+    "tags": [
       "pedas",
       "ngenyangin",
       "mie",
       "goreng",
+      "laper",
+      "anget",
       "instan",
       "cepat",
       "sarapan",
@@ -1143,15 +785,14 @@
     "price": 3500,
     "img": "images/wow-spageti-carbonara.jpg",
     "category": "mie",
-    "tags":["susu","creamy","ngenyangin","mie","laper","anget","spageti","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
+    "tags": [
+      "susu",
+      "creamy",
+      "ngenyangin",
+      "mie",
       "laper",
       "anget",
       "spageti",
-      "susu",
-      "creamy",
-      "mie",
-      "ngenyangin",
       "instan",
       "cepat",
       "sarapan",
@@ -1165,13 +806,13 @@
     "price": 3500,
     "img": "images/wow-spageti-bolognese.jpg",
     "category": "mie",
-    "tags":["dingin","ngenyangin","mie","laper","anget","spageti","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
+    "tags": [
+      "dingin",
+      "ngenyangin",
+      "mie",
       "laper",
       "anget",
       "spageti",
-      "mie",
-      "ngenyangin",
       "instan",
       "cepat",
       "sarapan",
@@ -1185,13 +826,12 @@
     "price": 3500,
     "img": "images/wow-spageti-aglio-olio.jpg",
     "category": "mie",
-    "tags":["ngenyangin","mie","laper","anget","spageti","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
+    "tags": [
+      "ngenyangin",
+      "mie",
       "laper",
       "anget",
       "spageti",
-      "mie",
-      "ngenyangin",
       "instan",
       "cepat",
       "sarapan",
@@ -1205,12 +845,11 @@
     "price": 3000,
     "img": "images/supermi-goreng.jpg",
     "category": "mie",
-    "tags":["goreng","laper","anget","mie","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
+    "tags": [
+      "goreng",
       "laper",
       "anget",
       "mie",
-      "goreng",
       "instan",
       "cepat",
       "sarapan",
@@ -1224,12 +863,11 @@
     "price": 2500,
     "img": "images/sarimi-goreng.jpg",
     "category": "mie",
-    "tags":["goreng","laper","anget","mie","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
+    "tags": [
+      "goreng",
       "laper",
       "anget",
       "mie",
-      "goreng",
       "instan",
       "cepat",
       "sarapan",
@@ -1243,14 +881,13 @@
     "price": 3000,
     "img": "images/mie-abc-ayam.jpg",
     "category": "mie",
-    "tags":["ngenyangin","mie","cepat","kecap","laper","anget","minuman","instan","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "laper",
-      "anget",
+    "tags": [
       "ngenyangin",
       "mie",
       "cepat",
       "kecap",
+      "laper",
+      "anget",
       "minuman",
       "instan",
       "sarapan",
@@ -1264,13 +901,12 @@
     "price": 3000,
     "img": "images/burungdara-goreng.jpg",
     "category": "mie",
-    "tags":["ngenyangin","mie","goreng","laper","anget","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "laper",
-      "anget",
+    "tags": [
       "ngenyangin",
       "mie",
       "goreng",
+      "laper",
+      "anget",
       "instan",
       "cepat",
       "sarapan",
@@ -1284,14 +920,13 @@
     "price": 3500,
     "img": "images/sedap-goreng-kariayam.jpg",
     "category": "mie",
-    "tags":["ngenyangin","mie","goreng","bumbu_instal","laper","anget","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "laper",
-      "anget",
+    "tags": [
       "ngenyangin",
       "mie",
       "goreng",
       "bumbu_instal",
+      "laper",
+      "anget",
       "instan",
       "cepat",
       "sarapan",
@@ -1305,13 +940,12 @@
     "price": 3500,
     "img": "images/sedap-goreng-sateayam.jpg",
     "category": "mie",
-    "tags":["ngenyangin","mie","goreng","laper","anget","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "laper",
-      "anget",
+    "tags": [
       "ngenyangin",
       "mie",
       "goreng",
+      "laper",
+      "anget",
       "instan",
       "cepat",
       "sarapan",
@@ -1325,12 +959,11 @@
     "price": 3500,
     "img": "images/sedap-kuah-soto.jpg",
     "category": "mie",
-    "tags":["ngenyangin","mie","anget","laper","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "anget",
-      "laper",
+    "tags": [
       "ngenyangin",
       "mie",
+      "anget",
+      "laper",
       "instan",
       "cepat",
       "sarapan",
@@ -1344,12 +977,12 @@
     "price": 3500,
     "img": "images/sedap-kuah-basospesial.jpg",
     "category": "mie",
-    "tags":["dingin","ngenyangin","mie","anget","laper","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "anget",
-      "laper",
+    "tags": [
+      "dingin",
       "ngenyangin",
       "mie",
+      "anget",
+      "laper",
       "instan",
       "cepat",
       "sarapan",
@@ -1363,13 +996,12 @@
     "price": 3500,
     "img": "images/sedap-kuah-kariayam.jpg",
     "category": "mie",
-    "tags":["ngenyangin","mie","bumbu_instal","anget","laper","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "anget",
-      "laper",
+    "tags": [
       "ngenyangin",
       "mie",
       "bumbu_instal",
+      "anget",
+      "laper",
       "instan",
       "cepat",
       "sarapan",
@@ -1383,16 +1015,15 @@
     "price": 4500,
     "img": "images/indomie_sambal_matah.jpg",
     "category": "mie",
-    "tags":["pedas","ngenyangin","mie","goreng","bumbu","sambal","laper","anget","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "laper",
-      "anget",
+    "tags": [
       "pedas",
       "ngenyangin",
       "mie",
       "goreng",
       "bumbu",
       "sambal",
+      "laper",
+      "anget",
       "instan",
       "cepat",
       "sarapan",
@@ -1406,13 +1037,12 @@
     "price": 4500,
     "img": "images/indomie_rendang.jpg",
     "category": "mie",
-    "tags":["ngenyangin","mie","goreng","laper","anget","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "laper",
-      "anget",
+    "tags": [
       "ngenyangin",
       "mie",
       "goreng",
+      "laper",
+      "anget",
       "instan",
       "cepat",
       "sarapan",
@@ -1426,13 +1056,12 @@
     "price": 4500,
     "img": "images/indomie_soto_banjar.jpg",
     "category": "mie",
-    "tags":["ngenyangin","mie","goreng","laper","anget","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "laper",
-      "anget",
+    "tags": [
       "ngenyangin",
       "mie",
       "goreng",
+      "laper",
+      "anget",
       "instan",
       "cepat",
       "sarapan",
@@ -1446,14 +1075,13 @@
     "price": 4500,
     "img": "images/indomie_kari_ayam.jpg",
     "category": "mie",
-    "tags":["ngenyangin","mie","goreng","bumbu_instal","laper","anget","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "laper",
-      "anget",
+    "tags": [
       "ngenyangin",
       "mie",
       "goreng",
       "bumbu_instal",
+      "laper",
+      "anget",
       "instan",
       "cepat",
       "sarapan",
@@ -1467,15 +1095,14 @@
     "price": 4500,
     "img": "images/indomie_ayam_bawang.jpg",
     "category": "mie",
-    "tags":["ngenyangin","mie","goreng","bumbu","bawang","laper","anget","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "laper",
-      "anget",
+    "tags": [
       "ngenyangin",
       "mie",
       "goreng",
       "bumbu",
       "bawang",
+      "laper",
+      "anget",
       "instan",
       "cepat",
       "sarapan",
@@ -1489,16 +1116,15 @@
     "price": 4500,
     "img": "images/indomie_cabe_ijo.jpg",
     "category": "mie",
-    "tags":["pedas","ngenyangin","mie","goreng","masak","cabai","laper","anget","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "laper",
-      "anget",
+    "tags": [
       "pedas",
       "ngenyangin",
       "mie",
       "goreng",
       "masak",
       "cabai",
+      "laper",
+      "anget",
       "instan",
       "cepat",
       "sarapan",
@@ -1512,12 +1138,11 @@
     "price": 4500,
     "img": "images/indomie_tom_yum.jpg",
     "category": "mie",
-    "tags":["ngenyangin","mie","anget","laper","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "anget",
-      "laper",
+    "tags": [
       "ngenyangin",
       "mie",
+      "anget",
+      "laper",
       "instan",
       "cepat",
       "sarapan",
@@ -1531,13 +1156,12 @@
     "price": 4500,
     "img": "images/indomie_cakalang.jpg",
     "category": "mie",
-    "tags":["ngenyangin","mie","goreng","laper","anget","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "laper",
-      "anget",
+    "tags": [
       "ngenyangin",
       "mie",
       "goreng",
+      "laper",
+      "anget",
       "instan",
       "cepat",
       "sarapan",
@@ -1551,16 +1175,15 @@
     "price": 4500,
     "img": "images/indomie_sambal_rica.jpg",
     "category": "mie",
-    "tags":["pedas","ngenyangin","mie","goreng","bumbu","sambal","laper","anget","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
-      "laper",
-      "anget",
+    "tags": [
       "pedas",
       "ngenyangin",
       "mie",
       "goreng",
       "bumbu",
       "sambal",
+      "laper",
+      "anget",
       "instan",
       "cepat",
       "sarapan",
@@ -1574,13 +1197,13 @@
     "price": 3500,
     "img": "images/pop_spageti_bolognese.jpg",
     "category": "mie",
-    "tags":["dingin","ngenyangin","mie","laper","anget","spageti","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
+    "tags": [
+      "dingin",
+      "ngenyangin",
+      "mie",
       "laper",
       "anget",
       "spageti",
-      "mie",
-      "ngenyangin",
       "instan",
       "cepat",
       "sarapan",
@@ -1594,13 +1217,12 @@
     "price": 3500,
     "img": "images/pop_spageti_carbonara.jpg",
     "category": "mie",
-    "tags":["ngenyangin","mie","laper","anget","spageti","instan","cepat","sarapan","pagi","ringan"],
-    "_manualTags": [
+    "tags": [
+      "ngenyangin",
+      "mie",
       "laper",
       "anget",
       "spageti",
-      "mie",
-      "ngenyangin",
       "instan",
       "cepat",
       "sarapan",
@@ -1614,18 +1236,7 @@
     "price": 3000,
     "img": "images/kapalapi.jpg",
     "category": "minumansachet",
-    "tags":["kopi","anget","manis","minuman","instan","cepat","ngopi"],
-    "_history": [
-      [
-        "kopi",
-        "anget",
-        "manis",
-        "minuman",
-        "instan",
-        "cepat"
-      ]
-    ],
-    "_manualTags": [
+    "tags": [
       "kopi",
       "anget",
       "manis",
@@ -1641,18 +1252,7 @@
     "price": 2000,
     "img": "images/goodday.jpg",
     "category": "minumansachet",
-    "tags":["kopi","anget","manis","minuman","instan","cepat","ngopi"],
-    "_history": [
-      [
-        "kopi",
-        "anget",
-        "manis",
-        "minuman",
-        "instan",
-        "cepat"
-      ]
-    ],
-    "_manualTags": [
+    "tags": [
       "kopi",
       "anget",
       "manis",
@@ -1668,25 +1268,12 @@
     "price": 2000,
     "img": "images/abc-susu.jpg",
     "category": "minumansachet",
-    "tags":["kopi","susu","kecap","anget","manis","minuman","instan","cepat","ngopi"],
-    "_history": [
-      [
-        "kopi",
-        "anget",
-        "manis",
-        "susu",
-        "kecap",
-        "minuman",
-        "instan",
-        "cepat"
-      ]
-    ],
-    "_manualTags": [
+    "tags": [
       "kopi",
-      "anget",
-      "manis",
       "susu",
       "kecap",
+      "anget",
+      "manis",
       "minuman",
       "instan",
       "cepat",
@@ -1699,8 +1286,7 @@
     "price": 4000,
     "img": "images/dancow.jpg",
     "category": "minumansachet",
-    "tags":["susu","anget","manis","minuman","instan","cepat"],
-    "_manualTags": [
+    "tags": [
       "susu",
       "anget",
       "manis",
@@ -1715,10 +1301,9 @@
     "price": 2500,
     "img": "images/popice.jpg",
     "category": "minumansachet",
-    "tags":["dingin","manis","instan","cepat"],
-    "_manualTags": [
-      "manis",
+    "tags": [
       "dingin",
+      "manis",
       "instan",
       "cepat"
     ]
@@ -1729,8 +1314,7 @@
     "price": 3000,
     "img": "images/milo-sachet.jpg",
     "category": "minumansachet",
-    "tags":["susu","anget","manis","mie","minuman","instan","cepat"],
-    "_manualTags": [
+    "tags": [
       "susu",
       "anget",
       "manis",
@@ -1746,14 +1330,13 @@
     "price": 5500,
     "img": "images/sariwangi-tehcelup.jpg",
     "category": "minumansachet",
-    "tags":["teh","sachetqty","anget","sachetQty","instan","cepat"],
-    "_manualTags": [
+    "tags": [
       "teh",
+      "sachetqty",
       "anget",
       "sachetQty",
       "instan",
-      "cepat",
-      "sachetqty"
+      "cepat"
     ]
   },
   {
@@ -1762,13 +1345,12 @@
     "price": 2000,
     "img": "images/nutrisari-jeruk.jpg",
     "category": "minumansachet",
-    "tags":["asam","buah","jeruk","dingin","manis","instan","cepat"],
-    "_manualTags": [
+    "tags": [
+      "asam",
+      "buah",
       "jeruk",
       "dingin",
       "manis",
-      "asam",
-      "buah",
       "instan",
       "cepat"
     ]
@@ -1779,13 +1361,12 @@
     "price": 2500,
     "img": "images/energen.jpg",
     "category": "minumansachet",
-    "tags":["cereal","anget","susu","manis","minuman","instan","cepat"],
-    "_manualTags": [
+    "tags": [
+      "cereal",
       "anget",
       "susu",
       "manis",
       "minuman",
-      "cereal",
       "instan",
       "cepat"
     ]
@@ -1796,18 +1377,7 @@
     "price": 2000,
     "img": "images/torabika-cappuccino.jpg",
     "category": "minumansachet",
-    "tags":["kopi","anget","manis","minuman","instan","cepat","ngopi"],
-    "_history": [
-      [
-        "kopi",
-        "anget",
-        "manis",
-        "minuman",
-        "instan",
-        "cepat"
-      ]
-    ],
-    "_manualTags": [
+    "tags": [
       "kopi",
       "anget",
       "manis",
@@ -1823,17 +1393,16 @@
     "price": 2000,
     "img": "images/indocafe-3in1.jpg",
     "category": "minumansachet",
-    "tags":["kopi","sachetqty","anget","manis","mie","minuman","sachetQty","instan","cepat"],
-    "_manualTags": [
+    "tags": [
       "kopi",
+      "sachetqty",
       "anget",
       "manis",
       "mie",
       "minuman",
       "sachetQty",
       "instan",
-      "cepat",
-      "sachetqty"
+      "cepat"
     ]
   },
   {
@@ -1842,9 +1411,7 @@
     "price": 1500,
     "img": "images/jahe-merah.jpg",
     "category": "minumansachet",
-    "tags":["jahe","anget","manis","minuman","instan","cepat"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
       "jahe",
       "anget",
       "manis",
@@ -1859,12 +1426,11 @@
     "price": 2000,
     "img": "images/nutrisari-anggur.jpg",
     "category": "minumansachet",
-    "tags":["buah","anggur","dingin","manis","instan","cepat"],
-    "_manualTags": [
+    "tags": [
+      "buah",
       "anggur",
       "dingin",
       "manis",
-      "buah",
       "instan",
       "cepat"
     ]
@@ -1875,8 +1441,7 @@
     "price": 2000,
     "img": "images/golda-tehtarik.jpg",
     "category": "minumansachet",
-    "tags":["teh","anget","manis","minuman","instan","cepat"],
-    "_manualTags": [
+    "tags": [
       "teh",
       "anget",
       "manis",
@@ -1891,25 +1456,12 @@
     "price": 2000,
     "img": "images/abc-moka.jpg",
     "category": "minumansachet",
-    "tags":["kopi","susu","kecap","anget","manis","minuman","instan","cepat","ngopi"],
-    "_history": [
-      [
-        "kopi",
-        "anget",
-        "manis",
-        "susu",
-        "kecap",
-        "minuman",
-        "instan",
-        "cepat"
-      ]
-    ],
-    "_manualTags": [
+    "tags": [
       "kopi",
-      "anget",
-      "manis",
       "susu",
       "kecap",
+      "anget",
+      "manis",
       "minuman",
       "instan",
       "cepat",
@@ -1922,18 +1474,7 @@
     "price": 2000,
     "img": "images/goodday-mocacino.jpg",
     "category": "minumansachet",
-    "tags":["kopi","anget","manis","minuman","instan","cepat","ngopi"],
-    "_history": [
-      [
-        "kopi",
-        "anget",
-        "manis",
-        "minuman",
-        "instan",
-        "cepat"
-      ]
-    ],
-    "_manualTags": [
+    "tags": [
       "kopi",
       "anget",
       "manis",
@@ -1949,8 +1490,7 @@
     "price": 3000,
     "img": "images/kapalapi-easydrip.jpg",
     "category": "minumansachet",
-    "tags":["kopi","dingin","manis","instan","cepat"],
-    "_manualTags": [
+    "tags": [
       "kopi",
       "dingin",
       "manis",
@@ -1964,8 +1504,7 @@
     "price": 2000,
     "img": "images/wedang-uwuh.jpg",
     "category": "minumansachet",
-    "tags":["jahe","anget","manis","minuman","instan","cepat"],
-    "_manualTags": [
+    "tags": [
       "jahe",
       "anget",
       "manis",
@@ -1980,18 +1519,17 @@
     "price": 3000,
     "img": "images/kukubima-anggur-sachet.jpg",
     "category": "minumansachet",
-    "tags":["buah","energi","sachetqty","anggur","dingin","manis","minuman","sachetQty","instan","cepat"],
-    "_manualTags": [
+    "tags": [
+      "buah",
       "energi",
+      "sachetqty",
       "anggur",
       "dingin",
       "manis",
       "minuman",
-      "buah",
       "sachetQty",
       "instan",
-      "cepat",
-      "sachetqty"
+      "cepat"
     ]
   },
   {
@@ -2000,19 +1538,18 @@
     "price": 3000,
     "img": "images/kukubima-mangga-sachet.jpg",
     "category": "minumansachet",
-    "tags":["buah","energi","vitamin","sachetqty","mangga","dingin","manis","minuman","sachetQty","instan","cepat"],
-    "_manualTags": [
+    "tags": [
+      "buah",
       "energi",
+      "vitamin",
+      "sachetqty",
       "mangga",
       "dingin",
       "manis",
       "minuman",
-      "buah",
-      "vitamin",
       "sachetQty",
       "instan",
-      "cepat",
-      "sachetqty"
+      "cepat"
     ]
   },
   {
@@ -2021,18 +1558,17 @@
     "price": 2000,
     "img": "images/nutrisari-jeruk.jpg",
     "category": "minumansachet",
-    "tags":["asam","buah","sachetqty","jeruk","dingin","manis","minuman","sachetQty","instan","cepat"],
-    "_manualTags": [
+    "tags": [
+      "asam",
+      "buah",
+      "sachetqty",
       "jeruk",
       "dingin",
       "manis",
-      "asam",
       "minuman",
-      "buah",
       "sachetQty",
       "instan",
-      "cepat",
-      "sachetqty"
+      "cepat"
     ]
   },
   {
@@ -2041,17 +1577,16 @@
     "price": 2000,
     "img": "images/nutrisari-blewah.jpg",
     "category": "minumansachet",
-    "tags":["buah","sachetqty","blewah","dingin","manis","minuman","sachetQty","instan","cepat"],
-    "_manualTags": [
+    "tags": [
+      "buah",
+      "sachetqty",
       "blewah",
       "dingin",
       "manis",
       "minuman",
-      "buah",
       "sachetQty",
       "instan",
-      "cepat",
-      "sachetqty"
+      "cepat"
     ]
   },
   {
@@ -2060,28 +1595,15 @@
     "price": 2500,
     "img": "images/goodday-cappuccino.jpg",
     "category": "minumansachet",
-    "tags":["kopi","sachetqty","anget","manis","minuman","sachetQty","instan","cepat","ngopi"],
-    "_history": [
-      [
-        "kopi",
-        "anget",
-        "manis",
-        "minuman",
-        "sachetQty",
-        "instan",
-        "cepat",
-        "sachetqty"
-      ]
-    ],
-    "_manualTags": [
+    "tags": [
       "kopi",
+      "sachetqty",
       "anget",
       "manis",
       "minuman",
       "sachetQty",
       "instan",
       "cepat",
-      "sachetqty",
       "ngopi"
     ]
   },
@@ -2091,28 +1613,15 @@
     "price": 2500,
     "img": "images/goodday-mocacinno.jpg",
     "category": "minumansachet",
-    "tags":["kopi","sachetqty","anget","manis","minuman","sachetQty","instan","cepat","ngopi"],
-    "_history": [
-      [
-        "kopi",
-        "anget",
-        "manis",
-        "minuman",
-        "sachetQty",
-        "instan",
-        "cepat",
-        "sachetqty"
-      ]
-    ],
-    "_manualTags": [
+    "tags": [
       "kopi",
+      "sachetqty",
       "anget",
       "manis",
       "minuman",
       "sachetQty",
       "instan",
       "cepat",
-      "sachetqty",
       "ngopi"
     ]
   },
@@ -2122,16 +1631,15 @@
     "price": 2500,
     "img": "images/popice-choco.jpg",
     "category": "minumansachet",
-    "tags":["dingin","sachetqty","cekelat","manis","minuman","sachetQty","instan","cepat"],
-    "_manualTags": [
-      "cekelat",
+    "tags": [
       "dingin",
+      "sachetqty",
+      "cekelat",
       "manis",
       "minuman",
       "sachetQty",
       "instan",
-      "cepat",
-      "sachetqty"
+      "cepat"
     ]
   },
   {
@@ -2140,17 +1648,16 @@
     "price": 2500,
     "img": "images/popice-strawberry.jpg",
     "category": "minumansachet",
-    "tags":["dingin","buah","sachetqty","stroberi","manis","minuman","sachetQty","instan","cepat"],
-    "_manualTags": [
-      "stroberi",
+    "tags": [
       "dingin",
+      "buah",
+      "sachetqty",
+      "stroberi",
       "manis",
       "minuman",
-      "buah",
       "sachetQty",
       "instan",
-      "cepat",
-      "sachetqty"
+      "cepat"
     ]
   },
   {
@@ -2159,19 +1666,17 @@
     "price": 2000,
     "img": "images/energen-vanilla.jpg",
     "category": "minumansachet",
-    "tags":["manis","cereal","sachetqty","energi","vanilla","anget","minuman","sachetQty","instan","cepat"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
+      "manis",
+      "cereal",
+      "sachetqty",
       "energi",
       "vanilla",
       "anget",
-      "manis",
       "minuman",
-      "cereal",
       "sachetQty",
       "instan",
-      "cepat",
-      "sachetqty"
+      "cepat"
     ]
   },
   {
@@ -2180,19 +1685,17 @@
     "price": 2000,
     "img": "images/energen-cokelat.jpg",
     "category": "minumansachet",
-    "tags":["cereal","sachetqty","energi","cokelat","anget","manis","minuman","sachetQty","instan","cepat"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
+      "cereal",
+      "sachetqty",
       "energi",
       "cokelat",
       "anget",
       "manis",
       "minuman",
-      "cereal",
       "sachetQty",
       "instan",
-      "cepat",
-      "sachetqty"
+      "cepat"
     ]
   },
   {
@@ -2201,21 +1704,19 @@
     "price": 2000,
     "img": "images/energen-kacanghijau.jpg",
     "category": "minumansachet",
-    "tags":["kacang","cereal","sachetqty","energi","kacang-hijau","anget","manis","sembako","minuman","sachetQty","instan","cepat"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
+      "kacang",
+      "cereal",
+      "sachetqty",
       "energi",
       "kacang-hijau",
       "anget",
       "manis",
       "sembako",
-      "kacang",
       "minuman",
-      "cereal",
       "sachetQty",
       "instan",
-      "cepat",
-      "sachetqty"
+      "cepat"
     ]
   },
   {
@@ -2224,16 +1725,15 @@
     "price": 2000,
     "img": "images/maxtea-tehtarik.jpg",
     "category": "minumansachet",
-    "tags":["teh","sachetqty","anget","manis","minuman","sachetQty","instan","cepat"],
-    "_manualTags": [
+    "tags": [
       "teh",
+      "sachetqty",
       "anget",
       "manis",
       "minuman",
       "sachetQty",
       "instan",
-      "cepat",
-      "sachetqty"
+      "cepat"
     ]
   },
   {
@@ -2242,15 +1742,14 @@
     "price": 1500,
     "img": "images/teh-sosro-sachet.jpg",
     "category": "minumansachet",
-    "tags":["teh","sachetqty","anget","minuman","sachetQty","instan","cepat"],
-    "_manualTags": [
+    "tags": [
       "teh",
+      "sachetqty",
       "anget",
       "minuman",
       "sachetQty",
       "instan",
-      "cepat",
-      "sachetqty"
+      "cepat"
     ]
   },
   {
@@ -2259,17 +1758,15 @@
     "price": 5000,
     "img": "images/frisianflag-choco.jpg",
     "category": "minumansachet",
-    "tags":["susu","sachetqty","cokelat","anget","minuman","sachetQty","instan","cepat"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
       "susu",
+      "sachetqty",
       "cokelat",
       "anget",
       "minuman",
       "sachetQty",
       "instan",
-      "cepat",
-      "sachetqty"
+      "cepat"
     ]
   },
   {
@@ -2278,20 +1775,18 @@
     "price": 2000,
     "img": "images/ademsari-jeruknipis.jpg",
     "category": "minumansachet",
-    "tags":["asam","buah","vitamin","sachetqty","jeruk-nipis","dingin","manis","minuman","sachetQty","instan","cepat"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
+      "asam",
+      "buah",
+      "vitamin",
+      "sachetqty",
       "jeruk-nipis",
       "dingin",
       "manis",
-      "asam",
       "minuman",
-      "buah",
-      "vitamin",
       "sachetQty",
       "instan",
-      "cepat",
-      "sachetqty"
+      "cepat"
     ]
   },
   {
@@ -2300,30 +1795,16 @@
     "price": 13000,
     "img": "images/kapalapi-susu-10sachet.jpg",
     "category": "minumansachet",
-    "tags":["kopi","susu","sachetqty","anget","manis","minuman","sachetQty","instan","cepat","ngopi"],
-    "_history": [
-      [
-        "kopi",
-        "anget",
-        "manis",
-        "susu",
-        "minuman",
-        "sachetQty",
-        "instan",
-        "cepat",
-        "sachetqty"
-      ]
-    ],
-    "_manualTags": [
+    "tags": [
       "kopi",
+      "susu",
+      "sachetqty",
       "anget",
       "manis",
-      "susu",
       "minuman",
       "sachetQty",
       "instan",
       "cepat",
-      "sachetqty",
       "ngopi"
     ]
   },
@@ -2333,8 +1814,7 @@
     "price": 12000,
     "img": "images/sariroti-tawar.jpg",
     "category": "roti",
-    "tags":["ngenyangin","roti","laper","kenyang","manis","coklat","vanilla","sarapan","pagi","ringan"],
-    "_manualTags": [
+    "tags": [
       "ngenyangin",
       "roti",
       "laper",
@@ -2345,8 +1825,7 @@
       "sarapan",
       "pagi",
       "ringan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Sari Roti Sandwich Cokelat 50g",
@@ -2354,8 +1833,7 @@
     "price": 3000,
     "img": "images/sariroti-cokelat.jpg",
     "category": "roti",
-    "tags":["ngenyangin","roti","laper","kenyang","manis","coklat","vanilla","sarapan","pagi","ringan"],
-    "_manualTags": [
+    "tags": [
       "ngenyangin",
       "roti",
       "laper",
@@ -2366,8 +1844,7 @@
       "sarapan",
       "pagi",
       "ringan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Sari Roti Keju 50g",
@@ -2375,8 +1852,8 @@
     "price": 3000,
     "img": "images/sariroti-keju.jpg",
     "category": "roti",
-    "tags":["gurih","ngenyangin","roti","laper","kenyang","manis","coklat","vanilla","sarapan","pagi","ringan"],
-    "_manualTags": [
+    "tags": [
+      "gurih",
       "ngenyangin",
       "roti",
       "laper",
@@ -2387,8 +1864,7 @@
       "sarapan",
       "pagi",
       "ringan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Roti O Cokelat",
@@ -2396,8 +1872,7 @@
     "price": 6000,
     "img": "images/roti-o-cokelat.jpg",
     "category": "roti",
-    "tags":["ngenyangin","roti","laper","kenyang","manis","coklat","vanilla","sarapan","pagi","ringan"],
-    "_manualTags": [
+    "tags": [
       "ngenyangin",
       "roti",
       "laper",
@@ -2408,8 +1883,7 @@
       "sarapan",
       "pagi",
       "ringan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Roti O Krim Vanilla",
@@ -2417,21 +1891,19 @@
     "price": 6000,
     "img": "images/roti-o-vanilla.jpg",
     "category": "roti",
-    "tags":["manis","creamy","ngenyangin","roti","laper","kenyang","coklat","vanilla","sarapan","pagi","ringan"],
-    "_manualTags": [
+    "tags": [
+      "manis",
       "creamy",
       "ngenyangin",
       "roti",
       "laper",
       "kenyang",
-      "manis",
       "coklat",
       "vanilla",
       "sarapan",
       "pagi",
       "ringan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Choco Pie 2pcs",
@@ -2439,8 +1911,7 @@
     "price": 5000,
     "img": "images/chocopie-2pcs.jpg",
     "category": "roti",
-    "tags":["coklat","ngenyangin","kenyang","manis","vanilla","sarapan","pagi","ringan"],
-    "_manualTags": [
+    "tags": [
       "coklat",
       "ngenyangin",
       "kenyang",
@@ -2449,8 +1920,7 @@
       "sarapan",
       "pagi",
       "ringan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Maries / Roti Snack 30g",
@@ -2458,8 +1928,7 @@
     "price": 2000,
     "img": "images/maries-30g.jpg",
     "category": "roti",
-    "tags":["dingin","ngenyangin","roti","snack","manis","coklat","vanilla","sarapan","pagi","ringan"],
-    "_manualTags": [
+    "tags": [
       "dingin",
       "ngenyangin",
       "roti",
@@ -2470,8 +1939,7 @@
       "sarapan",
       "pagi",
       "ringan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Roti Tawar Serbaguna",
@@ -2479,8 +1947,7 @@
     "price": 12000,
     "img": "images/roti-tawar-serbaguna.jpg",
     "category": "roti",
-    "tags":["ngenyangin","roti","laper","kenyang","manis","coklat","vanilla","sarapan","pagi","ringan"],
-    "_manualTags": [
+    "tags": [
       "ngenyangin",
       "roti",
       "laper",
@@ -2491,8 +1958,7 @@
       "sarapan",
       "pagi",
       "ringan"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Beras Rojolele 5kg",
@@ -2500,17 +1966,12 @@
     "price": 75000,
     "img": "images/rojolele-5kg.jpg",
     "category": "sembako",
-    "tags":["sembako","masak","beras","stok","rumah"],
-    "_manualTags": [
+    "tags": [
+      "sembako",
+      "masak",
+      "beras",
       "stok",
       "rumah"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "beras"
-      ]
     ]
   },
   {
@@ -2519,18 +1980,12 @@
     "price": 15500,
     "img": "images/rojolele-1kg.jpg",
     "category": "sembako",
-    "tags":["sembako","masak","beras","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "sembako",
       "masak",
-      "beras"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "beras"
-      ]
+      "beras",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2539,20 +1994,13 @@
     "price": 18500,
     "img": "images/gula-pas-1kg.jpg",
     "category": "sembako",
-    "tags":["manis","sembako","masak","gula","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "manis",
       "sembako",
       "masak",
-      "gula"
-    ],
-    "_history": [
-      [
-        "manis",
-        "sembako",
-        "masak",
-        "gula"
-      ]
+      "gula",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2561,22 +2009,14 @@
     "price": 18000,
     "img": "images/bimoli-1l.jpg",
     "category": "sembako",
-    "tags":["goreng","sembako","masak","minyak","mie","stok","rumah"],
-    "_manualTags": [
-      "mie",
+    "tags": [
       "goreng",
       "sembako",
       "masak",
-      "minyak"
-    ],
-    "_history": [
-      [
-        "goreng",
-        "sembako",
-        "masak",
-        "minyak",
-        "mie"
-      ]
+      "minyak",
+      "mie",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2585,18 +2025,12 @@
     "price": 28000,
     "img": "images/telur-1kg.jpg",
     "category": "sembako",
-    "tags":["sembako","masak","telur","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "sembako",
       "masak",
-      "telur"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "telur"
-      ]
+      "telur",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2605,18 +2039,12 @@
     "price": 8000,
     "img": "images/telur-1per4.jpg",
     "category": "sembako",
-    "tags":["sembako","masak","telur","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "sembako",
       "masak",
-      "telur"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "telur"
-      ]
+      "telur",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2625,22 +2053,14 @@
     "price": 38000,
     "img": "images/bimoli-2l.jpg",
     "category": "sembako",
-    "tags":["goreng","sembako","masak","minyak","mie","stok","rumah"],
-    "_manualTags": [
-      "mie",
+    "tags": [
       "goreng",
       "sembako",
       "masak",
-      "minyak"
-    ],
-    "_history": [
-      [
-        "goreng",
-        "sembako",
-        "masak",
-        "minyak",
-        "mie"
-      ]
+      "minyak",
+      "mie",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2649,20 +2069,13 @@
     "price": 15500,
     "img": "images/terigu-1kg.jpg",
     "category": "sembako",
-    "tags":["sembako","masak","tepung","ikan","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "sembako",
       "masak",
       "tepung",
-      "ikan"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "tepung",
-        "ikan"
-      ]
+      "ikan",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2671,18 +2084,12 @@
     "price": 1000,
     "img": "images/blueband-mini.jpg",
     "category": "sembako",
-    "tags":["masak","mie","minuman","stok","rumah"],
-    "_manualTags": [
+    "tags": [
+      "masak",
       "mie",
       "minuman",
-      "masak"
-    ],
-    "_history": [
-      [
-        "masak",
-        "mie",
-        "minuman"
-      ]
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2691,22 +2098,14 @@
     "price": 20000,
     "img": "images/filma-minyakgoreng-1l.jpg",
     "category": "sembako",
-    "tags":["goreng","sembako","masak","minyak","mie","stok","rumah"],
-    "_manualTags": [
-      "mie",
+    "tags": [
       "goreng",
       "sembako",
       "masak",
-      "minyak"
-    ],
-    "_history": [
-      [
-        "goreng",
-        "sembako",
-        "masak",
-        "minyak",
-        "mie"
-      ]
+      "minyak",
+      "mie",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2715,20 +2114,13 @@
     "price": 6000,
     "img": "images/gulamerah-250.jpg",
     "category": "sembako",
-    "tags":["manis","sembako","masak","gula","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "manis",
       "sembako",
       "masak",
-      "gula"
-    ],
-    "_history": [
-      [
-        "manis",
-        "sembako",
-        "masak",
-        "gula"
-      ]
+      "gula",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2737,20 +2129,13 @@
     "price": 6000,
     "img": "images/gulamerah-batok-250.jpg",
     "category": "sembako",
-    "tags":["manis","sembako","masak","gula","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "manis",
       "sembako",
       "masak",
-      "gula"
-    ],
-    "_history": [
-      [
-        "manis",
-        "sembako",
-        "masak",
-        "gula"
-      ]
+      "gula",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2759,18 +2144,12 @@
     "price": 12000,
     "img": "images/caberawit-250g.jpg",
     "category": "sembako",
-    "tags":["pedas","masak","cabai","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "pedas",
       "masak",
-      "cabai"
-    ],
-    "_history": [
-      [
-        "pedas",
-        "masak",
-        "cabai"
-      ]
+      "cabai",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2779,20 +2158,13 @@
     "price": 20000,
     "img": "images/kacanghijau-1kg.jpg",
     "category": "sembako",
-    "tags":["kacang","cereal","sembako","masak","stok","rumah"],
-    "_manualTags": [
-      "sembako",
+    "tags": [
       "kacang",
       "cereal",
-      "masak"
-    ],
-    "_history": [
-      [
-        "kacang",
-        "cereal",
-        "sembako",
-        "masak"
-      ]
+      "sembako",
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2801,18 +2173,12 @@
     "price": 25000,
     "img": "images/kacangtanah-1kg.jpg",
     "category": "sembako",
-    "tags":["masak","kacang","sembako","stok","rumah"],
-    "_manualTags": [
-      "sembako",
+    "tags": [
+      "masak",
       "kacang",
-      "masak"
-    ],
-    "_history": [
-      [
-        "masak",
-        "kacang",
-        "sembako"
-      ]
+      "sembako",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2821,18 +2187,12 @@
     "price": 90000,
     "img": "images/beras-rambutan-5kg.jpg",
     "category": "sembako",
-    "tags":["sembako","masak","beras","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "sembako",
       "masak",
-      "beras"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "beras"
-      ]
+      "beras",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2841,20 +2201,13 @@
     "price": 12000,
     "img": "images/tepungberas-1kg.jpg",
     "category": "sembako",
-    "tags":["sembako","masak","beras","tepung","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "sembako",
       "masak",
       "beras",
-      "tepung"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "beras",
-        "tepung"
-      ]
+      "tepung",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2863,20 +2216,13 @@
     "price": 18000,
     "img": "images/gulapasir-lokal-1kg.jpg",
     "category": "sembako",
-    "tags":["manis","sembako","masak","gula","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "manis",
       "sembako",
       "masak",
-      "gula"
-    ],
-    "_history": [
-      [
-        "manis",
-        "sembako",
-        "masak",
-        "gula"
-      ]
+      "gula",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2885,22 +2231,14 @@
     "price": 18000,
     "img": "images/minyak-sunco-1l.jpg",
     "category": "sembako",
-    "tags":["goreng","sembako","masak","minyak","mie","stok","rumah"],
-    "_manualTags": [
-      "mie",
+    "tags": [
       "goreng",
       "sembako",
       "masak",
-      "minyak"
-    ],
-    "_history": [
-      [
-        "goreng",
-        "sembako",
-        "masak",
-        "minyak",
-        "mie"
-      ]
+      "minyak",
+      "mie",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2909,18 +2247,12 @@
     "price": 20000,
     "img": "images/kacangkedelai-1kg.jpg",
     "category": "sembako",
-    "tags":["masak","kacang","sembako","stok","rumah"],
-    "_manualTags": [
-      "sembako",
+    "tags": [
+      "masak",
       "kacang",
-      "masak"
-    ],
-    "_history": [
-      [
-        "masak",
-        "kacang",
-        "sembako"
-      ]
+      "sembako",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2929,18 +2261,12 @@
     "price": 4000,
     "img": "images/santan-kara-65ml.jpg",
     "category": "sembako",
-    "tags":["sembako","masak","santan","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "sembako",
       "masak",
-      "santan"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "santan"
-      ]
+      "santan",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2949,18 +2275,12 @@
     "price": 14000,
     "img": "images/tepung-tapioka-1kg.jpg",
     "category": "sembako",
-    "tags":["sembako","masak","tepung","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "sembako",
       "masak",
-      "tepung"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "tepung"
-      ]
+      "tepung",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2969,18 +2289,12 @@
     "price": 20000,
     "img": "images/beras-pandanwangi-1kg.jpg",
     "category": "sembako",
-    "tags":["sembako","masak","beras","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "sembako",
       "masak",
-      "beras"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "beras"
-      ]
+      "beras",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -2989,18 +2303,12 @@
     "price": 2000,
     "img": "images/tahu-putih-1pcs.jpg",
     "category": "sembako",
-    "tags":["sembako","masak","tahu","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "sembako",
       "masak",
-      "tahu"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "tahu"
-      ]
+      "tahu",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3009,18 +2317,12 @@
     "price": 2500,
     "img": "images/tahu-kuning-1pcs.jpg",
     "category": "sembako",
-    "tags":["sembako","masak","tahu","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "sembako",
       "masak",
-      "tahu"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "tahu"
-      ]
+      "tahu",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3029,18 +2331,12 @@
     "price": 2000,
     "img": "images/tempe-1pcs.jpg",
     "category": "sembako",
-    "tags":["sembako","masak","tempe","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "sembako",
       "masak",
-      "tempe"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "tempe"
-      ]
+      "tempe",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3049,18 +2345,12 @@
     "price": 15000,
     "img": "images/teri-kering-100g.jpg",
     "category": "sembako",
-    "tags":["sembako","masak","ikan","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "sembako",
       "masak",
-      "ikan"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "ikan"
-      ]
+      "ikan",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3069,18 +2359,12 @@
     "price": 12000,
     "img": "images/tahu-kering-250g.jpg",
     "category": "sembako",
-    "tags":["sembako","masak","tahu","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "sembako",
       "masak",
-      "tahu"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "tahu"
-      ]
+      "tahu",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3089,20 +2373,13 @@
     "price": 4000,
     "img": "images/garam-refina-500g.jpg",
     "category": "sembako",
-    "tags":["sembako","masak","bumbu","garam","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "sembako",
       "masak",
+      "bumbu",
       "garam",
-      "bumbu"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "bumbu",
-        "garam"
-      ]
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3111,22 +2388,14 @@
     "price": 20000,
     "img": "images/bango-refill-600ml.jpg",
     "category": "sembako",
-    "tags":["sembako","masak","bumbu","kecap","minyak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "sembako",
       "masak",
-      "minyak",
+      "bumbu",
       "kecap",
-      "bumbu"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "bumbu",
-        "kecap",
-        "minyak"
-      ]
+      "minyak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3135,22 +2404,14 @@
     "price": 29000,
     "img": "images/bimoli-2l.jpg",
     "category": "sembako",
-    "tags":["goreng","sembako","masak","minyak","mie","stok","rumah"],
-    "_manualTags": [
-      "mie",
+    "tags": [
       "goreng",
       "sembako",
       "masak",
-      "minyak"
-    ],
-    "_history": [
-      [
-        "goreng",
-        "sembako",
-        "masak",
-        "minyak",
-        "mie"
-      ]
+      "minyak",
+      "mie",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3159,20 +2420,13 @@
     "price": 3000,
     "img": "images/sajiku-bakwan-70g.jpg",
     "category": "sembako",
-    "tags":["sembako","masak","tepung","bumbu_instal","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "sembako",
       "masak",
       "tepung",
-      "bumbu_instal"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "tepung",
-        "bumbu_instal"
-      ]
+      "bumbu_instal",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3181,18 +2435,13 @@
     "price": 30000,
     "img": "images/bango-refill.jpg",
     "category": "bumbu",
-    "tags":["sembako","masak","bumbu","kecap","stok","rumah"],
-    "_manualTags": [
+    "tags": [
+      "sembako",
+      "masak",
+      "bumbu",
+      "kecap",
       "stok",
       "rumah"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "bumbu",
-        "kecap"
-      ]
     ]
   },
   {
@@ -3201,20 +2450,13 @@
     "price": 5000,
     "img": "images/garam-500g.jpg",
     "category": "bumbu",
-    "tags":["sembako","masak","bumbu","garam","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "sembako",
       "masak",
+      "bumbu",
       "garam",
-      "bumbu"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "bumbu",
-        "garam"
-      ]
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3223,18 +2465,12 @@
     "price": 1000,
     "img": "images/masako.jpg",
     "category": "bumbu",
-    "tags":["kaldu","minuman","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "kaldu",
       "minuman",
-      "masak"
-    ],
-    "_history": [
-      [
-        "kaldu",
-        "minuman",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3243,22 +2479,14 @@
     "price": 7000,
     "img": "images/sasa-kaldububuk-100g.jpg",
     "category": "bumbu",
-    "tags":["gurih","bumbu","penyedap","kaldu","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "gurih",
       "bumbu",
       "penyedap",
       "kaldu",
-      "masak"
-    ],
-    "_history": [
-      [
-        "gurih",
-        "bumbu",
-        "penyedap",
-        "kaldu",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3267,22 +2495,14 @@
     "price": 6000,
     "img": "images/sasa-micin-250g.jpg",
     "category": "bumbu",
-    "tags":["bumbu","penyedap","kaldu","mie","masak","stok","rumah"],
-    "_manualTags": [
-      "mie",
+    "tags": [
       "bumbu",
       "penyedap",
       "kaldu",
-      "masak"
-    ],
-    "_history": [
-      [
-        "bumbu",
-        "penyedap",
-        "kaldu",
-        "mie",
-        "masak"
-      ]
+      "mie",
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3291,18 +2511,12 @@
     "price": 10000,
     "img": "images/saori-saustiram-135g.jpg",
     "category": "bumbu",
-    "tags":["bumbu","saus","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "bumbu",
       "saus",
-      "masak"
-    ],
-    "_history": [
-      [
-        "bumbu",
-        "saus",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3311,26 +2525,16 @@
     "price": 1000,
     "img": "images/abc-saussambal.jpg",
     "category": "bumbu",
-    "tags":["pedas","bumbu","kecap","saus","sambal","minuman","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "pedas",
-      "kecap",
       "bumbu",
+      "kecap",
       "saus",
       "sambal",
       "minuman",
-      "masak"
-    ],
-    "_history": [
-      [
-        "pedas",
-        "bumbu",
-        "kecap",
-        "saus",
-        "sambal",
-        "minuman",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3339,24 +2543,15 @@
     "price": 21000,
     "img": "images/abc-saussambal-335g.jpg",
     "category": "bumbu",
-    "tags":["pedas","bumbu","kecap","saus","sambal","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "pedas",
-      "kecap",
       "bumbu",
+      "kecap",
       "saus",
       "sambal",
-      "masak"
-    ],
-    "_history": [
-      [
-        "pedas",
-        "bumbu",
-        "kecap",
-        "saus",
-        "sambal",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3365,20 +2560,13 @@
     "price": 14000,
     "img": "images/abc-kecap-520g.jpg",
     "category": "bumbu",
-    "tags":["sembako","masak","bumbu","kecap","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "sembako",
       "masak",
+      "bumbu",
       "kecap",
-      "bumbu"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "bumbu",
-        "kecap"
-      ]
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3387,18 +2575,12 @@
     "price": 10000,
     "img": "images/bawangmerah-250g.jpg",
     "category": "bumbu",
-    "tags":["bumbu","bawang","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "bumbu",
       "bawang",
-      "masak"
-    ],
-    "_history": [
-      [
-        "bumbu",
-        "bawang",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3407,18 +2589,12 @@
     "price": 9000,
     "img": "images/bawangputih-250g.jpg",
     "category": "bumbu",
-    "tags":["bumbu","bawang","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "bumbu",
       "bawang",
-      "masak"
-    ],
-    "_history": [
-      [
-        "bumbu",
-        "bawang",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3427,18 +2603,12 @@
     "price": 1000,
     "img": "images/royco.jpg",
     "category": "bumbu",
-    "tags":["kaldu","minuman","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "kaldu",
       "minuman",
-      "masak"
-    ],
-    "_history": [
-      [
-        "kaldu",
-        "minuman",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3447,25 +2617,16 @@
     "price": 1050,
     "img": "images/desaku-marinasi-sachet.jpg",
     "category": "bumbu",
-    "tags":["dingin","ngenyangin","nasi","bumbu","bumbu_instal","minuman","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
+      "dingin",
       "ngenyangin",
       "nasi",
       "bumbu",
       "bumbu_instal",
       "minuman",
-      "masak"
-    ],
-    "_history": [
-      [
-        "dingin",
-        "ngenyangin",
-        "nasi",
-        "bumbu",
-        "bumbu_instal",
-        "minuman",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3474,21 +2635,14 @@
     "price": 2590,
     "img": "images/desaku-bubuk-kari-12_5g.jpg",
     "category": "bumbu",
-    "tags":["dingin","tradisional","bumbu","bumbu_instal","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
+      "dingin",
       "tradisional",
       "bumbu",
       "bumbu_instal",
-      "masak"
-    ],
-    "_history": [
-      [
-        "dingin",
-        "tradisional",
-        "bumbu",
-        "bumbu_instal",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3497,23 +2651,15 @@
     "price": 2500,
     "img": "images/desaku-bubuk-gulai.jpg",
     "category": "bumbu",
-    "tags":["manis","dingin","sembako","masak","gula","bumbu_instal","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "manis",
+      "dingin",
       "sembako",
       "masak",
       "gula",
-      "bumbu_instal"
-    ],
-    "_history": [
-      [
-        "manis",
-        "dingin",
-        "sembako",
-        "masak",
-        "gula",
-        "bumbu_instal"
-      ]
+      "bumbu_instal",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3522,17 +2668,12 @@
     "price": 2500,
     "img": "images/desaku-bubuk-opor.jpg",
     "category": "bumbu",
-    "tags":["dingin","bumbu_instal","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
+      "dingin",
       "bumbu_instal",
-      "masak"
-    ],
-    "_history": [
-      [
-        "dingin",
-        "bumbu_instal",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3541,25 +2682,16 @@
     "price": 2400,
     "img": "images/desaku-sambal-goreng.jpg",
     "category": "bumbu",
-    "tags":["pedas","dingin","goreng","bumbu","sambal","bumbu_instal","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "pedas",
+      "dingin",
       "goreng",
       "bumbu",
       "sambal",
       "bumbu_instal",
-      "masak"
-    ],
-    "_history": [
-      [
-        "pedas",
-        "dingin",
-        "goreng",
-        "bumbu",
-        "sambal",
-        "bumbu_instal",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3568,23 +2700,15 @@
     "price": 2790,
     "img": "images/desaku-cabe-bubuk.jpg",
     "category": "bumbu",
-    "tags":["pedas","dingin","masak","bumbu_instal","cabai","minuman","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "pedas",
+      "dingin",
       "masak",
       "bumbu_instal",
       "cabai",
-      "minuman"
-    ],
-    "_history": [
-      [
-        "pedas",
-        "dingin",
-        "masak",
-        "bumbu_instal",
-        "cabai",
-        "minuman"
-      ]
+      "minuman",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3593,23 +2717,15 @@
     "price": 1000,
     "img": "images/desaku-kunyit-bubuk.jpg",
     "category": "bumbu",
-    "tags":["dingin","bumbu","kunyit","bumbu_instal","minuman","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
+      "dingin",
       "bumbu",
       "kunyit",
       "bumbu_instal",
       "minuman",
-      "masak"
-    ],
-    "_history": [
-      [
-        "dingin",
-        "bumbu",
-        "kunyit",
-        "bumbu_instal",
-        "minuman",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3618,23 +2734,15 @@
     "price": 1000,
     "img": "images/desaku-ketumbar-bubuk.jpg",
     "category": "bumbu",
-    "tags":["dingin","bumbu","ketumbar","bumbu_instal","minuman","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
+      "dingin",
       "bumbu",
       "ketumbar",
       "bumbu_instal",
       "minuman",
-      "masak"
-    ],
-    "_history": [
-      [
-        "dingin",
-        "bumbu",
-        "ketumbar",
-        "bumbu_instal",
-        "minuman",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3643,22 +2751,14 @@
     "price": 1000,
     "img": "images/royco_kaldu_ayam_8g.jpg",
     "category": "bumbu",
-    "tags":["gurih","bumbu","kaldu","minuman","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "gurih",
       "bumbu",
       "kaldu",
       "minuman",
-      "masak"
-    ],
-    "_history": [
-      [
-        "gurih",
-        "bumbu",
-        "kaldu",
-        "minuman",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3667,22 +2767,14 @@
     "price": 1000,
     "img": "images/royco_kaldu_sapi_8g.jpg",
     "category": "bumbu",
-    "tags":["gurih","bumbu","kaldu","minuman","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "gurih",
       "bumbu",
       "kaldu",
       "minuman",
-      "masak"
-    ],
-    "_history": [
-      [
-        "gurih",
-        "bumbu",
-        "kaldu",
-        "minuman",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3691,8 +2783,7 @@
     "price": 1500,
     "img": "images/royco_nasgor.jpg",
     "category": "bumbu",
-    "tags":["ngenyangin","nasi","goreng","bumbu","kaldu","bumbu_instal","minuman","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "ngenyangin",
       "nasi",
       "goreng",
@@ -3700,19 +2791,9 @@
       "kaldu",
       "bumbu_instal",
       "minuman",
-      "masak"
-    ],
-    "_history": [
-      [
-        "ngenyangin",
-        "nasi",
-        "goreng",
-        "bumbu",
-        "kaldu",
-        "bumbu_instal",
-        "minuman",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3721,8 +2802,7 @@
     "price": 1500,
     "img": "images/royco_nasgor_pedas.jpg",
     "category": "bumbu",
-    "tags":["pedas","ngenyangin","nasi","goreng","bumbu","kaldu","sambal","bumbu_instal","minuman","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "pedas",
       "ngenyangin",
       "nasi",
@@ -3732,21 +2812,9 @@
       "sambal",
       "bumbu_instal",
       "minuman",
-      "masak"
-    ],
-    "_history": [
-      [
-        "pedas",
-        "ngenyangin",
-        "nasi",
-        "goreng",
-        "bumbu",
-        "kaldu",
-        "sambal",
-        "bumbu_instal",
-        "minuman",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3755,8 +2823,7 @@
     "price": 1500,
     "img": "images/royco_tempe_tahu.jpg",
     "category": "bumbu",
-    "tags":["goreng","sembako","masak","tahu","tempe","bumbu","kaldu","bumbu_instal","minuman","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "goreng",
       "sembako",
       "masak",
@@ -3765,20 +2832,9 @@
       "bumbu",
       "kaldu",
       "bumbu_instal",
-      "minuman"
-    ],
-    "_history": [
-      [
-        "goreng",
-        "sembako",
-        "masak",
-        "tahu",
-        "tempe",
-        "bumbu",
-        "kaldu",
-        "bumbu_instal",
-        "minuman"
-      ]
+      "minuman",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3787,22 +2843,14 @@
     "price": 1500,
     "img": "images/royco_sayur_asem.jpg",
     "category": "bumbu",
-    "tags":["bumbu","kaldu","bumbu_instal","minuman","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "bumbu",
       "kaldu",
       "bumbu_instal",
       "minuman",
-      "masak"
-    ],
-    "_history": [
-      [
-        "bumbu",
-        "kaldu",
-        "bumbu_instal",
-        "minuman",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3811,20 +2859,13 @@
     "price": 2000,
     "img": "images/ladaku-merica-5g.jpg",
     "category": "bumbu",
-    "tags":["bumbu","merica","minuman","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "bumbu",
       "merica",
       "minuman",
-      "masak"
-    ],
-    "_history": [
-      [
-        "bumbu",
-        "merica",
-        "minuman",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3833,22 +2874,14 @@
     "price": 2500,
     "img": "images/indofood-sambal-terasi.jpg",
     "category": "bumbu",
-    "tags":["pedas","bumbu","sambal","minuman","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "pedas",
       "bumbu",
       "sambal",
       "minuman",
-      "masak"
-    ],
-    "_history": [
-      [
-        "pedas",
-        "bumbu",
-        "sambal",
-        "minuman",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3857,22 +2890,14 @@
     "price": 3000,
     "img": "images/sajiku-ayam-goreng.jpg",
     "category": "bumbu",
-    "tags":["goreng","tepung","bumbu","bumbu_instal","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "goreng",
       "tepung",
       "bumbu",
       "bumbu_instal",
-      "masak"
-    ],
-    "_history": [
-      [
-        "goreng",
-        "tepung",
-        "bumbu",
-        "bumbu_instal",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3881,18 +2906,12 @@
     "price": 7000,
     "img": "images/ketumbar-biji-100g.jpg",
     "category": "bumbu",
-    "tags":["bumbu","ketumbar","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "bumbu",
       "ketumbar",
-      "masak"
-    ],
-    "_history": [
-      [
-        "bumbu",
-        "ketumbar",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3901,18 +2920,12 @@
     "price": 12000,
     "img": "images/merica-putih-butir-50g.jpg",
     "category": "bumbu",
-    "tags":["bumbu","merica","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "bumbu",
       "merica",
-      "masak"
-    ],
-    "_history": [
-      [
-        "bumbu",
-        "merica",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3921,20 +2934,13 @@
     "price": 6000,
     "img": "images/asam-jawa-100g.jpg",
     "category": "bumbu",
-    "tags":["asam","bumbu","asam2","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "asam",
       "bumbu",
       "asam2",
-      "masak"
-    ],
-    "_history": [
-      [
-        "asam",
-        "bumbu",
-        "asam2",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3943,20 +2949,13 @@
     "price": 2800,
     "img": "images/sajiku-lodeh.jpg",
     "category": "bumbu",
-    "tags":["tepung","bumbu","bumbu_instal","masak","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "tepung",
       "bumbu",
       "bumbu_instal",
-      "masak"
-    ],
-    "_history": [
-      [
-        "tepung",
-        "bumbu",
-        "bumbu_instal",
-        "masak"
-      ]
+      "masak",
+      "stok",
+      "rumah"
     ]
   },
   {
@@ -3965,9 +2964,7 @@
     "price": 2000,
     "img": "images/oralit.jpg",
     "category": "obat",
-    "tags":["sakit","obat","diare","praktis","minuman","hangat","ringan"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
       "sakit",
       "obat",
       "diare",
@@ -3983,9 +2980,8 @@
     "price": 2000,
     "img": "images/promag.jpg",
     "category": "obat",
-    "tags":["manis","sakit","obat","maag","praktis","minuman","hangat","ringan"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
+      "manis",
       "sakit",
       "obat",
       "maag",
@@ -4001,9 +2997,7 @@
     "price": 3000,
     "img": "images/tolak-angin.jpg",
     "category": "obat",
-    "tags":["sakit","obat","masuk_angin","cair","praktis","minuman","hangat","ringan"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
       "sakit",
       "obat",
       "masuk_angin",
@@ -4020,9 +3014,7 @@
     "price": 2500,
     "img": "images/antangin.jpg",
     "category": "obat",
-    "tags":["sakit","obat","masuk_angin","praktis","minuman","hangat","ringan"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
       "sakit",
       "obat",
       "masuk_angin",
@@ -4038,9 +3030,7 @@
     "price": 1500,
     "img": "images/neozep.jpg",
     "category": "obat",
-    "tags":["sakit","obat","flu","praktis","minuman","hangat","ringan"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
       "sakit",
       "obat",
       "flu",
@@ -4056,9 +3046,7 @@
     "price": 5000,
     "img": "images/panadol-10tab.jpg",
     "category": "obat",
-    "tags":["sakit","obat","flu","pegal","praktis","hangat","ringan"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
       "sakit",
       "obat",
       "flu",
@@ -4074,9 +3062,7 @@
     "price": 4000,
     "img": "images/bodrex-10tab.jpg",
     "category": "obat",
-    "tags":["sakit","obat","flu","pegal","praktis","hangat","ringan"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
       "sakit",
       "obat",
       "flu",
@@ -4092,9 +3078,7 @@
     "price": 3000,
     "img": "images/paramek-10tab.jpg",
     "category": "obat",
-    "tags":["sakit","obat","pegal","praktis","hangat","ringan"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
       "sakit",
       "obat",
       "pegal",
@@ -4109,9 +3093,7 @@
     "price": 5000,
     "img": "images/decolgen-10tab.jpg",
     "category": "obat",
-    "tags":["sakit","obat","flu","praktis","hangat","ringan"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
       "sakit",
       "obat",
       "flu",
@@ -4126,9 +3108,7 @@
     "price": 7000,
     "img": "images/woods-60ml.jpg",
     "category": "obat",
-    "tags":["sakit","obat","batuk","cair","hangat","ringan"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
       "sakit",
       "obat",
       "batuk",
@@ -4143,9 +3123,7 @@
     "price": 7000,
     "img": "images/obh-combi-60ml.jpg",
     "category": "obat",
-    "tags":["sakit","batuk","obat","hangat","ringan"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
       "sakit",
       "batuk",
       "obat",
@@ -4159,10 +3137,9 @@
     "price": 7000,
     "img": "images/komix-anak-60ml.jpg",
     "category": "obat",
-    "tags":["sakit","mie","batuk","anak","obat","hangat","ringan"],
-    "_manualTags": [
-      "mie",
+    "tags": [
       "sakit",
+      "mie",
       "batuk",
       "anak",
       "obat",
@@ -4176,8 +3153,7 @@
     "price": 4000,
     "img": "images/gelusil-10tab.jpg",
     "category": "obat",
-    "tags":["sakit","obat","maag","praktis","hangat","ringan"],
-    "_manualTags": [
+    "tags": [
       "sakit",
       "obat",
       "maag",
@@ -4192,9 +3168,7 @@
     "price": 5000,
     "img": "images/antibiotik-salep.jpg",
     "category": "obat",
-    "tags":["sakit","obat","luka"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
       "sakit",
       "obat",
       "luka"
@@ -4206,13 +3180,11 @@
     "price": 6000,
     "img": "images/salep-gatal.jpg",
     "category": "obat",
-    "tags":["sakit","obat","luka"],
-    "_manualTags": [
+    "tags": [
       "sakit",
       "obat",
       "luka"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Minyak Kayu Putih 30ml",
@@ -4220,14 +3192,12 @@
     "price": 3000,
     "img": "images/minyak-kayu-putih.jpg",
     "category": "obat",
-    "tags":["sakit","mie","sembako","masak","minyak","masuk_angin","cair","obat","hangat"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
+      "sakit",
       "mie",
       "sembako",
       "masak",
       "minyak",
-      "sakit",
       "masuk_angin",
       "cair",
       "obat",
@@ -4240,9 +3210,8 @@
     "price": 2000,
     "img": "images/plester-luka.jpg",
     "category": "obat",
-    "tags":["dingin","sakit","luka","obat"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
+      "dingin",
       "sakit",
       "luka",
       "obat"
@@ -4254,12 +3223,11 @@
     "price": 5000,
     "img": "images/vitamin-c-500mg.jpg",
     "category": "obat",
-    "tags":["sakit","obat","vitamin","mie","praktis","ringan"],
-    "_manualTags": [
-      "mie",
+    "tags": [
       "sakit",
       "obat",
       "vitamin",
+      "mie",
       "praktis",
       "ringan"
     ]
@@ -4270,13 +3238,12 @@
     "price": 4000,
     "img": "images/minyak-telon.jpg",
     "category": "obat",
-    "tags":["sakit","mie","sembako","masak","minyak","masuk_angin","anak","cair","obat","hangat"],
-    "_manualTags": [
+    "tags": [
+      "sakit",
       "mie",
       "sembako",
       "masak",
       "minyak",
-      "sakit",
       "masuk_angin",
       "anak",
       "cair",
@@ -4290,9 +3257,7 @@
     "price": 6000,
     "img": "images/ibuprofen-200mg.jpg",
     "category": "obat",
-    "tags":["sakit","obat","pegal","praktis","hangat","ringan"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
       "sakit",
       "obat",
       "pegal",
@@ -4307,8 +3272,7 @@
     "price": 5000,
     "img": "images/hansaplast-roll.jpg",
     "category": "obat",
-    "tags":["sakit","luka","obat"],
-    "_manualTags": [
+    "tags": [
       "sakit",
       "luka",
       "obat"
@@ -4320,8 +3284,7 @@
     "price": 2500,
     "img": "images/konidin-sachet.jpg",
     "category": "obat",
-    "tags":["sakit","obat","minuman","batuk","praktis","ringan"],
-    "_manualTags": [
+    "tags": [
       "sakit",
       "obat",
       "minuman",
@@ -4336,11 +3299,10 @@
     "price": 18000,
     "img": "images/microlax-5ml.jpg",
     "category": "obat",
-    "tags":["sakit","obat","mie","diare","cair","hangat","ringan"],
-    "_manualTags": [
-      "mie",
+    "tags": [
       "sakit",
       "obat",
+      "mie",
       "diare",
       "cair",
       "hangat",
@@ -4353,13 +3315,12 @@
     "price": 7000,
     "img": "images/mybaby-kayu-putih-30ml.jpg",
     "category": "obat",
-    "tags":["sakit","mie","sembako","masak","minyak","masuk_angin","anak","cair","obat","hangat","ringan"],
-    "_manualTags": [
+    "tags": [
+      "sakit",
       "mie",
       "sembako",
       "masak",
       "minyak",
-      "sakit",
       "masuk_angin",
       "anak",
       "cair",
@@ -4374,24 +3335,13 @@
     "price": 5000,
     "img": "images/lifebuoy-60g.jpg",
     "category": "rumah",
-    "tags":["mandi","rumah","kebersihan","bersih","nyuci","stok"],
-    "_manualTags": [
+    "tags": [
+      "mandi",
       "rumah",
       "kebersihan",
       "bersih",
       "nyuci",
       "stok"
-    ],
-    "_history": [
-      [
-        "mandi",
-        "roti",
-        "rumah",
-        "kebersihan",
-        "bersih",
-        "nyuci",
-        "stok"
-      ]
     ]
   },
   {
@@ -4400,8 +3350,7 @@
     "price": 2000,
     "img": "images/sunsilk-sachet.jpg",
     "category": "rumah",
-    "tags":["mandi","minuman","nyuci","rumah","kebersihan","bersih","stok"],
-    "_manualTags": [
+    "tags": [
       "mandi",
       "minuman",
       "nyuci",
@@ -4417,10 +3366,9 @@
     "price": 6000,
     "img": "images/pepsodent.jpg",
     "category": "rumah",
-    "tags":["mandi","ngenyangin","kebersihan","bersih","nyuci","stok","rumah"],
-    "_manualTags": [
-      "ngenyangin",
+    "tags": [
       "mandi",
+      "ngenyangin",
       "kebersihan",
       "bersih",
       "nyuci",
@@ -4434,8 +3382,8 @@
     "price": 500,
     "img": "images/soklin-liquid-freshness.jpg",
     "category": "rumah",
-    "tags":["dingin","nyuci","minuman","cair","praktis","wangi","stok","rumah"],
-    "_manualTags": [
+    "tags": [
+      "dingin",
       "nyuci",
       "minuman",
       "cair",
@@ -4451,8 +3399,7 @@
     "price": 500,
     "img": "images/soklin-liquid-violet.jpg",
     "category": "rumah",
-    "tags":["nyuci","minuman","cair","praktis","wangi","bersih","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "nyuci",
       "minuman",
       "cair",
@@ -4469,8 +3416,7 @@
     "price": 500,
     "img": "images/rinso-antinoda.jpg",
     "category": "rumah",
-    "tags":["nyuci","minuman","praktis","bersih","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "nyuci",
       "minuman",
       "praktis",
@@ -4485,8 +3431,8 @@
     "price": 500,
     "img": "images/rinso-molto-essence.jpg",
     "category": "rumah",
-    "tags":["dingin","nyuci","minuman","praktis","wangi","stok","rumah"],
-    "_manualTags": [
+    "tags": [
+      "dingin",
       "nyuci",
       "minuman",
       "praktis",
@@ -4501,8 +3447,7 @@
     "price": 500,
     "img": "images/molto-biru.jpg",
     "category": "rumah",
-    "tags":["nyuci","minuman","praktis","rumah","wangi","stok"],
-    "_manualTags": [
+    "tags": [
       "nyuci",
       "minuman",
       "praktis",
@@ -4517,8 +3462,7 @@
     "price": 500,
     "img": "images/molto-pink.jpg",
     "category": "rumah",
-    "tags":["nyuci","minuman","praktis","rumah","wangi","bersih","stok"],
-    "_manualTags": [
+    "tags": [
       "nyuci",
       "minuman",
       "praktis",
@@ -4534,12 +3478,11 @@
     "price": 500,
     "img": "images/soklin-softener-pink.jpg",
     "category": "rumah",
-    "tags":["lembut","nyuci","obat","praktis","wangi","minuman","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "lembut",
+      "nyuci",
       "obat",
       "praktis",
-      "nyuci",
       "wangi",
       "minuman",
       "stok",
@@ -4552,11 +3495,10 @@
     "price": 2000,
     "img": "images/sunlight-jeruk.jpg",
     "category": "rumah",
-    "tags":["asam","buah","wangi","bersih","nyuci","stok","rumah"],
-    "_manualTags": [
-      "wangi",
+    "tags": [
       "asam",
       "buah",
+      "wangi",
       "bersih",
       "nyuci",
       "stok",
@@ -4569,8 +3511,7 @@
     "price": 5000,
     "img": "images/daia-pink.jpg",
     "category": "rumah",
-    "tags":["nyuci","rumah","kebersihan","wangi","bersih","stok"],
-    "_manualTags": [
+    "tags": [
       "nyuci",
       "rumah",
       "kebersihan",
@@ -4585,13 +3526,12 @@
     "price": 5000,
     "img": "images/daia-lemon.jpg",
     "category": "rumah",
-    "tags":["asam","nyuci","rumah","kebersihan","wangi","bersih","stok"],
-    "_manualTags": [
+    "tags": [
+      "asam",
       "nyuci",
       "rumah",
       "kebersihan",
       "wangi",
-      "asam",
       "bersih",
       "stok"
     ]
@@ -4602,11 +3542,10 @@
     "price": 23000,
     "img": "images/lifebuoy-refill-450ml.jpg",
     "category": "rumah",
-    "tags":["mandi","roti","minyak","cair","praktis","rumah","kebersihan","bersih","nyuci","stok"],
-    "_manualTags": [
+    "tags": [
+      "mandi",
       "roti",
       "minyak",
-      "mandi",
       "cair",
       "praktis",
       "rumah",
@@ -4622,10 +3561,9 @@
     "price": 17000,
     "img": "images/lux-bodywash-250ml.jpg",
     "category": "rumah",
-    "tags":["mandi","roti","rumah","kebersihan","bersih","nyuci","stok"],
-    "_manualTags": [
-      "roti",
+    "tags": [
       "mandi",
+      "roti",
       "rumah",
       "kebersihan",
       "bersih",
@@ -4639,8 +3577,7 @@
     "price": 19000,
     "img": "images/sunsilk-hitam-170ml.jpg",
     "category": "rumah",
-    "tags":["mandi","tidur","rumah","kebersihan","bersih","nyuci","stok"],
-    "_manualTags": [
+    "tags": [
       "mandi",
       "tidur",
       "rumah",
@@ -4656,8 +3593,7 @@
     "price": 19000,
     "img": "images/sunsilk-kuning-170ml.jpg",
     "category": "rumah",
-    "tags":["mandi","rumah","kebersihan","bersih","nyuci","stok"],
-    "_manualTags": [
+    "tags": [
       "mandi",
       "rumah",
       "kebersihan",
@@ -4672,10 +3608,9 @@
     "price": 36000,
     "img": "images/baygon-hijau-600ml.jpg",
     "category": "rumah",
-    "tags":["tidur","cair","stok","rumah"],
-    "_manualTags": [
-      "cair",
+    "tags": [
       "tidur",
+      "cair",
       "stok",
       "rumah"
     ]
@@ -4686,11 +3621,10 @@
     "price": 15000,
     "img": "images/mamalemon-780ml.jpg",
     "category": "rumah",
-    "tags":["asam","buah","wangi","bersih","nyuci","stok","rumah"],
-    "_manualTags": [
-      "wangi",
+    "tags": [
       "asam",
       "buah",
+      "wangi",
       "bersih",
       "nyuci",
       "stok",
@@ -4703,8 +3637,7 @@
     "price": 4000,
     "img": "images/baygon-bakar-lavender.jpg",
     "category": "rumah",
-    "tags":["bakar","obat","tidur","wangi","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "bakar",
       "obat",
       "tidur",
@@ -4719,8 +3652,7 @@
     "price": 3500,
     "img": "images/kingkong-bakar-classic.jpg",
     "category": "rumah",
-    "tags":["bakar","obat","tidur","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "bakar",
       "obat",
       "tidur",
@@ -4734,10 +3666,9 @@
     "price": 18000,
     "img": "images/baygon-semprot-classic-250ml.jpg",
     "category": "rumah",
-    "tags":["tidur","cair","stok","rumah"],
-    "_manualTags": [
-      "cair",
+    "tags": [
       "tidur",
+      "cair",
       "stok",
       "rumah"
     ]
@@ -4748,10 +3679,9 @@
     "price": 16000,
     "img": "images/hit-semprot-200ml.jpg",
     "category": "rumah",
-    "tags":["tidur","cair","rumah","stok"],
-    "_manualTags": [
-      "cair",
+    "tags": [
       "tidur",
+      "cair",
       "rumah",
       "stok"
     ]
@@ -4762,10 +3692,9 @@
     "price": 17000,
     "img": "images/vape-semprot-orange-250ml.jpg",
     "category": "rumah",
-    "tags":["tidur","cair","rumah","stok"],
-    "_manualTags": [
-      "cair",
+    "tags": [
       "tidur",
+      "cair",
       "rumah",
       "stok"
     ]
@@ -4776,11 +3705,10 @@
     "price": 10000,
     "img": "images/autan-lotion-family-50ml.jpg",
     "category": "rumah",
-    "tags":["tidur","mie","cair","rumah","stok"],
-    "_manualTags": [
+    "tags": [
+      "tidur",
       "mie",
       "cair",
-      "tidur",
       "rumah",
       "stok"
     ]
@@ -4791,8 +3719,7 @@
     "price": 3500,
     "img": "images/sabun_lifebuoy_total10.jpg",
     "category": "rumah",
-    "tags":["mandi","bersih","nyuci","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "mandi",
       "bersih",
       "nyuci",
@@ -4806,11 +3733,11 @@
     "price": 3500,
     "img": "images/sabun_lifebuoy_lemon_fresh.jpg",
     "category": "rumah",
-    "tags":["asam","dingin","mandi","wangi","stok","rumah"],
-    "_manualTags": [
+    "tags": [
+      "asam",
+      "dingin",
       "mandi",
       "wangi",
-      "asam",
       "stok",
       "rumah"
     ]
@@ -4821,12 +3748,11 @@
     "price": 3500,
     "img": "images/sabun_lifebuoy_mild_care.jpg",
     "category": "rumah",
-    "tags":["mandi","rokok","dewasa","mie","bersih","nyuci","stok","rumah"],
-    "_manualTags": [
-      "mie",
+    "tags": [
       "mandi",
       "rokok",
       "dewasa",
+      "mie",
       "bersih",
       "nyuci",
       "stok",
@@ -4839,8 +3765,7 @@
     "price": 4000,
     "img": "images/sabun_lux_soft_touch.jpg",
     "category": "rumah",
-    "tags":["lembut","mandi","bersih","nyuci","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "lembut",
       "mandi",
       "bersih",
@@ -4855,8 +3780,7 @@
     "price": 4000,
     "img": "images/sabun_lux_magical_beauty.jpg",
     "category": "rumah",
-    "tags":["mandi","bersih","nyuci","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "mandi",
       "bersih",
       "nyuci",
@@ -4870,8 +3794,8 @@
     "price": 4000,
     "img": "images/sabun_lux_fresh_splash.jpg",
     "category": "rumah",
-    "tags":["dingin","mandi","wangi","stok","rumah"],
-    "_manualTags": [
+    "tags": [
+      "dingin",
       "mandi",
       "wangi",
       "stok",
@@ -4884,8 +3808,7 @@
     "price": 5000,
     "img": "images/sabun_dettol_cool.jpg",
     "category": "rumah",
-    "tags":["mandi","bersih","nyuci","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "mandi",
       "bersih",
       "nyuci",
@@ -4899,8 +3822,8 @@
     "price": 5000,
     "img": "images/sabun_dettol_fresh.jpg",
     "category": "rumah",
-    "tags":["dingin","mandi","wangi","bersih","nyuci","stok","rumah"],
-    "_manualTags": [
+    "tags": [
+      "dingin",
       "mandi",
       "wangi",
       "bersih",
@@ -4915,8 +3838,7 @@
     "price": 5000,
     "img": "images/sabun_dettol_skincare.jpg",
     "category": "rumah",
-    "tags":["mandi","bersih","nyuci","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "mandi",
       "bersih",
       "nyuci",
@@ -4930,8 +3852,7 @@
     "price": 3000,
     "img": "images/sabun_giv_white_beauty.jpg",
     "category": "rumah",
-    "tags":["mandi","tidur","bersih","nyuci","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "mandi",
       "tidur",
       "bersih",
@@ -4946,8 +3867,7 @@
     "price": 3000,
     "img": "images/sabun_giv_rose.jpg",
     "category": "rumah",
-    "tags":["mandi","bersih","nyuci","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "mandi",
       "bersih",
       "nyuci",
@@ -4961,8 +3881,7 @@
     "price": 3000,
     "img": "images/sabun_giv_white_orchid.jpg",
     "category": "rumah",
-    "tags":["mandi","tidur","bersih","nyuci","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "mandi",
       "tidur",
       "bersih",
@@ -4977,10 +3896,9 @@
     "price": 3500,
     "img": "images/sabun_nuvo_family.jpg",
     "category": "rumah",
-    "tags":["mandi","mie","bersih","nyuci","stok","rumah"],
-    "_manualTags": [
-      "mie",
+    "tags": [
       "mandi",
+      "mie",
       "bersih",
       "nyuci",
       "stok",
@@ -4993,8 +3911,7 @@
     "price": 3500,
     "img": "images/sabun_nuvo_cool_blue.jpg",
     "category": "rumah",
-    "tags":["mandi","bersih","nyuci","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "mandi",
       "bersih",
       "nyuci",
@@ -5008,8 +3925,7 @@
     "price": 3500,
     "img": "images/sabun_nuvo_energetic.jpg",
     "category": "rumah",
-    "tags":["mandi","bersih","nyuci","stok","rumah"],
-    "_manualTags": [
+    "tags": [
       "mandi",
       "bersih",
       "nyuci",
@@ -5023,38 +3939,17 @@
     "price": 22000,
     "img": "images/gg-filter-16s.jpg",
     "category": "rokok",
-    "tags":["sembako","masak","bumbu","rokok","kretek","populer","garam","reguler","bungkus","dewasa"],
-    "_manualTags": [
+    "tags": [
+      "sembako",
+      "masak",
+      "bumbu",
+      "rokok",
+      "kretek",
+      "populer",
       "garam",
       "reguler",
       "bungkus",
       "dewasa"
-    ],
-    "_history": [
-      [
-        "sembako",
-        "masak",
-        "bumbu",
-        "rokok",
-        "kretek",
-        "populer",
-        "garam",
-        "reguler",
-        "bungkus",
-        "dewasa"
-      ],
-      [
-        "sembako",
-        "masak",
-        "bumbu",
-        "rokok",
-        "kretek",
-        "populer",
-        "garam",
-        "reguler",
-        "bungkus",
-        "dewasa"
-      ]
     ]
   },
   {
@@ -5063,14 +3958,12 @@
     "price": 17000,
     "img": "images/djarum-super-12s.jpg",
     "category": "rokok",
-    "tags":["kretek","populer","bungkus","rokok"],
-    "_manualTags": [
+    "tags": [
       "kretek",
-      "bungkus",
       "populer",
+      "bungkus",
       "rokok"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Djarum Black 12s",
@@ -5078,15 +3971,13 @@
     "price": 18000,
     "img": "images/djarum-black-12s.jpg",
     "category": "rokok",
-    "tags":["kretek","populer","hitam","bungkus","rokok"],
-    "_manualTags": [
+    "tags": [
       "kretek",
+      "populer",
       "hitam",
       "bungkus",
-      "populer",
       "rokok"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Sampoerna A Mild 16s",
@@ -5094,16 +3985,14 @@
     "price": 20000,
     "img": "images/sampoerna-a-mild-16s.jpg",
     "category": "rokok",
-    "tags":["rokok","populer","dewasa","mie","mild","bungkus"],
-    "_manualTags": [
-      "mie",
+    "tags": [
       "rokok",
-      "mild",
-      "bungkus",
       "populer",
-      "dewasa"
-    ],
-    "_history": []
+      "dewasa",
+      "mie",
+      "mild",
+      "bungkus"
+    ]
   },
   {
     "name": "Sampoerna U Mild 16s",
@@ -5111,16 +4000,14 @@
     "price": 20000,
     "img": "images/sampoerna-u-mild-16s.jpg",
     "category": "rokok",
-    "tags":["rokok","populer","dewasa","mie","mild","bungkus"],
-    "_manualTags": [
-      "mie",
+    "tags": [
       "rokok",
-      "mild",
-      "bungkus",
       "populer",
-      "dewasa"
-    ],
-    "_history": []
+      "dewasa",
+      "mie",
+      "mild",
+      "bungkus"
+    ]
   },
   {
     "name": "Marlboro Red 16s",
@@ -5128,11 +4015,10 @@
     "price": 30000,
     "img": "images/marlboro-red-16s.jpg",
     "category": "rokok",
-    "tags":["populer","putih","bungkus","rokok"],
-    "_manualTags": [
+    "tags": [
+      "populer",
       "putih",
       "bungkus",
-      "populer",
       "rokok"
     ]
   },
@@ -5142,15 +4028,13 @@
     "price": 30000,
     "img": "images/marlboro-light-16s.jpg",
     "category": "rokok",
-    "tags":["populer","rokok","mild","putih","bungkus"],
-    "_manualTags": [
+    "tags": [
+      "populer",
       "rokok",
       "mild",
       "putih",
-      "bungkus",
-      "populer"
-    ],
-    "_history": []
+      "bungkus"
+    ]
   },
   {
     "name": "LA Lights 16s",
@@ -5158,15 +4042,13 @@
     "price": 21000,
     "img": "images/la-lights-16s.jpg",
     "category": "rokok",
-    "tags":["rokok","mild","putih","bungkus","populer"],
-    "_manualTags": [
+    "tags": [
       "rokok",
       "mild",
       "putih",
       "bungkus",
       "populer"
-    ],
-    "_history": []
+    ]
   },
   {
     "name": "Es Krim Aice Chocolate 60ml",
@@ -5174,9 +4056,7 @@
     "price": 3000,
     "img": "images/aice-choco-60ml.jpg",
     "category": "frozen",
-    "tags":["coklat","dingin","creamy","dessert","segar"],
-    "_history": [],
-    "_manualTags": [
+    "tags": [
       "coklat",
       "dingin",
       "creamy",
