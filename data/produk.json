@@ -2014,5 +2014,93 @@
     "img": "images/aice-choco-60ml.jpg",
     "category": "frozen",
     "tags": ["coklat", "dingin", "creamy", "dessert", "segar"]
+  },
+  {
+    "name": "Bawang Merah Kupas 100g",
+    "slug": "bawang-merah-kupas-100g",
+    "price": 4000,
+    "img": "images/bawang-merah-100g.jpg",
+    "category": "sembako",
+    "tags": ["bumbu", "bawang", "masak"]
+  },
+  {
+    "name": "Bawang Putih Kupas 100g",
+    "slug": "bawang-putih-kupas-100g",
+    "price": 3500,
+    "img": "images/bawang-putih-100g.jpg",
+    "category": "sembako",
+    "tags": ["bumbu", "bawang", "masak"]
+  },
+  {
+    "name": "Cabe Merah Keriting 100g",
+    "slug": "cabe-merah-keriting-100g",
+    "price": 5000,
+    "img": "images/cabe-merah-100g.jpg",
+    "category": "sembako",
+    "tags": ["pedas", "masak", "cabai"]
+  },
+  {
+    "name": "Tomat Segar 250g",
+    "slug": "tomat-segar-250g",
+    "price": 3000,
+    "img": "images/tomat-250g.jpg",
+    "category": "sembako",
+    "tags": ["masak"]
+  },
+  {
+    "name": "Kentang Kupas 250g",
+    "slug": "kentang-kupas-250g",
+    "price": 4000,
+    "img": "images/kentang-250g.jpg",
+    "category": "sembako",
+    "tags": ["ngenyangin", "masak"]
+  },
+  {
+    "name": "Wortel Segar 250g",
+    "slug": "wortel-segar-250g",
+    "price": 3500,
+    "img": "images/wortel-250g.jpg",
+    "category": "sembako",
+    "tags": ["masak"]
+  },
+  {
+    "name": "Kol Iris 250g",
+    "slug": "kol-iris-250g",
+    "price": 3000,
+    "img": "images/kol-250g.jpg",
+    "category": "sembako",
+    "tags": ["masak"]
+  },
+  {
+    "name": "Jagung Manis Kupas 2pcs",
+    "slug": "jagung-manis-kupas-2pcs",
+    "price": 5000,
+    "img": "images/jagung-manis-2pcs.jpg",
+    "category": "sembako",
+    "tags": ["manis", "masak"]
+  },
+  {
+    "name": "Daun Bawang Iris 1ikat Kecil",
+    "slug": "daun-bawang-iris-1ikat-kecil",
+    "price": 2000,
+    "img": "images/daun-bawang-ikat-kecil.jpg",
+    "category": "sembako",
+    "tags": ["bumbu", "bawang", "masak"]
+  },
+  {
+    "name": "Seledri Segar 1ikat Kecil",
+    "slug": "seledri-segar-1ikat-kecil",
+    "price": 2000,
+    "img": "images/seledri-ikat-kecil.jpg",
+    "category": "sembako",
+    "tags": ["masak"]
+  },
+  {
+    "name": "Cabe Rawit Hijau 100g",
+    "slug": "cabe-rawit-hijau-100g",
+    "price": 4500,
+    "img": "images/cabe-rawit-hijau-100g.jpg",
+    "category": "sembako",
+    "tags": ["pedas", "masak", "cabai"]
   }
 ]
