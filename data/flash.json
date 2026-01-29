@@ -32,15 +32,15 @@
     "flash_until": "2026-01-04T18:23",
     "category": "flash"
   },
-{
-  "id": "flash-cireng-annisa",
-  "name": "Cireng Annisa — Pastel Ayam Suwir",
-  "price_normal": 3000,
-  "price_flash": 2000,
-  "stock": 60,
-  "img": "images/cireng-annisa.jpg",
-  "label": "Pastel cireng renyah berisi ayam suwir gurih, pedas sedang, siap jadi camilan buka puasa.",
-  "flash_until": "2026-03-20T23:59:59",
-  "category": "flash"
-}
+  {
+    "id": "flash-cireng-annisa",
+    "name": "Cireng Annisa — Pastel Ayam Suwir",
+    "price_normal": 3000,
+    "price_flash": 2000,
+    "stock": 60,
+    "img": "images/cireng-annisa.jpg",
+    "label": "Pastel cireng renyah berisi ayam suwir gurih, pedas sedang, siap jadi camilan buka puasa.",
+    "flash_until": "2026-03-20T23:59:59",
+    "category": "flash"
+  }
 ]
