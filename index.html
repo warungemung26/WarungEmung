@@ -1040,43 +1040,54 @@ Unauthorized copying, modification, or distribution of this file is strictly pro
    ">
 </a>
 
-  <!-- ================== JAVASCRIPT ================== -->
- <!-- ================== GLOBAL ================== -->
-<script src="js/config.js"></script>
-<script src="js/cta-wa.js"></script>
+<!-- ================== JAVASCRIPT ================== -->
 
-<script src="js/cta-modal.js"></script>
-<script src="js/cta-riwayat.js"></script>
-<script src="js/utils.js"></script>
+<!-- ================== BOOT / SPLASH ================== -->
+<script src="js/splash.js"></script>
+
+<!-- ================== CORE CONFIG ================== -->
+<script src="js/core-config.js"></script>
+
+<!-- ================== CORE UTILS ================== -->
+<script src="js/core-utils.js"></script>
 
 <!-- ================== CORE DATA ================== -->
-<script src="js/data-loader.js"></script>
-<script src="js/main.js"></script>
+<script src="js/core-data-loader.js"></script>
 
-<!-- ================== FEATURE ================== -->
-<script src="js/flash.js"></script>
-<script src="js/sidebar.js"></script>
-<script src="js/filter.js"></script>
-<script src="js/search-autocomplete.js"></script>
-<script src="js/produk-modal.js"></script>
-<script src="js/cart-modal.js"></script>
-<script src="js/cat-modal.js"></script>
-<script src="js/akun-modal.js"></script>
-<script src="js/pelayan.js"></script>
-<script src="js/cta-links.js"></script>
-<script src="js/tentang.js"></script>
+<!-- ================== CORE BOOTSTRAP ================== -->
+<script src="js/core-bootstrap.js"></script>
 
-<!-- ================== EXTRA ================== -->
-<script src="js/toast-audio.js"></script>
-<script src="js/register.js"></script>
-<script src="js/share-pro.js"></script>
+<!-- ================== UI MODULES ================== -->
+<script src="js/ui-sidebar.js"></script>
+<script src="js/ui-product-modal.js"></script>
+<script src="js/ui-cart-modal.js"></script>
+<script src="js/ui-category-modal.js"></script>
+<script src="js/ui-account-modal.js"></script>
+<script src="js/ui-about-page.js"></script>
 
-<!-- ================== PAYMENT / SDK ================== -->
-<script src="https://cdn.jsdelivr.net/npm/pi-sdk/dist/pi.min.js"></script>
-<script src="js/pi-integration.js"></script>
+<!-- ================== FEATURE MODULES ================== -->
+<script src="js/feature-flash-engine.js"></script>
+<script src="js/feature-product-filter.js"></script>
+<script src="js/feature-search-autocomplete.js"></script>
+<script src="js/feature-virtual-assistant.js"></script>
+<script src="js/feature-share-engine.js"></script>
+
+<!-- ================== CTA SYSTEM ================== -->
+<script src="js/cta-whatsapp.js"></script>
+<script src="js/cta-confirm-modal.js"></script>
+<script src="js/cta-order-repeat.js"></script>
+<script src="js/cta-links-router.js"></script>
+
+<!-- ================== SYSTEM / UX ================== -->
+<script src="js/ux-toast-audio.js"></script>
+<script src="js/system-register.js"></script>
 
 <!-- ================== UTIL CDN ================== -->
 <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+
+<!-- ================== PAYMENT / SDK ================== -->
+<script src="https://cdn.jsdelivr.net/npm/pi-sdk/dist/pi.min.js"></script>
+<script src="js/integration-pi-sdk.js"></script>
 
 <!-- ================== PWA ================== -->
 <script src="js/pwa.js"></script>
@@ -1106,76 +1117,6 @@ if ('serviceWorker' in navigator) {
       .catch(err => console.log('❌ SW error:', err));
   });
 }
-</script>
-
-<script>
-(function(){
-  const splash = document.getElementById("splash-screen");
-  const bar = document.getElementById("splash-bar-fill");
-  const percent = document.getElementById("splash-percent");
-
-  if (!splash) return;
-
-  // ==== DETEKSI NAVIGASI ====
-  const navEntry = performance.getEntriesByType("navigation")[0];
-  const navType = navEntry ? navEntry.type : "navigate";
-
-  const legacyReload =
-    performance.navigation &&
-    performance.navigation.type === performance.navigation.TYPE_RELOAD;
-
-  const alreadyShown = sessionStorage.getItem("splashShown");
-
-  // ==== KONDISI SKIP ====
-if (!splash) return;
-
-if (sessionStorage.getItem("WE_SPLASH_DONE")) {
-  splash.remove();
-  return;
-}
-
-sessionStorage.setItem("WE_SPLASH_DONE", "1");
-
-
-  let p = 0;
-
-  const fakeLoading = setInterval(() => {
-    p += Math.random() * 12;
-    if (p >= 100) {
-      p = 100;
-      clearInterval(fakeLoading);
-    }
-    bar.style.width = p + "%";
-    percent.textContent = Math.floor(p) + "%";
-  }, 120);
-
-  window.addEventListener("load", () => {
-    const finish = setInterval(() => {
-      if (p < 90) return;
-
-      p = 100;
-      bar.style.width = "100%";
-      percent.textContent = "100%";
-
-      clearInterval(finish);
-
-      setTimeout(() => {
-        splash.classList.add("hide");
-        setTimeout(() => splash.remove(), 500);
-      }, 300);
-    }, 100);
-  });
-})();
-</script>
-
-
-<script>
-window.addEventListener("pageshow", e => {
-  if (e.persisted) {
-    const splash = document.getElementById("splash-screen");
-    if (splash) splash.remove();
-  }
-});
 </script>
 
 
