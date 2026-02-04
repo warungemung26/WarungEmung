@@ -33,8 +33,8 @@ window.APP_CONFIG = {
   DEFAULT: "Rp",
   SUPPORTED: ["Rp", "$", "PI", "EUR"],
   RATE: {
-    USD: 17000,
-    PI: 3200,
+    USD: 16600,
+    PI: 2500,
     EUR: 19500
   }
 },
