@@ -1,7 +1,7 @@
 /*!
  * ============================================================
  * FILE: core-utils.js
- * PROJECT: Tokopilot / Warung Emung Frontend System
+ * PROJECT: Tokopilot / Atos Frontend System
  * AUTHOR: Atos
  * COPYRIGHT (c) 2025 - All Rights Reserved
  * ============================================================
@@ -35,58 +35,39 @@ window.loadOnlineRates = function () {
     const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || "{}");
     if (cached.time && Date.now() - cached.time < TTL && cached.data) {
       APP_CONFIG.CURRENCY.RATE = Object.assign({}, APP_CONFIG.CURRENCY.RATE, cached.data);
-      console.log(" Currency rate from cache:", cached.data);
+      console.log("💱 Currency rate from cache:", cached.data);
       return;
     }
   } catch (e) {}
 
-  const fiatAPI = "https://open.er-api.com/v6/latest/IDR";
-  const piAPI   = "https://www.okx.com/api/v5/market/ticker?instId=PI-USDT";
+  const API = "https://open.er-api.com/v6/latest/IDR";
 
-  Promise.allSettled([
-    fetch(fiatAPI).then(r => r.json()),
-    fetch(piAPI).then(r => r.json())
-  ]).then(results => {
-    const fiat = results[0].status === "fulfilled" ? results[0].value : null;
-    const pi   = results[1].status === "fulfilled" ? results[1].value : null;
+  fetch(API)
+    .then(r => r.json())
+    .then(res => {
+      if (!res || !res.rates) return;
 
-    const map = {};
+      const map = {};
 
-    // ===== FIAT =====
-    if (fiat && fiat.rates) {
       Object.keys(APP_CONFIG.CURRENCY.RATE).forEach(cur => {
-        if (fiat.rates[cur]) {
-          map[cur] = 1 / fiat.rates[cur];
+        if (res.rates[cur]) {
+          map[cur] = 1 / res.rates[cur];
         }
       });
-    }
 
-    // ===== PI =====
-    if (pi && pi.data && pi.data[0] && pi.data[0].last) {
-      const piUSDT = parseFloat(pi.data[0].last);
-      const usdRate = map.USD || APP_CONFIG.CURRENCY.RATE.USD;
+      APP_CONFIG.CURRENCY.RATE = Object.assign({}, APP_CONFIG.CURRENCY.RATE, map);
 
-      if (!isNaN(piUSDT) && usdRate) {
-        map.PI = usdRate / piUSDT;
-        console.log(" PI live rate:", map.PI);
-      }
-    } else {
-      console.warn(" PI rate offline, pakai lokal");
-    }
+      localStorage.setItem(CACHE_KEY, JSON.stringify({
+        time: Date.now(),
+        data: map
+      }));
 
-    APP_CONFIG.CURRENCY.RATE = Object.assign({}, APP_CONFIG.CURRENCY.RATE, map);
+      console.log("💱 Currency rate updated:", map);
 
-    localStorage.setItem(CACHE_KEY, JSON.stringify({
-      time: Date.now(),
-      data: map
-    }));
-
-    console.log(" Currency rate updated:", map);
-
-    if (typeof updatePrices === "function") updatePrices(getSelectedCurrency());
-    if (typeof updateFlashDisplay === "function") updateFlashDisplay();
-  })
-  .catch(err => console.warn("Rate online gagal, pakai lokal", err));
+      if (typeof updatePrices === "function") updatePrices(getSelectedCurrency());
+      if (typeof updateFlashDisplay === "function") updateFlashDisplay();
+    })
+    .catch(err => console.warn("Rate online gagal, pakai lokal", err));
 };
 
 
@@ -138,12 +119,8 @@ window.formatPriceByCurrency = function (priceRp, currency, opts = {}) {
   }
 
   const text = `${cur} ${num}`;
-  return o.html ? htmlSafe(o.html, text) : { text, icon: null };
+  return o.html ? text : { text, icon: null };
 };
-
-function htmlSafe(isHtml, text){
-  return isHtml ? text : text;
-}
 
 
 /* ======================================
