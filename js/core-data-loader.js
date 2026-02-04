@@ -170,20 +170,10 @@ window.addEventListener('scroll', () => {
   }
 });
 
-/* ================== MATA UANG ================== */
+/* ================== MATA UANG (TERPUSAT) ================== */
 const currencySelect = document.getElementById('currency-select');
 
-function formatPrice(price, currency){
-  switch(currency){
-    case 'Rp': return 'Rp ' + Number(price).toLocaleString('id-ID');
-    case '$': return '$ ' + (price / 15000).toFixed(2);
-    case 'PI': return 'PI ' + (price / 1000).toFixed(2);
-    default: return price;
-  }
-}
-
-function updatePrices(currency){
-  currentCurrency = currency;
+function updatePrices(){
   document.querySelectorAll('.price, .pm-price').forEach(el => {
     const base = parseFloat(el.dataset.priceRp);
     if (!isNaN(base)) renderPrice(el, base);
@@ -191,16 +181,16 @@ function updatePrices(currency){
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  currentCurrency = localStorage.getItem('selectedCurrency') || 'Rp';
-  if (currencySelect) currencySelect.value = currentCurrency;
-  updatePrices(currentCurrency);
+  const cur = getSelectedCurrency();
+  if (currencySelect) currencySelect.value = cur;
+  updatePrices();
 });
 
 if (currencySelect) {
   currencySelect.addEventListener('change', () => {
-    currentCurrency = currencySelect.value;
-    localStorage.setItem('selectedCurrency', currentCurrency);
-    updatePrices(currentCurrency);
+    const cur = currencySelect.value;
+    localStorage.setItem('selectedCurrency', cur);
+    updatePrices();
   });
 }
 
