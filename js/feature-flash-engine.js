@@ -8,12 +8,8 @@
 // Pastikan flashplus ada supaya tombol flash+ bisa pakai
 let flashplus = []; // array atau object sesuai kebutuhan
 
-// ===== FALLBACK getSelectedCurrency =====
-if (typeof getSelectedCurrency !== "function") {
-  function getSelectedCurrency() {
-    return localStorage.getItem("selectedCurrency") || "Rp";
-  }
-}
+// gunakan global getSelectedCurrency dari core-utils
+
 
 // ================= SIMPAN QTY FLASH PER PRODUK ===================
 const flashQty = {}; // simpan qty tiap produk flash
@@ -54,9 +50,11 @@ function makeSlug(text) {
 // ================= RENDER FLASH SALE ===================
 function renderFlash(list) {
   if (!flashBox) return;
+  if (typeof formatPrice !== "function") return;
 
   const currency = getSelectedCurrency();
   flashBox.innerHTML = "";
+
 
   list.forEach(p => {
 
@@ -68,13 +66,14 @@ function renderFlash(list) {
     const item = document.createElement("div");
     item.className = "flash-card";
 
-    const priceNew = (currency === 'PI')
-      ? `<img src="images/pi-logo.png" class="pi-logo" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;"> PI ${(p.price_flash / 3200).toFixed(2)}`
-      : formatPrice(p.price_flash, currency);
+    const baseFlash = normalizePrice(p.price_flash);
+const baseNormal = normalizePrice(p.price_normal);
 
-    const priceOld = (currency === 'PI')
-      ? `<img src="images/pi-logo.png" class="pi-logo" style="width:14px;height:14px;vertical-align:middle;margin-right:3px;"> PI ${(p.price_normal / 3200).toFixed(2)}`
-      : formatPrice(p.price_normal, currency);
+const priceNew = formatPrice(baseFlash, currency);
+const priceOld = formatPrice(baseNormal, currency);
+
+
+
 
     item.innerHTML = `
       <img src="${p.img}" class="flash-img">
@@ -138,7 +137,7 @@ function addFlash(id) {
       else cart.push({
   name: p.name,
   qty: qty,
-  price: p.price_flash,
+  price: normalizePrice(p.price_flash),
   img: p.img || 'images/placeholder.png'
 });
 
