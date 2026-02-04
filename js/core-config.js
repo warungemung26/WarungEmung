@@ -30,13 +30,14 @@ window.APP_CONFIG = {
      CURRENCY
   ========================= */
   CURRENCY: {
-    DEFAULT: "Rp",
-    SUPPORTED: ["Rp", "$", "PI"],
-    RATE: {
-      USD: 15000,
-      PI: 3200
-    }
-  },
+  DEFAULT: "Rp",
+  SUPPORTED: ["Rp", "$", "PI", "EUR"],
+  RATE: {
+    USD: 17000,
+    PI: 3200,
+    EUR: 19500
+  }
+},
 
   /* =========================
      IMAGE & PLACEHOLDER
