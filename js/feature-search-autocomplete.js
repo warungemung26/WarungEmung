@@ -1,12 +1,8 @@
 /*!
- * ============================================================
- * FILE: feature-search-autocomplete.js
- * PROJECT: Tokopilot / Atos Frontend System
- * AUTHOR: Atos
- * COPYRIGHT (c) 2025 - All Rights Reserved
- * ============================================================
+ * Copyright (c) 2025, Atos
+ * All rights reserved.
+ * Unauthorized copying, modification, or distribution of this file is strictly prohibited.
  */
-
 
 document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('search');
@@ -141,9 +137,19 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="price">Rp ${p.price.toLocaleString()}</span>
       `;
       li.addEventListener('click', ()=>{
-        searchInput.value = p.name;
-        suggestionsEl.style.display = 'none';
-      });
+  searchInput.value = p.name;
+  suggestionsEl.style.display = 'none';
+
+  // tutup keyboard / fokus dulu
+  searchInput.blur();
+
+  // pakai flow asli tombol search agar scroll sama
+  requestAnimationFrame(() => {
+    searchBtn?.click();
+  });
+});
+
+
       suggestionsEl.appendChild(li);
     });
   }
@@ -160,19 +166,27 @@ document.addEventListener('DOMContentLoaded', () => {
         Jalankan search
   ========================================== */
   function runSearch(){
-    const query = searchInput.value.trim();
-    applyFilters(query);
-    suggestionsEl.style.display = 'none';
+  const query = searchInput.value.trim();
+  if(!query) return;
 
-    document.getElementById('produk-list')
-      .scrollIntoView({behavior:'smooth', block:'start'});
-  }
+  applyFilters(query);
+  suggestionsEl.style.display = 'none';
+
+  // tunggu render ringan dulu
+  requestAnimationFrame(() => {
+    const target = document.getElementById('produk-list');
+    if(target){
+      target.scrollIntoView({ behavior:'smooth', block:'start' });
+    }
+  });
+}
+
 
   searchBtn?.addEventListener('click', runSearch);
   searchInput.addEventListener('keydown', e=>{
     if(e.key === 'Enter'){
       e.preventDefault();
-      runSearch();
+      searchBtn?.click();
     }
   });
 });
