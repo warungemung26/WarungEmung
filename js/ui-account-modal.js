@@ -213,13 +213,61 @@ switchTab("tab-profil");
         <tr><td><i class="fa-solid fa-location-dot"></i></td><td><strong>${order.alamat || '-'}</strong></td></tr>
         <tr><td><i class="fa-solid fa-phone"></i></td><td><strong>${order.hp || '-'}</strong></td></tr>
       </table>
+<div class="riwayat-produk" style="margin:6px 0">
+  ${(() => {
+    const items = Array.isArray(order.items) ? order.items : [];
+
+if (!items.length) {
+      return `<p style="opacity:.6;font-size:13px">Item tidak tersedia.</p>`;
+    }
+
+    const cur = getSelectedCurrency();
+
+    const resolveImg = (it) => {
+  return it.img 
+      || it.image 
+      || it.thumb 
+      || it.foto 
+      || it.gambar 
+      || it.photo 
+      || it.imgUrl 
+      || it.url 
+      || '';
+};
+
+return items.map(it => {
+  const qty = it.qty || 1;
+  const price = it.price || it.harga || 0;
+  const total = price * qty;
+  const imgSrc = resolveImg(it);
+
+  return `
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">
+      <img src="${imgSrc}" 
+           onerror="this.style.display='none'"
+           style="width:38px;height:38px;border-radius:6px;object-fit:cover">
+
+          <div style="flex:1;font-size:13px">
+            <strong>${it.name || it.nama || '-'}</strong><br>
+            ${qty} × ${formatPrice(price, cur, { html:true })}
+          </div>
+          <div style="font-size:13px">
+            ${formatPrice(total, cur, { html:true })}
+          </div>
+        </div>
+      `;
+    }).join("");
+  })()}
+</div>
 
       <br>
 
  ${(() => {
   const cur = getSelectedCurrency();
 
-  const sub = order.items.reduce(
+  const items = Array.isArray(order.items) ? order.items : [];
+
+const sub = items.reduce(
     (t, it) => t + (it.price || it.harga || 0) * (it.qty || 1),
     0
   );
