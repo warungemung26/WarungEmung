@@ -319,12 +319,24 @@ setTimeout(() => {
       simpanRiwayat({
         id: orderId,
         items: cart.map(it => ({
-          id: it.id || null,
-          name: it.name,
-          qty: it.qty,
-          harga: it.price,
-          subtotal: it.price * it.qty
-        })),
+  id: it.id || null,
+  name: it.name,
+  qty: it.qty,
+  harga: it.price,
+  subtotal: it.price * it.qty,
+
+  // === SNAPSHOT IMAGE PRODUK ===
+  img: it.img 
+    || it.image 
+    || it.thumb 
+    || it.foto 
+    || it.gambar 
+    || it.photo 
+    || it.imgUrl 
+    || it.url 
+    || ''
+})),
+
         subtotal,
         ongkir: ONGKIR,
         total,
@@ -401,7 +413,9 @@ if(!anchor) return;
 // RIWAYAT — HANDLER GLOBAL CTA
 // ======================================================
 
+// ===============================
 // Hapus satu riwayat
+// ===============================
 if (anchor.classList.contains("riwayat-delete")) {
   const id = anchor.dataset.id;
 
@@ -412,28 +426,61 @@ if (anchor.classList.contains("riwayat-delete")) {
       let r = JSON.parse(localStorage.getItem("riwayat") || "[]");
       r = r.filter(x => x.id != id);
       localStorage.setItem("riwayat", JSON.stringify(r));
-      location.reload();
+
+      const wrap = document.getElementById("riwayat-list");
+      if (wrap) {
+        wrap.style.transition = "opacity .18s ease, transform .18s ease";
+        wrap.style.opacity = "0";
+        wrap.style.transform = "translateY(6px) scale(.98)";
+        wrap.style.pointerEvents = "none";
+      }
+
+      setTimeout(() => {
+        if (typeof loadRiwayat === "function") loadRiwayat();
+        if (wrap) {
+          wrap.style.opacity = "1";
+          wrap.style.transform = "translateY(0) scale(1)";
+          wrap.style.pointerEvents = "auto";
+        }
+      }, 140);
     }
   });
 
   return;
 }
 
+
+// ===============================
 // Hapus semua riwayat
+// ===============================
 if (anchor.classList.contains("riwayat-clear-all")) {
   openModal({
     title: "Hapus Semua Riwayat?",
     message: "Semua riwayat akan terhapus permanen.",
     action: function () {
       localStorage.removeItem("riwayat");
-      location.reload();
+
+      const wrap = document.getElementById("riwayat-list");
+      if (wrap) {
+        wrap.style.transition = "opacity .18s ease, transform .18s ease";
+        wrap.style.opacity = "0";
+        wrap.style.transform = "translateY(6px) scale(.98)";
+        wrap.style.pointerEvents = "none";
+      }
+
+      setTimeout(() => {
+        if (typeof loadRiwayat === "function") loadRiwayat();
+        if (wrap) {
+          wrap.style.opacity = "1";
+          wrap.style.transform = "translateY(0) scale(1)";
+          wrap.style.pointerEvents = "auto";
+        }
+      }, 140);
     }
   });
 
   return;
 }
-
-
 
 // Ulangi pesanan dari riwayat
 if (anchor.classList.contains("riwayat-repeat")) {
