@@ -7,13 +7,8 @@
  * ============================================================
  */
 
-/*!
- * Warung Emung - Global Utils
- */
-
-
 /* ===============================
-   PRICE NORMALIZER (BASE RP)
+   PRICE NORMALIZER (BASE IDR)
 ================================ */
 window.normalizePrice = function (val) {
   const num = parseFloat(val);
@@ -35,7 +30,7 @@ window.loadOnlineRates = function () {
     const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || "{}");
     if (cached.time && Date.now() - cached.time < TTL && cached.data) {
       APP_CONFIG.CURRENCY.RATE = Object.assign({}, APP_CONFIG.CURRENCY.RATE, cached.data);
-      console.log("💱 Currency rate from cache:", cached.data);
+      console.log(" Currency rate from cache:", cached.data);
       return;
     }
   } catch (e) {}
@@ -51,7 +46,7 @@ window.loadOnlineRates = function () {
 
       Object.keys(APP_CONFIG.CURRENCY.RATE).forEach(cur => {
         if (res.rates[cur]) {
-          map[cur] = 1 / res.rates[cur];
+          map[cur] = Number((1 / res.rates[cur]).toFixed(4));
         }
       });
 
@@ -62,7 +57,7 @@ window.loadOnlineRates = function () {
         data: map
       }));
 
-      console.log("💱 Currency rate updated:", map);
+      console.log(" Currency rate updated:", map);
 
       if (typeof updatePrices === "function") updatePrices(getSelectedCurrency());
       if (typeof updateFlashDisplay === "function") updateFlashDisplay();
@@ -77,28 +72,27 @@ window.loadOnlineRates = function () {
 window.getSelectedCurrency = function () {
   return localStorage.getItem("selectedCurrency")
     || (window.APP_CONFIG && APP_CONFIG.CURRENCY && APP_CONFIG.CURRENCY.DEFAULT)
-    || "Rp";
+    || "IDR";
 };
 
 
 /* ======================================
    FORMAT PRICE BY CURRENCY
 ====================================== */
-window.formatPriceByCurrency = function (priceRp, currency, opts = {}) {
+window.formatPriceByCurrency = function (priceIdr, currency, opts = {}) {
   const cfg = APP_CONFIG.CURRENCY;
-  let cur = currency || cfg.DEFAULT;
+  let cur = (currency || cfg.DEFAULT || "IDR").toUpperCase();
 
-  cur = String(cur).toUpperCase();
   if (cur === "$") cur = "USD";
-  if (cur === "RP") cur = "Rp";
+  if (cur === "RP") cur = "IDR";
 
   const o = Object.assign({
     html: false,
-    decimals: cur === "Rp" ? 0 : 2
+    decimals: cur === "IDR" ? 0 : 2
   }, opts);
 
-  if (cur === "Rp") {
-    const text = "Rp " + Number(priceRp).toLocaleString("id-ID");
+  if (cur === "IDR") {
+    const text = "Rp " + Number(priceIdr).toLocaleString("id-ID");
     return o.html ? text : { text, icon: null };
   }
 
@@ -106,11 +100,11 @@ window.formatPriceByCurrency = function (priceRp, currency, opts = {}) {
 
   if (!rate) {
     console.warn("Rate tidak ditemukan:", cur, cfg.RATE);
-    const text = "Rp " + Number(priceRp).toLocaleString("id-ID");
+    const text = "Rp " + Number(priceIdr).toLocaleString("id-ID");
     return o.html ? text : { text, icon: null };
   }
 
-  const converted = priceRp / rate;
+  const converted = priceIdr / rate;
   const num = Number(converted).toFixed(o.decimals);
 
   if (cur === "PI") {
@@ -126,12 +120,32 @@ window.formatPriceByCurrency = function (priceRp, currency, opts = {}) {
 /* ======================================
    BACKWARD COMPATIBLE FORMATTER
 ====================================== */
-window.formatPrice = function (priceRp, currency, opts) {
+window.formatPrice = function (priceIdr, currency, opts) {
   return formatPriceByCurrency(
-    priceRp,
+    priceIdr,
     currency || getSelectedCurrency(),
     Object.assign({ html: true }, opts || {})
   );
+};
+
+
+// =====================================
+// ONGKIR HELPER (CURRENCY READY)
+// =====================================
+window.getOngkir = function (currency) {
+  const cfg = window.APP_CONFIG?.SHIPPING;
+  if (!cfg || !cfg.ENABLED) return 0;
+
+  const base = Number(cfg.FLAT_RATE) || 0;
+
+  if (!currency || currency === "IDR" || currency === "Rp") {
+    return base;
+  }
+
+  const rate = APP_CONFIG.CURRENCY.RATE[currency];
+  if (!rate) return base;
+
+  return base / rate;
 };
 
 
@@ -139,7 +153,12 @@ window.formatPrice = function (priceRp, currency, opts) {
    WHATSAPP
 ====================================== */
 window.openWA = function (text) {
-  const wa = APP_CONFIG.WHATSAPP.DEFAULT;
+  const wa = APP_CONFIG?.WHATSAPP?.DEFAULT;
+  if (!wa) {
+    alert("Nomor WhatsApp belum siap");
+    return;
+  }
+
   const url = `https://wa.me/${wa}?text=${encodeURIComponent(text)}`;
   window.open(url, "_blank");
 };
