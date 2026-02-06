@@ -5,11 +5,18 @@
  * AUTHOR: Atos
  * COPYRIGHT (c) 2025 - All Rights Reserved
  * ============================================================
- *
  */
 
+/* =========================
+   SAFE INIT
+========================= */
+window.APP_CONFIG = window.APP_CONFIG || {};
 
-window.APP_CONFIG = {
+/* =========================
+   MAIN CONFIG OBJECT
+========================= */
+Object.assign(window.APP_CONFIG, {
+
   /* =========================
      IDENTITAS TOKO
   ========================= */
@@ -19,28 +26,41 @@ window.APP_CONFIG = {
   },
 
   /* =========================
+     SHIPPING (TERPUSAT)
+  ========================= */
+  SHIPPING: {
+    ENABLED: true,
+    TYPE: "flat",          // flat | api | dynamic
+    FLAT_RATE: 2000,
+    CURRENCY: "Rp",
+
+    // future ready
+    API_URL: "",
+    LAST_SYNC: null
+  },
+
+  /* =========================
      WHATSAPP
-     (DINAMIS VIA JSON)
   ========================= */
   WHATSAPP: {
-    DEFAULT: null // diisi otomatis dari data/whatsapp.json
+    DEFAULT: null
   },
 
   /* =========================
      CURRENCY
   ========================= */
   CURRENCY: {
-  DEFAULT: "Rp",
-  SUPPORTED: ["Rp", "$", "PI", "EUR"],
-  RATE: {
-    USD: 16600,
-    PI: 2500,
-    EUR: 19500
-  }
-},
+    DEFAULT: "Rp",
+    SUPPORTED: ["Rp", "$", "PI", "EUR"],
+    RATE: {
+      USD: 17000,
+      PI: 3200,
+      EUR: 19500
+    }
+  },
 
   /* =========================
-     IMAGE & PLACEHOLDER
+     IMAGE
   ========================= */
   IMAGE: {
     PLACEHOLDER: "images/placeholder.png",
@@ -48,13 +68,13 @@ window.APP_CONFIG = {
   },
 
   /* =========================
-     UI BEHAVIOR
+     UI
   ========================= */
   UI: {
     TOAST_DURATION: 2200,
     THANKYOU_AUTOCLOSE: 2500
   }
-};
+});
 
 /* =========================
    LOAD WA NUMBER FROM JSON
