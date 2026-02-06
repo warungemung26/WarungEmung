@@ -197,7 +197,7 @@ if(waCartBtn){
   title: "Konfirmasi Pesenan 🙏",
   message: (() => {
     const currency = getSelectedCurrency();
-    const ONGKIR = 2000;
+    const ONGKIR = getOngkir();
     const subtotal = cart.reduce((s,i)=>s+i.qty*i.price,0);
     const total = subtotal + ONGKIR;
 
@@ -274,7 +274,7 @@ if(waCartBtn){
  // ambil currency saat ini
 
       const subtotal = cart.reduce((s, i) => s + i.qty * i.price, 0);
-      const ONGKIR = 2000;
+      const ONGKIR = getOngkir();
       const total = subtotal + ONGKIR;
 
       const lines = cart.map(it => {
