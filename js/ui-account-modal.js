@@ -76,7 +76,10 @@ if (accSaveBtn) {
     }
 
     localStorage.setItem('userData', JSON.stringify(data));
-    alert('Perubahan tersimpan!');
+    if (typeof showToast === "function") {
+  showToast("Perubahan tersimpan ✅");
+}
+
 closeAccount();
 
 if (typeof renderCartAddress === "function") {
