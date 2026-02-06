@@ -28,7 +28,7 @@ function renderCartModal() {
   const currency = window.getSelectedCurrency(); // dari utils
   cartItemsEl.innerHTML = '';
   let subtotal = 0;
-  const ONGKIR = 2000;
+  const ONGKIR = getOngkir();
 
   // HINT
   if (cart.length) {
@@ -181,7 +181,7 @@ const lines = cart.map(it => {
 
   // HITUNG TOTAL
   const subtotal = cart.reduce((s, i) => s + i.qty * i.price, 0);
-  const ONGKIR = 2000;
+  const ONGKIR = getOngkir();
   const total = subtotal + ONGKIR;
 
 
