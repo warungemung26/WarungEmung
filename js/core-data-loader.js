@@ -122,8 +122,10 @@ card.appendChild(controlsWrapper);
 }
 
 /* =========================================================
-   RENDER NORMAL
+   RENDER NORMAL (SAFE CHUNK)
 ========================================================= */
+let renderSession = 0;
+
 function render(data) {
   isAllMode = false;
   listEl.innerHTML = '';
@@ -134,10 +136,32 @@ function render(data) {
     return;
   }
 
-  const fragment = document.createDocumentFragment();
-  data.forEach(p => fragment.appendChild(createCard(p)));
-  listEl.appendChild(fragment);
+  const CHUNK = 16;
+  let i = 0;
+
+  // ✅ create new session
+  const session = ++renderSession;
+
+  function renderChunk() {
+    // ✅ cancel if new render started
+    if (session !== renderSession) return;
+
+    const fragment = document.createDocumentFragment();
+
+    for (let c = 0; c < CHUNK && i < data.length; c++, i++) {
+      fragment.appendChild(createCard(data[i]));
+    }
+
+    listEl.appendChild(fragment);
+
+    if (i < data.length) {
+      requestAnimationFrame(renderChunk);
+    }
+  }
+
+  requestAnimationFrame(renderChunk);
 }
+
 
 /* =========================================================
    RENDER ALL (INFINITE)
