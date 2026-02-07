@@ -7,6 +7,28 @@
  * ============================================================
  */
 
+// ================= CATEGORY LOADING =================
+(function(){
+  if (document.getElementById('cat-loading')) return;
+
+  const loader = document.createElement('div');
+  loader.id = 'cat-loading';
+  loader.innerHTML = `
+    <div class="cat-loader-box">
+      <div class="cat-spinner"></div>
+      <div class="cat-loader-text">Memuat kategori...</div>
+    </div>
+  `;
+  document.body.appendChild(loader);
+
+  window.showCatLoading = function(){
+    loader.classList.add('show');
+  };
+
+  window.hideCatLoading = function(){
+    loader.classList.remove('show');
+  };
+})();
 
 // ================= SLIDE MENU CATEGORY
 
@@ -92,8 +114,28 @@ catBackdrop.addEventListener('click', (e) => {
 catOptions.querySelectorAll('.cat').forEach(el => {
   el.addEventListener('click', () => {
     const cat = el.getAttribute('data-cat');
-    setCategory(cat);
+
+    // 1. Tutup modal dulu
     closeCatModal();
+    showCatLoading();
+
+    // 2. Paksa browser render penutupan modal
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+
+        // 3. Baru jalankan proses berat
+        setTimeout(() => {
+          setCategory(cat);
+
+          // 4. Sembunyikan loading
+          setTimeout(() => {
+            hideCatLoading();
+          }, 200);
+
+        }, 10);
+
+      });
+    });
   });
 });
 
@@ -119,7 +161,16 @@ catOptions.querySelectorAll('.cat').forEach(el => {
 // Setelah kategori grid utama diklik
 document.querySelectorAll('.kategori-grid .cat').forEach(el => {
   el.addEventListener('click', () => {
-    setTimeout(scrollToProdukList, 200);
+    showCatLoading();
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          hideCatLoading();
+          scrollToProdukList();
+        }, 200);
+      });
+    });
   });
 });
 
