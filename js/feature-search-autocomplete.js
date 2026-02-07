@@ -79,42 +79,56 @@ document.addEventListener('DOMContentLoaded', () => {
         GET SUGGESTIONS + SCORING + SUPER SORTING
   ===================================================== */
   function getSuggestions(query){
-    if(!query) return [];
+  if(!query) return [];
 
-    const q = query.toLowerCase();
+  const q = query.toLowerCase();
 
-    return products
-      .map(p => {
-        const seq = longestSequence(p.name, q);
-        const pref = prefixScore(p.name, q);
-        const include = p.name.toLowerCase().includes(q) ? 1 : 0;
+  return products
+    .map(p => {
+      const nameText = p.name.toLowerCase();
 
-        return {
-          ...p,
-          score_prefix: pref,
-          score_seq: seq,
-          score_include: include
-        };
-      })
-      .filter(p => fuzzyMatch(p.name, q))
-      .sort((a, b) => {
-        // 1. prefix score (paling penting)
-        if(b.score_prefix !== a.score_prefix)
-          return b.score_prefix - a.score_prefix;
+      // === SCORING TETAP ORIGINAL (NAME ONLY) ===
+      const seq = longestSequence(nameText, q);
+      const pref = prefixScore(p.name, q);
+      const include = nameText.includes(q) ? 1 : 0;
 
-        // 2. longest consecutive sequence
-        if(b.score_seq !== a.score_seq)
-          return b.score_seq - a.score_seq;
+            // === TAG ONLY FOR PASSING (DEFENSIVE) ===
+      let tagHit = false;
+      const rawTags = p.tags || p.tag || '';
 
-        // 3. includes
-        if(b.score_include !== a.score_include)
-          return b.score_include - a.score_include;
+      if (Array.isArray(rawTags)) {
+        tagHit = rawTags.join(' ').toLowerCase().includes(q);
+      } else if (typeof rawTags === 'string') {
+        tagHit = rawTags.toLowerCase().includes(q);
+      }
 
-        // 4. fallback alfabet
-        return a.name.localeCompare(b.name);
-      })
-      .slice(0, 7);
-  }
+
+      return {
+        ...p,
+        _nameText: nameText,
+        _tagHit: tagHit,
+        score_prefix: pref,
+        score_seq: seq,
+        score_include: include
+      };
+    })
+    // lolos kalau NAME cocok ATAU TAG cocok
+    .filter(p => fuzzyMatch(p._nameText, q) || p._tagHit)    
+    .sort((a, b) => {
+      if(b.score_prefix !== a.score_prefix)
+        return b.score_prefix - a.score_prefix;
+
+      if(b.score_seq !== a.score_seq)
+        return b.score_seq - a.score_seq;
+
+      if(b.score_include !== a.score_include)
+        return b.score_include - a.score_include;
+
+      return a.name.localeCompare(b.name);
+    })
+    .slice(0, 7);
+}
+
 
   /* ==========================================
         Update UI suggestion
@@ -144,9 +158,9 @@ document.addEventListener('DOMContentLoaded', () => {
   searchInput.blur();
 
   // pakai flow asli tombol search agar scroll sama
-  requestAnimationFrame(() => {
-    searchBtn?.click();
-  });
+  setTimeout(() => {
+  searchBtn?.click();
+}, 10);
 });
 
 
@@ -172,13 +186,17 @@ document.addEventListener('DOMContentLoaded', () => {
   applyFilters(query);
   suggestionsEl.style.display = 'none';
 
-  // tunggu render ringan dulu
+// tunggu render chunk mulai & nempel dulu
+setTimeout(() => {
   requestAnimationFrame(() => {
-    const target = document.getElementById('produk-list');
-    if(target){
-      target.scrollIntoView({ behavior:'smooth', block:'start' });
-    }
+    requestAnimationFrame(() => {
+      const target = document.getElementById('produk-list');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
   });
+}, 30);
 }
 
 
@@ -210,19 +228,36 @@ clearBtn.addEventListener('click', () => {
   searchInput.focus();
 });
 
-///highlih thumnail
-function highlightMatch(text, query) {
-  const q = query.toLowerCase();
-  const t = text.toLowerCase();
-  const i = t.indexOf(q);
+/* ==========================================
+      NAV SEARCH RESET HANDLER
+========================================== */
+(function(){
+  const navSearch = document.getElementById('nav-search');
+  const searchInput = document.getElementById('search');
+  const clearBtn = document.getElementById('search-clear');
+  const suggestionsEl = document.getElementById('search-suggestions');
 
-  if (i === -1) return text;
+  if (!navSearch || !searchInput) return;
 
-  return (
-    text.substring(0, i) +
-    "<span class='highlight'>" +
-    text.substring(i, i + q.length) +
-    "</span>" +
-    text.substring(i + q.length)
-  );
-}
+  navSearch.addEventListener('click', function(e){
+    e.preventDefault();
+
+    // reset value
+    searchInput.value = '';
+
+    // hide clear btn
+    if (clearBtn) clearBtn.style.display = 'none';
+
+    // reset suggestions
+    if (suggestionsEl) {
+      suggestionsEl.innerHTML = '';
+      suggestionsEl.style.display = 'none';
+    }
+
+    // focus after layout settle
+    requestAnimationFrame(() => {
+      searchInput.focus();
+    });
+  });
+
+})();
