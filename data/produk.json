@@ -924,7 +924,7 @@
     "slug": "gula-pasir-gulaku-1kg",
     "price": 18500,
     "img": "images/gula-pas-1kg.jpg",
-    "category": "sembako",
+    "category": "bumbu",
     "tags": ["manis", "sembako", "masak", "gula", "stok", "rumah"]
   },
   {
@@ -988,7 +988,7 @@
     "slug": "gula-merah-250g",
     "price": 6000,
     "img": "images/gulamerah-250.jpg",
-    "category": "sembako",
+    "category": "bumbu",
     "tags": ["manis", "sembako", "masak", "gula", "stok", "rumah"]
   },
   {
@@ -996,7 +996,7 @@
     "slug": "gula-merah-batok-250g",
     "price": 6000,
     "img": "images/gulamerah-batok-250.jpg",
-    "category": "sembako",
+    "category": "bumbu",
     "tags": ["manis", "sembako", "masak", "gula", "stok", "rumah"]
   },
   {
@@ -1044,7 +1044,7 @@
     "slug": "gula-pasir-lokal-1kg",
     "price": 18000,
     "img": "images/gulapasir-lokal-1kg.jpg",
-    "category": "sembako",
+    "category": "bumbu",
     "tags": ["manis", "sembako", "masak", "gula", "stok", "rumah"]
   },
   {
@@ -1068,7 +1068,7 @@
     "slug": "santan-kara-65ml",
     "price": 4000,
     "img": "images/santan-kara-65ml.jpg",
-    "category": "sembako",
+    "category": "bumbu",
     "tags": ["sembako", "masak", "santan", "stok", "rumah"]
   },
   {
@@ -1132,7 +1132,7 @@
     "slug": "garam-refina-500g",
     "price": 4000,
     "img": "images/garam-refina-500g.jpg",
-    "category": "sembako",
+    "category": "bumbu",
     "tags": ["sembako", "masak", "bumbu", "garam", "stok", "rumah"]
   },
   {
@@ -1140,7 +1140,7 @@
     "slug": "kecap-bango-refill-600ml",
     "price": 20000,
     "img": "images/bango-refill-600ml.jpg",
-    "category": "sembako",
+    "category": "bumbu",
     "tags": ["sembako", "masak", "bumbu", "kecap", "minyak", "stok", "rumah"]
   },
   {
@@ -2012,7 +2012,7 @@
     "slug": "bawang-merah-kupas-100g",
     "price": 4000,
     "img": "images/bawang-merah-100g.jpg",
-    "category": "sembako",
+    "category": "bumbu",
     "tags": ["bumbu", "bawang", "masak"]
   },
   {
@@ -2020,7 +2020,7 @@
     "slug": "bawang-putih-kupas-100g",
     "price": 3500,
     "img": "images/bawang-putih-100g.jpg",
-    "category": "sembako",
+    "category": "bumbu",
     "tags": ["bumbu", "bawang", "masak"]
   },
   {
