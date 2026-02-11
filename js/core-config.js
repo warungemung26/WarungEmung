@@ -31,7 +31,7 @@ Object.assign(window.APP_CONFIG, {
   SHIPPING: {
     ENABLED: true,
     TYPE: "flat",          // flat | api | dynamic
-    FLAT_RATE: 2000,
+    FLAT_RATE: 3000,
     CURRENCY: "Rp",
 
     // future ready
@@ -50,14 +50,21 @@ Object.assign(window.APP_CONFIG, {
      CURRENCY
   ========================= */
   CURRENCY: {
-    DEFAULT: "Rp",
-    SUPPORTED: ["Rp", "$", "PI", "EUR"],
-    RATE: {
-      USD: 17000,
-      PI: 3200,
-      EUR: 19500
-    }
-  },
+  DEFAULT: "Rp",
+  SUPPORTED: ["Rp", "$", "EUR", "QAR", "JPY", "SGD", "MYR", "PI", "BTC", "ETH"],
+  RATE: {
+    USD: 17000,
+    EUR: 19500,
+    QAR: 4700,
+    JPY: 115,
+    SGD: 12500,
+    MYR: 3600,
+    PI: 3200,
+    BTC: 1100000000,
+    ETH: 55000000
+  }
+},
+
 
   /* =========================
      IMAGE
