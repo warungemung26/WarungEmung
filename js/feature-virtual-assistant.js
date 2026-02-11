@@ -371,6 +371,21 @@ function stepPilih(intent){
   `;
 }
 
+
+function pelayanGetHeaderOffset(){
+  let offset = 0;
+
+  document.querySelectorAll('header, .search-container, .mini-header, .sticky, .fixed')
+    .forEach(el => {
+      const s = getComputedStyle(el);
+      if (s.position === 'fixed' || s.position === 'sticky') {
+        offset += el.offsetHeight;
+      }
+    });
+
+  return offset;
+}
+
 /* =========================================================
    FILTER PRODUK
 ========================================================= */
@@ -407,13 +422,49 @@ function applyPelayanFilter(intent){
     render(hasil);
   }
 
+  // animasi
+  setTimeout(() => {
+    const items = document.querySelectorAll(
+      '#produk-list .produk-item, #produk-list .product-card'
+    );
+
+    items.forEach((el, i) => {
+      el.classList.remove('pelayan-animate');
+      void el.offsetHeight;
+      el.classList.add('pelayan-animate');
+      el.style.animationDelay = (i * 30) + 'ms';
+    });
+  }, 30);
+
+  // tutup modal
   pelayanBackdrop.style.display = 'none';
 
-  if (typeof safeScrollTo === 'function') {
-    safeScrollTo('#produk-list');
-  }
-}
+  // scroll
+  setTimeout(() => {
+    const el = document.querySelector('#produk-list');
+    if (!el) return;
 
+    let offset = 0;
+    document.querySelectorAll('header, .search-container')
+      .forEach(e => {
+        const s = getComputedStyle(e);
+        if (s.position === 'fixed' || s.position === 'sticky') {
+          offset += e.offsetHeight;
+        }
+      });
+
+    const y =
+      el.getBoundingClientRect().top +
+      window.pageYOffset -
+      offset -
+      8;
+
+    window.scrollTo({
+      top: Math.max(0, y),
+      behavior: 'smooth'
+    });
+  }, 60);
+}
 
 /* =========================================================
    REQUEST
